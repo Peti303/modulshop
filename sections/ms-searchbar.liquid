@@ -2,19 +2,18 @@
 {%- liquid
   assign menu = section.settings.menu
   assign links = menu.links
+  assign show_nav = true
   if section.settings.use_children
-    # Az első olyan menüpont almenüje, amely alatt vannak kategóriák (pl. „Termékeink”).
-    # Ha nincs ilyen, nincs kategóriasor, különben a fejléc menüjét ismételné.
-    assign links = null
-    for link in menu.links
-      if link.links.size > 0
-        assign links = link.links
-        break
+    assign show_nav = false
+    for top_link in menu.links
+      if show_nav == false and top_link.links.size > 0
+        assign links = top_link.links
+        assign show_nav = true
       endif
     endfor
   endif
 -%}
-<div class="ms-searchbar">
+<div class="ms-searchbar" data-menu-items="{{ menu.links.size }}">
   <div class="ms-container ms-searchbar__in">
     <ms-search class="ms-searchbar__search" data-url="{{ routes.predictive_search_url }}" data-search-url="{{ routes.search_url }}">
       <form class="ms-searchbar__field" action="{{ routes.search_url }}" method="get" role="search">
@@ -43,7 +42,7 @@
       </form>
       <div class="ms-searchbar__results" id="ms-search-results-{{ section.id }}" data-results hidden></div>
     </ms-search>
-    {%- if links.size > 0 -%}
+    {%- if show_nav and links.size > 0 -%}
       <nav class="ms-searchbar__nav" aria-label="{{ section.settings.nav_label | escape }}">
         {%- if section.settings.all_label != blank -%}
           <a class="ms-searchbar__allcat" href="{{ section.settings.all_link | default: routes.collections_url }}">
