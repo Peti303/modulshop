@@ -195,6 +195,15 @@ html[data-theme] #header-component {
   --color-foreground-rgb: var(--ms-text-rgb);
   border-bottom: 1px solid var(--ms-border);
 }
+/* A lenyíló menü háttere a Horizonban beégetett világos szín; kövesse a témát. */
+html[data-theme] .header__underlay,
+html[data-theme] .menu-list__submenu,
+html[data-theme] .overflow-menu {
+  --color-submenu: var(--ms-card);
+  --color-background: var(--ms-card);
+  --color-foreground: var(--ms-text);
+  --color-foreground-rgb: var(--ms-text-rgb);
+}
 html[data-theme] body {
   background-color: var(--ms-bg);
   color: var(--ms-text);
