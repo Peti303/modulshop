@@ -368,3 +368,29 @@ class MsSearch extends HTMLElement {
   }
 }
 if (!customElements.get('ms-search')) customElements.define('ms-search', MsSearch);
+
+// Kategóriapanel: az „Összes kategória" gomb oszlopos áttekintést nyit.
+class MsCatnav extends HTMLElement {
+  connectedCallback() {
+    this.button = this.querySelector('[data-mega-toggle]');
+    this.panel = this.querySelector('[data-mega]');
+    if (!this.button || !this.panel) return;
+    this.button.addEventListener('click', () => this.toggle(this.panel.hidden));
+    this.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !this.panel.hidden) { this.toggle(false); this.button.focus(); } });
+    document.addEventListener('pointerdown', (event) => { if (!this.contains(event.target)) this.toggle(false); });
+    // Egérrel rámutatva is nyílik, rövid késleltetéssel, hogy ne villogjon.
+    const hover = (open, delay) => (event) => {
+      if (event.pointerType !== 'mouse') return;
+      window.clearTimeout(this.timer);
+      this.timer = window.setTimeout(() => this.toggle(open), delay);
+    };
+    this.button.addEventListener('pointerenter', hover(true, 140));
+    this.panel.addEventListener('pointerenter', hover(true, 0));
+    this.addEventListener('pointerleave', hover(false, 280));
+  }
+  toggle(open) {
+    this.panel.hidden = !open;
+    this.button.setAttribute('aria-expanded', String(open));
+  }
+}
+if (!customElements.get('ms-catnav')) customElements.define('ms-catnav', MsCatnav);

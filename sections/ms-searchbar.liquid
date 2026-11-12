@@ -8,10 +8,12 @@
     for top_link in menu.links
       if show_nav == false and top_link.links.size > 0
         assign links = top_link.links
+        assign cat_parent = top_link
         assign show_nav = true
       endif
     endfor
   endif
+  assign all_url = section.settings.all_link | default: cat_parent.url | default: routes.collections_url
 -%}
 <div class="ms-searchbar">
   <div class="ms-container ms-searchbar__in">
@@ -43,17 +45,58 @@
       <div class="ms-searchbar__results" id="ms-search-results-{{ section.id }}" data-results hidden></div>
     </ms-search>
     {%- if show_nav and links.size > 0 -%}
-      <nav class="ms-searchbar__nav" aria-label="{{ section.settings.nav_label | escape }}">
-        {%- if section.settings.all_label != blank -%}
-          <a class="ms-searchbar__allcat" href="{{ section.settings.all_link | default: routes.collections_url }}">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-            {{- section.settings.all_label | escape -}}
+      <ms-catnav class="ms-catnav">
+        <nav class="ms-searchbar__nav" aria-label="{{ section.settings.nav_label | escape }}">
+          {%- if section.settings.all_label != blank -%}
+            <button type="button" class="ms-searchbar__allcat" aria-expanded="false" aria-controls="ms-mega-{{ section.id }}" data-mega-toggle>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+              {{- section.settings.all_label | escape -}}
+              <svg class="ms-searchbar__chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          {%- endif -%}
+          <div class="ms-searchbar__cats">
+            {%- for link in links -%}
+              <a href="{{ link.url }}"{% if link.active or link.child_active %} class="is-on" aria-current="true"{% endif %}>{{ link.title | escape }}</a>
+            {%- endfor -%}
+          </div>
+          {%- if cat_parent != blank -%}
+            <div class="ms-searchbar__info">
+              {%- for top_link in menu.links -%}
+                {%- if top_link.links.size == 0 and top_link.url != routes.root_url -%}
+                  <a href="{{ top_link.url }}"{% if top_link.active %} class="is-on" aria-current="page"{% endif %}>{{ top_link.title | escape }}</a>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </nav>
+        <div class="ms-mega" id="ms-mega-{{ section.id }}" data-mega hidden>
+          <div class="ms-mega__grid">
+            {%- for link in links -%}
+              <div class="ms-mega__col">
+                <a class="ms-mega__title" href="{{ link.url }}">{{ link.title | escape }}</a>
+                {%- if link.links.size > 0 -%}
+                  <ul role="list">
+                    {%- for child in link.links -%}
+                      <li><a href="{{ child.url }}">{{ child.title | escape }}</a></li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+          <a class="ms-mega__all" href="{{ all_url }}">
+            {{ section.settings.mega_all_label | escape }}
+            {%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
           </a>
-        {%- endif -%}
-        {%- for link in links -%}
-          <a href="{{ link.url }}"{% if link.active or link.child_active %} class="is-on" aria-current="true"{% endif %}>{{ link.title | escape }}</a>
-        {%- endfor -%}
-      </nav>
+        </div>
+      </ms-catnav>
+      {%- if section.settings.hide_header_menu -%}
+        {%- style -%}
+          @media screen and (min-width: 750px) {
+            #header-component header-menu.header-menu { display: none !important; }
+          }
+        {%- endstyle -%}
+      {%- endif -%}
     {%- endif -%}
   </div>
 </div>
@@ -219,32 +262,59 @@
     font-weight: 700;
     text-decoration: none;
   }
+  .ms-catnav {
+    position: relative;
+    display: block;
+  }
   .ms-searchbar__nav {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
+  }
+  .ms-searchbar__cats {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 2px;
     overflow-x: auto;
     scrollbar-width: none;
   }
-  .ms-searchbar__nav a {
+  .ms-searchbar__info {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding-left: 12px;
+    border-left: 1px solid var(--ms-border);
+  }
+  .ms-searchbar__cats a,
+  .ms-searchbar__info a {
     position: relative;
     flex: none;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
     min-height: 44px;
-    padding: 0 13px;
+    padding: 0 12px;
     border-radius: 8px;
     color: var(--ms-text);
     font-weight: 600;
     font-size: 15px;
     text-decoration: none;
   }
-  .ms-searchbar__nav a::after {
+  .ms-searchbar__info a {
+    font-weight: 500;
+    color: var(--ms-text-muted);
+  }
+  .ms-searchbar__info a:hover {
+    color: var(--ms-text);
+  }
+  .ms-searchbar__cats a::after,
+  .ms-searchbar__info a::after {
     content: '';
     position: absolute;
-    left: 13px;
-    right: 13px;
+    left: 12px;
+    right: 12px;
     bottom: 6px;
     height: 3px;
     border-radius: 2px;
@@ -253,17 +323,99 @@
     transform-origin: left;
     transition: transform 0.3s var(--ms-ease);
   }
-  .ms-searchbar__nav a:hover::after,
-  .ms-searchbar__nav a.is-on::after {
+  .ms-searchbar__cats a:hover::after,
+  .ms-searchbar__cats a.is-on::after,
+  .ms-searchbar__info a:hover::after,
+  .ms-searchbar__info a.is-on::after {
     transform: scaleX(1);
   }
-  .ms-searchbar__nav a.ms-searchbar__allcat {
-    margin-right: 8px;
+  .ms-searchbar__allcat {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 8px;
     background: var(--ms-text);
     color: var(--ms-bg);
+    font: 700 15px var(--ms-font-body);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
   }
-  .ms-searchbar__nav a.ms-searchbar__allcat::after {
-    display: none;
+  .ms-searchbar__allcat[aria-expanded='true'] {
+    background: var(--ms-cta);
+    color: var(--ms-on-cta);
+  }
+  .ms-searchbar__chev {
+    transition: transform 0.3s var(--ms-ease);
+  }
+  .ms-searchbar__allcat[aria-expanded='true'] .ms-searchbar__chev {
+    transform: rotate(180deg);
+  }
+  .ms-mega {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    z-index: 25;
+    max-height: min(74vh, 640px);
+    overflow-y: auto;
+    padding: 24px 24px 8px;
+    border: 1.5px solid var(--ms-text);
+    border-radius: 16px;
+    background: var(--ms-card);
+    box-shadow: var(--ms-shadow-lg);
+    animation: ms-rise 0.25s var(--ms-ease) both;
+  }
+  .ms-mega__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 22px 28px;
+  }
+  .ms-mega__col ul {
+    display: flex;
+    flex-direction: column;
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ms-mega__title {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    color: var(--ms-text);
+    font-family: var(--ms-font-display);
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+  .ms-mega__col li a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    color: var(--ms-text-muted);
+    font-size: 15px;
+    text-decoration: none;
+  }
+  .ms-mega__title:hover,
+  .ms-mega__col li a:hover {
+    color: var(--ms-link);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .ms-mega__all {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 52px;
+    margin-top: 18px;
+    border-top: 1px solid var(--ms-border);
+    color: var(--ms-link);
+    font-weight: 700;
+    text-decoration: none;
   }
   @media (max-width: 749px) {
     .ms-searchbar__field {
@@ -274,6 +426,16 @@
     }
     .ms-searchbar__hint {
       right: 64px;
+    }
+    .ms-searchbar__info {
+      display: none;
+    }
+    .ms-mega {
+      padding: 16px 16px 4px;
+    }
+    .ms-mega__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
     }
   }
 {% endstylesheet %}
@@ -291,8 +453,10 @@
     { "type": "link_list", "id": "menu", "label": "Menü", "default": "main-menu" },
     { "type": "checkbox", "id": "use_children", "label": "Az almenüs menüpont kategóriáit mutassa", "info": "Az első olyan főmenüpont almenüje jelenik meg, amely alatt vannak kategóriák.", "default": true },
     { "type": "text", "id": "nav_label", "label": "A menüsor neve (akadálymentesség)", "default": "Kategóriák" },
-    { "type": "text", "id": "all_label", "label": "„Összes” gomb felirata", "default": "Összes kategória" },
-    { "type": "text", "id": "all_link", "label": "„Összes” gomb linkje", "info": "Pl. /collections vagy teljes webcím" }
+    { "type": "text", "id": "all_label", "label": "A kategóriapanel gombjának felirata", "default": "Összes kategória" },
+    { "type": "text", "id": "mega_all_label", "label": "A panel alsó linkjének felirata", "default": "Minden termék" },
+    { "type": "text", "id": "all_link", "label": "A panel alsó linkje", "info": "Üresen a kategóriákat tartalmazó menüpont linkje. Pl. /collections/all" },
+    { "type": "checkbox", "id": "hide_header_menu", "label": "A fejléc saját menüjének elrejtése asztali nézetben", "info": "A kategóriák és az információs linkek ebben a sorban vannak; mobilon a fejléc menügombja megmarad.", "default": true }
   ],
   "presets": [{ "name": "MS · kereső és menüsor" }]
 }
