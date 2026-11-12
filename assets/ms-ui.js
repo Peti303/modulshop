@@ -141,6 +141,15 @@ if ('IntersectionObserver' in window) {
   const observeAll = () => revealTargets().forEach((el) => io.observe(el));
   observeAll();
   document.addEventListener('shopify:section:load', observeAll);
+  // Safety net: never leave content hidden (e.g. jump links, print, unusual scroll containers)
+  window.addEventListener('load', () => {
+    window.setTimeout(() => {
+      revealTargets().forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 1.5) el.classList.add('is-visible');
+      });
+    }, 1200);
+  });
+  window.addEventListener('beforeprint', () => revealTargets().forEach((el) => el.classList.add('is-visible')));
 } else {
   revealTargets().forEach((el) => el.classList.add('is-visible'));
 }

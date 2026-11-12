@@ -307,9 +307,9 @@ html.ms-theme-fade *::after {
 }
 .ms-container {
   width: 100%;
-  max-width: var(--ms-max);
+  max-width: var(--page-width, var(--ms-max));
   margin-inline: auto;
-  padding-inline: var(--ms-gutter);
+  padding-inline: var(--page-margin, var(--ms-gutter));
 }
 .ms-eyebrow {
   display: inline-flex;
@@ -507,4 +507,20 @@ html.ms-theme-fade *::after {
   .ms-header-logo {
     height: 26px;
   }
+}
+
+/* Announcement bar in brand colours */
+.announcement-bar {
+  background: var(--ms-primary) !important;
+  color: var(--ms-on-primary) !important;
+  --color: var(--ms-on-primary);
+  --color-foreground: var(--ms-on-primary);
+  border: 0 !important;
+}
+html[data-theme='dark'] .announcement-bar {
+  background: #0e2a3b !important;
+  color: #e6edf3 !important;
+}
+.announcement-bar__text {
+  font-weight: 600;
 }
