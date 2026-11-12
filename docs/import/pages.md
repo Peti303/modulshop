@@ -14,7 +14,7 @@
 | 2 | Kapcsolat | `kapcsolat` | `contact` | pages/kapcsolat.html | /kapcsolat-32 | A `contact` sablon kapcsolati űrlapot ad (a régi oldalon nem volt). Az adószámot javítani kell. |
 | 3 | Gyakran ismételt kérdések | `gyik` | `faq` | pages/gyik.html | /gyakran-ismetelt-kerdesek-36 + főoldali GYIK | A két forrás összefésülve. Kérdés = `<h3>`, így a FAQ-sablon harmonikává alakíthatja. |
 | 4 | Szállítás és fizetés | `szallitas-es-fizetes` | `shipping` | pages/szallitas-es-fizetes.html | /szallitasi-modok-71, /szallitasi-informaciok-65 | A GLS automata ára `[[TISZTÁZANDÓ]]`. |
-| 5 | Garancia és visszaküldés | `garancia-es-visszakuldes` | `shipping` | pages/garancia-es-visszakuldes.html | /30-napos-termek-visszakuldes-38, /ingyenes-visszakuldes-77 | Ellentmond az ÁSZF 15.2 pontjának (a visszaküldés költsége). |
+| 5 | Garancia és visszaküldés | `garancia-es-visszakuldes` | (alapértelmezett) | pages/garancia-es-visszakuldes.html | /30-napos-termek-visszakuldes-38, /ingyenes-visszakuldes-77 | Ellentmond az ÁSZF 15.2 pontjának (a visszaküldés költsége). |
 | 6 | Hűségpont rendszer | `husegpont` | *(alapértelmezett)* | pages/husegpont.html | /husegpont-rendszer-85, /regisztracio-87 | Csak akkor tedd közzé, ha a hűségpont-alkalmazás már működik. |
 | 7 | Iskoláknak és cégeknek | `iskolaknak-es-cegeknek` | `b2b` | pages/iskolaknak-es-cegeknek.html | – (új oldal) | **TERVEZET.** Új oldal, ellenőrzött tényekből. |
 | 8 | Általános Szerződési Feltételek | `aszf` | `legal` | pages/aszf.html | /adatvedelem-45, /vasarlasi-feltetelek-5 | Szó szerinti szöveg, tisztított formázással. Platformváltás miatt frissíteni kell (tárhely, fizetés). |
