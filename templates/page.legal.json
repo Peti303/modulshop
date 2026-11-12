@@ -1,0 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "type": "ms-page-header",
+      "settings": {
+        "eyebrow": "",
+        "title": "",
+        "intro": "",
+        "show_breadcrumb": true,
+        "style": "soft",
+        "alignment": "left"
+      }
+    },
+    "main": {
+      "type": "ms-page-content",
+      "settings": {
+        "heading": "",
+        "show_toc": true,
+        "surface": false,
+        "compact_top": false,
+        "show_card": false,
+        "card_title": "Kérdésed van?",
+        "card_text": "<p>Írj vagy telefonálj nekünk, szívesen segítünk.</p>",
+        "phone": "+36 70 944 7641",
+        "email": "info@modulshop.hu",
+        "button_label": "Kapcsolat",
+        "button_link": "/pages/kapcsolat"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "main"
+  ]
+}

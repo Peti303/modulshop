@@ -1,0 +1,153 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "type": "ms-page-header",
+      "settings": {
+        "eyebrow": "",
+        "title": "",
+        "intro": "",
+        "show_breadcrumb": true,
+        "style": "soft",
+        "alignment": "left"
+      }
+    },
+    "rates": {
+      "type": "ms-shipping-table",
+      "blocks": {
+        "group_1": {
+          "type": "group",
+          "settings": {
+            "icon": "box",
+            "title": "Csomagautomatába",
+            "text": "Jelenleg ez a legnépszerűbb és legolcsóbb."
+          }
+        },
+        "rate_2": {
+          "type": "rate",
+          "settings": {
+            "carrier": "Foxpost",
+            "price": "1250 Ft",
+            "note": ""
+          }
+        },
+        "rate_3": {
+          "type": "rate",
+          "settings": {
+            "carrier": "MPL",
+            "price": "1250 Ft",
+            "note": ""
+          }
+        },
+        "rate_4": {
+          "type": "rate",
+          "settings": {
+            "carrier": "GLS",
+            "price": "[[?]]",
+            "note": "[[TISZTÁZANDÓ: 1300 Ft vagy 1350 Ft]]"
+          }
+        },
+        "group_5": {
+          "type": "group",
+          "settings": {
+            "icon": "truck",
+            "title": "Házhozszállítás",
+            "text": ""
+          }
+        },
+        "rate_6": {
+          "type": "rate",
+          "settings": {
+            "carrier": "MPL",
+            "price": "1700 Ft",
+            "note": ""
+          }
+        },
+        "rate_7": {
+          "type": "rate",
+          "settings": {
+            "carrier": "GLS",
+            "price": "1950 Ft",
+            "note": ""
+          }
+        },
+        "group_8": {
+          "type": "group",
+          "settings": {
+            "icon": "mail",
+            "title": "Csomagpontba / postára",
+            "text": ""
+          }
+        },
+        "rate_9": {
+          "type": "rate",
+          "settings": {
+            "carrier": "Posta",
+            "price": "1400 Ft",
+            "note": ""
+          }
+        },
+        "rate_10": {
+          "type": "rate",
+          "settings": {
+            "carrier": "GLS",
+            "price": "2000 Ft",
+            "note": ""
+          }
+        }
+      },
+      "block_order": [
+        "group_1",
+        "rate_2",
+        "rate_3",
+        "rate_4",
+        "group_5",
+        "rate_6",
+        "rate_7",
+        "group_8",
+        "rate_9",
+        "rate_10"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "title": "Szállítási díjak",
+        "text": "<p>Minden nagyobb futárcéggel szerződésben állunk: MPL, GLS, Foxpost (Packeta).</p>",
+        "surface": false,
+        "pickup_title": "Személyes átvétel",
+        "pickup_price": "Ingyenes",
+        "pickup_text": "<p>1078 Budapest, Nefelejcs utca 43. (Bejárat a Marek József utca felől.)</p><p>A rendelésed leadása után nyitvatartási időben azonnal jöhetsz a termékekért.</p>",
+        "show_free_shipping": false,
+        "footnote": "<p>A termékek árai az általános forgalmi adót tartalmazó bruttó árak. A vételár nem tartalmazza a kiszállítás, csomagküldés, illetve utánvét költségét.</p>"
+      }
+    },
+    "main": {
+      "type": "ms-page-content",
+      "settings": {
+        "heading": "",
+        "show_toc": false,
+        "surface": false,
+        "compact_top": true,
+        "show_card": true,
+        "card_title": "Kérdésed van?",
+        "card_text": "<p>Írj vagy telefonálj nekünk, szívesen segítünk.</p>",
+        "phone": "+36 70 944 7641",
+        "email": "info@modulshop.hu",
+        "button_label": "Kapcsolat",
+        "button_link": "/pages/kapcsolat"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "rates",
+    "main"
+  ]
+}

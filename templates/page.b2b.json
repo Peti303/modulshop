@@ -1,0 +1,141 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "type": "ms-page-header",
+      "settings": {
+        "eyebrow": "Iskoláknak és cégeknek",
+        "title": "",
+        "intro": "<p>Iskolákat, intézményeket és cégeket is kiszolgálunk.</p>",
+        "show_breadcrumb": true,
+        "style": "soft",
+        "alignment": "left"
+      }
+    },
+    "benefits": {
+      "type": "ms-features",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "gift",
+            "title": "Mennyiségi kedvezmény",
+            "text": "<p>Iskolák és cégek nagy értékű rendeléseire egyedi mennyiségi kedvezményt biztosítunk.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "clock",
+            "title": "Előrendelés, egyedi igények",
+            "text": "<p>Előrendelésre is van lehetőség. Ha a keresett termék nincs a kínálatunkban, azt is jelezd.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "truck",
+            "title": "Készlet és szállítás",
+            "text": "<p>A raktáron lévő termékeket 1–4 munkanapon belül kiszállítjuk, vagy átveheted Budapesten.</p>",
+            "link_label": "Szállítás és fizetés",
+            "link": "/pages/szallitas-es-fizetes"
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "check",
+            "title": "Fizetés átutalással",
+            "text": "<p>A megrendelés előre utalással is kifizethető, de bankkártyával és utánvéttel is fizethetsz.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "feature_5": {
+          "type": "feature",
+          "settings": {
+            "icon": "box",
+            "title": "3D nyomtatott műszerdobozok",
+            "text": "<p>Egyedi műszerdoboz STL-fájl vagy méretezett vázlat alapján. Az árajánlat 2000 Ft-tól indul.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "feature_6": {
+          "type": "feature",
+          "settings": {
+            "icon": "school",
+            "title": "Oktatási készletek",
+            "text": "<p>DIY készletek, robotkészletek és alkatrészek oktatási célra.</p>",
+            "link_label": "D.I.Y. Készletek",
+            "link": "/collections/diy-keszletek"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4",
+        "feature_5",
+        "feature_6"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "title": "",
+        "text": "",
+        "center": false,
+        "columns": "3",
+        "surface": false
+      }
+    },
+    "main": {
+      "type": "ms-page-content",
+      "settings": {
+        "heading": "",
+        "show_toc": false,
+        "surface": false,
+        "compact_top": true,
+        "show_card": true,
+        "card_title": "Ajánlatkérés",
+        "card_text": "<p>Írd meg, mire van szükséged, és egyedi ajánlatot küldünk.</p>",
+        "phone": "+36 70 944 7641",
+        "email": "info@modulshop.hu",
+        "button_label": "Kapcsolat",
+        "button_link": "/pages/kapcsolat"
+      }
+    },
+    "cta": {
+      "type": "ms-cta",
+      "settings": {
+        "eyebrow": "",
+        "title": "Kérj ajánlatot",
+        "text": "<p>Írd meg a terméklistát és a mennyiségeket az <a href=\"mailto:info@modulshop.hu\">info@modulshop.hu</a> címre.</p>",
+        "phone": "+36 70 944 7641",
+        "email": "info@modulshop.hu",
+        "button_label": "Ajánlatkérés e-mailben",
+        "button_link": "mailto:info@modulshop.hu?subject=Aj%C3%A1nlatk%C3%A9r%C3%A9s",
+        "button2_label": "Kapcsolat",
+        "button2_link": "/pages/kapcsolat"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "benefits",
+    "main",
+    "cta"
+  ]
+}
