@@ -78,7 +78,7 @@
           "type": "_product-card",
           "static": true,
           "settings": {
-            "product_card_gap": 4,
+            "product_card_gap": 8,
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -150,10 +150,15 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "ms_stock": {
+              "type": "ms-stock",
+              "settings": {}
             }
           },
           "block_order": [
             "product_card_gallery_cFExAi",
+            "ms_stock",
             "product_title_j7qXTx",
             "price_fYkUgG"
           ]

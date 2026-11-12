@@ -242,8 +242,10 @@
               "blocks": {}
             },
             "ms_inventory": {
-              "type": "product-inventory",
-              "settings": {}
+              "type": "ms-stock",
+              "settings": {
+                "show_sku": true
+              }
             },
             "ms_trust": {
               "type": "ms-product-trust",
@@ -386,10 +388,15 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "ms_stock": {
+              "type": "ms-stock",
+              "settings": {}
             }
           },
           "block_order": [
             "product_card_gallery_DNizbJ",
+            "ms_stock",
             "product_title_M7MJkb",
             "price_gLWgA6"
           ]
