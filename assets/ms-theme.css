@@ -580,3 +580,5 @@ html.ms-theme-fade *::after {
 .product-details .add-to-cart-button { min-height: 56px; font-size: 18px; }
 .product-details .quantity-selector { min-height: 56px; border: 1.5px solid var(--ms-text); border-radius: 10px; }
 .ms-pdp-note { margin: 0; font-size: 14px; color: var(--ms-text-muted); }
+/* Egyetlen egyértelmű vásárlási gomb: a „Buy it now" gyorsfizetés nem jelenik meg. */
+.product-details .accelerated-checkout-block { display: none !important; }
