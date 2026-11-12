@@ -210,8 +210,8 @@
                 "accelerated-checkout": {
                   "type": "accelerated-checkout",
                   "static": true,
-                  "disabled": true,
-                  "settings": {}
+                  "settings": {},
+                  "blocks": {}
                 }
               },
               "block_order": []
