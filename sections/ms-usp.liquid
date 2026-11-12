@@ -1,95 +1,83 @@
-{%- comment -%} Modulshop – benefit / trust strip {%- endcomment -%}
-<section class="ms-usp{% if section.settings.surface %} ms-section--surface{% endif %}">
+{%- comment -%} Modulshop – tények egy sorban (ikonok nélkül) {%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
   <div class="ms-container">
-    <ul class="ms-usp__list" role="list">
+    <ul class="ms-facts" role="list" style="--ms-facts-n: {{ section.blocks.size }}">
       {%- for block in section.blocks -%}
-        <li class="ms-usp__item ms-reveal" style="transition-delay: {{ forloop.index0 | times: 70 }}ms" {{ block.shopify_attributes }}>
-          <span class="ms-icon-badge">{% render 'ms-icon', name: block.settings.icon %}</span>
-          <span class="ms-usp__body">
-            <strong>{{ block.settings.title }}</strong>
-            <span>{{ block.settings.text }}</span>
-          </span>
+        <li class="ms-facts__item" {{ block.shopify_attributes }}>
+          <strong class="ms-facts__title">{{ block.settings.title | escape }}</strong>
+          {%- if block.settings.text != blank -%}
+            {%- if block.settings.link != blank -%}
+              <a class="ms-facts__text" href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
+            {%- else -%}
+              <span class="ms-facts__text">{{ block.settings.text | escape }}</span>
+            {%- endif -%}
+          {%- endif -%}
         </li>
       {%- endfor -%}
     </ul>
   </div>
-</section>
+{%- endif -%}
 
 {% stylesheet %}
-  .ms-usp {
-    padding-block: clamp(20px, 3vw, 32px);
-    border-bottom: 1px solid var(--ms-border);
-    color: var(--ms-text);
-  }
-  .ms-usp__list {
+  .ms-facts {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px 28px;
+    grid-template-columns: repeat(var(--ms-facts-n, 5), minmax(0, 1fr));
     margin: 0;
     padding: 0;
     list-style: none;
+    border-bottom: 1px solid var(--ms-border);
   }
-  .ms-usp__item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-  }
-  .ms-usp__body {
+  .ms-facts__item {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    font-size: 14px;
-    line-height: 1.45;
-    color: var(--ms-text-muted);
+    padding: 22px 20px 22px 0;
   }
-  .ms-usp__body strong {
-    font-size: 16px;
+  .ms-facts__item + .ms-facts__item {
+    padding-left: 20px;
+    border-left: 1px solid var(--ms-border);
+  }
+  .ms-facts__title {
+    font-size: 17px;
+    line-height: 1.3;
     color: var(--ms-text);
   }
+  .ms-facts__text {
+    font-size: 14px;
+    color: var(--ms-text-muted);
+  }
+  a.ms-facts__text {
+    color: var(--ms-link);
+    text-underline-offset: 3px;
+  }
   @media (max-width: 989px) {
-    .ms-usp__list {
+    .ms-facts {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-  }
-  @media (max-width: 499px) {
-    .ms-usp__list {
-      grid-template-columns: 1fr;
+    .ms-facts__item,
+    .ms-facts__item + .ms-facts__item {
+      padding: 16px 16px 16px 0;
+      border-left: 0;
+      border-top: 1px solid var(--ms-border);
     }
   }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "MS · előnyök",
-  "settings": [{ "type": "checkbox", "id": "surface", "label": "Szürke háttér", "default": false }],
+  "name": "MS · tények",
+  "max_blocks": 6,
   "blocks": [
     {
       "type": "usp",
-      "name": "Előny",
+      "name": "Tény",
       "settings": [
-        {
-          "type": "select",
-          "id": "icon",
-          "label": "Ikon",
-          "default": "truck",
-          "options": [
-            { "value": "truck", "label": "Szállítás" },
-            { "value": "bolt", "label": "Villám" },
-            { "value": "box", "label": "Doboz" },
-            { "value": "return", "label": "Visszaküldés" },
-            { "value": "pin", "label": "Hely" },
-            { "value": "shield", "label": "Garancia" },
-            { "value": "chip", "label": "Chip" },
-            { "value": "school", "label": "Iskola" },
-            { "value": "gift", "label": "Ajándék" },
-            { "value": "clock", "label": "Óra" }
-          ]
-        },
-        { "type": "text", "id": "title", "label": "Cím", "default": "Előny" },
-        { "type": "text", "id": "text", "label": "Szöveg" }
+        { "type": "text", "id": "title", "label": "Cím", "default": "Aznapi feladás" },
+        { "type": "text", "id": "text", "label": "Szöveg" },
+        { "type": "text", "id": "link", "label": "Link (nem kötelező)", "info": "Pl. a vélemények forrása" }
       ]
     }
   ],
-  "presets": [{ "name": "MS · előnyök" }]
+  "presets": [{ "name": "MS · tények" }]
 }
 {% endschema %}

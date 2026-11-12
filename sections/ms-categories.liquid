@@ -39,8 +39,15 @@
               {%- endif -%}
             </span>
             <span class="ms-cats__body">
-              <span class="ms-cats__title">{{ title }}</span>
-              {%- if block.settings.subtitle != blank -%}<span class="ms-cats__sub">{{ block.settings.subtitle }}</span>{%- endif -%}
+              <span class="ms-cats__text">
+                <span class="ms-cats__title">{{ title }}</span>
+                {%- if block.settings.subtitle != blank -%}
+                  <span class="ms-cats__sub">{{ block.settings.subtitle }}</span>
+                {%- elsif c != blank and c.all_products_count > 0 -%}
+                  <span class="ms-cats__sub">{{ c.all_products_count }} termék</span>
+                {%- endif -%}
+              </span>
+              {%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
             </span>
           </a>
         </li>
@@ -63,57 +70,74 @@
     flex-direction: column;
     height: 100%;
     overflow: hidden;
-    border-radius: var(--ms-radius);
-    background: var(--ms-card);
     border: 1px solid var(--ms-border);
+    border-radius: 16px;
+    background: var(--ms-card);
     color: var(--ms-text);
     text-decoration: none;
-    transition: transform 0.3s var(--ms-ease), box-shadow 0.3s var(--ms-ease), border-color 0.3s;
+    transition: transform 0.35s var(--ms-ease), border-color 0.2s;
   }
   .ms-cats__card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--ms-shadow-lg);
-    border-color: rgb(var(--ms-accent-rgb) / 0.5);
-  }
-  .ms-cats__card:focus-visible {
-    outline: 2px solid var(--ms-accent);
-    outline-offset: 2px;
+    border-color: var(--ms-text);
   }
   .ms-cats__media {
-    display: block;
-    aspect-ratio: 1;
-    background: #fff;
-    padding: 10%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--ms-tile);
   }
   .ms-cats__media img {
-    width: 100%;
-    height: 100%;
+    width: 82%;
+    height: 88%;
     object-fit: contain;
-    transition: transform 0.5s var(--ms-ease);
+    mix-blend-mode: multiply;
+    transition: transform 0.6s var(--ms-ease);
   }
   .ms-cats__card:hover .ms-cats__media img {
-    transform: scale(1.06);
-  }
-  html[data-theme='dark'] .ms-cats__media {
-    background: #eef3f7;
+    transform: scale(1.1) rotate(-2deg);
   }
   .ms-cats__body {
     display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 64px;
+    padding: 12px 14px;
+    transition: background-color 0.25s, color 0.25s;
+  }
+  .ms-cats__body svg {
+    flex: none;
+    transition: transform 0.3s var(--ms-ease);
+  }
+  .ms-cats__card:hover .ms-cats__body {
+    background: var(--ms-cta);
+    color: var(--ms-on-cta);
+  }
+  .ms-cats__card:hover .ms-cats__body svg {
+    transform: translateX(4px);
+  }
+  .ms-cats__text {
+    display: flex;
     flex-direction: column;
-    gap: 2px;
-    padding: 12px 14px 14px;
-    border-top: 1px solid var(--ms-border);
+    min-width: 0;
   }
   .ms-cats__title {
     font-weight: 700;
     font-size: 15px;
-    line-height: 1.3;
+    line-height: 1.25;
   }
   .ms-cats__sub {
     font-size: 13px;
     color: var(--ms-text-muted);
+    transition: color 0.25s;
   }
-  @media (max-width: 1199px) {
+  .ms-cats__card:hover .ms-cats__sub {
+    color: var(--ms-on-cta);
+  }
+  @media (max-width: 989px) {
     .ms-cats__grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
@@ -121,7 +145,7 @@
   @media (max-width: 749px) {
     .ms-cats__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 10px;
     }
   }
 {% endstylesheet %}
@@ -131,7 +155,7 @@
   "name": "MS · kategóriák",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Felső címke", "default": "Kategóriák" },
-    { "type": "text", "id": "title", "label": "Cím", "default": "Miben segíthetünk?" },
+    { "type": "text", "id": "title", "label": "Cím", "default": "Mit építesz ma?" },
     { "type": "text", "id": "link_label", "label": "Link felirata", "default": "Összes kategória" },
     { "type": "text", "id": "link", "label": "Link", "info": "Pl. /collections/esp32 vagy teljes webcím" },
     { "type": "checkbox", "id": "surface", "label": "Szürke háttér", "default": false }

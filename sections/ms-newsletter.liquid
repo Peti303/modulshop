@@ -38,9 +38,6 @@
 </section>
 
 {% stylesheet %}
-  .ms-news {
-    padding-top: 0;
-  }
   .ms-news__box {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -48,7 +45,7 @@
     align-items: center;
     padding: clamp(24px, 4vw, 48px);
     border-radius: var(--ms-radius-lg);
-    background: linear-gradient(135deg, var(--ms-hero-from), var(--ms-hero-to));
+    background: var(--ms-hero);
     color: #fff;
   }
   .ms-news__copy {
@@ -97,17 +94,17 @@
     background: transparent;
     font: inherit;
     font-size: 16px;
-    color: #0e1a26;
+    color: #14171a;
     outline: none;
   }
   .ms-news__row input[type='email'] {
-    color: #0e1a26 !important;
+    color: #14171a !important;
     background: transparent !important;
     border: 0 !important;
     box-shadow: none !important;
   }
   .ms-news__row input::placeholder {
-    color: #7a8896 !important;
+    color: #5f6b75 !important;
     opacity: 1;
   }
   .ms-news__row:focus-within {

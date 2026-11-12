@@ -1,293 +1,287 @@
 /* ==========================================================================
-   Modulshop design system
-   - Design tokens (--ms-*) for light and dark mode
-   - Dark-mode remapping of Horizon's own CSS variables
-   - Theme switch + reveal animation
-   - Shared building blocks for ms-* sections
+   Modulshop – „Feszültség alatt" dizájnrendszer (grafit + foszforzöld)
+   - Tokenek (--ms-*) világos és sötét módban
+   - A Horizon saját változóinak felülírása mindkét módban
+   - Közös építőelemek az ms-* szekciókhoz, mozgás
    ========================================================================== */
 
-/* ---------- Tokens: light (default) ---------- */
+/* ---------- Tokenek: világos ---------- */
 :root {
-  --ms-bg: #ffffff;
-  --ms-bg-rgb: 255 255 255;
-  --ms-surface: #f4f7fa;
-  --ms-surface-2: #eaf0f5;
+  --ms-bg: #f4f4f1;
+  --ms-bg-rgb: 244 244 241;
   --ms-card: #ffffff;
-  --ms-text: #0e1a26;
-  --ms-text-rgb: 14 26 38;
-  --ms-text-muted: #536271;
-  --ms-border: #dce3ea;
-  --ms-border-strong: #c9d3dd;
+  --ms-surface: #e8e8e3;
+  --ms-surface-2: #deded8;
+  --ms-tile: #f0f0ec;
+  --ms-text: #14171a;
+  --ms-text-rgb: 20 23 26;
+  --ms-text-muted: #555b60;
+  --ms-border: #d6d6d0;
+  --ms-border-strong: #b4b4ad;
 
-  --ms-primary: #01598b;
-  --ms-primary-rgb: 1 89 139;
-  --ms-primary-hover: #014670;
+  --ms-link: #2f6300;
+  --ms-focus: #6fa800;
+  --ms-cta: #c8f03c;
+  --ms-on-cta: #141a00;
+  --ms-cta-edge: #8fb41b;
+  --ms-ok: #137a4b;
+  --ms-ok-btn: #137a4b;
+  --ms-warn: #8f5200;
+  --ms-warn-led: #e08a00;
+  --ms-off: #66727c;
+  --ms-danger: #b3122b;
+
+  --ms-hero: #15181c;
+  --ms-hero-ink: #f4f5f2;
+  --ms-hero-muted: #aeb4b8;
+  --ms-hero-line: #30353b;
+  --ms-hero-acc: #c8f03c;
+  --ms-dot: rgb(244 245 242 / 0.14);
+
+  /* korábbi tokennevek – a régebbi ms-* szekciók ezeket használják */
+  --ms-primary: var(--ms-link);
+  --ms-primary-rgb: 47 99 0;
+  --ms-primary-hover: #234a00;
   --ms-on-primary: #ffffff;
-  --ms-accent: #0594ae;
-  --ms-accent-rgb: 5 148 174;
-  --ms-accent-soft: #e3f4f8;
-  --ms-highlight: #ffcf0f;
-  --ms-on-highlight: #121212;
-  --ms-success: #13854e;
-  --ms-success-soft: #e4f5ec;
-  --ms-warning: #b25e00;
-  --ms-danger: #c8102e;
-  --ms-star: #f5a700;
+  --ms-accent: var(--ms-link);
+  --ms-accent-rgb: 47 99 0;
+  --ms-accent-soft: #e9f3cc;
+  --ms-highlight: var(--ms-cta);
+  --ms-on-highlight: var(--ms-on-cta);
+  --ms-success: var(--ms-ok);
+  --ms-success-soft: #dff0e6;
+  --ms-warning: var(--ms-warn);
+  --ms-star: #b47800;
+  --ms-hero-from: var(--ms-hero);
+  --ms-hero-to: var(--ms-hero);
+  --ms-grid-line: var(--ms-dot);
 
-  --ms-hero-from: #01426a;
-  --ms-hero-to: #0594ae;
-  --ms-grid-line: rgb(255 255 255 / 0.08);
-
-  --ms-radius-sm: 8px;
-  --ms-radius: 12px;
-  --ms-radius-lg: 20px;
-  --ms-shadow-sm: 0 1px 2px rgb(14 26 38 / 0.06), 0 1px 3px rgb(14 26 38 / 0.04);
-  --ms-shadow: 0 4px 16px rgb(14 26 38 / 0.08);
-  --ms-shadow-lg: 0 18px 40px rgb(1 50 80 / 0.14);
-  --ms-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ms-radius-sm: 10px;
+  --ms-radius: 16px;
+  --ms-radius-lg: 24px;
+  --ms-shadow-sm: none;
+  --ms-shadow: 0 22px 34px -22px rgb(4 8 12 / 0.55);
+  --ms-shadow-lg: 0 24px 40px -20px rgb(4 8 12 / 0.55);
+  --ms-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ms-spring: cubic-bezier(0.5, 1.7, 0.4, 1);
   --ms-gutter: clamp(16px, 4vw, 40px);
-  --ms-max: 1320px;
-  --ms-section-y: clamp(40px, 6vw, 80px);
+  --ms-max: 1400px;
+  --ms-section-y: clamp(44px, 5.5vw, 72px);
+  --ms-font-display: 'Bricolage Grotesque', 'Figtree', system-ui, sans-serif;
+  --ms-font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ms-font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  /* Horizon betűváltozók */
+  --font-body--family: var(--ms-font-body);
+  --font-subheading--family: var(--ms-font-body);
+  --font-heading--family: var(--ms-font-display);
+  --font-accent--family: var(--ms-font-display);
 }
 
-/* ---------- Tokens: dark ---------- */
+/* ---------- Tokenek: sötét ---------- */
 html[data-theme='dark'] {
-  --ms-bg: #0b131c;
-  --ms-bg-rgb: 11 19 28;
-  --ms-surface: #111c28;
-  --ms-surface-2: #172534;
-  --ms-card: #132030;
-  --ms-text: #e6edf3;
-  --ms-text-rgb: 230 237 243;
-  --ms-text-muted: #9aabbc;
-  --ms-border: #22344a;
-  --ms-border-strong: #2e4560;
+  --ms-bg: #0c0e10;
+  --ms-bg-rgb: 12 14 16;
+  --ms-card: #15181c;
+  --ms-surface: #1f2328;
+  --ms-surface-2: #2a2f35;
+  --ms-tile: #e0e0db;
+  --ms-text: #ecedea;
+  --ms-text-rgb: 236 237 234;
+  --ms-text-muted: #a3a9ae;
+  --ms-border: #2a2f35;
+  --ms-border-strong: #454c54;
 
-  --ms-primary: #3cb9d8;
-  --ms-primary-rgb: 60 185 216;
-  --ms-primary-hover: #66cbe4;
-  --ms-on-primary: #04131d;
-  --ms-accent: #3cb9d8;
-  --ms-accent-rgb: 60 185 216;
-  --ms-accent-soft: #10303e;
-  --ms-highlight: #ffd43b;
-  --ms-success: #3ccb7f;
-  --ms-success-soft: #0f2e20;
-  --ms-warning: #ffb44d;
-  --ms-danger: #ff5a6e;
-  --ms-star: #ffc233;
+  --ms-link: #c8f03c;
+  --ms-focus: #c8f03c;
+  --ms-ok: #4fd08e;
+  --ms-warn: #f2b45a;
+  --ms-warn-led: #f2b45a;
+  --ms-off: #8e9ca8;
+  --ms-danger: #ff7a8c;
 
-  --ms-hero-from: #06243a;
-  --ms-hero-to: #0a4f63;
-  --ms-grid-line: rgb(255 255 255 / 0.06);
+  --ms-hero: #1b1f24;
+  --ms-hero-line: #363c43;
 
-  --ms-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
-  --ms-shadow: 0 4px 16px rgb(0 0 0 / 0.35);
-  --ms-shadow-lg: 0 18px 40px rgb(0 0 0 / 0.5);
+  --ms-primary-rgb: 200 240 60;
+  --ms-primary-hover: #d8f871;
+  --ms-on-primary: #141a00;
+  --ms-accent-rgb: 200 240 60;
+  --ms-accent-soft: #232b10;
+  --ms-success-soft: #12291d;
+  --ms-star: #f2b45a;
+  --ms-shadow: 0 22px 34px -22px rgb(0 0 0 / 0.8);
+  --ms-shadow-lg: 0 24px 40px -20px rgb(0 0 0 / 0.8);
+}
 
-  /* --- Horizon variables remapped for dark mode --- */
-  --color-background: #0b131c;
-  --color-background-rgb: 11 19 28;
-  --color-foreground: #e6edf3;
-  --color-foreground-rgb: 230 237 243;
-  --color-border: #2e4560;
-  --color-border-rgb: 46 69 96;
+/* ---------- A Horizon változói mindkét módban ---------- */
+html[data-theme] {
+  --color-background: var(--ms-bg);
+  --color-background-rgb: var(--ms-bg-rgb);
+  --color-foreground: var(--ms-text);
+  --color-foreground-rgb: var(--ms-text-rgb);
+  --color-border: var(--ms-border-strong);
+
+  --color-primary-button-text: var(--ms-on-cta);
+  --color-primary-button-background: var(--ms-cta);
+  --color-primary-button-border: var(--ms-cta);
+  --color-primary-button-focus-outline: var(--ms-focus);
+  --color-primary-button-hover-text: var(--ms-on-cta);
+  --color-primary-button-hover-background: #d6f766;
+  --color-primary-button-hover-border: #d6f766;
+
+  --color-secondary-button-text: var(--ms-text);
+  --color-secondary-button-background: transparent;
+  --color-secondary-button-border: var(--ms-text);
+  --color-secondary-button-hover-text: var(--ms-bg);
+  --color-secondary-button-hover-background: var(--ms-text);
+  --color-secondary-button-hover-border: var(--ms-text);
+
+  --color-input-background: var(--ms-card);
+  --color-input-text: var(--ms-text);
+  --color-input-text-rgb: var(--ms-text-rgb);
+  --color-input-border: var(--ms-border-strong);
+
+  --color-variant-background: var(--ms-card);
+  --color-variant-border: var(--ms-border-strong);
+  --color-variant-text: var(--ms-text);
+  --color-variant-text-rgb: var(--ms-text-rgb);
+  --color-variant-hover-background: var(--ms-surface);
+  --color-variant-hover-text: var(--ms-text);
+  --color-variant-hover-border: var(--ms-text);
+  --color-selected-variant-background: var(--ms-text);
+  --color-selected-variant-border: var(--ms-text);
+  --color-selected-variant-text: var(--ms-bg);
+  --color-selected-variant-text-rgb: var(--ms-bg-rgb);
+  --color-selected-variant-hover-background: var(--ms-text);
+  --color-selected-variant-hover-text: var(--ms-bg);
+  --color-selected-variant-hover-border: var(--ms-text);
+}
+html[data-theme='dark'] {
+  --color-border-rgb: 69 76 84;
   --palette-lightest: #ffffff;
   --palette-lightest-rgb: 255 255 255;
-  --palette-darkest: #0b131c;
-  --palette-darkest-rgb: 11 19 28;
+  --palette-darkest: #0c0e10;
+  --palette-darkest-rgb: 12 14 16;
   --opacity-5-15: 0.15;
   --opacity-10-25: 0.25;
   --opacity-35-55: 0.55;
   --opacity-40-60: 0.6;
   --opacity-30-60: 0.6;
-
-  --color-primary-button-text: #04131d;
-  --color-primary-button-background: #3cb9d8;
-  --color-primary-button-border: #3cb9d8;
-  --color-primary-button-focus-outline: #3cb9d8;
-  --color-primary-button-hover-text: #04131d;
-  --color-primary-button-hover-background: #66cbe4;
-  --color-primary-button-hover-border: #66cbe4;
-
-  --color-secondary-button-text: #e6edf3;
-  --color-secondary-button-background: transparent;
-  --color-secondary-button-border: #3cb9d8;
-  --color-secondary-button-hover-text: #04131d;
-  --color-secondary-button-hover-background: #3cb9d8;
-  --color-secondary-button-hover-border: #3cb9d8;
-
-  --color-input-background: #111c28;
-  --color-input-text: #e6edf3;
-  --color-input-text-rgb: 230 237 243;
-  --color-input-border: #2e4560;
-
-  --color-variant-background: #111c28;
-  --color-variant-border: #2e4560;
-  --color-variant-text: #e6edf3;
-  --color-variant-text-rgb: 230 237 243;
-  --color-variant-hover-background: #172534;
-  --color-variant-hover-text: #e6edf3;
-  --color-variant-hover-border: #3cb9d8;
-  --color-selected-variant-background: #3cb9d8;
-  --color-selected-variant-border: #3cb9d8;
-  --color-selected-variant-text: #04131d;
-  --color-selected-variant-text-rgb: 4 19 29;
-  --color-selected-variant-hover-background: #66cbe4;
-  --color-selected-variant-hover-text: #04131d;
-  --color-selected-variant-hover-border: #66cbe4;
-
   --color-drawer-shadow-rgb: 0 0 0;
   --color-popover-shadow-rgb: 0 0 0;
 }
 
-/* Section / block colour overrides that Horizon bakes in at render time */
+/* Szekciónkénti, a Horizon által rendereléskor beégetett színek */
 html[data-theme='dark'] [class*='color-custom-'],
 html[data-theme='dark'] [class*='color-custom-'] .text-block {
-  --color: #e6edf3;
-  --color-rgb: 230 237 243;
-  --color-foreground: #e6edf3;
-  --color-foreground-rgb: 230 237 243;
-  --color-foreground-muted: rgb(230 237 243 / var(--opacity-muted-text, 0.7));
-  --color-foreground-subdued: rgb(230 237 243 / var(--opacity-subdued-text, 0.55));
-  --color-border: #2e4560;
-  --color-border-rgb: 46 69 96;
+  --color: var(--ms-text);
+  --color-rgb: var(--ms-text-rgb);
+  --color-foreground: var(--ms-text);
+  --color-foreground-rgb: var(--ms-text-rgb);
+  --color-foreground-muted: rgb(var(--ms-text-rgb) / var(--opacity-muted-text, 0.7));
+  --color-foreground-subdued: rgb(var(--ms-text-rgb) / var(--opacity-subdued-text, 0.55));
+  --color-border: var(--ms-border-strong);
+  --color-border-rgb: 69 76 84;
 }
 html[data-theme='dark'] [class*='color-custom-']:not(.ms-keep-color) {
   --color-background: transparent;
-  --color-background-rgb: 11 19 28;
+  --color-background-rgb: var(--ms-bg-rgb);
 }
-html[data-theme='dark'] #header-component {
-  --color-background-top-row: rgb(11 19 28 / 0.92) !important;
-  --color-background-bottom-row: rgb(11 19 28 / 0.92) !important;
+html[data-theme] #header-component {
+  --color-background-top-row: var(--ms-card) !important;
+  --color-background-bottom-row: var(--ms-card) !important;
+  --color-foreground: var(--ms-text);
+  --color-foreground-rgb: var(--ms-text-rgb);
+  border-bottom: 1px solid var(--ms-border);
 }
-html[data-theme='dark'] body {
+html[data-theme] body {
   background-color: var(--ms-bg);
   color: var(--ms-text);
+  font-family: var(--ms-font-body);
+  -webkit-font-smoothing: antialiased;
 }
-html[data-theme='dark'] img:not([src$='.svg']) {
-  /* tame very bright product photos a touch */
-  filter: brightness(0.94);
+h1, h2, h3, .h1, .h2, .h3 {
+  font-family: var(--ms-font-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
-
-/* Logo: swap to the light-on-dark version when present */
-.ms-logo-dark {
-  display: none;
-}
-html[data-theme='dark'] .ms-logo-light {
-  display: none;
-}
-html[data-theme='dark'] .ms-logo-dark {
-  display: inline-block;
+:where(a):focus-visible,
+:where(button):focus-visible,
+:where(input, select, textarea):focus-visible {
+  outline: 3px solid var(--ms-focus);
+  outline-offset: 2px;
 }
 
-/* ---------- Theme switch ----------
-   Geometry (border-box 56x30, 1px border → 54x28 inner):
-   2px | 24px cell (sun) | 2px | 24px cell (moon) | 2px
-   The 24px thumb sits exactly on one cell, so the active icon is always centred in it. */
-.ms-theme-toggle {
-  display: inline-flex;
-  align-items: center;
-}
+.ms-logo-dark { display: none; }
+html[data-theme='dark'] .ms-logo-light { display: none; }
+html[data-theme='dark'] .ms-logo-dark { display: inline-block; }
+
+/* ---------- Világos / sötét kapcsoló ----------
+   Sín 64×32 px, gomb 28 px. Az ikonok cellája 32 px széles, középpontjuk 16 és 48 px;
+   a gomb 2 px-ről indul (közép: 16 px) és 32 px-t mozdul (közép: 48 px). Érintési cél: 64×44 px. */
+.ms-theme-toggle { display: inline-flex; align-items: center; }
 .ms-theme-toggle__button {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  min-height: 44px;
+  padding: 0;
   cursor: pointer;
-  padding: 4px;
-  border-radius: 999px;
   color: inherit;
   font: inherit;
   outline: none;
+  background: transparent;
+  border: 0;
 }
 .ms-theme-toggle__button:focus-visible .ms-theme-toggle__track {
-  box-shadow: 0 0 0 2px var(--ms-bg), 0 0 0 4px var(--ms-accent);
+  box-shadow: 0 0 0 2px var(--ms-card), 0 0 0 5px var(--ms-focus);
 }
 .ms-theme-toggle__track {
   position: relative;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 24px 24px;
-  column-gap: 2px;
+  grid-template-columns: 32px 32px;
   align-items: center;
   justify-items: center;
-  width: 56px;
-  height: 30px;
-  padding: 0 2px;
-  border-radius: 999px;
-  background: var(--ms-surface-2);
-  border: 1px solid var(--ms-border-strong);
-  transition: background-color 0.4s var(--ms-ease), border-color 0.4s var(--ms-ease), box-shadow 0.2s;
+  width: 64px;
+  height: 32px;
+  border-radius: 16px;
+  background: var(--ms-surface);
+  box-shadow: inset 0 0 0 1px var(--ms-border-strong);
 }
 .ms-theme-toggle__thumb {
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 1px 4px rgb(0 0 0 / 0.2);
-  transition: transform 0.55s var(--ms-ease), background-color 0.4s var(--ms-ease);
+  background: var(--ms-cta);
+  box-shadow: 0 2px 0 var(--ms-cta-edge);
+  transition: transform 0.5s var(--ms-spring);
 }
-ms-theme-toggle .ms-theme-toggle__track svg.ms-theme-toggle__icon {
-  width: 14px;
-  height: 14px;
-}
+ms-theme-toggle .ms-theme-toggle__track svg.ms-theme-toggle__icon,
 .ms-theme-toggle__icon {
   position: relative;
   z-index: 1;
   display: block;
-  width: 14px;
-  height: 14px;
-  transition: color 0.4s var(--ms-ease), transform 0.6s var(--ms-ease), opacity 0.4s;
-}
-.ms-theme-toggle__icon--sun {
-  grid-column: 1;
-  grid-row: 1;
-  color: #e08a00;
-}
-.ms-theme-toggle__icon--moon {
-  grid-column: 2;
-  grid-row: 1;
+  width: 16px;
+  height: 16px;
   color: var(--ms-text-muted);
-  opacity: 0.55;
+  transition: color 0.3s, transform 0.5s var(--ms-spring);
 }
-.ms-theme-toggle[data-dark] .ms-theme-toggle__track {
-  background: #10303e;
-  border-color: #1f5468;
-}
-.ms-theme-toggle[data-dark] .ms-theme-toggle__thumb {
-  transform: translateX(26px);
-  background: #e6edf3;
-}
-.ms-theme-toggle[data-dark] .ms-theme-toggle__icon--sun {
-  opacity: 0.5;
-  color: #9aabbc;
-  transform: rotate(-90deg) scale(0.85);
-}
-.ms-theme-toggle[data-dark] .ms-theme-toggle__icon--moon {
-  opacity: 1;
-  color: #e9a800;
-  transform: rotate(-20deg);
-}
-.ms-theme-toggle__label {
-  font-size: 15px;
-}
+.ms-theme-toggle__icon--sun { grid-column: 1; grid-row: 1; color: var(--ms-on-cta); transform: rotate(45deg); }
+.ms-theme-toggle__icon--moon { grid-column: 2; grid-row: 1; }
+.ms-theme-toggle[data-dark] .ms-theme-toggle__thumb { transform: translateX(32px); }
+.ms-theme-toggle[data-dark] .ms-theme-toggle__icon--sun { color: var(--ms-text-muted); transform: none; }
+.ms-theme-toggle[data-dark] .ms-theme-toggle__icon--moon { color: var(--ms-on-cta); transform: rotate(-20deg); }
+.ms-theme-toggle__label { font-size: 15px; }
 
-/* Reveal animation (View Transitions) – only while switching themes */
-html.ms-vt-theme {
-  view-transition-name: root;
-}
+html.ms-vt-theme { view-transition-name: root; }
 html.ms-vt-theme::view-transition-old(root),
-html.ms-vt-theme::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-html.ms-vt-theme::view-transition-new(root) {
-  z-index: 2;
-}
-/* Fallback cross-fade for browsers without View Transitions */
+html.ms-vt-theme::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+html.ms-vt-theme::view-transition-new(root) { z-index: 2; }
 html.ms-theme-fade,
 html.ms-theme-fade *,
 html.ms-theme-fade *::before,
@@ -296,271 +290,229 @@ html.ms-theme-fade *::after {
 }
 
 /* ==========================================================================
-   Shared building blocks for ms-* sections
+   Közös építőelemek
    ========================================================================== */
-.ms-section {
-  padding-block: var(--ms-section-y);
-  color: var(--ms-text);
-}
-.ms-section--surface {
-  background: var(--ms-surface);
-}
+.ms-section { padding-block: calc(var(--ms-section-y) / 2); color: var(--ms-text); }
+.ms-section--surface { background: var(--ms-surface); }
 .ms-container {
   width: 100%;
-  max-width: var(--page-width, var(--ms-max));
+  max-width: var(--ms-max);
   margin-inline: auto;
-  padding-inline: var(--page-margin, var(--ms-gutter));
+  padding-inline: var(--ms-gutter);
 }
-.ms-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 12px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ms-accent);
-}
+.ms-eyebrow { margin: 0 0 8px; font-size: 15px; font-weight: 700; color: var(--ms-link); }
 .ms-heading {
   margin: 0;
-  font-family: var(--font-heading--family);
+  font-family: var(--ms-font-display);
   font-weight: 700;
-  font-size: clamp(26px, 3.2vw, 38px);
-  line-height: 1.15;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.08;
   letter-spacing: -0.02em;
-  color: var(--ms-text);
+  color: inherit;
+  text-wrap: balance;
 }
-.ms-lead {
-  margin: 12px 0 0;
-  font-size: clamp(16px, 1.4vw, 18px);
-  line-height: 1.6;
-  color: var(--ms-text-muted);
-  max-width: 62ch;
-}
-.ms-section-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 16px 32px;
-  margin-bottom: clamp(24px, 3vw, 40px);
-}
-.ms-section-head--center {
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.ms-section-head--center .ms-lead {
-  margin-inline: auto;
-}
+.ms-lead { margin: 12px 0 0; font-size: clamp(16px, 1.4vw, 18px); line-height: 1.55; color: var(--ms-text-muted); max-width: 62ch; }
+.ms-section-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 32px; margin-bottom: 28px; }
+.ms-section-head--center { flex-direction: column; align-items: center; text-align: center; }
+.ms-section-head--center .ms-lead { margin-inline: auto; }
+.ms-mono { font-family: var(--ms-font-mono); font-variant-numeric: tabular-nums; }
 
+/* Gombok – fizikailag benyomódnak */
 .ms-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   min-height: 48px;
-  padding: 12px 22px;
-  border-radius: var(--ms-radius-sm);
-  border: 1.5px solid transparent;
-  font: inherit;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.2;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ms-cta);
+  color: var(--ms-on-cta);
+  font: 700 16px/1.1 var(--ms-font-body);
   text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s var(--ms-ease), box-shadow 0.2s;
+  box-shadow: 0 4px 0 var(--ms-cta-edge);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.2s ease, background-color 0.25s ease;
 }
-.ms-btn:hover {
-  transform: translateY(-1px);
-}
-.ms-btn:focus-visible {
-  outline: 2px solid var(--ms-accent);
-  outline-offset: 2px;
-}
-.ms-btn--primary {
-  background: var(--ms-primary);
-  color: var(--ms-on-primary);
-}
-.ms-btn--primary:hover {
-  background: var(--ms-primary-hover);
-  box-shadow: var(--ms-shadow);
-}
-.ms-btn--highlight {
-  background: var(--ms-highlight);
-  color: var(--ms-on-highlight);
-}
-.ms-btn--highlight:hover {
-  filter: brightness(1.05);
-  box-shadow: 0 8px 24px rgb(255 207 15 / 0.35);
-}
-.ms-btn--ghost {
+.ms-btn:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 5px 0 var(--ms-cta-edge); }
+.ms-btn:active { transform: translateY(4px); box-shadow: 0 0 0 var(--ms-cta-edge); }
+.ms-btn--big { min-height: 56px; padding: 0 28px; font-size: 18px; }
+.ms-btn--primary, .ms-btn--highlight { background: var(--ms-cta); color: var(--ms-on-cta); }
+.ms-btn--ghost, .ms-btn--on-dark, .ms-btn--sec {
   background: transparent;
-  color: var(--ms-text);
-  border-color: var(--ms-border-strong);
+  color: inherit;
+  box-shadow: inset 0 0 0 1.5px currentColor;
 }
-.ms-btn--ghost:hover {
-  border-color: var(--ms-primary);
-  color: var(--ms-primary);
+.ms-btn--ghost:hover, .ms-btn--on-dark:hover, .ms-btn--sec:hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+  box-shadow: inset 0 0 0 1.5px currentColor;
+  transform: none;
+  filter: none;
 }
-.ms-btn--on-dark {
-  background: rgb(255 255 255 / 0.1);
-  color: #fff;
-  border-color: rgb(255 255 255 / 0.35);
-}
-.ms-btn--on-dark:hover {
-  background: rgb(255 255 255 / 0.18);
-  border-color: #fff;
-}
-.ms-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  color: var(--ms-primary);
-  text-decoration: none;
-}
-.ms-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.ms-link svg {
-  transition: transform 0.2s var(--ms-ease);
-}
-.ms-link:hover svg {
-  transform: translateX(3px);
-}
+.ms-btn--ghost:active, .ms-btn--on-dark:active, .ms-btn--sec:active { transform: scale(0.97); }
+.ms-btn--dark { background: #14171a; color: #ffffff; box-shadow: 0 4px 0 rgb(20 23 26 / 0.35); }
+.ms-btn--dark:hover { box-shadow: 0 5px 0 rgb(20 23 26 / 0.35); }
 
-.ms-card {
-  background: var(--ms-card);
-  border: 1px solid var(--ms-border);
-  border-radius: var(--ms-radius);
-  box-shadow: var(--ms-shadow-sm);
-}
-.ms-stars {
-  display: inline-flex;
-  gap: 2px;
-  color: var(--ms-star);
-}
-.ms-stars svg {
-  width: 16px;
-  height: 16px;
-}
+.ms-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; color: var(--ms-link); text-decoration: none; }
+.ms-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ms-link svg { transition: transform 0.3s var(--ms-ease); }
+.ms-link:hover svg { transform: translateX(5px); }
+.ms-card { background: var(--ms-card); border: 1px solid var(--ms-border); border-radius: var(--ms-radius); }
+.ms-panel { background: var(--ms-card); border: 1px solid var(--ms-border); border-radius: 20px; padding: clamp(22px, 2.6vw, 32px); }
+.ms-stars { display: inline-flex; gap: 2px; color: var(--ms-star); }
+.ms-stars svg { width: 16px; height: 16px; }
 .ms-icon-badge {
   display: inline-grid;
   place-items: center;
   flex: none;
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  background: var(--ms-accent-soft);
-  color: var(--ms-accent);
-}
-.ms-icon-badge svg {
-  width: 22px;
-  height: 22px;
-}
-
-/* Scroll-reveal (progressive enhancement, see ms-theme-toggle.js companion in sections) */
-@media (prefers-reduced-motion: no-preference) {
-  .ms-js .ms-reveal {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.7s var(--ms-ease), transform 0.7s var(--ms-ease);
-  }
-  .ms-js .ms-reveal.is-visible {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.ms-visually-hidden {
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
-
-/* Toggle placement: header on tablet/desktop, drawer on phones */
-@media (max-width: 749px) {
-  ms-theme-toggle.ms-theme-toggle--header {
-    display: none;
-  }
-}
-.ms-drawer-theme {
-  padding: 12px 0 8px;
-  margin-bottom: 8px;
-  border-bottom: 1px solid var(--ms-border);
-}
-
-/* Built-in header logo */
-.ms-header-logo {
-  height: 40px;
-  width: auto;
-  max-width: 100%;
-  filter: none !important;
-}
-@media (max-width: 749px) {
-  .ms-header-logo {
-    height: 26px;
-  }
-}
-
-/* Announcement bar in brand colours */
-.announcement-bar {
-  background: var(--ms-primary) !important;
-  color: var(--ms-on-primary) !important;
-  --color: var(--ms-on-primary);
-  --color-foreground: var(--ms-on-primary);
-  border: 0 !important;
-}
-html[data-theme='dark'] .announcement-bar {
-  background: #0e2a3b !important;
-  color: #e6edf3 !important;
-}
-.announcement-bar__text {
-  font-weight: 600;
-}
-
-/* Free shipping progress (cart) */
-.ms-ship {
-  margin-bottom: 16px;
-  padding: 12px 14px;
-  border-radius: var(--ms-radius-sm);
-  background: var(--ms-accent-soft);
+  border-radius: 10px;
+  background: var(--ms-surface);
   color: var(--ms-text);
 }
-.ms-ship.is-done {
-  background: var(--ms-success-soft);
-}
-.ms-ship__text {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px;
-  margin: 0 0 8px;
-  font-size: 14px;
-}
-.ms-ship.is-done .ms-icon {
-  color: var(--ms-success);
-}
-.ms-ship__bar {
-  display: block;
-  height: 6px;
-  border-radius: 99px;
-  background: rgb(var(--ms-text-rgb) / 0.1);
+.ms-icon-badge svg { width: 22px; height: 22px; }
+
+/* Készlet-LED */
+.ms-led { display: inline-block; flex: none; width: 9px; height: 9px; border-radius: 50%; }
+.ms-led--ok { background: var(--ms-ok); animation: ms-led 2.6s ease-out infinite; }
+.ms-led--low { background: var(--ms-warn-led); animation: ms-blink 1.2s ease-in-out infinite; }
+.ms-led--off { background: transparent; border: 1.5px solid var(--ms-off); }
+.ms-stock { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; line-height: 1.3; }
+.ms-stock--ok { color: var(--ms-ok); }
+.ms-stock--low { color: var(--ms-warn); }
+.ms-stock--off { color: var(--ms-off); }
+.ms-sku { font-family: var(--ms-font-mono); font-size: 12px; color: var(--ms-text-muted); }
+.ms-price { font-family: var(--ms-font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; white-space: nowrap; }
+
+/* Sötét sáv próbapanel-raszterrel */
+.ms-band {
+  position: relative;
   overflow: hidden;
+  background: var(--ms-hero);
+  color: var(--ms-hero-ink);
+  border-radius: 24px;
 }
-.ms-ship__bar span {
+.ms-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, var(--ms-dot) 1.5px, transparent 2px) 0 0 / 22px 22px;
+  pointer-events: none;
+}
+.ms-band > * { position: relative; }
+.ms-band__glow {
+  position: absolute !important;
+  inset: 0;
+  background: radial-gradient(circle, var(--ms-hero-acc) 1.7px, transparent 2.3px) 0 0 / 22px 22px;
+  -webkit-mask-image: radial-gradient(240px circle at var(--mx, 72%) var(--my, 28%), #000, transparent);
+  mask-image: radial-gradient(240px circle at var(--mx, 72%) var(--my, 28%), #000, transparent);
+  pointer-events: none;
+}
+
+/* Fehér hátterű termékfotó világos csempén */
+.ms-ph { display: grid; place-items: center; overflow: hidden; background: var(--ms-tile); aspect-ratio: 4 / 3; }
+.ms-ph img { width: 82%; height: 88%; object-fit: contain; mix-blend-mode: multiply; transition: transform 0.6s var(--ms-ease); }
+
+/* Görgetésre beúszás – a tartalom animáció nélkül is látható marad */
+@media (prefers-reduced-motion: no-preference) {
+  .ms-js .ms-reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ms-ease), transform 0.7s var(--ms-ease); }
+  .ms-js .ms-reveal.is-visible { opacity: 1; transform: none; }
+}
+.ms-visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 749px) {
+  ms-theme-toggle.ms-theme-toggle--header { display: none; }
+}
+.ms-drawer-theme { padding: 12px 0 8px; margin-bottom: 8px; border-bottom: 1px solid var(--ms-border); }
+.ms-header-logo { height: 40px; width: auto; max-width: 100%; filter: none !important; }
+@media (max-width: 749px) {
+  .ms-header-logo { height: 30px; }
+}
+
+/* ==========================================================================
+   Horizon elemek az új stílusban
+   ========================================================================== */
+/* Gombok */
+.button:not(.button-unstyled):not(.button-secondary),
+.button-primary,
+.add-to-cart-button:not(.button-secondary) {
+  font-family: var(--ms-font-body);
+  font-weight: 700;
+  box-shadow: 0 4px 0 var(--ms-cta-edge);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.2s ease, background-color 0.25s ease;
+}
+.button:not(.button-unstyled):not(.button-secondary):hover,
+.add-to-cart-button:not(.button-secondary):hover { transform: translateY(-1px); box-shadow: 0 5px 0 var(--ms-cta-edge); }
+.button:not(.button-unstyled):not(.button-secondary):active,
+.add-to-cart-button:not(.button-secondary):active { transform: translateY(4px); box-shadow: 0 0 0 var(--ms-cta-edge); }
+.button-secondary { font-family: var(--ms-font-body); font-weight: 700; }
+.button[disabled], .add-to-cart-button[disabled] { box-shadow: none; transform: none; }
+
+/* Termékkártya */
+.product-card {
+  background: var(--ms-card);
+  border: 1px solid var(--ms-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.35s var(--ms-ease), box-shadow 0.35s ease, border-color 0.2s ease;
+}
+.product-card:hover { transform: translateY(-6px); border-color: var(--ms-text); box-shadow: var(--ms-shadow); }
+.product-card .card-gallery { background: var(--ms-tile); border-radius: 0; }
+.product-card .card-gallery img,
+.ms-pdp-media .product-media img,
+.product-media-container .product-media img { mix-blend-mode: multiply; }
+.product-card .card-gallery img { transition: transform 0.6s var(--ms-ease); }
+.product-card:hover .card-gallery img { transform: scale(1.06); }
+.product-card .product-card__content > *:not(:first-child) { padding-inline: 16px; }
+.product-card .product-card__content { padding-bottom: 16px; }
+.product-card .price { font-family: var(--ms-font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; }
+.product-card product-sku-component { font-family: var(--ms-font-mono); font-size: 12px; color: var(--ms-text-muted); }
+.product-media-container, .media-gallery .product-media { background: var(--ms-tile); border-radius: 20px; }
+.quick-add__button { box-shadow: 0 3px 0 var(--ms-cta-edge); }
+.ms-added { animation: ms-pop 0.5s var(--ms-spring); }
+
+/* Kosárjelvény */
+.cart-bubble { --cart-bubble-background: var(--ms-cta); }
+.cart-bubble__background { background: var(--ms-cta) !important; }
+.cart-bubble__text { color: var(--ms-on-cta) !important; font-family: var(--ms-font-mono); font-weight: 700; }
+.ms-pop { animation: ms-pop 0.5s var(--ms-spring); }
+
+/* Ingyenes szállítás – akkusáv */
+.ms-ship { margin-bottom: 16px; }
+.ms-ship__text { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 8px 0 0; font-size: 14px; color: var(--ms-text-muted); }
+.ms-ship__text strong { color: var(--ms-text); }
+.ms-ship__bar {
+  position: relative;
   display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--ms-accent), var(--ms-primary));
-  transition: width 0.6s var(--ms-ease);
+  height: 24px;
+  margin-right: 7px;
+  padding: 2px;
+  border: 2px solid var(--ms-text);
+  border-radius: 6px;
 }
-.ms-ship.is-done .ms-ship__bar span {
-  background: var(--ms-success);
+.ms-ship__bar::after {
+  content: '';
+  position: absolute;
+  right: -7px;
+  top: 5px;
+  width: 4px;
+  height: 10px;
+  border-radius: 0 2px 2px 0;
+  background: var(--ms-text);
+}
+.ms-ship__bar span { display: block; height: 100%; min-width: 4px; border-radius: 2px; background: var(--ms-ok); transition: width 0.9s var(--ms-ease); }
+
+@keyframes ms-led { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ms-ok) 60%, transparent); } 70%, 100% { box-shadow: 0 0 0 8px transparent; } }
+@keyframes ms-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@keyframes ms-pop { 0% { transform: scale(0.4); } 100% { transform: scale(1); } }
+@keyframes ms-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes ms-fill { to { transform: scaleX(1); } }
+@keyframes ms-draw { to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-led--ok, .ms-led--low { animation: none; }
+  .ms-btn, .product-card, .product-card .card-gallery img, .ms-ph img { transition: none; }
 }

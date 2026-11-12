@@ -1,227 +1,140 @@
-{%- comment -%} Modulshop – personal pickup + contact + FAQ {%- endcomment -%}
-{%- liquid
-  assign faqs = section.blocks | where: 'type', 'faq'
-  assign map_q = section.settings.address | strip_html | url_encode
--%}
-<section class="ms-section ms-store" aria-labelledby="ms-store-{{ section.id }}">
-  <div class="ms-container ms-store__grid">
-    <div class="ms-store__info ms-card ms-reveal">
-      {%- if section.settings.eyebrow != blank -%}<p class="ms-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
-      <h2 id="ms-store-{{ section.id }}" class="ms-heading">{{ section.settings.title }}</h2>
-      {%- if section.settings.text != blank -%}<div class="ms-lead">{{ section.settings.text }}</div>{%- endif -%}
-
-      <ul class="ms-store__list" role="list">
-        {%- if section.settings.address != blank -%}
-          <li>
-            <span class="ms-icon-badge">{% render 'ms-icon', name: 'pin' %}</span>
-            <span><strong>Átvételi pont</strong>{{ section.settings.address }}</span>
-          </li>
+{%- comment -%} Modulshop – személyes átvétel + iskoláknak, cégeknek {%- endcomment -%}
+{%- assign s = section.settings -%}
+<section class="ms-section" id="atvetel" aria-label="{{ s.title | escape }}">
+  <div class="ms-container">
+    <div class="ms-store">
+      <div class="ms-panel ms-store__panel">
+        <h2 class="ms-heading ms-store__title">{{ s.title | escape }}</h2>
+        {%- if s.address != blank -%}<div class="ms-store__address rte">{{ s.address }}</div>{%- endif -%}
+        {%- if section.blocks.size > 0 -%}
+          <table class="ms-store__hours">
+            <tbody>
+              {%- for block in section.blocks -%}
+                <tr {{ block.shopify_attributes }}>
+                  <th scope="row">{{ block.settings.days | escape }}</th>
+                  <td class="ms-mono">{{ block.settings.hours | escape }}</td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
         {%- endif -%}
-        {%- if section.settings.hours != blank -%}
-          <li>
-            <span class="ms-icon-badge">{% render 'ms-icon', name: 'clock' %}</span>
-            <span><strong>Nyitvatartás</strong>{{ section.settings.hours }}</span>
-          </li>
-        {%- endif -%}
-        {%- if section.settings.phone != blank -%}
-          <li>
-            <span class="ms-icon-badge">{% render 'ms-icon', name: 'phone' %}</span>
-            <span><strong>Telefon</strong><a href="tel:{{ section.settings.phone | remove: ' ' | remove: '/' }}">{{ section.settings.phone }}</a></span>
-          </li>
-        {%- endif -%}
-        {%- if section.settings.email != blank -%}
-          <li>
-            <span class="ms-icon-badge">{% render 'ms-icon', name: 'mail' %}</span>
-            <span><strong>E-mail</strong><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></span>
-          </li>
-        {%- endif -%}
-      </ul>
-
-      <div class="ms-store__ctas">
-        {%- if section.settings.address != blank -%}
-          <a class="ms-btn ms-btn--primary" href="https://www.google.com/maps/search/?api=1&query={{ map_q }}" target="_blank" rel="noopener">
-            {%- render 'ms-icon', name: 'pin', size: 18 -%}Útvonaltervezés
-          </a>
-        {%- endif -%}
-        {%- if section.settings.button_label != blank -%}
-          <a class="ms-btn ms-btn--ghost" href="{{ section.settings.button_link | default: '#' }}">{{ section.settings.button_label }}</a>
+        {%- if s.text != blank -%}<div class="ms-store__note rte">{{ s.text }}</div>{%- endif -%}
+        {%- if s.button_label != blank -%}
+          <a class="ms-link" href="{{ s.button_link | default: '#' }}">{{ s.button_label | escape }} {% render 'ms-icon', name: 'arrow-right', size: 18 %}</a>
         {%- endif -%}
       </div>
+      {%- if s.b2b_title != blank -%}
+        <div class="ms-panel ms-store__panel ms-store__panel--cta">
+          <h2 class="ms-heading ms-store__title">{{ s.b2b_title | escape }}</h2>
+          {%- if s.b2b_text != blank -%}<p class="ms-store__lead">{{ s.b2b_text | escape }}</p>{%- endif -%}
+          <div class="ms-store__actions">
+            {%- if s.b2b_button != blank -%}
+              <a class="ms-btn ms-btn--dark" href="{{ s.b2b_link | default: '#' }}">{{ s.b2b_button | escape }}</a>
+            {%- endif -%}
+            {%- if s.b2b_button2 != blank -%}
+              <a class="ms-btn ms-btn--sec" href="{{ s.b2b_link2 | default: '#' }}">{{ s.b2b_button2 | escape }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
     </div>
-
-    {%- if faqs.size > 0 -%}
-      <div class="ms-store__faq ms-reveal">
-        <h3 class="ms-store__faq-title">{{ section.settings.faq_title }}</h3>
-        {%- for block in faqs -%}
-          <details class="ms-faq" {{ block.shopify_attributes }} {% if forloop.first %}open{% endif %}>
-            <summary>
-              <span>{{ block.settings.question }}</span>
-              <span class="ms-faq__plus" aria-hidden="true"></span>
-            </summary>
-            <div class="ms-faq__answer">{{ block.settings.answer }}</div>
-          </details>
-        {%- endfor -%}
-        {%- if section.settings.faq_link_label != blank -%}
-          <a href="{{ section.settings.faq_link | default: '#' }}" class="ms-link ms-store__faq-link">
-            {{- section.settings.faq_link_label -}}{%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
-          </a>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
   </div>
 </section>
 
 {% stylesheet %}
-  .ms-store__grid {
+  .ms-store {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(24px, 4vw, 56px);
-    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
+    gap: 20px;
   }
-  .ms-store__info {
-    padding: clamp(24px, 3.5vw, 40px);
-  }
-  .ms-store__info .ms-lead p {
-    margin: 0;
-  }
-  .ms-store__list {
-    display: grid;
-    gap: 16px;
-    margin: 28px 0;
-    padding: 0;
-    list-style: none;
-  }
-  .ms-store__list li {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--ms-text-muted);
-  }
-  .ms-store__list li > span:last-child {
+  .ms-store__panel {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
-  .ms-store__list strong {
-    color: var(--ms-text);
-    font-size: 15px;
+  .ms-store__title {
+    font-size: clamp(24px, 2.2vw, 30px);
   }
-  .ms-store__list a {
-    color: var(--ms-primary);
-    font-weight: 600;
-    text-decoration: none;
+  .ms-store__address {
+    font-size: 18px;
   }
-  .ms-store__list p {
+  .ms-store__address p,
+  .ms-store__note p {
     margin: 0;
   }
-  .ms-store__ctas {
+  .ms-store__address p + p {
+    font-size: 15px;
+    color: var(--ms-text-muted);
+  }
+  .ms-store__hours {
+    width: 100%;
+    max-width: 360px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  .ms-store__hours th,
+  .ms-store__hours td {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--ms-border);
+    text-align: left;
+  }
+  .ms-store__hours th {
+    font-weight: 500;
+    color: var(--ms-text-muted);
+  }
+  .ms-store__note {
+    font-size: 15px;
+    color: var(--ms-text-muted);
+  }
+  .ms-store__panel--cta {
+    border-color: var(--ms-cta);
+    background: var(--ms-cta);
+    color: var(--ms-on-cta);
+  }
+  .ms-store__lead {
+    margin: 0;
+    max-width: 38ch;
+    font-size: 18px;
+  }
+  .ms-store__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-  }
-  .ms-store__faq-title {
-    margin: 0 0 16px;
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--ms-text);
-  }
-  .ms-faq {
-    border-bottom: 1px solid var(--ms-border);
-  }
-  .ms-faq summary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 18px 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--ms-text);
-    cursor: pointer;
-    list-style: none;
-  }
-  .ms-faq summary::-webkit-details-marker {
-    display: none;
-  }
-  .ms-faq summary:focus-visible {
-    outline: 2px solid var(--ms-accent);
-    outline-offset: 4px;
-    border-radius: 4px;
-  }
-  .ms-faq__plus {
-    position: relative;
-    flex: none;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--ms-accent-soft);
-  }
-  .ms-faq__plus::before,
-  .ms-faq__plus::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 12px;
-    height: 2px;
-    margin: -1px 0 0 -6px;
-    border-radius: 2px;
-    background: var(--ms-accent);
-    transition: transform 0.3s var(--ms-ease);
-  }
-  .ms-faq__plus::after {
-    transform: rotate(90deg);
-  }
-  .ms-faq[open] .ms-faq__plus::after {
-    transform: rotate(0deg);
-  }
-  .ms-faq__answer {
-    padding: 0 44px 18px 0;
-    font-size: 15px;
-    line-height: 1.65;
-    color: var(--ms-text-muted);
-  }
-  .ms-faq__answer p {
-    margin: 0 0 8px;
-  }
-  .ms-store__faq-link {
-    margin-top: 20px;
-  }
-  @media (max-width: 989px) {
-    .ms-store__grid {
-      grid-template-columns: 1fr;
-    }
+    margin-top: auto;
+    padding-top: 12px;
   }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "MS · átvétel és GYIK",
+  "name": "MS · átvétel és cégek",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Felső címke", "default": "Személyes átvétel" },
-    { "type": "text", "id": "title", "label": "Cím", "default": "Rendeld meg online, vedd át még aznap" },
-    { "type": "richtext", "id": "text", "label": "Szöveg" },
-    { "type": "richtext", "id": "address", "label": "Cím" },
-    { "type": "richtext", "id": "hours", "label": "Nyitvatartás" },
-    { "type": "text", "id": "phone", "label": "Telefon" },
-    { "type": "text", "id": "email", "label": "E-mail" },
-    { "type": "text", "id": "button_label", "label": "Gomb felirata", "default": "Kapcsolat" },
-    { "type": "text", "id": "button_link", "label": "Gomb linkje", "info": "Pl. /collections/esp32 vagy teljes webcím" },
-    { "type": "text", "id": "faq_title", "label": "GYIK címe", "default": "Gyakori kérdések" },
-    { "type": "text", "id": "faq_link_label", "label": "GYIK link felirata", "default": "Összes kérdés" },
-    { "type": "text", "id": "faq_link", "label": "GYIK link", "info": "Pl. /collections/esp32 vagy teljes webcím" }
+    { "type": "header", "content": "Személyes átvétel" },
+    { "type": "text", "id": "title", "label": "Cím", "default": "Személyes átvétel Budapesten" },
+    { "type": "richtext", "id": "address", "label": "Cím és megközelítés" },
+    { "type": "richtext", "id": "text", "label": "Megjegyzés" },
+    { "type": "text", "id": "button_label", "label": "Link felirata" },
+    { "type": "text", "id": "button_link", "label": "Link", "info": "Pl. /pages/kapcsolat vagy teljes webcím" },
+    { "type": "header", "content": "Iskoláknak, cégeknek" },
+    { "type": "text", "id": "b2b_title", "label": "Cím", "default": "Iskolának, szakkörnek, cégnek rendelsz?" },
+    { "type": "textarea", "id": "b2b_text", "label": "Szöveg" },
+    { "type": "text", "id": "b2b_button", "label": "Gomb felirata", "default": "Ajánlatot kérek" },
+    { "type": "text", "id": "b2b_link", "label": "Gomb linkje" },
+    { "type": "text", "id": "b2b_button2", "label": "Második gomb felirata" },
+    { "type": "text", "id": "b2b_link2", "label": "Második gomb linkje" }
   ],
   "blocks": [
     {
-      "type": "faq",
-      "name": "Kérdés",
+      "type": "hours",
+      "name": "Nyitvatartási sor",
+      "limit": 7,
       "settings": [
-        { "type": "text", "id": "question", "label": "Kérdés" },
-        { "type": "richtext", "id": "answer", "label": "Válasz" }
+        { "type": "text", "id": "days", "label": "Napok", "default": "Hétfő–péntek" },
+        { "type": "text", "id": "hours", "label": "Idő", "default": "8:00–18:00" }
       ]
     }
   ],
-  "presets": [{ "name": "MS · átvétel és GYIK" }]
+  "presets": [{ "name": "MS · átvétel és cégek" }]
 }
 {% endschema %}

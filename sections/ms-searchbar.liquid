@@ -1,0 +1,177 @@
+{%- comment -%} Modulshop – nagy kereső + kategóriasor a fejléc alatt {%- endcomment -%}
+{%- liquid
+  assign menu = section.settings.menu
+  assign links = menu.links
+  if section.settings.use_children and links.first.links.size > 0
+    assign links = links.first.links
+  endif
+-%}
+<div class="ms-searchbar">
+  <div class="ms-container ms-searchbar__in">
+    <search-button class="ms-searchbar__search">
+      <button type="button" class="ms-searchbar__field button-unstyled" on:click="#search-modal/showDialog" aria-haspopup="dialog" aria-label="{{ section.settings.placeholder | escape }}">
+        <span class="ms-searchbar__text">
+          {{- section.settings.placeholder | escape }}
+          <span class="ms-searchbar__typed" data-ms-typed="{{ section.settings.examples | escape }}" aria-hidden="true"></span><span class="ms-searchbar__caret" aria-hidden="true"></span>
+        </span>
+        <span class="ms-searchbar__go">
+          {%- render 'ms-icon', name: 'search', size: 20 -%}
+          <span>{{ section.settings.button_label | escape }}</span>
+        </span>
+      </button>
+    </search-button>
+    {%- if links.size > 0 -%}
+      <nav class="ms-searchbar__nav" aria-label="{{ section.settings.nav_label | escape }}">
+        {%- if section.settings.all_label != blank -%}
+          <a class="ms-searchbar__all" href="{{ section.settings.all_link | default: routes.collections_url }}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+            {{- section.settings.all_label | escape -}}
+          </a>
+        {%- endif -%}
+        {%- for link in links -%}
+          <a href="{{ link.url }}"{% if link.active or link.child_active %} class="is-on" aria-current="true"{% endif %}>{{ link.title | escape }}</a>
+        {%- endfor -%}
+      </nav>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .ms-searchbar {
+    background: var(--ms-card);
+    border-bottom: 1px solid var(--ms-border);
+  }
+  .ms-searchbar__in {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-block: 12px 8px;
+  }
+  .ms-searchbar__search {
+    display: block;
+  }
+  .ms-searchbar__field {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    height: 52px;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid var(--ms-text);
+    border-radius: 12px;
+    background: var(--ms-card);
+    color: var(--ms-text-muted);
+    font: 500 16px var(--ms-font-body);
+    text-align: left;
+    cursor: text;
+    transition: box-shadow 0.25s;
+  }
+  .ms-searchbar__field:hover,
+  .ms-searchbar__field:focus-visible {
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--ms-focus) 30%, transparent);
+  }
+  .ms-searchbar__text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 16px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .ms-searchbar__typed {
+    color: var(--ms-text);
+    font-weight: 600;
+  }
+  .ms-searchbar__caret {
+    width: 2px;
+    height: 20px;
+    background: var(--ms-text);
+    animation: ms-blink 1s steps(2) infinite;
+  }
+  .ms-searchbar__go {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 22px;
+    background: var(--ms-cta);
+    color: var(--ms-on-cta);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .ms-searchbar__nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .ms-searchbar__nav a {
+    position: relative;
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 0 13px;
+    border-radius: 8px;
+    color: var(--ms-text);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+  }
+  .ms-searchbar__nav a::after {
+    content: '';
+    position: absolute;
+    left: 13px;
+    right: 13px;
+    bottom: 6px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--ms-cta);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ms-ease);
+  }
+  .ms-searchbar__nav a:hover::after,
+  .ms-searchbar__nav a.is-on::after {
+    transform: scaleX(1);
+  }
+  .ms-searchbar__nav a.ms-searchbar__all {
+    margin-right: 8px;
+    background: var(--ms-text);
+    color: var(--ms-bg);
+  }
+  .ms-searchbar__nav a.ms-searchbar__all::after {
+    display: none;
+  }
+  @media (max-width: 749px) {
+    .ms-searchbar__field {
+      height: 48px;
+    }
+    .ms-searchbar__go span {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · kereső és menüsor",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "header", "content": "Kereső" },
+    { "type": "text", "id": "placeholder", "label": "Szöveg a keresőben", "default": "Mit keresel?" },
+    { "type": "text", "id": "examples", "label": "Gépelt példák", "info": "Függőleges vonallal elválasztva. Terméknév és cikkszám is lehet.", "default": "ESP32-C3|1-2-29|relé modul 5V|OLED kijelző I2C|18650 akku|multiméter" },
+    { "type": "text", "id": "button_label", "label": "Gomb felirata", "default": "Keresés" },
+    { "type": "header", "content": "Kategóriasor" },
+    { "type": "link_list", "id": "menu", "label": "Menü", "default": "main-menu" },
+    { "type": "checkbox", "id": "use_children", "label": "Az első menüpont almenüjét mutassa", "info": "Ha a főmenü első pontja a „Termékek”, alatta a kategóriákkal.", "default": true },
+    { "type": "text", "id": "nav_label", "label": "A menüsor neve (akadálymentesség)", "default": "Kategóriák" },
+    { "type": "text", "id": "all_label", "label": "„Összes” gomb felirata", "default": "Összes kategória" },
+    { "type": "text", "id": "all_link", "label": "„Összes” gomb linkje", "info": "Pl. /collections vagy teljes webcím" }
+  ],
+  "presets": [{ "name": "MS · kereső és menüsor" }]
+}
+{% endschema %}

@@ -1,0 +1,96 @@
+{%- comment -%} Modulshop – felső sáv élő feladás-visszaszámlálóval {%- endcomment -%}
+<div class="ms-topbar">
+  <div class="ms-container ms-topbar__in">
+    <p
+      class="ms-topbar__ship"
+      data-ms-ship-timer
+      data-cutoff="{{ section.settings.cutoff | default: '10:00' | escape }}"
+      data-days="{{ section.settings.days | default: '1,2,3,4,5' | escape }}"
+    >
+      <span class="ms-led ms-led--ok" aria-hidden="true"></span>
+      <span data-live hidden>
+        {{- section.settings.live_before | escape }}
+        <strong class="ms-mono ms-topbar__time" data-time>00:00:00</strong>
+        {{ section.settings.live_after | escape -}}
+      </span>
+      <span data-late>{{ section.settings.late_text | escape }}</span>
+    </p>
+    <div class="ms-topbar__links">
+      {%- if section.settings.link_label != blank -%}
+        <a href="{{ section.settings.link | default: '#' }}">{{ section.settings.link_label | escape }}</a>
+      {%- endif -%}
+      {%- if section.settings.phone != blank -%}
+        <a class="ms-mono" href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone | escape }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .ms-topbar {
+    --ms-ok: #4fd08e;
+    background: var(--ms-hero);
+    color: var(--ms-hero-ink);
+    font-size: 14px;
+  }
+  .ms-topbar__in {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px 28px;
+    min-height: 44px;
+    padding-block: 6px;
+  }
+  .ms-topbar__ship {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+  }
+  .ms-topbar__time {
+    font-size: 15px;
+    color: var(--ms-hero-acc);
+  }
+  .ms-topbar__links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .ms-topbar__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    color: var(--ms-hero-ink);
+    text-decoration: none;
+  }
+  .ms-topbar__links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  @media (max-width: 749px) {
+    .ms-topbar__links {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · felső sáv",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "header", "content": "Feladás-visszaszámláló" },
+    { "type": "text", "id": "cutoff", "label": "Napi feladási határidő (óó:pp)", "default": "10:00" },
+    { "type": "text", "id": "days", "label": "Feladási napok", "info": "Vesszővel: 1 = hétfő … 5 = péntek, 6 = szombat, 0 = vasárnap", "default": "1,2,3,4,5" },
+    { "type": "text", "id": "live_before", "label": "Szöveg a számláló előtt", "default": "Ha" },
+    { "type": "text", "id": "live_after", "label": "Szöveg a számláló után", "default": "belül rendelsz, még ma átadjuk a futárnak." },
+    { "type": "text", "id": "late_text", "label": "Szöveg határidő után", "default": "A délelőtt 10 óráig leadott rendelést még aznap átadjuk a futárnak." },
+    { "type": "header", "content": "Jobb oldal" },
+    { "type": "text", "id": "link_label", "label": "Link felirata", "default": "Személyes átvétel Budapesten" },
+    { "type": "text", "id": "link", "label": "Link", "info": "Pl. /pages/szallitas vagy teljes webcím" },
+    { "type": "text", "id": "phone", "label": "Telefonszám", "default": "+36 70 944 7641" }
+  ],
+  "presets": [{ "name": "MS · felső sáv" }]
+}
+{% endschema %}
