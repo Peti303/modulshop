@@ -10,22 +10,37 @@
 -%}
 <div class="ms-searchbar">
   <div class="ms-container ms-searchbar__in">
-    <search-button class="ms-searchbar__search">
-      <button type="button" class="ms-searchbar__field button-unstyled" on:click="#search-modal/showDialog" aria-haspopup="dialog" aria-label="{{ section.settings.placeholder | escape }}">
-        <span class="ms-searchbar__text">
+    <ms-search class="ms-searchbar__search" data-url="{{ routes.predictive_search_url }}" data-search-url="{{ routes.search_url }}">
+      <form class="ms-searchbar__field" action="{{ routes.search_url }}" method="get" role="search">
+        <label class="ms-visually-hidden" for="ms-search-{{ section.id }}">{{ section.settings.placeholder | escape }}</label>
+        <span class="ms-searchbar__hint" aria-hidden="true">
           {{- section.settings.placeholder | escape }}
-          <span class="ms-searchbar__typed" data-ms-typed="{{ section.settings.examples | escape }}" aria-hidden="true"></span><span class="ms-searchbar__caret" aria-hidden="true"></span>
+          <span class="ms-searchbar__typed" data-ms-typed="{{ section.settings.examples | escape }}"></span><span class="ms-searchbar__caret"></span>
         </span>
-        <span class="ms-searchbar__go">
+        <input
+          id="ms-search-{{ section.id }}"
+          class="ms-searchbar__input"
+          type="search"
+          name="q"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          role="combobox"
+          aria-expanded="false"
+          aria-controls="ms-search-results-{{ section.id }}"
+          aria-autocomplete="list"
+        >
+        <button type="submit" class="ms-searchbar__go">
           {%- render 'ms-icon', name: 'search', size: 20 -%}
           <span>{{ section.settings.button_label | escape }}</span>
-        </span>
-      </button>
-    </search-button>
+        </button>
+      </form>
+      <div class="ms-searchbar__results" id="ms-search-results-{{ section.id }}" data-results hidden></div>
+    </ms-search>
     {%- if links.size > 0 -%}
       <nav class="ms-searchbar__nav" aria-label="{{ section.settings.nav_label | escape }}">
         {%- if section.settings.all_label != blank -%}
-          <a class="ms-searchbar__all" href="{{ section.settings.all_link | default: routes.collections_url }}">
+          <a class="ms-searchbar__allcat" href="{{ section.settings.all_link | default: routes.collections_url }}">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
             {{- section.settings.all_label | escape -}}
           </a>
@@ -40,6 +55,8 @@
 
 {% stylesheet %}
   .ms-searchbar {
+    position: relative;
+    z-index: 20;
     background: var(--ms-card);
     border-bottom: 1px solid var(--ms-border);
   }
@@ -50,37 +67,58 @@
     padding-block: 12px 8px;
   }
   .ms-searchbar__search {
+    position: relative;
     display: block;
   }
   .ms-searchbar__field {
+    position: relative;
     display: flex;
     align-items: stretch;
     width: 100%;
     height: 52px;
-    padding: 0;
+    margin: 0;
     overflow: hidden;
     border: 2px solid var(--ms-text);
     border-radius: 12px;
     background: var(--ms-card);
-    color: var(--ms-text-muted);
-    font: 500 16px var(--ms-font-body);
-    text-align: left;
-    cursor: text;
     transition: box-shadow 0.25s;
   }
-  .ms-searchbar__field:hover,
-  .ms-searchbar__field:focus-visible {
+  .ms-searchbar__field:focus-within {
     box-shadow: 0 0 0 4px color-mix(in srgb, var(--ms-focus) 30%, transparent);
   }
-  .ms-searchbar__text {
+  .ms-searchbar__input {
     flex: 1;
     min-width: 0;
+    padding: 0 16px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--ms-text);
+    font: 600 16px var(--ms-font-body);
+    box-shadow: none;
+  }
+  .ms-searchbar__input::-webkit-search-cancel-button {
+    display: none;
+  }
+  .ms-searchbar__hint {
+    position: absolute;
+    left: 16px;
+    top: 0;
+    bottom: 0;
+    right: 120px;
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 0 16px;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
+    color: var(--ms-text-muted);
+    font: 500 16px var(--ms-font-body);
+    pointer-events: none;
+  }
+  ms-search.has-value .ms-searchbar__hint,
+  ms-search:focus-within .ms-searchbar__typed,
+  ms-search:focus-within .ms-searchbar__caret {
+    display: none;
   }
   .ms-searchbar__typed {
     color: var(--ms-text);
@@ -97,10 +135,83 @@
     align-items: center;
     gap: 8px;
     padding: 0 22px;
+    border: 0;
     background: var(--ms-cta);
     color: var(--ms-on-cta);
-    font-weight: 700;
+    font: 700 16px var(--ms-font-body);
     cursor: pointer;
+  }
+  .ms-searchbar__results {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    z-index: 30;
+    max-height: min(70vh, 560px);
+    overflow-y: auto;
+    padding: 8px;
+    border: 1.5px solid var(--ms-text);
+    border-radius: 16px;
+    background: var(--ms-card);
+    box-shadow: var(--ms-shadow-lg);
+    animation: ms-rise 0.25s var(--ms-ease) both;
+  }
+  .ms-searchbar__group {
+    margin: 0;
+    padding: 10px 10px 4px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ms-text-muted);
+  }
+  .ms-searchbar__item {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 10px;
+    color: var(--ms-text);
+    text-decoration: none;
+  }
+  .ms-searchbar__item:hover,
+  .ms-searchbar__item.is-active {
+    background: var(--ms-surface);
+  }
+  .ms-searchbar__item .ms-ph {
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+  }
+  .ms-searchbar__item-title {
+    display: block;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .ms-searchbar__item .ms-stock {
+    font-size: 13px;
+  }
+  .ms-searchbar__item .ms-price {
+    font-size: 18px;
+  }
+  .ms-searchbar__item--plain {
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 44px;
+  }
+  .ms-searchbar__empty {
+    margin: 0;
+    padding: 18px 10px;
+    color: var(--ms-text-muted);
+  }
+  .ms-searchbar__all {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    margin-top: 4px;
+    padding: 0 12px;
+    border-top: 1px solid var(--ms-border);
+    color: var(--ms-link);
+    font-weight: 700;
+    text-decoration: none;
   }
   .ms-searchbar__nav {
     display: flex;
@@ -140,12 +251,12 @@
   .ms-searchbar__nav a.is-on::after {
     transform: scaleX(1);
   }
-  .ms-searchbar__nav a.ms-searchbar__all {
+  .ms-searchbar__nav a.ms-searchbar__allcat {
     margin-right: 8px;
     background: var(--ms-text);
     color: var(--ms-bg);
   }
-  .ms-searchbar__nav a.ms-searchbar__all::after {
+  .ms-searchbar__nav a.ms-searchbar__allcat::after {
     display: none;
   }
   @media (max-width: 749px) {
@@ -154,6 +265,9 @@
     }
     .ms-searchbar__go span {
       display: none;
+    }
+    .ms-searchbar__hint {
+      right: 64px;
     }
   }
 {% endstylesheet %}
