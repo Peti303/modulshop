@@ -1,0 +1,348 @@
+{%- comment -%}
+  Modulshop – FAQ accordion
+  - "Kérdés" blocks, optionally grouped by "Csoportcím" blocks.
+  - Without question blocks the page's own content is used: every <h3> becomes a question.
+  - Outputs FAQPage structured data.
+{%- endcomment -%}
+{%- liquid
+  assign questions = section.blocks | where: 'type', 'question'
+  assign use_page = false
+  if questions.size == 0 and page.content contains '<h3'
+    assign use_page = true
+  endif
+  assign tel = section.settings.phone | remove: ' ' | remove: '/' | remove: '-'
+  assign ld = ''
+  assign has_cta = section.settings.show_cta
+-%}
+<section class="ms-section ms-faqs{% if section.settings.surface %} ms-section--surface{% endif %}" aria-label="{{ section.settings.title | default: 'Gyakran ismételt kérdések' | escape }}">
+  <div class="ms-container ms-faqs__grid{% if has_cta %} ms-faqs__grid--aside{% endif %}">
+    <div class="ms-faqs__main">
+      {%- if section.settings.title != blank or section.settings.intro != blank -%}
+        <div class="ms-faqs__head">
+          {%- if section.settings.eyebrow != blank -%}<p class="ms-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+          {%- if section.settings.title != blank -%}<h2 class="ms-heading">{{ section.settings.title | escape }}</h2>{%- endif -%}
+          {%- if section.settings.intro != blank -%}<div class="ms-lead">{{ section.settings.intro }}</div>{%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="ms-faqs__list">
+        {%- if use_page -%}
+          {%- assign parts = page.content | split: '<h3' -%}
+          {%- for part in parts -%}
+            {%- if forloop.first -%}
+              {%- if part != blank -%}<div class="ms-rte ms-faqs__pre">{{ part }}</div>{%- endif -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- liquid
+              assign pieces = part | split: '</h3>'
+              assign q = '<h3' | append: pieces[0] | append: '</h3>' | strip_html | strip
+              assign a = ''
+              if pieces.size > 1
+                assign a = part | remove_first: pieces[0] | remove_first: '</h3>'
+              endif
+            -%}
+            <details class="ms-acc">
+              <summary>
+                <span class="ms-acc__q">{{ q }}</span>
+                <span class="ms-acc__icon" aria-hidden="true"></span>
+              </summary>
+              <div class="ms-acc__a ms-rte">{{ a }}</div>
+            </details>
+            {%- liquid
+              assign ld_q = q | json
+              assign ld_a = a | strip_html | strip | json
+              unless ld == ''
+                assign ld = ld | append: ','
+              endunless
+              assign ld = ld | append: '{"@type":"Question","name":' | append: ld_q | append: ',"acceptedAnswer":{"@type":"Answer","text":' | append: ld_a | append: '}}'
+            -%}
+          {%- endfor -%}
+        {%- else -%}
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'group' -%}
+                <h3 class="ms-faqs__group" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }}</h3>
+              {%- when 'question' -%}
+                {%- if block.settings.question != blank -%}
+                  <details class="ms-acc" {{ block.shopify_attributes }}{% if block.settings.open %} open{% endif %}>
+                    <summary>
+                      <span class="ms-acc__q">{{ block.settings.question | escape }}</span>
+                      <span class="ms-acc__icon" aria-hidden="true"></span>
+                    </summary>
+                    <div class="ms-acc__a ms-rte">{{ block.settings.answer }}</div>
+                  </details>
+                  {%- liquid
+                    assign ld_q = block.settings.question | json
+                    assign ld_a = block.settings.answer | strip_html | strip | json
+                    unless ld == ''
+                      assign ld = ld | append: ','
+                    endunless
+                    assign ld = ld | append: '{"@type":"Question","name":' | append: ld_q | append: ',"acceptedAnswer":{"@type":"Answer","text":' | append: ld_a | append: '}}'
+                  -%}
+                {%- endif -%}
+            {%- endcase -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if has_cta -%}
+      <aside class="ms-faqs__aside">
+        <div class="ms-faqs__cta ms-card">
+          <span class="ms-icon-badge">{% render 'ms-icon', name: 'mail' %}</span>
+          {%- if section.settings.cta_title != blank -%}
+            <p class="ms-faqs__cta-title">{{ section.settings.cta_title | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.cta_text != blank -%}
+            <div class="ms-faqs__cta-text">{{ section.settings.cta_text }}</div>
+          {%- endif -%}
+          <ul class="ms-faqs__contact" role="list">
+            {%- if section.settings.phone != blank -%}
+              <li>{% render 'ms-icon', name: 'phone', size: 18 %}<a href="tel:{{ tel }}">{{ section.settings.phone | escape }}</a></li>
+            {%- endif -%}
+            {%- if section.settings.email != blank -%}
+              <li>{% render 'ms-icon', name: 'mail', size: 18 %}<a href="mailto:{{ section.settings.email }}">{{ section.settings.email | escape }}</a></li>
+            {%- endif -%}
+          </ul>
+          {%- if section.settings.button_label != blank -%}
+            <a class="ms-btn ms-btn--primary ms-faqs__btn" href="{{ section.settings.button_link | default: '#' }}">
+              {{- section.settings.button_label | escape -}}
+              {%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
+            </a>
+          {%- endif -%}
+        </div>
+      </aside>
+    {%- endif -%}
+  </div>
+  {%- if ld != '' -%}
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{ ld }}]}</script>
+  {%- endif -%}
+</section>
+
+{% stylesheet %}
+  .ms-faqs__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 820px);
+    justify-content: center;
+    gap: clamp(28px, 4vw, 56px);
+  }
+  .ms-faqs__grid--aside {
+    grid-template-columns: minmax(0, 820px) minmax(260px, 340px);
+    justify-content: space-between;
+    align-items: start;
+  }
+  .ms-faqs__head {
+    margin-bottom: clamp(20px, 3vw, 32px);
+  }
+  .ms-faqs__group {
+    margin: 36px 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ms-accent);
+  }
+  .ms-faqs__group:first-child {
+    margin-top: 0;
+  }
+  .ms-faqs__pre {
+    margin-bottom: 24px;
+  }
+  .ms-acc {
+    border-bottom: 1px solid var(--ms-border);
+  }
+  .ms-faqs__group + .ms-acc,
+  .ms-faqs__list > .ms-acc:first-child {
+    border-top: 1px solid var(--ms-border);
+  }
+  .ms-acc summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 4px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--ms-text);
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.2s;
+  }
+  .ms-acc summary::-webkit-details-marker {
+    display: none;
+  }
+  .ms-acc summary:hover {
+    color: var(--ms-primary);
+  }
+  .ms-acc summary:focus-visible {
+    outline: 2px solid var(--ms-accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  .ms-acc__icon {
+    position: relative;
+    flex: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--ms-accent-soft);
+    transition: background-color 0.2s;
+  }
+  .ms-acc__icon::before,
+  .ms-acc__icon::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 12px;
+    height: 2px;
+    margin: -1px 0 0 -6px;
+    border-radius: 2px;
+    background: var(--ms-accent);
+    transition: transform 0.3s var(--ms-ease), background-color 0.2s;
+  }
+  .ms-acc__icon::after {
+    transform: rotate(90deg);
+  }
+  .ms-acc[open] .ms-acc__icon {
+    background: var(--ms-accent);
+  }
+  .ms-acc[open] .ms-acc__icon::before,
+  .ms-acc[open] .ms-acc__icon::after {
+    background: var(--ms-bg);
+  }
+  .ms-acc[open] .ms-acc__icon::after {
+    transform: rotate(0deg);
+  }
+  .ms-acc__a.ms-rte {
+    padding: 0 48px 20px 4px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ms-text-muted);
+  }
+  .ms-acc__a.ms-rte strong {
+    color: var(--ms-text);
+  }
+  .ms-acc__a p {
+    margin: 0 0 10px;
+  }
+  .ms-acc__a a {
+    color: var(--ms-primary);
+    font-weight: 600;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .ms-acc[open] .ms-acc__a {
+      animation: ms-acc-in 0.35s var(--ms-ease);
+    }
+  }
+  @keyframes ms-acc-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+  .ms-faqs__aside {
+    position: sticky;
+    top: calc(var(--header-height, 80px) + 24px);
+  }
+  .ms-faqs__cta {
+    padding: 26px;
+  }
+  .ms-faqs__cta-title {
+    margin: 16px 0 6px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--ms-text);
+  }
+  .ms-faqs__cta-text {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ms-text-muted);
+  }
+  .ms-faqs__cta-text p {
+    margin: 0;
+  }
+  .ms-faqs__contact {
+    display: grid;
+    gap: 10px;
+    margin: 18px 0 20px;
+    padding: 0;
+    list-style: none;
+  }
+  .ms-faqs__contact li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ms-accent);
+  }
+  .ms-faqs__contact a {
+    font-weight: 700;
+    color: var(--ms-primary);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .ms-faqs__contact a:hover {
+    text-decoration: underline;
+  }
+  .ms-faqs__btn {
+    width: 100%;
+  }
+  @media (max-width: 989px) {
+    .ms-faqs__grid--aside {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .ms-faqs__aside {
+      position: static;
+    }
+  }
+  @media (max-width: 599px) {
+    .ms-acc summary {
+      font-size: 16px;
+    }
+    .ms-acc__a.ms-rte {
+      padding-right: 4px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · GYIK",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Kérdés blokkok nélkül az oldal saját szövege jelenik meg: minden H3-as címsor egy kérdés lesz."
+    },
+    { "type": "text", "id": "eyebrow", "label": "Felső címke" },
+    { "type": "text", "id": "title", "label": "Cím" },
+    { "type": "richtext", "id": "intro", "label": "Bevezető" },
+    { "type": "checkbox", "id": "surface", "label": "Szürke háttér", "default": false },
+    { "type": "header", "content": "Kapcsolat-kártya" },
+    { "type": "checkbox", "id": "show_cta", "label": "Kapcsolat-kártya megjelenítése", "default": true },
+    { "type": "text", "id": "cta_title", "label": "Kártya címe", "default": "Nem találod a választ?" },
+    { "type": "richtext", "id": "cta_text", "label": "Kártya szövege", "default": "<p>Írj vagy telefonálj nekünk, szívesen segítünk.</p>" },
+    { "type": "text", "id": "phone", "label": "Telefon", "default": "+36 70 944 7641" },
+    { "type": "text", "id": "email", "label": "E-mail", "default": "info@modulshop.hu" },
+    { "type": "text", "id": "button_label", "label": "Gomb felirata", "default": "Kapcsolat" },
+    { "type": "text", "id": "button_link", "label": "Gomb linkje", "default": "/pages/kapcsolat", "info": "Pl. /pages/kapcsolat vagy teljes webcím" }
+  ],
+  "blocks": [
+    {
+      "type": "group",
+      "name": "Csoportcím",
+      "settings": [{ "type": "text", "id": "heading", "label": "Csoportcím", "default": "Témakör" }]
+    },
+    {
+      "type": "question",
+      "name": "Kérdés",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Kérdés" },
+        { "type": "richtext", "id": "answer", "label": "Válasz" },
+        { "type": "checkbox", "id": "open", "label": "Alapból nyitva", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "MS · GYIK" }]
+}
+{% endschema %}

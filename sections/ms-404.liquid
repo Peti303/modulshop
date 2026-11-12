@@ -1,0 +1,263 @@
+{%- comment -%} Modulshop – friendly 404 with search and quick links {%- endcomment -%}
+{%- assign links = section.blocks | where: 'type', 'link' -%}
+<section class="ms-404" aria-labelledby="ms-404-{{ section.id }}">
+  <div class="ms-404__bg" aria-hidden="true"></div>
+  <div class="ms-container ms-404__inner">
+    <p class="ms-404__code" aria-hidden="true">
+      <span>4</span>{%- render 'ms-icon', name: 'chip', size: 96 -%}<span>4</span>
+    </p>
+    <h1 id="ms-404-{{ section.id }}" class="ms-404__title">{{ section.settings.title | escape }}</h1>
+    {%- if section.settings.text != blank -%}
+      <div class="ms-404__text">{{ section.settings.text }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.show_search -%}
+      <form action="{{ routes.search_url }}" method="get" role="search" class="ms-404__search">
+        <label for="ms-404-q-{{ section.id }}" class="ms-visually-hidden">Keresés a termékek között</label>
+        <span class="ms-404__search-icon">{% render 'ms-icon', name: 'search', size: 20 %}</span>
+        <input
+          id="ms-404-q-{{ section.id }}"
+          type="search"
+          name="q"
+          placeholder="{{ section.settings.search_placeholder | escape }}"
+          autocomplete="off"
+        >
+        <input type="hidden" name="options[prefix]" value="last">
+        <button type="submit" class="ms-btn ms-btn--primary">Keresés</button>
+      </form>
+    {%- endif -%}
+
+    {%- if links.size > 0 -%}
+      <nav class="ms-404__links" aria-labelledby="ms-404-links-{{ section.id }}">
+        <p id="ms-404-links-{{ section.id }}" class="ms-404__links-title">{{ section.settings.links_title | escape }}</p>
+        <ul role="list">
+          {%- for block in links -%}
+            <li {{ block.shopify_attributes }}>
+              <a href="{{ block.settings.link | default: '#' }}">{{ block.settings.label | escape }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+
+    <div class="ms-404__actions">
+      <a class="ms-btn ms-btn--primary" href="{{ routes.root_url }}">Vissza a főoldalra</a>
+      {%- if section.settings.button_label != blank -%}
+        <a class="ms-btn ms-btn--ghost" href="{{ section.settings.button_link | default: '#' }}">{{ section.settings.button_label | escape }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-404 {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    color: var(--ms-text);
+    background: linear-gradient(180deg, var(--ms-accent-soft) 0%, var(--ms-bg) 75%);
+  }
+  .ms-404__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(rgb(var(--ms-primary-rgb) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--ms-primary-rgb) / 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    -webkit-mask-image: radial-gradient(60% 60% at 50% 30%, #000, transparent 80%);
+    mask-image: radial-gradient(60% 60% at 50% 30%, #000, transparent 80%);
+  }
+  .ms-404__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-block: clamp(48px, 8vw, 104px);
+  }
+  .ms-404__code {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 12px;
+    font-family: var(--font-heading--family);
+    font-size: clamp(80px, 14vw, 144px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--ms-primary), var(--ms-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .ms-404__code svg {
+    width: 0.8em;
+    height: 0.8em;
+    color: var(--ms-accent);
+    stroke-width: 1.4;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .ms-404__code svg {
+      animation: ms-404-pulse 2.8s ease-in-out infinite;
+    }
+  }
+  @keyframes ms-404-pulse {
+    50% {
+      transform: rotate(8deg) scale(1.04);
+    }
+  }
+  .ms-404__title {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-size: clamp(26px, 3.4vw, 40px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ms-text);
+    text-wrap: balance;
+  }
+  .ms-404__text {
+    max-width: 56ch;
+    margin-top: 12px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ms-text-muted);
+  }
+  .ms-404__text p {
+    margin: 0;
+  }
+  .ms-404__search {
+    position: relative;
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    max-width: 560px;
+    margin-top: 28px;
+    padding: 6px;
+    border: 1.5px solid var(--ms-border-strong);
+    border-radius: var(--ms-radius);
+    background: var(--ms-card);
+    box-shadow: var(--ms-shadow);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .ms-404__search:focus-within {
+    border-color: var(--ms-accent);
+    box-shadow: 0 0 0 4px rgb(var(--ms-accent-rgb) / 0.18), var(--ms-shadow);
+  }
+  .ms-404__search-icon {
+    display: grid;
+    place-items: center;
+    padding-left: 10px;
+    color: var(--ms-text-muted);
+  }
+  .ms-404__search input[type='search'] {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0 4px;
+    border: 0;
+    background: transparent;
+    color: var(--ms-text);
+    font: inherit;
+    font-size: 16px;
+    outline: none;
+    box-shadow: none;
+  }
+  .ms-404__search input::placeholder {
+    color: var(--ms-text-muted);
+  }
+  .ms-404__search .ms-btn {
+    min-height: 44px;
+    padding-inline: 18px;
+  }
+  .ms-404__links {
+    margin-top: 32px;
+  }
+  .ms-404__links-title {
+    margin: 0 0 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ms-text-muted);
+  }
+  .ms-404__links ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 760px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ms-404__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 8px 16px;
+    border: 1px solid var(--ms-border);
+    border-radius: 999px;
+    background: var(--ms-card);
+    color: var(--ms-text);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+  .ms-404__links a:hover,
+  .ms-404__links a:focus-visible {
+    border-color: var(--ms-accent);
+    background: var(--ms-accent-soft);
+    color: var(--ms-primary);
+  }
+  .ms-404__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  @media (max-width: 499px) {
+    .ms-404__search-icon {
+      display: none;
+    }
+    .ms-404__search input[type='search'] {
+      padding-left: 10px;
+    }
+    .ms-404__actions,
+    .ms-404__actions .ms-btn {
+      width: 100%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · 404",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Cím", "default": "Ez az oldal nem található" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Szöveg",
+      "default": "<p>Lehet, hogy elírás van a címben, vagy az oldal már nem létezik. Keress rá a termékre, vagy válassz egy kategóriát.</p>"
+    },
+    { "type": "checkbox", "id": "show_search", "label": "Keresőmező", "default": true },
+    { "type": "text", "id": "search_placeholder", "label": "Kereső helyőrző", "default": "Pl. ESP32, DHT22, relé…" },
+    { "type": "text", "id": "links_title", "label": "Linkek címe", "default": "Népszerű kategóriák" },
+    { "type": "text", "id": "button_label", "label": "2. gomb felirata", "default": "Összes termék" },
+    { "type": "text", "id": "button_link", "label": "2. gomb linkje", "default": "/collections/all" }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Felirat" },
+        { "type": "text", "id": "link", "label": "Link", "info": "Pl. /collections/esp32 vagy teljes webcím" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "MS · 404" }]
+}
+{% endschema %}

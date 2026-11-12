@@ -1,0 +1,399 @@
+{%- comment -%}
+  Modulshop – readable article layout for page.content
+  Optional aside: table of contents (built from the page's h2 headings) and a sticky contact card.
+{%- endcomment -%}
+{%- liquid
+  assign content = page.content
+  assign has_card = section.settings.show_card
+  assign has_aside = false
+  if has_card or section.settings.show_toc
+    assign has_aside = true
+  endif
+  assign tel = section.settings.phone | remove: ' ' | remove: '/' | remove: '-'
+-%}
+<section
+  class="ms-section ms-page-content{% if section.settings.surface %} ms-section--surface{% endif %}{% if section.settings.compact_top %} ms-page-content--compact{% endif %}"
+  id="ms-pc-{{ section.id }}"
+>
+  <div class="ms-container ms-page-content__grid{% if has_aside %} ms-page-content__grid--aside{% endif %}">
+    <article class="ms-page-content__main">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="ms-heading ms-page-content__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if content != blank -%}
+        <div class="ms-rte" data-ms-rte>{{ content }}</div>
+      {%- else -%}
+        <div class="ms-page-content__empty">
+          <p>
+            Az oldal szövege a Shopify adminban, az <strong>Online áruház › Oldalak</strong> menüpontban szerkeszthető.
+          </p>
+        </div>
+      {%- endif -%}
+    </article>
+
+    {%- if has_aside -%}
+      <aside class="ms-page-content__aside" aria-label="Kiegészítő információk">
+        <div class="ms-page-content__sticky">
+          {%- if section.settings.show_toc -%}
+            <nav class="ms-page-content__toc ms-card" aria-labelledby="ms-toc-{{ section.id }}" hidden data-ms-toc>
+              <p id="ms-toc-{{ section.id }}" class="ms-page-content__toc-title">Tartalom</p>
+              <ol role="list"></ol>
+            </nav>
+          {%- endif -%}
+
+          {%- if has_card -%}
+            <div class="ms-page-content__card ms-card">
+              {%- if section.settings.card_title != blank -%}
+                <p class="ms-page-content__card-title">{{ section.settings.card_title | escape }}</p>
+              {%- endif -%}
+              {%- if section.settings.card_text != blank -%}
+                <div class="ms-page-content__card-text">{{ section.settings.card_text }}</div>
+              {%- endif -%}
+              <ul class="ms-page-content__contact" role="list">
+                {%- if section.settings.phone != blank -%}
+                  <li>
+                    <span class="ms-icon-badge">{% render 'ms-icon', name: 'phone' %}</span>
+                    <span><small>Telefon</small><a href="tel:{{ tel }}">{{ section.settings.phone | escape }}</a></span>
+                  </li>
+                {%- endif -%}
+                {%- if section.settings.email != blank -%}
+                  <li>
+                    <span class="ms-icon-badge">{% render 'ms-icon', name: 'mail' %}</span>
+                    <span><small>E-mail</small><a href="mailto:{{ section.settings.email }}">{{ section.settings.email | escape }}</a></span>
+                  </li>
+                {%- endif -%}
+              </ul>
+              {%- if section.settings.button_label != blank -%}
+                <a class="ms-btn ms-btn--primary ms-page-content__btn" href="{{ section.settings.button_link | default: '#' }}">
+                  {{- section.settings.button_label | escape -}}
+                  {%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
+                </a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </aside>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.show_toc -%}
+    <script>
+      (() => {
+        const root = document.getElementById('ms-pc-{{ section.id }}');
+        const nav = root && root.querySelector('[data-ms-toc]');
+        const rte = root && root.querySelector('[data-ms-rte]');
+        if (!nav || !rte) return;
+        const heads = rte.querySelectorAll('h2');
+        if (heads.length < 3) return;
+        const list = nav.querySelector('ol');
+        const used = new Set();
+        heads.forEach((h, i) => {
+          if (!h.id) {
+            let slug = (h.textContent || '')
+              .toLowerCase()
+              .normalize('NFD')
+              .replace(/[̀-ͯ]/g, '')
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-+|-+$/g, '')
+              .slice(0, 60) || 'resz-' + (i + 1);
+            while (used.has(slug)) slug += '-' + (i + 1);
+            h.id = slug;
+          }
+          used.add(h.id);
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = '#' + h.id;
+          a.textContent = h.textContent.trim();
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+        nav.hidden = false;
+      })();
+    </script>
+  {%- endif -%}
+</section>
+
+{% stylesheet %}
+  .ms-page-content--compact {
+    padding-top: clamp(24px, 3vw, 40px);
+  }
+  .ms-page-content__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 75ch);
+    justify-content: center;
+    gap: clamp(28px, 4vw, 56px);
+  }
+  .ms-page-content__grid--aside {
+    grid-template-columns: minmax(0, 75ch) minmax(260px, 320px);
+    justify-content: space-between;
+    align-items: start;
+  }
+  .ms-page-content__heading {
+    margin-bottom: 20px;
+  }
+  .ms-page-content__empty {
+    padding: 24px;
+    border: 1px dashed var(--ms-border-strong);
+    border-radius: var(--ms-radius);
+    color: var(--ms-text-muted);
+  }
+  .ms-page-content__empty p {
+    margin: 0;
+  }
+  .ms-page-content__sticky {
+    position: sticky;
+    top: calc(var(--header-height, 80px) + 24px);
+    display: grid;
+    gap: 20px;
+  }
+  .ms-page-content__toc {
+    padding: 20px 22px;
+  }
+  .ms-page-content__toc-title,
+  .ms-page-content__card-title {
+    margin: 0 0 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ms-accent);
+  }
+  .ms-page-content__toc ol {
+    display: grid;
+    gap: 2px;
+    max-height: 50vh;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    list-style: none;
+    counter-reset: mstoc;
+  }
+  .ms-page-content__toc a {
+    display: block;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--ms-text-muted);
+    text-decoration: none;
+  }
+  .ms-page-content__toc a:hover,
+  .ms-page-content__toc a:focus-visible {
+    background: var(--ms-accent-soft);
+    color: var(--ms-text);
+  }
+  .ms-page-content__card {
+    padding: 24px;
+  }
+  .ms-page-content__card-title {
+    font-size: 18px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ms-text);
+  }
+  .ms-page-content__card-text {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ms-text-muted);
+  }
+  .ms-page-content__card-text p {
+    margin: 0 0 12px;
+  }
+  .ms-page-content__contact {
+    display: grid;
+    gap: 14px;
+    margin: 16px 0 20px;
+    padding: 0;
+    list-style: none;
+  }
+  .ms-page-content__contact li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .ms-page-content__contact li > span:last-child {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .ms-page-content__contact small {
+    font-size: 13px;
+    color: var(--ms-text-muted);
+  }
+  .ms-page-content__contact a {
+    font-weight: 700;
+    color: var(--ms-primary);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .ms-page-content__contact a:hover {
+    text-decoration: underline;
+  }
+  .ms-page-content__btn {
+    width: 100%;
+  }
+
+  /* ---------- Rich text typography ---------- */
+  .ms-rte {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ms-text);
+    overflow-wrap: break-word;
+  }
+  .ms-rte > :first-child {
+    margin-top: 0;
+  }
+  .ms-rte > :last-child {
+    margin-bottom: 0;
+  }
+  .ms-rte h2,
+  .ms-rte h3,
+  .ms-rte h4 {
+    font-family: var(--font-heading--family);
+    color: var(--ms-text);
+    letter-spacing: -0.01em;
+    scroll-margin-top: calc(var(--header-height, 80px) + 24px);
+    text-wrap: balance;
+  }
+  .ms-rte h2 {
+    margin: 2.2em 0 0.6em;
+    padding-top: 0.9em;
+    border-top: 1px solid var(--ms-border);
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 800;
+    line-height: 1.25;
+  }
+  .ms-rte > h2:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+  .ms-rte h3 {
+    margin: 1.8em 0 0.5em;
+    font-size: clamp(18px, 1.8vw, 21px);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .ms-rte h4 {
+    margin: 1.5em 0 0.4em;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .ms-rte p {
+    margin: 0 0 1em;
+  }
+  .ms-rte ul,
+  .ms-rte ol {
+    margin: 0 0 1.2em;
+    padding-left: 1.4em;
+  }
+  .ms-rte li {
+    margin: 0.35em 0;
+    padding-left: 0.2em;
+  }
+  .ms-rte ul li::marker {
+    color: var(--ms-accent);
+  }
+  .ms-rte ol li::marker {
+    color: var(--ms-accent);
+    font-weight: 700;
+  }
+  .ms-rte a {
+    color: var(--ms-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  .ms-rte a:hover {
+    text-decoration-thickness: 2px;
+  }
+  .ms-rte strong,
+  .ms-rte b {
+    font-weight: 700;
+    color: var(--ms-text);
+  }
+  .ms-rte blockquote {
+    margin: 1.5em 0;
+    padding: 16px 20px;
+    border-left: 4px solid var(--ms-accent);
+    border-radius: 0 var(--ms-radius-sm) var(--ms-radius-sm) 0;
+    background: var(--ms-accent-soft);
+  }
+  .ms-rte hr {
+    margin: 2em 0;
+    border: 0;
+    border-top: 1px solid var(--ms-border);
+  }
+  .ms-rte img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--ms-radius);
+  }
+  .ms-rte table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 1.4em;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .ms-rte th,
+  .ms-rte td {
+    padding: 10px 14px;
+    border: 1px solid var(--ms-border);
+    text-align: left;
+    vertical-align: top;
+  }
+  .ms-rte th,
+  .ms-rte thead td {
+    background: var(--ms-surface);
+    font-weight: 700;
+  }
+  .ms-rte tbody tr:nth-child(even) td {
+    background: rgb(var(--ms-text-rgb) / 0.02);
+  }
+
+  @media (max-width: 989px) {
+    .ms-page-content__grid--aside {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .ms-page-content__sticky {
+      position: static;
+    }
+    .ms-page-content__toc {
+      order: -1;
+    }
+  }
+  @media (max-width: 749px) {
+    .ms-rte {
+      font-size: 16px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · oldal szövege",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Az oldal szövegét a Shopify admin Online áruház › Oldalak menüpontjában szerkesztheted."
+    },
+    { "type": "text", "id": "heading", "label": "Címsor a szöveg felett" },
+    { "type": "checkbox", "id": "show_toc", "label": "Tartalomjegyzék", "info": "Az oldal H2-es címsoraiból készül, legalább 3 címsor esetén jelenik meg.", "default": false },
+    { "type": "checkbox", "id": "surface", "label": "Szürke háttér", "default": false },
+    { "type": "checkbox", "id": "compact_top", "label": "Kisebb felső térköz", "default": false },
+    { "type": "header", "content": "Kapcsolat-kártya" },
+    { "type": "checkbox", "id": "show_card", "label": "Kapcsolat-kártya megjelenítése", "default": true },
+    { "type": "text", "id": "card_title", "label": "Kártya címe", "default": "Kérdésed van?" },
+    { "type": "richtext", "id": "card_text", "label": "Kártya szövege", "default": "<p>Írj vagy telefonálj nekünk, szívesen segítünk.</p>" },
+    { "type": "text", "id": "phone", "label": "Telefon", "default": "+36 70 944 7641" },
+    { "type": "text", "id": "email", "label": "E-mail", "default": "info@modulshop.hu" },
+    { "type": "text", "id": "button_label", "label": "Gomb felirata", "default": "Kapcsolat" },
+    { "type": "text", "id": "button_link", "label": "Gomb linkje", "default": "/pages/kapcsolat", "info": "Pl. /pages/kapcsolat vagy teljes webcím" }
+  ],
+  "presets": [{ "name": "MS · oldal szövege" }]
+}
+{% endschema %}

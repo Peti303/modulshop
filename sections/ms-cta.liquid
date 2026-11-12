@@ -1,0 +1,149 @@
+{%- comment -%} Modulshop – call-to-action band (title, text, up to two buttons, optional contact line) {%- endcomment -%}
+{%- assign tel = section.settings.phone | remove: ' ' | remove: '/' | remove: '-' -%}
+<section class="ms-section ms-cta-band" aria-labelledby="ms-cta-{{ section.id }}">
+  <div class="ms-container">
+    <div class="ms-cta-band__box ms-reveal">
+      <div class="ms-cta-band__bg" aria-hidden="true"></div>
+      <div class="ms-cta-band__body">
+        {%- if section.settings.eyebrow != blank -%}<p class="ms-cta-band__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        <h2 id="ms-cta-{{ section.id }}" class="ms-cta-band__title">{{ section.settings.title | escape }}</h2>
+        {%- if section.settings.text != blank -%}<div class="ms-cta-band__text">{{ section.settings.text }}</div>{%- endif -%}
+        {%- if section.settings.phone != blank or section.settings.email != blank -%}
+          <p class="ms-cta-band__contact">
+            {%- if section.settings.phone != blank -%}
+              <a href="tel:{{ tel }}">{% render 'ms-icon', name: 'phone', size: 18 %}{{ section.settings.phone | escape }}</a>
+            {%- endif -%}
+            {%- if section.settings.email != blank -%}
+              <a href="mailto:{{ section.settings.email }}">{% render 'ms-icon', name: 'mail', size: 18 %}{{ section.settings.email | escape }}</a>
+            {%- endif -%}
+          </p>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.button_label != blank or section.settings.button2_label != blank -%}
+        <div class="ms-cta-band__actions">
+          {%- if section.settings.button_label != blank -%}
+            <a class="ms-btn ms-btn--highlight" href="{{ section.settings.button_link | default: '#' }}">
+              {{- section.settings.button_label | escape -}}
+              {%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.button2_label != blank -%}
+            <a class="ms-btn ms-btn--on-dark" href="{{ section.settings.button2_link | default: '#' }}">
+              {{- section.settings.button2_label | escape -}}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-cta-band__box {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 40px;
+    padding: clamp(28px, 4.5vw, 56px);
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: var(--ms-radius-lg);
+    background: linear-gradient(135deg, var(--ms-hero-from) 0%, var(--ms-hero-to) 100%);
+    color: #fff;
+  }
+  .ms-cta-band__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      radial-gradient(50% 120% at 100% 0%, rgb(255 255 255 / 0.16), transparent 60%),
+      linear-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: auto, 28px 28px, 28px 28px;
+  }
+  .ms-cta-band__body {
+    flex: 1 1 420px;
+    min-width: 0;
+  }
+  .ms-cta-band__eyebrow {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ms-highlight);
+  }
+  .ms-cta-band__title {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+  .ms-cta-band__text {
+    max-width: 60ch;
+    margin-top: 10px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgb(255 255 255 / 0.86);
+  }
+  .ms-cta-band__text p {
+    margin: 0;
+  }
+  .ms-cta-band__text a {
+    color: #fff;
+    font-weight: 600;
+  }
+  .ms-cta-band__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin: 18px 0 0;
+  }
+  .ms-cta-band__contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .ms-cta-band__contact a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .ms-cta-band__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  @media (max-width: 599px) {
+    .ms-cta-band__actions,
+    .ms-cta-band__actions .ms-btn {
+      width: 100%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · felhívás sáv",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Felső címke" },
+    { "type": "text", "id": "title", "label": "Cím", "default": "Kérdésed van?" },
+    { "type": "richtext", "id": "text", "label": "Szöveg" },
+    { "type": "text", "id": "phone", "label": "Telefon", "default": "+36 70 944 7641" },
+    { "type": "text", "id": "email", "label": "E-mail", "default": "info@modulshop.hu" },
+    { "type": "text", "id": "button_label", "label": "Gomb felirata", "default": "Kapcsolat" },
+    { "type": "text", "id": "button_link", "label": "Gomb linkje", "default": "/pages/kapcsolat", "info": "Pl. /pages/kapcsolat, mailto: vagy teljes webcím" },
+    { "type": "text", "id": "button2_label", "label": "2. gomb felirata" },
+    { "type": "text", "id": "button2_link", "label": "2. gomb linkje" }
+  ],
+  "presets": [{ "name": "MS · felhívás sáv" }]
+}
+{% endschema %}
