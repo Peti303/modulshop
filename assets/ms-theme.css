@@ -483,6 +483,8 @@ html.ms-theme-fade *::after {
 /* A kártya szövegei (készlet, név, ár) 16 px-re a széltől; a Horizon blokkjainak saját
    térköz-stílusa különben 0-ra állítja. */
 .product-card .product-grid__card.product-grid__card > *:not(:first-child) { padding-inline: 16px !important; box-sizing: border-box; }
+/* A terméknév linkje display: contents, ezért a benne lévő szövegblokk kapja a térközt. */
+.product-card .product-grid__card.product-grid__card > a.contents > * { padding-inline: 16px !important; box-sizing: border-box; }
 .product-card .card-gallery img { object-fit: contain; }
 .product-card .product-grid__card.product-grid__card { padding-bottom: 16px; }
 .product-card .price { font-family: var(--ms-font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; }
