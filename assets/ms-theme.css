@@ -534,3 +534,22 @@ html.ms-theme-fade *::after {
 @media (hover: none) {
   .ms-band__glow { display: none; }
 }
+
+/* Fejlécmenü: a kategóriák jól olvashatók, az aktív pont alatt a kiemelőszín fut végig */
+#header-component .menu-list__link { font-family: var(--ms-font-body); font-weight: 600; font-size: 15px; }
+#header-component .menu-list__link-title { position: relative; padding-block: 6px; }
+#header-component .menu-list__link-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--ms-cta);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ms-ease);
+}
+#header-component .menu-list__link:hover .menu-list__link-title::after,
+#header-component .menu-list__link--active .menu-list__link-title::after { transform: scaleX(1); }

@@ -44,7 +44,7 @@
       </form>
       <div class="ms-searchbar__results" id="ms-search-results-{{ section.id }}" data-results hidden></div>
     </ms-search>
-    {%- if show_nav and links.size > 0 -%}
+    {%- if section.settings.show_nav and show_nav and links.size > 0 -%}
       <ms-catnav class="ms-catnav">
         <nav class="ms-searchbar__nav" aria-label="{{ section.settings.nav_label | escape }}">
           {%- if section.settings.all_label != blank -%}
@@ -113,7 +113,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    padding-block: 12px 8px;
+    padding-block: 12px;
   }
   .ms-searchbar__search {
     position: relative;
@@ -450,13 +450,14 @@
     { "type": "text", "id": "examples", "label": "Gépelt példák", "info": "Függőleges vonallal elválasztva. Terméknév és cikkszám is lehet.", "default": "ESP32-C3|1-2-29|relé modul 5V|OLED kijelző I2C|18650 akku|multiméter" },
     { "type": "text", "id": "button_label", "label": "Gomb felirata", "default": "Keresés" },
     { "type": "header", "content": "Kategóriasor" },
+    { "type": "checkbox", "id": "show_nav", "label": "Külön kategóriasor a kereső alatt", "info": "Alapból kikapcsolva: a kategóriák a fejléc menüjében vannak.", "default": false },
     { "type": "link_list", "id": "menu", "label": "Menü", "default": "main-menu" },
     { "type": "checkbox", "id": "use_children", "label": "Az almenüs menüpont kategóriáit mutassa", "info": "Az első olyan főmenüpont almenüje jelenik meg, amely alatt vannak kategóriák.", "default": true },
     { "type": "text", "id": "nav_label", "label": "A menüsor neve (akadálymentesség)", "default": "Kategóriák" },
     { "type": "text", "id": "all_label", "label": "A kategóriapanel gombjának felirata", "default": "Összes kategória" },
     { "type": "text", "id": "mega_all_label", "label": "A panel alsó linkjének felirata", "default": "Minden termék" },
     { "type": "text", "id": "all_link", "label": "A panel alsó linkje", "info": "Üresen a kategóriákat tartalmazó menüpont linkje. Pl. /collections/all" },
-    { "type": "checkbox", "id": "hide_header_menu", "label": "A fejléc saját menüjének elrejtése asztali nézetben", "info": "A kategóriák és az információs linkek ebben a sorban vannak; mobilon a fejléc menügombja megmarad.", "default": true }
+    { "type": "checkbox", "id": "hide_header_menu", "label": "A fejléc saját menüjének elrejtése asztali nézetben", "info": "Csak akkor kapcsold be, ha a külön kategóriasort használod.", "default": false }
   ],
   "presets": [{ "name": "MS · kereső és menüsor" }]
 }

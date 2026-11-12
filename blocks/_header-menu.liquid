@@ -91,8 +91,25 @@
       endif
     %}
 
+    {%- liquid
+      # Modulshop: a fejlécben közvetlenül a kategóriák látszanak. Az első olyan menüpont
+      # almenüje kerül a felső szintre, amely alatt vannak kategóriák; utána az almenü
+      # nélküli pontok (pl. Kapcsolat). A kezdőlap linkje kimarad, arra a logó visz.
+      assign ms_menu_links = block_settings.menu.links
+      assign ms_flat = false
+      if block_settings.ms_category_menu
+        for ms_top in block_settings.menu.links
+          if ms_flat == false and ms_top.links.size > 0
+            assign ms_leaf_links = block_settings.menu.links | where: 'levels', 0
+            assign ms_menu_links = ms_top.links | concat: ms_leaf_links
+            assign ms_flat = true
+          endif
+        endfor
+      endif
+    -%}
     {% capture children %}
-      {% for link in block_settings.menu.links %}
+      {% for link in ms_menu_links %}
+        {%- if ms_flat and link.url == routes.root_url -%}{%- continue -%}{%- endif -%}
         <li
           class="menu-list__list-item"
           on:blur="/deactivate"
@@ -962,6 +979,13 @@
       "id": "menu",
       "label": "t:settings.menu",
       "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "ms_category_menu",
+      "label": "Kategóriák közvetlenül a fejlécben",
+      "info": "Az első almenüs menüpont (pl. Termékeink) kategóriái kerülnek a felső szintre, utána az almenü nélküli pontok. A kezdőlap linkje kimarad.",
+      "default": true
     },
     {
       "type": "header",
