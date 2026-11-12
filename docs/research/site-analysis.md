@@ -282,7 +282,7 @@ A téma CSS-változói a https://modulshop.hu/ inline stílusában vannak, a log
 - **36 termék**, mind raktáron, mind a 12 tényleges főkategóriából.
 - **Kiválasztás:** alkategóriánként a „Legtöbbet vásárolt” rendezés és a „Csak raktáron” szűrő első 1–3 találata.
 - **Mezők:** title, url, price_huf, compare_at_price_huf, sku, brand, category, image_url, short_description, in_stock, valamint stock_text, gtin és category_url.
-- **brand:** csak ott van kitöltve, ahol az oldalon „Gyártó:” sor szerepel (2 terméknél); máshol `null`.
+- **brand:** csak ott van kitöltve, ahol az oldalon „Gyártó:” sor szerepel (a mintában 1 terméknél: ESPRESSIF); máshol `null`.
 - **image_url:** az og:image (ShopRenter cache, 955×500 WebP). A képeket még nem töltöttük le.
 
 ---
