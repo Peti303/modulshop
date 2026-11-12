@@ -262,7 +262,7 @@
         "desktop_media_position": "left",
         "equal_columns": false,
         "limit_details_width": false,
-        "gap": 56,
+        "gap": 52,
         "padding-block-start": 0,
         "padding-block-end": 0,
         "enable_sticky_add_to_cart": true
