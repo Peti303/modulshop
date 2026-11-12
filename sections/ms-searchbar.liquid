@@ -2,10 +2,15 @@
 {%- liquid
   assign menu = section.settings.menu
   assign links = menu.links
+  assign show_nav = true
   if section.settings.use_children
-    # Csak akkor van kategóriasor, ha az első menüpont alatt vannak kategóriák;
-    # különben ugyanazt a menüt mutatná, mint a fejléc.
-    assign links = links.first.links
+    assign show_nav = false
+    for top_link in menu.links
+      if show_nav == false and top_link.links.size > 0
+        assign links = top_link.links
+        assign show_nav = true
+      endif
+    endfor
   endif
 -%}
 <div class="ms-searchbar">
@@ -37,7 +42,7 @@
       </form>
       <div class="ms-searchbar__results" id="ms-search-results-{{ section.id }}" data-results hidden></div>
     </ms-search>
-    {%- if links.size > 0 -%}
+    {%- if show_nav and links.size > 0 -%}
       <nav class="ms-searchbar__nav" aria-label="{{ section.settings.nav_label | escape }}">
         {%- if section.settings.all_label != blank -%}
           <a class="ms-searchbar__allcat" href="{{ section.settings.all_link | default: routes.collections_url }}">
@@ -56,7 +61,8 @@
 {% stylesheet %}
   .ms-searchbar {
     position: relative;
-    z-index: 20;
+    /* a fejléc lenyíló menüje (12-es réteg) alatt, az oldal tartalma fölött */
+    z-index: 2;
     background: var(--ms-card);
     border-bottom: 1px solid var(--ms-border);
   }
@@ -283,7 +289,7 @@
     { "type": "text", "id": "button_label", "label": "Gomb felirata", "default": "Keresés" },
     { "type": "header", "content": "Kategóriasor" },
     { "type": "link_list", "id": "menu", "label": "Menü", "default": "main-menu" },
-    { "type": "checkbox", "id": "use_children", "label": "Az első menüpont almenüjét mutassa", "info": "Ha a főmenü első pontja a „Termékek”, alatta a kategóriákkal.", "default": true },
+    { "type": "checkbox", "id": "use_children", "label": "Az almenüs menüpont kategóriáit mutassa", "info": "Az első olyan főmenüpont almenüje jelenik meg, amely alatt vannak kategóriák.", "default": true },
     { "type": "text", "id": "nav_label", "label": "A menüsor neve (akadálymentesség)", "default": "Kategóriák" },
     { "type": "text", "id": "all_label", "label": "„Összes” gomb felirata", "default": "Összes kategória" },
     { "type": "text", "id": "all_link", "label": "„Összes” gomb linkje", "info": "Pl. /collections vagy teljes webcím" }
