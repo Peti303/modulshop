@@ -66,7 +66,7 @@
   --ms-spring: cubic-bezier(0.5, 1.7, 0.4, 1);
   --ms-gutter: clamp(16px, 4vw, 40px);
   --ms-max: 1400px;
-  --ms-section-y: clamp(44px, 5.5vw, 72px);
+  --ms-section-y: clamp(64px, 8vw, 120px);
   --ms-font-display: 'Bricolage Grotesque', 'Figtree', system-ui, sans-serif;
   --ms-font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --ms-font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
@@ -319,14 +319,14 @@ html.ms-theme-fade *::after {
   margin: 0;
   font-family: var(--ms-font-display);
   font-weight: 700;
-  font-size: clamp(28px, 3vw, 42px);
-  line-height: 1.08;
+  font-size: clamp(24px, 2.3vw, 32px);
+  line-height: 1.15;
   letter-spacing: -0.02em;
   color: inherit;
   text-wrap: balance;
 }
 .ms-lead { margin: 12px 0 0; font-size: clamp(16px, 1.4vw, 18px); line-height: 1.55; color: var(--ms-text-muted); max-width: 62ch; }
-.ms-section-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 32px; margin-bottom: 28px; }
+.ms-section-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 32px; margin-bottom: 36px; }
 .ms-section-head--center { flex-direction: column; align-items: center; text-align: center; }
 .ms-section-head--center .ms-lead { margin-inline: auto; }
 .ms-mono { font-family: var(--ms-font-mono); font-variant-numeric: tabular-nums; }
@@ -337,13 +337,13 @@ html.ms-theme-fade *::after {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 48px;
-  padding: 0 22px;
+  min-height: 44px;
+  padding: 0 20px;
   border: 0;
   border-radius: 10px;
   background: var(--ms-cta);
   color: var(--ms-on-cta);
-  font: 700 16px/1.1 var(--ms-font-body);
+  font: 700 15px/1.1 var(--ms-font-body);
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
@@ -352,7 +352,7 @@ html.ms-theme-fade *::after {
 }
 .ms-btn:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 5px 0 var(--ms-cta-edge); }
 .ms-btn:active { transform: translateY(4px); box-shadow: 0 0 0 var(--ms-cta-edge); }
-.ms-btn--big { min-height: 56px; padding: 0 28px; font-size: 18px; }
+.ms-btn--big { min-height: 50px; padding: 0 24px; font-size: 16px; }
 .ms-btn--primary, .ms-btn--highlight { background: var(--ms-cta); color: var(--ms-on-cta); }
 .ms-btn--ghost, .ms-btn--on-dark, .ms-btn--sec {
   background: transparent;
@@ -374,7 +374,7 @@ html.ms-theme-fade *::after {
 .ms-link svg { transition: transform 0.3s var(--ms-ease); }
 .ms-link:hover svg { transform: translateX(5px); }
 .ms-card { background: var(--ms-card); border: 1px solid var(--ms-border); border-radius: var(--ms-radius); }
-.ms-panel { background: var(--ms-card); border: 1px solid var(--ms-border); border-radius: 20px; padding: clamp(22px, 2.6vw, 32px); }
+.ms-panel { background: var(--ms-card); border: 1px solid var(--ms-border); border-radius: 20px; padding: clamp(24px, 3vw, 40px); }
 .ms-stars { display: inline-flex; gap: 2px; color: var(--ms-star); }
 .ms-stars svg { width: 16px; height: 16px; }
 .ms-icon-badge {
@@ -399,7 +399,7 @@ html.ms-theme-fade *::after {
 .ms-stock--low { color: var(--ms-warn); }
 .ms-stock--off { color: var(--ms-off); }
 .ms-sku { font-family: var(--ms-font-mono); font-size: 12px; color: var(--ms-text-muted); }
-.ms-price { font-family: var(--ms-font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; white-space: nowrap; }
+.ms-price { font-family: var(--ms-font-display); font-weight: 700; font-size: 19px; letter-spacing: -0.01em; white-space: nowrap; }
 
 /* Sötét sáv próbapanel-raszterrel */
 .ms-band {
@@ -441,7 +441,7 @@ html.ms-theme-fade *::after {
   ms-theme-toggle.ms-theme-toggle--header { display: none; }
 }
 .ms-drawer-theme { padding: 12px 0 8px; margin-bottom: 8px; border-bottom: 1px solid var(--ms-border); }
-.ms-header-logo { height: 40px; width: auto; max-width: 100%; filter: none !important; }
+.ms-header-logo { height: 34px; width: auto; max-width: 100%; filter: none !important; }
 @media (max-width: 749px) {
   .ms-header-logo { height: 30px; }
 }
@@ -482,12 +482,12 @@ html.ms-theme-fade *::after {
 .product-card:hover .card-gallery img { transform: scale(1.06); }
 /* A kártya szövegei (készlet, név, ár) 16 px-re a széltől; a Horizon blokkjainak saját
    térköz-stílusa különben 0-ra állítja. */
-.product-card .product-grid__card.product-grid__card > *:not(:first-child) { padding-inline: 16px !important; box-sizing: border-box; }
+.product-card .product-grid__card.product-grid__card > *:not(:first-child) { padding-inline: 18px !important; box-sizing: border-box; }
 /* A terméknév linkje display: contents, ezért a benne lévő szövegblokk kapja a térközt. */
-.product-card .product-grid__card.product-grid__card > a.contents > * { padding-inline: 16px !important; box-sizing: border-box; }
+.product-card .product-grid__card.product-grid__card > a.contents > * { padding-inline: 18px !important; box-sizing: border-box; font-size: 15px; line-height: 1.4; }
 .product-card .card-gallery img { object-fit: contain; }
-.product-card .product-grid__card.product-grid__card { padding-bottom: 16px; }
-.product-card .price { font-family: var(--ms-font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; }
+.product-card .product-grid__card.product-grid__card { padding-bottom: 20px; }
+.product-card .price { font-family: var(--ms-font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
 .product-card product-sku-component { font-family: var(--ms-font-mono); font-size: 12px; color: var(--ms-text-muted); }
 .product-media-container, .media-gallery .product-media { background: var(--ms-tile); border-radius: 20px; }
 .quick-add__button { box-shadow: 0 3px 0 var(--ms-cta-edge); }
@@ -541,7 +541,7 @@ html.ms-theme-fade *::after {
 }
 
 /* Fejlécmenü: a kategóriák jól olvashatók, az aktív pont alatt a kiemelőszín fut végig */
-#header-component .menu-list__link { font-family: var(--ms-font-body); font-weight: 600; font-size: 15px; }
+#header-component .menu-list__link { font-family: var(--ms-font-body); font-weight: 600; font-size: 14px; }
 #header-component .menu-list__link-title { position: relative; padding-block: 6px; }
 #header-component .menu-list__link-title::after {
   content: '';
@@ -563,22 +563,22 @@ html.ms-theme-fade *::after {
 .product-details .text-block h1 {
   font-family: var(--ms-font-display);
   font-weight: 800;
-  font-size: clamp(28px, 3vw, 42px);
-  line-height: 1.08;
+  font-size: clamp(24px, 2.3vw, 32px);
+  line-height: 1.15;
   letter-spacing: -0.02em;
 }
 .product-details product-price .price,
 .product-details product-price .price-item {
   font-family: var(--ms-font-display);
   font-weight: 700;
-  font-size: clamp(34px, 3.4vw, 46px);
-  line-height: 1;
+  font-size: clamp(26px, 2.4vw, 34px);
+  line-height: 1.1;
   letter-spacing: -0.01em;
 }
 .product-details .ms-stock-block { font-size: 16px; }
 .product-details .ms-stock-block__sku { font-size: 13px; }
-.product-details .add-to-cart-button { min-height: 56px; font-size: 18px; }
-.product-details .quantity-selector { min-height: 56px; border: 1.5px solid var(--ms-text); border-radius: 10px; }
+.product-details .add-to-cart-button { min-height: 50px; font-size: 16px; }
+.product-details .quantity-selector { min-height: 50px; border: 1.5px solid var(--ms-text); border-radius: 10px; }
 .ms-pdp-note { margin: 0; font-size: 14px; color: var(--ms-text-muted); }
 /* Egyetlen egyértelmű vásárlási gomb: a „Buy it now" gyorsfizetés nem jelenik meg. */
 .product-details .accelerated-checkout-block { display: none !important; }
