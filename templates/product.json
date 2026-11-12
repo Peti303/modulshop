@@ -407,20 +407,10 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
-    },
-    "ms_breadcrumb": {
-      "type": "ms-breadcrumb",
-      "settings": {}
-    },
-    "ms_product_info": {
-      "type": "ms-product-info",
-      "settings": {}
     }
   },
   "order": [
-    "ms_breadcrumb",
     "main",
-    "ms_product_info",
     "product_recommendations_qggXJq"
   ]
 }
