@@ -582,3 +582,27 @@ html.ms-theme-fade *::after {
 .ms-pdp-note { margin: 0; font-size: 14px; color: var(--ms-text-muted); }
 /* Egyetlen egyértelmű vásárlási gomb: a „Buy it now" gyorsfizetés nem jelenik meg. */
 .product-details .accelerated-checkout-block { display: none !important; }
+
+/* Termékoldali galéria: a fehér hátterű fotó mindig világos csempén ül (sötét módban is),
+   különben a „multiply" keverés a sötét háttéren feketére festi a képet. */
+.product-media-container { background: var(--ms-tile) !important; border-radius: 20px; overflow: hidden; }
+
+/* Ragadós kosárba sáv: tömör háttér, hogy bármilyen tartalom fölött olvasható legyen. */
+.sticky-add-to-cart__bar {
+  --color-background: var(--ms-card);
+  --color-foreground: var(--ms-text);
+  --color-foreground-rgb: var(--ms-text-rgb);
+  background: var(--ms-card) !important;
+  color: var(--ms-text) !important;
+  border: 1.5px solid var(--ms-text);
+  box-shadow: var(--ms-shadow-lg);
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.sticky-add-to-cart__title,
+.sticky-add-to-cart__price,
+.sticky-add-to-cart__price .price,
+.sticky-add-to-cart__variant { color: var(--ms-text) !important; }
+.sticky-add-to-cart__title { font-weight: 600; }
+.sticky-add-to-cart__price .price { font-family: var(--ms-font-display); font-weight: 700; }
+.sticky-add-to-cart__image { background: var(--ms-tile); }
