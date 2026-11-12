@@ -1,0 +1,480 @@
+/* ==========================================================================
+   Modulshop design system
+   - Design tokens (--ms-*) for light and dark mode
+   - Dark-mode remapping of Horizon's own CSS variables
+   - Theme switch + reveal animation
+   - Shared building blocks for ms-* sections
+   ========================================================================== */
+
+/* ---------- Tokens: light (default) ---------- */
+:root {
+  --ms-bg: #ffffff;
+  --ms-bg-rgb: 255 255 255;
+  --ms-surface: #f4f7fa;
+  --ms-surface-2: #eaf0f5;
+  --ms-card: #ffffff;
+  --ms-text: #0e1a26;
+  --ms-text-rgb: 14 26 38;
+  --ms-text-muted: #536271;
+  --ms-border: #dce3ea;
+  --ms-border-strong: #c9d3dd;
+
+  --ms-primary: #01598b;
+  --ms-primary-rgb: 1 89 139;
+  --ms-primary-hover: #014670;
+  --ms-on-primary: #ffffff;
+  --ms-accent: #0594ae;
+  --ms-accent-rgb: 5 148 174;
+  --ms-accent-soft: #e3f4f8;
+  --ms-highlight: #ffcf0f;
+  --ms-on-highlight: #121212;
+  --ms-success: #13854e;
+  --ms-success-soft: #e4f5ec;
+  --ms-warning: #b25e00;
+  --ms-danger: #c8102e;
+  --ms-star: #f5a700;
+
+  --ms-hero-from: #01426a;
+  --ms-hero-to: #0594ae;
+  --ms-grid-line: rgb(255 255 255 / 0.08);
+
+  --ms-radius-sm: 8px;
+  --ms-radius: 12px;
+  --ms-radius-lg: 20px;
+  --ms-shadow-sm: 0 1px 2px rgb(14 26 38 / 0.06), 0 1px 3px rgb(14 26 38 / 0.04);
+  --ms-shadow: 0 4px 16px rgb(14 26 38 / 0.08);
+  --ms-shadow-lg: 0 18px 40px rgb(1 50 80 / 0.14);
+  --ms-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ms-gutter: clamp(16px, 4vw, 40px);
+  --ms-max: 1320px;
+  --ms-section-y: clamp(40px, 6vw, 80px);
+}
+
+/* ---------- Tokens: dark ---------- */
+html[data-theme='dark'] {
+  --ms-bg: #0b131c;
+  --ms-bg-rgb: 11 19 28;
+  --ms-surface: #111c28;
+  --ms-surface-2: #172534;
+  --ms-card: #132030;
+  --ms-text: #e6edf3;
+  --ms-text-rgb: 230 237 243;
+  --ms-text-muted: #9aabbc;
+  --ms-border: #22344a;
+  --ms-border-strong: #2e4560;
+
+  --ms-primary: #3cb9d8;
+  --ms-primary-rgb: 60 185 216;
+  --ms-primary-hover: #66cbe4;
+  --ms-on-primary: #04131d;
+  --ms-accent: #3cb9d8;
+  --ms-accent-rgb: 60 185 216;
+  --ms-accent-soft: #10303e;
+  --ms-highlight: #ffd43b;
+  --ms-success: #3ccb7f;
+  --ms-success-soft: #0f2e20;
+  --ms-warning: #ffb44d;
+  --ms-danger: #ff5a6e;
+  --ms-star: #ffc233;
+
+  --ms-hero-from: #06243a;
+  --ms-hero-to: #0a4f63;
+  --ms-grid-line: rgb(255 255 255 / 0.06);
+
+  --ms-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --ms-shadow: 0 4px 16px rgb(0 0 0 / 0.35);
+  --ms-shadow-lg: 0 18px 40px rgb(0 0 0 / 0.5);
+
+  /* --- Horizon variables remapped for dark mode --- */
+  --color-background: #0b131c;
+  --color-background-rgb: 11 19 28;
+  --color-foreground: #e6edf3;
+  --color-foreground-rgb: 230 237 243;
+  --color-border: #2e4560;
+  --color-border-rgb: 46 69 96;
+  --palette-lightest: #ffffff;
+  --palette-lightest-rgb: 255 255 255;
+  --palette-darkest: #0b131c;
+  --palette-darkest-rgb: 11 19 28;
+  --opacity-5-15: 0.15;
+  --opacity-10-25: 0.25;
+  --opacity-35-55: 0.55;
+  --opacity-40-60: 0.6;
+  --opacity-30-60: 0.6;
+
+  --color-primary-button-text: #04131d;
+  --color-primary-button-background: #3cb9d8;
+  --color-primary-button-border: #3cb9d8;
+  --color-primary-button-focus-outline: #3cb9d8;
+  --color-primary-button-hover-text: #04131d;
+  --color-primary-button-hover-background: #66cbe4;
+  --color-primary-button-hover-border: #66cbe4;
+
+  --color-secondary-button-text: #e6edf3;
+  --color-secondary-button-background: transparent;
+  --color-secondary-button-border: #3cb9d8;
+  --color-secondary-button-hover-text: #04131d;
+  --color-secondary-button-hover-background: #3cb9d8;
+  --color-secondary-button-hover-border: #3cb9d8;
+
+  --color-input-background: #111c28;
+  --color-input-text: #e6edf3;
+  --color-input-text-rgb: 230 237 243;
+  --color-input-border: #2e4560;
+
+  --color-variant-background: #111c28;
+  --color-variant-border: #2e4560;
+  --color-variant-text: #e6edf3;
+  --color-variant-text-rgb: 230 237 243;
+  --color-variant-hover-background: #172534;
+  --color-variant-hover-text: #e6edf3;
+  --color-variant-hover-border: #3cb9d8;
+  --color-selected-variant-background: #3cb9d8;
+  --color-selected-variant-border: #3cb9d8;
+  --color-selected-variant-text: #04131d;
+  --color-selected-variant-text-rgb: 4 19 29;
+  --color-selected-variant-hover-background: #66cbe4;
+  --color-selected-variant-hover-text: #04131d;
+  --color-selected-variant-hover-border: #66cbe4;
+
+  --color-drawer-shadow-rgb: 0 0 0;
+  --color-popover-shadow-rgb: 0 0 0;
+}
+
+/* Section / block colour overrides that Horizon bakes in at render time */
+html[data-theme='dark'] [class*='color-custom-'],
+html[data-theme='dark'] [class*='color-custom-'] .text-block {
+  --color: #e6edf3;
+  --color-rgb: 230 237 243;
+  --color-foreground: #e6edf3;
+  --color-foreground-rgb: 230 237 243;
+  --color-foreground-muted: rgb(230 237 243 / var(--opacity-muted-text, 0.7));
+  --color-foreground-subdued: rgb(230 237 243 / var(--opacity-subdued-text, 0.55));
+  --color-border: #2e4560;
+  --color-border-rgb: 46 69 96;
+}
+html[data-theme='dark'] [class*='color-custom-']:not(.ms-keep-color) {
+  --color-background: transparent;
+  --color-background-rgb: 11 19 28;
+}
+html[data-theme='dark'] #header-component {
+  --color-background-top-row: rgb(11 19 28 / 0.92) !important;
+  --color-background-bottom-row: rgb(11 19 28 / 0.92) !important;
+}
+html[data-theme='dark'] body {
+  background-color: var(--ms-bg);
+  color: var(--ms-text);
+}
+html[data-theme='dark'] img:not([src$='.svg']) {
+  /* tame very bright product photos a touch */
+  filter: brightness(0.94);
+}
+
+/* Logo: swap to the light-on-dark version when present */
+.ms-logo-dark {
+  display: none;
+}
+html[data-theme='dark'] .ms-logo-light {
+  display: none;
+}
+html[data-theme='dark'] .ms-logo-dark {
+  display: inline-block;
+}
+
+/* ---------- Theme switch ---------- */
+.ms-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+}
+.ms-theme-toggle__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 999px;
+  color: inherit;
+  font: inherit;
+}
+.ms-theme-toggle__button:focus-visible {
+  outline: 2px solid var(--ms-accent);
+  outline-offset: 2px;
+}
+.ms-theme-toggle__track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 52px;
+  height: 28px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--ms-surface-2);
+  border: 1px solid var(--ms-border-strong);
+  transition: background-color 0.4s var(--ms-ease), border-color 0.4s var(--ms-ease);
+}
+.ms-theme-toggle__icon {
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s var(--ms-ease), transform 0.6s var(--ms-ease), opacity 0.4s;
+}
+.ms-theme-toggle__icon--sun {
+  color: #d98a00;
+}
+.ms-theme-toggle__icon--moon {
+  color: var(--ms-text-muted);
+  opacity: 0.6;
+}
+.ms-theme-toggle__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.18);
+  transition: transform 0.55s var(--ms-ease), background-color 0.4s var(--ms-ease);
+}
+.ms-theme-toggle[data-dark] .ms-theme-toggle__track {
+  background: #10303e;
+  border-color: #1f5468;
+}
+.ms-theme-toggle[data-dark] .ms-theme-toggle__thumb {
+  transform: translateX(24px);
+  background: #e6edf3;
+}
+.ms-theme-toggle[data-dark] .ms-theme-toggle__icon--sun {
+  opacity: 0.5;
+  color: #9aabbc;
+  transform: rotate(-90deg) scale(0.85);
+}
+.ms-theme-toggle[data-dark] .ms-theme-toggle__icon--moon {
+  opacity: 1;
+  color: #ffd43b;
+  transform: rotate(-20deg);
+}
+.ms-theme-toggle__label {
+  font-size: 15px;
+}
+
+/* Reveal animation (View Transitions) – only while switching themes */
+html.ms-vt-theme {
+  view-transition-name: root;
+}
+html.ms-vt-theme::view-transition-old(root),
+html.ms-vt-theme::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html.ms-vt-theme::view-transition-new(root) {
+  z-index: 2;
+}
+/* Fallback cross-fade for browsers without View Transitions */
+html.ms-theme-fade,
+html.ms-theme-fade *,
+html.ms-theme-fade *::before,
+html.ms-theme-fade *::after {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, fill 0.4s ease !important;
+}
+
+/* ==========================================================================
+   Shared building blocks for ms-* sections
+   ========================================================================== */
+.ms-section {
+  padding-block: var(--ms-section-y);
+  color: var(--ms-text);
+}
+.ms-section--surface {
+  background: var(--ms-surface);
+}
+.ms-container {
+  width: 100%;
+  max-width: var(--ms-max);
+  margin-inline: auto;
+  padding-inline: var(--ms-gutter);
+}
+.ms-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ms-accent);
+}
+.ms-heading {
+  margin: 0;
+  font-family: var(--font-heading--family);
+  font-weight: 700;
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ms-text);
+}
+.ms-lead {
+  margin: 12px 0 0;
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.6;
+  color: var(--ms-text-muted);
+  max-width: 62ch;
+}
+.ms-section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+.ms-section-head--center {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.ms-section-head--center .ms-lead {
+  margin-inline: auto;
+}
+
+.ms-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: var(--ms-radius-sm);
+  border: 1.5px solid transparent;
+  font: inherit;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s var(--ms-ease), box-shadow 0.2s;
+}
+.ms-btn:hover {
+  transform: translateY(-1px);
+}
+.ms-btn:focus-visible {
+  outline: 2px solid var(--ms-accent);
+  outline-offset: 2px;
+}
+.ms-btn--primary {
+  background: var(--ms-primary);
+  color: var(--ms-on-primary);
+}
+.ms-btn--primary:hover {
+  background: var(--ms-primary-hover);
+  box-shadow: var(--ms-shadow);
+}
+.ms-btn--highlight {
+  background: var(--ms-highlight);
+  color: var(--ms-on-highlight);
+}
+.ms-btn--highlight:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 8px 24px rgb(255 207 15 / 0.35);
+}
+.ms-btn--ghost {
+  background: transparent;
+  color: var(--ms-text);
+  border-color: var(--ms-border-strong);
+}
+.ms-btn--ghost:hover {
+  border-color: var(--ms-primary);
+  color: var(--ms-primary);
+}
+.ms-btn--on-dark {
+  background: rgb(255 255 255 / 0.1);
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.35);
+}
+.ms-btn--on-dark:hover {
+  background: rgb(255 255 255 / 0.18);
+  border-color: #fff;
+}
+.ms-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--ms-primary);
+  text-decoration: none;
+}
+.ms-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ms-link svg {
+  transition: transform 0.2s var(--ms-ease);
+}
+.ms-link:hover svg {
+  transform: translateX(3px);
+}
+
+.ms-card {
+  background: var(--ms-card);
+  border: 1px solid var(--ms-border);
+  border-radius: var(--ms-radius);
+  box-shadow: var(--ms-shadow-sm);
+}
+.ms-stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--ms-star);
+}
+.ms-stars svg {
+  width: 16px;
+  height: 16px;
+}
+.ms-icon-badge {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--ms-accent-soft);
+  color: var(--ms-accent);
+}
+.ms-icon-badge svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Scroll-reveal (progressive enhancement, see ms-theme-toggle.js companion in sections) */
+@media (prefers-reduced-motion: no-preference) {
+  .ms-js .ms-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s var(--ms-ease), transform 0.7s var(--ms-ease);
+  }
+  .ms-js .ms-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.ms-visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Toggle placement: header on tablet/desktop, drawer on phones */
+@media (max-width: 749px) {
+  .ms-theme-toggle--header {
+    display: none;
+  }
+}
+.ms-drawer-theme {
+  padding: 12px 0 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--ms-border);
+}

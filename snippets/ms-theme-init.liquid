@@ -1,0 +1,20 @@
+{%- comment -%}
+  Modulshop: applies the saved / system colour mode before first paint (no flash).
+  Rendered in <head> before stylesheets. Stored key: "ms-theme" = "light" | "dark".
+{%- endcomment -%}
+<meta name="color-scheme" content="light dark">
+<script>
+  (function () {
+    var d = document.documentElement;
+    var t = null;
+    try { t = localStorage.getItem('ms-theme'); } catch (e) {}
+    if (t !== 'light' && t !== 'dark') {
+      t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    d.setAttribute('data-theme', t);
+    d.classList.add('ms-js');
+    d.style.colorScheme = t;
+  })();
+</script>
+{{ 'ms-theme.css' | asset_url | stylesheet_tag: preload: true }}
+<script type="module" src="{{ 'ms-ui.js' | asset_url }}"></script>
