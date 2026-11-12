@@ -240,13 +240,23 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "ms_inventory": {
+              "type": "product-inventory",
+              "settings": {}
+            },
+            "ms_trust": {
+              "type": "ms-product-trust",
+              "settings": {}
             }
           },
           "block_order": [
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
+            "ms_inventory",
             "buy_buttons_eYQEYi",
+            "ms_trust",
             "text_aEtTtq"
           ]
         },
