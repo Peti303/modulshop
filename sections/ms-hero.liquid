@@ -1,0 +1,386 @@
+{%- comment -%} Modulshop – homepage hero with search, trust stats and product bento {%- endcomment -%}
+{%- liquid
+  assign cards = section.blocks | where: 'type', 'card'
+  assign stats = section.blocks | where: 'type', 'stat'
+-%}
+<section class="ms-hero" aria-labelledby="ms-hero-title-{{ section.id }}">
+  <div class="ms-hero__bg" aria-hidden="true">
+    <svg class="ms-hero__circuit" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+      <g fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M0 60h140l40 40h120l30-30h180"/><path d="M0 300h90l50-50h160l40 40h220l60-60h180"/>
+        <path d="M520 0v80l40 40v90l-30 30v160"/><path d="M220 400v-70l30-30h90"/><path d="M800 120h-90l-40 40h-60"/>
+        <path d="M360 0v40l-30 30"/><path d="M640 400v-60l40-40h120"/>
+      </g>
+      <g fill="currentColor">
+        <circle cx="510" cy="70" r="4"/><circle cx="300" cy="100" r="4"/><circle cx="560" cy="210" r="4"/><circle cx="340" cy="300" r="4"/>
+        <circle cx="610" cy="160" r="4"/><circle cx="330" cy="70" r="4"/><circle cx="680" cy="300" r="4"/><circle cx="140" cy="250" r="4"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="ms-container ms-hero__inner">
+    <div class="ms-hero__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ms-hero__eyebrow">{% render 'ms-icon', name: 'bolt', size: 16 %}{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h1 id="ms-hero-title-{{ section.id }}" class="ms-hero__title">{{ section.settings.title }}</h1>
+      {%- if section.settings.text != blank -%}
+        <div class="ms-hero__text">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.show_search -%}
+        <form action="{{ routes.search_url }}" method="get" role="search" class="ms-hero__search">
+          <label for="ms-hero-q-{{ section.id }}" class="ms-visually-hidden">Keresés a termékek között</label>
+          <span class="ms-hero__search-icon">{% render 'ms-icon', name: 'search', size: 20 %}</span>
+          <input
+            id="ms-hero-q-{{ section.id }}"
+            type="search"
+            name="q"
+            placeholder="{{ section.settings.search_placeholder | escape }}"
+            autocomplete="off"
+          >
+          <input type="hidden" name="options[prefix]" value="last">
+          <button type="submit" class="ms-btn ms-btn--highlight">Keresés</button>
+        </form>
+      {%- endif -%}
+
+      <div class="ms-hero__ctas">
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="ms-btn ms-btn--highlight">
+            {{- section.settings.button_label -}}
+            {%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.button2_label != blank -%}
+          <a href="{{ section.settings.button2_link }}" class="ms-btn ms-btn--on-dark">
+            {%- render 'ms-icon', name: 'pin', size: 18 -%}
+            {{- section.settings.button2_label -}}
+          </a>
+        {%- endif -%}
+      </div>
+
+      {%- if stats.size > 0 -%}
+        <ul class="ms-hero__stats" role="list">
+          {%- for block in stats -%}
+            <li class="ms-hero__stat" {{ block.shopify_attributes }}>
+              <strong>{{ block.settings.value }}</strong>
+              <span>{{ block.settings.label }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    {%- if cards.size > 0 -%}
+      <div class="ms-hero__bento">
+        {%- for block in cards limit: 4 -%}
+          <a href="{{ block.settings.link | default: '#' }}" class="ms-hero__card ms-hero__card--{{ forloop.index }}" {{ block.shopify_attributes }}>
+            <span class="ms-hero__card-media">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 480 | image_tag: loading: 'eager', alt: block.settings.label, sizes: '(min-width: 990px) 240px, 45vw' }}
+              {%- elsif block.settings.asset_image != blank -%}
+                <img src="{{ block.settings.asset_image | asset_url }}" alt="{{ block.settings.label | escape }}" width="480" height="480" loading="eager">
+              {%- endif -%}
+            </span>
+            <span class="ms-hero__card-label">
+              {{- block.settings.label -}}
+              {%- render 'ms-icon', name: 'arrow-right', size: 16 -%}
+            </span>
+          </a>
+        {%- endfor -%}
+        {%- if section.settings.badge != blank -%}
+          <span class="ms-hero__badge">{% render 'ms-icon', name: 'check', size: 16 %}{{ section.settings.badge }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-hero {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background: linear-gradient(135deg, var(--ms-hero-from) 0%, var(--ms-hero-to) 100%);
+    isolation: isolate;
+  }
+  .ms-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    color: rgb(255 255 255 / 0.12);
+    background: radial-gradient(60% 80% at 85% 20%, rgb(255 255 255 / 0.14), transparent 60%);
+  }
+  .ms-hero__circuit {
+    width: 100%;
+    height: 100%;
+  }
+  .ms-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+    padding-block: clamp(40px, 7vw, 96px);
+  }
+  .ms-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 18px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.12);
+    border: 1px solid rgb(255 255 255 / 0.2);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .ms-hero__eyebrow .ms-icon {
+    color: var(--ms-highlight);
+  }
+  .ms-hero__title {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    color: #fff;
+    text-wrap: balance;
+  }
+  .ms-hero__text {
+    margin-top: 18px;
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.6;
+    color: rgb(255 255 255 / 0.86);
+    max-width: 56ch;
+  }
+  .ms-hero__text p {
+    margin: 0;
+  }
+  .ms-hero__search {
+    position: relative;
+    display: flex;
+    gap: 8px;
+    margin-top: 28px;
+    padding: 6px;
+    max-width: 560px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgb(0 0 0 / 0.22);
+  }
+  .ms-hero__search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #536271;
+    display: flex;
+  }
+  .ms-hero__search input[type='search'] {
+    flex: 1;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0 12px 0 44px;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    font-size: 16px;
+    color: #0e1a26;
+    outline: none;
+  }
+  .ms-hero__search input::placeholder {
+    color: #7a8896;
+  }
+  .ms-hero__search:focus-within {
+    box-shadow: 0 0 0 3px rgb(255 207 15 / 0.7), 0 18px 40px rgb(0 0 0 / 0.22);
+  }
+  .ms-hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .ms-hero__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+    margin: 32px 0 0;
+    padding: 24px 0 0;
+    list-style: none;
+    border-top: 1px solid rgb(255 255 255 / 0.18);
+  }
+  .ms-hero__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .ms-hero__stat strong {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .ms-hero__stat span {
+    font-size: 14px;
+    color: rgb(255 255 255 / 0.75);
+  }
+
+  .ms-hero__bento {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .ms-hero__card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #fff;
+    color: #0e1a26;
+    text-decoration: none;
+    box-shadow: 0 20px 40px rgb(0 20 40 / 0.25);
+    transition: transform 0.35s var(--ms-ease), box-shadow 0.35s var(--ms-ease);
+  }
+  .ms-hero__card:nth-child(2) {
+    transform: translateY(24px);
+  }
+  .ms-hero__card:nth-child(3) {
+    transform: translateY(-8px);
+  }
+  .ms-hero__card:nth-child(4) {
+    transform: translateY(16px);
+  }
+  .ms-hero__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 50px rgb(0 20 40 / 0.32);
+  }
+  .ms-hero__card-media {
+    display: block;
+    aspect-ratio: 1 / 0.82;
+    padding: 12px;
+  }
+  .ms-hero__card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: none !important;
+  }
+  .ms-hero__card-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 16px 14px;
+    border-top: 1px solid #e8eef3;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .ms-hero__card-label .ms-icon {
+    color: #0594ae;
+    transition: transform 0.2s var(--ms-ease);
+  }
+  .ms-hero__card:hover .ms-hero__card-label .ms-icon {
+    transform: translateX(3px);
+  }
+  .ms-hero__badge {
+    position: absolute;
+    left: 50%;
+    bottom: -18px;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--ms-highlight);
+    color: var(--ms-on-highlight);
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 10px 24px rgb(0 0 0 / 0.2);
+  }
+  html[data-theme='dark'] .ms-hero__card {
+    background: #f4f7fa;
+  }
+
+  @media (max-width: 989px) {
+    .ms-hero__inner {
+      grid-template-columns: 1fr;
+    }
+    .ms-hero__bento {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .ms-hero__card,
+    .ms-hero__card:nth-child(n) {
+      transform: none;
+      border-radius: 14px;
+    }
+    .ms-hero__card-label {
+      padding: 8px 10px 10px;
+      font-size: 13px;
+    }
+    .ms-hero__card-label .ms-icon {
+      display: none;
+    }
+  }
+  @media (max-width: 599px) {
+    .ms-hero__bento {
+      grid-template-columns: 1fr 1fr;
+    }
+    .ms-hero__search .ms-btn {
+      padding-inline: 14px;
+    }
+    .ms-hero__ctas .ms-btn {
+      flex: 1 1 100%;
+    }
+    .ms-hero__stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Modulshop – nyitókép",
+  "tag": "div",
+  "class": "ms-hero-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Felső címke", "default": "Elektronikai alkatrészek webáruháza 2019 óta" },
+    { "type": "text", "id": "title", "label": "Cím", "default": "Modulok és alkatrészek a következő projektedhez" },
+    { "type": "richtext", "id": "text", "label": "Szöveg", "default": "<p>Arduino, ESP32, szenzorok, kijelzők, erősítők és tápegységek magyarországi raktárról. A délelőtt 10 óráig leadott rendelést még aznap átadjuk a futárnak.</p>" },
+    { "type": "checkbox", "id": "show_search", "label": "Keresőmező megjelenítése", "default": true },
+    { "type": "text", "id": "search_placeholder", "label": "Kereső helyőrző szöveg", "default": "Mit keresel? Pl. ESP32, DHT22, relé…" },
+    { "type": "text", "id": "button_label", "label": "Elsődleges gomb", "default": "Összes termék" },
+    { "type": "url", "id": "button_link", "label": "Elsődleges gomb linkje" },
+    { "type": "text", "id": "button2_label", "label": "Másodlagos gomb", "default": "Személyes átvétel" },
+    { "type": "url", "id": "button2_link", "label": "Másodlagos gomb linkje" },
+    { "type": "text", "id": "badge", "label": "Kiemelt címke a képek alatt", "default": "Budapesti raktárról, azonnal" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Termékkártya",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Felirat", "default": "Kategória" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "image_picker", "id": "image", "label": "Kép" },
+        { "type": "text", "id": "asset_image", "label": "Beépített kép (fájlnév)", "info": "Ha nincs feltöltött kép, a sablonba épített képet használja." }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Statisztika",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "value", "label": "Érték", "default": "1800+" },
+        { "type": "text", "id": "label", "label": "Felirat", "default": "termék" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Modulshop – nyitókép" }]
+}
+{% endschema %}

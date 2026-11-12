@@ -1,0 +1,155 @@
+{%- comment -%} Modulshop – main category grid {%- endcomment -%}
+<section class="ms-section ms-cats{% if section.settings.surface %} ms-section--surface{% endif %}" aria-labelledby="ms-cats-{{ section.id }}">
+  <div class="ms-container">
+    <div class="ms-section-head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}<p class="ms-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        <h2 id="ms-cats-{{ section.id }}" class="ms-heading">{{ section.settings.title }}</h2>
+      </div>
+      {%- if section.settings.link_label != blank -%}
+        <a href="{{ section.settings.link | default: routes.collections_url }}" class="ms-link">
+          {{- section.settings.link_label -}}
+          {%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <ul class="ms-cats__grid" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign c = block.settings.collection
+          assign href = block.settings.link
+          if href == blank and c != blank
+            assign href = c.url
+          endif
+          assign title = block.settings.title
+          if title == blank and c != blank
+            assign title = c.title
+          endif
+        -%}
+        <li class="ms-reveal" style="transition-delay: {{ forloop.index0 | modulo: 6 | times: 50 }}ms" {{ block.shopify_attributes }}>
+          <a href="{{ href | default: '#' }}" class="ms-cats__card">
+            <span class="ms-cats__media">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: title, sizes: '(min-width: 990px) 200px, 45vw' }}
+              {%- elsif c.featured_image != blank -%}
+                {{ c.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: title, sizes: '(min-width: 990px) 200px, 45vw' }}
+              {%- elsif block.settings.asset_image != blank -%}
+                <img src="{{ block.settings.asset_image | asset_url }}" alt="" width="480" height="480" loading="lazy">
+              {%- endif -%}
+            </span>
+            <span class="ms-cats__body">
+              <span class="ms-cats__title">{{ title }}</span>
+              {%- if block.settings.subtitle != blank -%}<span class="ms-cats__sub">{{ block.settings.subtitle }}</span>{%- endif -%}
+            </span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-cats__grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ms-cats__card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border-radius: var(--ms-radius);
+    background: var(--ms-card);
+    border: 1px solid var(--ms-border);
+    color: var(--ms-text);
+    text-decoration: none;
+    transition: transform 0.3s var(--ms-ease), box-shadow 0.3s var(--ms-ease), border-color 0.3s;
+  }
+  .ms-cats__card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ms-shadow-lg);
+    border-color: rgb(var(--ms-accent-rgb) / 0.5);
+  }
+  .ms-cats__card:focus-visible {
+    outline: 2px solid var(--ms-accent);
+    outline-offset: 2px;
+  }
+  .ms-cats__media {
+    display: block;
+    aspect-ratio: 1;
+    background: #fff;
+    padding: 10%;
+  }
+  .ms-cats__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s var(--ms-ease);
+  }
+  .ms-cats__card:hover .ms-cats__media img {
+    transform: scale(1.06);
+  }
+  html[data-theme='dark'] .ms-cats__media {
+    background: #eef3f7;
+  }
+  .ms-cats__body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 14px 14px;
+    border-top: 1px solid var(--ms-border);
+  }
+  .ms-cats__title {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.3;
+  }
+  .ms-cats__sub {
+    font-size: 13px;
+    color: var(--ms-text-muted);
+  }
+  @media (max-width: 1199px) {
+    .ms-cats__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 749px) {
+    .ms-cats__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Modulshop – kategóriák",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Felső címke", "default": "Kategóriák" },
+    { "type": "text", "id": "title", "label": "Cím", "default": "Miben segíthetünk?" },
+    { "type": "text", "id": "link_label", "label": "Link felirata", "default": "Összes kategória" },
+    { "type": "url", "id": "link", "label": "Link" },
+    { "type": "checkbox", "id": "surface", "label": "Szürke háttér", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Kategória",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Kollekció" },
+        { "type": "text", "id": "title", "label": "Cím (felülírja a kollekció nevét)" },
+        { "type": "text", "id": "subtitle", "label": "Alcím" },
+        { "type": "url", "id": "link", "label": "Egyedi link (ha nincs kollekció)" },
+        { "type": "image_picker", "id": "image", "label": "Kép" },
+        { "type": "text", "id": "asset_image", "label": "Beépített kép (fájlnév)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Modulshop – kategóriák" }]
+}
+{% endschema %}

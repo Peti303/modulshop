@@ -1,0 +1,95 @@
+{%- comment -%} Modulshop – benefit / trust strip {%- endcomment -%}
+<section class="ms-usp{% if section.settings.surface %} ms-section--surface{% endif %}">
+  <div class="ms-container">
+    <ul class="ms-usp__list" role="list">
+      {%- for block in section.blocks -%}
+        <li class="ms-usp__item ms-reveal" style="transition-delay: {{ forloop.index0 | times: 70 }}ms" {{ block.shopify_attributes }}>
+          <span class="ms-icon-badge">{% render 'ms-icon', name: block.settings.icon %}</span>
+          <span class="ms-usp__body">
+            <strong>{{ block.settings.title }}</strong>
+            <span>{{ block.settings.text }}</span>
+          </span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-usp {
+    padding-block: clamp(20px, 3vw, 32px);
+    border-bottom: 1px solid var(--ms-border);
+    color: var(--ms-text);
+  }
+  .ms-usp__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ms-usp__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .ms-usp__body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--ms-text-muted);
+  }
+  .ms-usp__body strong {
+    font-size: 16px;
+    color: var(--ms-text);
+  }
+  @media (max-width: 989px) {
+    .ms-usp__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 499px) {
+    .ms-usp__list {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Modulshop – előnyök",
+  "settings": [{ "type": "checkbox", "id": "surface", "label": "Szürke háttér", "default": false }],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "Előny",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Ikon",
+          "default": "truck",
+          "options": [
+            { "value": "truck", "label": "Szállítás" },
+            { "value": "bolt", "label": "Villám" },
+            { "value": "box", "label": "Doboz" },
+            { "value": "return", "label": "Visszaküldés" },
+            { "value": "pin", "label": "Hely" },
+            { "value": "shield", "label": "Garancia" },
+            { "value": "chip", "label": "Chip" },
+            { "value": "school", "label": "Iskola" },
+            { "value": "gift", "label": "Ajándék" },
+            { "value": "clock", "label": "Óra" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Cím", "default": "Előny" },
+        { "type": "text", "id": "text", "label": "Szöveg" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Modulshop – előnyök" }]
+}
+{% endschema %}

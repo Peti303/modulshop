@@ -276,8 +276,11 @@ def build_handle_map(urls, ids=None):
 
 def read_sitemap(src):
     if re.match(r"https?://", src):
-        tmp = src.rsplit("/", 1)[-1] or "sitemap.xml"
-        curl(src, tmp)
+        import tempfile
+        fd, tmp = tempfile.mkstemp(suffix=".xml")
+        os.close(fd)
+        if curl(src, tmp) != 200:
+            raise RuntimeError("could not download %s" % src)
         src = tmp
     with open(src, encoding="utf-8") as fh:
         t = fh.read()
@@ -514,6 +517,7 @@ def clean_html(fragment):
     s = re.sub(r"(?:\s*<br>)*\s*</(p|h2|h3|h4|li|td|th)>", r"</\1>", s)
     s = re.sub(r"<p>(.*?)</p>", _p_to_lists, s, flags=re.S)
     s = re.sub(r"<(strong|em)>\s*</\1>", " ", s)
+    s = s.replace("</strong><strong>", "</strong> <strong>")
     for _ in range(3):
         s = re.sub(r"<(strong|em)>\s*<\1>(.*?)</\1>\s*</\1>", r"<\1>\2</\1>", s, flags=re.S)
         # a heading does not need bold
@@ -598,6 +602,10 @@ def original_image_url(cache_url):
     return m.group(1) + "/data/" + path
 
 
+BOILER_PREFIX = re.compile(r"^\s*(?:\w+\s*-\s*Gyors kiszállítás\s*(?:-\s*|$))?(?:[\d.\s]+Ft\b\s*-?\s*)?", re.I)
+BOILER_SUFFIX = re.compile(r"\s*-\s*Modulshop webáruház\s*$", re.I)
+
+
 def parse_product(doc, url):
     p = {"url": url, "warnings": []}
     m = re.search(r'class="product-page-product-name"[^>]*>(.*?)</span>', doc, re.S)
@@ -679,9 +687,14 @@ def parse_product(doc, url):
     t = _text(m.group(1)) if m else p["title"]
     t = re.sub(r"^Modulshop\s*-\s*", "", t)
     t = re.sub(r"\s*-\s*[\d.\s]+Ft\s*$", "", t)  # price in <title> would go stale
-    p["seo_title"] = t
+    t = BOILER_PREFIX.sub("", t).strip(" -")
+    p["seo_title"] = t if len(t) > 3 else p["title"]
     m = re.search(r'<meta name="description" content="([^"]*)"', doc, re.S)
-    p["seo_desc"] = _text(m.group(1)) if m else ""
+    d = _text(m.group(1)) if m else ""
+    d = BOILER_SUFFIX.sub("", BOILER_PREFIX.sub("", d)).strip(" -")
+    if re.search(r"\d[\d.\s]*\s*Ft-os áron", d):
+        d = ""  # ShopRenter default template with the price in it -> would go stale
+    p["seo_desc"] = d
     # manufacturer, only when explicitly stated ("Gyártó: X")
     txt = html_to_text(short + "\n" + p["desc_html"])
     m = re.search(r"Gyártó\s*:\s*([^\n,;]{2,40})", txt)

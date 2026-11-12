@@ -1,0 +1,285 @@
+{%- comment -%}
+  Modulshop – real customer reviews (verbatim, with source). See docs/research/reviews.md.
+{%- endcomment -%}
+{%- liquid
+  assign summaries = section.blocks | where: 'type', 'summary'
+  assign reviews = section.blocks | where: 'type', 'review'
+-%}
+<section class="ms-section ms-reviews{% if section.settings.surface %} ms-section--surface{% endif %}" aria-labelledby="ms-reviews-{{ section.id }}">
+  <div class="ms-container">
+    <div class="ms-reviews__head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}<p class="ms-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        <h2 id="ms-reviews-{{ section.id }}" class="ms-heading">{{ section.settings.title }}</h2>
+        {%- if section.settings.text != blank -%}<p class="ms-lead">{{ section.settings.text }}</p>{%- endif -%}
+      </div>
+      {%- if summaries.size > 0 -%}
+        <div class="ms-reviews__summaries">
+          {%- for block in summaries -%}
+            <a class="ms-reviews__summary ms-card" href="{{ block.settings.url | default: '#' }}" {% if block.settings.url != blank %}target="_blank" rel="noopener"{% endif %} {{ block.shopify_attributes }}>
+              <span class="ms-reviews__score">{{ block.settings.score }}</span>
+              <span class="ms-reviews__summary-body">
+                <span class="ms-stars" aria-hidden="true">
+                  {%- for i in (1..5) -%}{% render 'ms-icon', name: 'star', size: 16 %}{%- endfor -%}
+                </span>
+                <span class="ms-reviews__count">{{ block.settings.label }}</span>
+              </span>
+            </a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="ms-reviews__track" role="list" tabindex="0" aria-label="Vásárlói vélemények">
+      {%- for block in reviews -%}
+        {%- assign rating = block.settings.rating | plus: 0 -%}
+        <figure class="ms-reviews__card ms-card" role="listitem" {{ block.shopify_attributes }}>
+          <span class="ms-reviews__quote-icon">{% render 'ms-icon', name: 'quote', size: 28 %}</span>
+          <span class="ms-stars" aria-label="{{ block.settings.rating_label }}">
+            {%- for i in (1..5) -%}
+              <span class="{% if i > rating %}is-empty{% endif %}">{% render 'ms-icon', name: 'star', size: 16 %}</span>
+            {%- endfor -%}
+          </span>
+          <blockquote class="ms-reviews__text">{{ block.settings.text }}</blockquote>
+          <figcaption class="ms-reviews__meta">
+            <span class="ms-reviews__avatar" aria-hidden="true">{{ block.settings.author | slice: 0 }}</span>
+            <span>
+              <strong>{{ block.settings.author }}</strong>
+              <span class="ms-reviews__source">
+                {%- if block.settings.verified -%}<span class="ms-reviews__verified">{% render 'ms-icon', name: 'check', size: 13 %}Igazolt vásárlás</span> · {% endif -%}
+                {%- if block.settings.source_url != blank -%}
+                  <a href="{{ block.settings.source_url }}" target="_blank" rel="noopener">{{ block.settings.source }}</a>
+                {%- else -%}
+                  {{ block.settings.source }}
+                {%- endif -%}
+                {%- if block.settings.date != blank %} · {{ block.settings.date }}{% endif -%}
+              </span>
+              {%- if block.settings.product != blank -%}<span class="ms-reviews__product">{{ block.settings.product }}</span>{%- endif -%}
+            </span>
+          </figcaption>
+        </figure>
+      {%- endfor -%}
+    </div>
+    <div class="ms-reviews__nav">
+      <button type="button" class="ms-reviews__arrow" data-dir="-1" aria-label="Előző vélemények">{% render 'ms-icon', name: 'arrow-right', size: 20 %}</button>
+      <button type="button" class="ms-reviews__arrow" data-dir="1" aria-label="Következő vélemények">{% render 'ms-icon', name: 'arrow-right', size: 20 %}</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var root = document.currentScript.closest('.ms-reviews');
+      var track = root.querySelector('.ms-reviews__track');
+      root.querySelectorAll('.ms-reviews__arrow').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var card = track.querySelector('.ms-reviews__card');
+          var step = card ? card.getBoundingClientRect().width + 20 : 320;
+          track.scrollBy({ left: step * Number(b.dataset.dir), behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+</section>
+
+{% stylesheet %}
+  .ms-reviews__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px 40px;
+    margin-bottom: clamp(24px, 3vw, 40px);
+  }
+  .ms-reviews__summaries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .ms-reviews__summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    color: var(--ms-text);
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s var(--ms-ease);
+  }
+  .ms-reviews__summary:hover {
+    border-color: var(--ms-accent);
+    transform: translateY(-2px);
+  }
+  .ms-reviews__score {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ms-primary);
+  }
+  .ms-reviews__summary-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .ms-reviews__count {
+    font-size: 13px;
+    color: var(--ms-text-muted);
+  }
+  .ms-reviews__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(300px, calc((100% - 40px) / 3));
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 4px 2px 8px;
+    outline: none;
+  }
+  .ms-reviews__track::-webkit-scrollbar {
+    display: none;
+  }
+  .ms-reviews__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 24px;
+    scroll-snap-align: start;
+  }
+  .ms-reviews__quote-icon {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    color: var(--ms-accent);
+    opacity: 0.18;
+  }
+  .ms-stars .is-empty {
+    opacity: 0.25;
+  }
+  .ms-reviews__text {
+    flex: 1;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ms-text);
+  }
+  .ms-reviews__meta {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding-top: 14px;
+    border-top: 1px solid var(--ms-border);
+    font-size: 14px;
+  }
+  .ms-reviews__meta > span:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+  .ms-reviews__avatar {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--ms-accent-soft);
+    color: var(--ms-accent);
+    font-weight: 800;
+  }
+  .ms-reviews__source,
+  .ms-reviews__product {
+    font-size: 13px;
+    color: var(--ms-text-muted);
+  }
+  .ms-reviews__product {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .ms-reviews__source a {
+    color: inherit;
+  }
+  .ms-reviews__verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: var(--ms-success);
+    font-weight: 600;
+  }
+  .ms-reviews__nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .ms-reviews__arrow {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--ms-border-strong);
+    background: var(--ms-card);
+    color: var(--ms-text);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .ms-reviews__arrow:hover {
+    border-color: var(--ms-primary);
+    color: var(--ms-primary);
+  }
+  .ms-reviews__arrow[data-dir='-1'] svg {
+    transform: rotate(180deg);
+  }
+  @media (max-width: 989px) {
+    .ms-reviews__track {
+      grid-auto-columns: minmax(280px, 46%);
+    }
+  }
+  @media (max-width: 599px) {
+    .ms-reviews__track {
+      grid-auto-columns: 86%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Modulshop – vélemények",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Felső címke", "default": "Vélemények" },
+    { "type": "text", "id": "title", "label": "Cím", "default": "Vásárlóink mondták" },
+    { "type": "text", "id": "text", "label": "Bevezető" },
+    { "type": "checkbox", "id": "surface", "label": "Szürke háttér", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "summary",
+      "name": "Értékelés-összesítő",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "score", "label": "Pontszám", "default": "4,6/5" },
+        { "type": "text", "id": "label", "label": "Felirat", "default": "311 termékvélemény" },
+        { "type": "url", "id": "url", "label": "Forrás linkje" }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Vélemény",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Vélemény (szó szerint)" },
+        { "type": "text", "id": "author", "label": "Szerző" },
+        { "type": "range", "id": "rating", "label": "Csillagok", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "text", "id": "rating_label", "label": "Értékelés szövegesen (akadálymentesség)", "default": "5 / 5 csillag" },
+        { "type": "text", "id": "source", "label": "Forrás neve" },
+        { "type": "url", "id": "source_url", "label": "Forrás linkje" },
+        { "type": "text", "id": "date", "label": "Dátum" },
+        { "type": "text", "id": "product", "label": "Termék" },
+        { "type": "checkbox", "id": "verified", "label": "Igazolt vásárlás", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Modulshop – vélemények" }]
+}
+{% endschema %}

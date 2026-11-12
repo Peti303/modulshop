@@ -1,0 +1,151 @@
+{%- comment -%} Modulshop – two promo cards (own products / schools & companies) {%- endcomment -%}
+<section class="ms-section ms-promo">
+  <div class="ms-container ms-promo__grid">
+    {%- for block in section.blocks limit: 2 -%}
+      <article class="ms-promo__card ms-promo__card--{{ block.settings.style }} ms-reveal" {{ block.shopify_attributes }}>
+        <div class="ms-promo__body">
+          <span class="ms-promo__icon">{% render 'ms-icon', name: block.settings.icon, size: 26 %}</span>
+          <h2 class="ms-promo__title">{{ block.settings.title }}</h2>
+          <div class="ms-promo__text">{{ block.settings.text }}</div>
+          {%- if block.settings.button_label != blank -%}
+            <a href="{{ block.settings.button_link | default: '#' }}" class="ms-btn {% if block.settings.style == 'dark' %}ms-btn--highlight{% else %}ms-btn--primary{% endif %}">
+              {{- block.settings.button_label -}}
+              {%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
+            </a>
+          {%- endif -%}
+        </div>
+        {%- if block.settings.image != blank or block.settings.asset_image != blank -%}
+          <div class="ms-promo__media" aria-hidden="true">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: '' }}
+            {%- else -%}
+              <img src="{{ block.settings.asset_image | asset_url }}" alt="" width="480" height="480" loading="lazy">
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-promo__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .ms-promo__card {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 38%;
+    align-items: center;
+    gap: 16px;
+    overflow: hidden;
+    border-radius: var(--ms-radius-lg);
+    padding: clamp(24px, 3.5vw, 40px);
+    min-height: 300px;
+  }
+  .ms-promo__card--light {
+    background: var(--ms-accent-soft);
+    color: var(--ms-text);
+  }
+  .ms-promo__card--dark {
+    background: linear-gradient(135deg, var(--ms-hero-from), var(--ms-hero-to));
+    color: #fff;
+  }
+  .ms-promo__icon {
+    display: inline-grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--ms-card);
+    color: var(--ms-accent);
+    box-shadow: var(--ms-shadow-sm);
+  }
+  .ms-promo__card--dark .ms-promo__icon {
+    background: rgb(255 255 255 / 0.14);
+    color: var(--ms-highlight);
+    box-shadow: none;
+  }
+  .ms-promo__title {
+    margin: 18px 0 10px;
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: inherit;
+  }
+  .ms-promo__text {
+    margin-bottom: 22px;
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.88;
+  }
+  .ms-promo__text p {
+    margin: 0 0 8px;
+  }
+  .ms-promo__text ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .ms-promo__media {
+    align-self: stretch;
+    display: grid;
+    place-items: center;
+  }
+  .ms-promo__media img {
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 1;
+    object-fit: contain;
+    border-radius: 18px;
+    background: #fff;
+    padding: 8%;
+    box-shadow: var(--ms-shadow-lg);
+    transform: rotate(3deg);
+    filter: none !important;
+    transition: transform 0.5s var(--ms-ease);
+  }
+  .ms-promo__card:hover .ms-promo__media img {
+    transform: rotate(0deg) scale(1.03);
+  }
+  @media (max-width: 989px) {
+    .ms-promo__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 599px) {
+    .ms-promo__card {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+    .ms-promo__media {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Modulshop – kiemelt dobozok",
+  "blocks": [
+    {
+      "type": "promo",
+      "name": "Doboz",
+      "limit": 2,
+      "settings": [
+        { "type": "select", "id": "style", "label": "Stílus", "default": "light", "options": [{ "value": "light", "label": "Világos" }, { "value": "dark", "label": "Színes" }] },
+        { "type": "select", "id": "icon", "label": "Ikon", "default": "chip", "options": [{ "value": "chip", "label": "Chip" }, { "value": "school", "label": "Iskola" }, { "value": "wrench", "label": "Szerszám" }, { "value": "gift", "label": "Ajándék" }, { "value": "box", "label": "Doboz" }] },
+        { "type": "text", "id": "title", "label": "Cím", "default": "Cím" },
+        { "type": "richtext", "id": "text", "label": "Szöveg" },
+        { "type": "text", "id": "button_label", "label": "Gomb felirata" },
+        { "type": "url", "id": "button_link", "label": "Gomb linkje" },
+        { "type": "image_picker", "id": "image", "label": "Kép" },
+        { "type": "text", "id": "asset_image", "label": "Beépített kép (fájlnév)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Modulshop – kiemelt dobozok" }]
+}
+{% endschema %}

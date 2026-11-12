@@ -4,3 +4,4 @@
 - 2026-11-12: Teljesen új vizuális irány; a jelenlegi arculatból legfeljebb a logó marad.
 - 2026-11-12: Éles Shopify áruház (nem dev), Theme Access + CLI.
 - 2026-11-12: Theme Access helyett GitHub-integráció (a main ág a közzétett sablon). Előnézethez a munkaág második sablonként köthető be.
+- 2026-11-12: Facebookról nem veszünk át képet (a felhasználó szerint nincs megfelelő minőségű). A képek a modulshop.hu termékfotóiból jönnek.
