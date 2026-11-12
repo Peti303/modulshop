@@ -31,5 +31,8 @@ A ShopRenterről Shopifyra költöző **modulshop.hu** (elektronikai alkatrésze
 - `docs/setup-access.md` – útmutató a Shopify- és Meta-hozzáféréshez
 
 ## Shopify
-- Éles (nem dev) áruház, amely átadható a cégnek. Feltöltés Shopify CLI-vel, Theme Access jelszóval (`shopify theme push --unpublished`). Az élő sablont soha nem írjuk felül.
+- Áruház: `modulshop-hu-dd1b00hc.myshopify.com` (jelszóval védett; a storefront jelszavát a felhasználó adta meg a csetben). Éles, nem dev, átadható a cégnek.
+- **GitHub-integráció:** a közzétett „modulshop/main” sablon a `main` ágat követi. A munka a `claude/wizardly-galileo-gs2p4e` ágon folyik, `main`-be csak PR-összevonással kerül. Theme Access nem kell.
+- A Shopify az editorban tett módosításokat visszacommitolja → **munka előtt `git pull`**.
+- A termékek CSV-importtal kerülnek fel (`docs/import/`), mert a sablon nem tartalmaz termékadatot.
 - A `docs/` és a `CLAUDE.md` nem része a sablonnak; a `.shopifyignore` kizárja őket.

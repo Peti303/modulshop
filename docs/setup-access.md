@@ -1,29 +1,25 @@
 # Hozzáférések beállítása – lépésről lépésre
 
-Két hozzáférés kell: **Shopify** (a sablon feltöltéséhez) és **Meta / Facebook + Instagram** (a képekhez és értékelésekhez).
+A sablon a GitHubon keresztül kerül a Shopifyba. Külön hozzáférés csak a **Meta / Facebook + Instagram** tartalmakhoz kell.
 A titkos kulcsokat (jelszó, token) **soha ne írd be a csetbe.** Amikor szólsz, hogy megvagy, egy biztonságos űrlapot kapsz, és oda kell beilleszteni. Én a kulcsot nem látom, a rendszer csak a megfelelő szervernek küldi el.
 
 ---
 
-## 1. Shopify – Theme Access jelszó
+## 1. Shopify – GitHub-integráció (Theme Access nem kell)
 
-Ezzel csak **sablonokat** tudok feltölteni és szerkeszteni. A rendeléseket, a vásárlókat, a fizetést és a beállításokat nem látom. Az élő sablont nem írom felül: az új sablon **közzététel nélkül**, külön sablonként kerül fel, és te döntöd el, mikor élesíted.
+Az áruház (`modulshop-hu-dd1b00hc.myshopify.com`) **„modulshop/main” nevű, közzétett sablonja** a GitHub-tároló `main` ágához van kötve. Ami a `main`-be kerül, az élesben is megjelenik. Az áruház jelszóval védett, és még nincs benne termék.
 
-1. Lépj be a Shopify adminba: `https://admin.shopify.com`.
-2. A bal menüben: **Alkalmazások (Apps)**, majd az áruház megnyitása (*Shopify App Store*).
-3. Keress rá erre: **Theme Access** (a Shopify saját, ingyenes appja), majd **Install / Telepítés**.
-4. Nyisd meg az appot, és kattints a **Create password / Jelszó létrehozása** gombra.
-   - Név: `Modulshop sablonfejlesztés`
-   - E-mail: a saját e-mail címed (ide jön a jelszó)
-5. Megérkezik az e-mail. Nyisd meg benne a linket **7 napon belül**. A jelszót (`shptka_…` kezdetű) **csak egyszer** mutatja meg, ezért másold ki.
-6. Küldd el nekem a csetben az áruház **myshopify címét**, például `modulshop-xyz.myshopify.com`. Ez nem titkos. A Shopify adminban a *Beállítások → Domainek* alatt találod.
-7. Szólj, és megjelenik az űrlap, oda illeszd be a `shptka_…` jelszót.
+Én a `claude/wizardly-galileo-gs2p4e` ágon dolgozom. Ha ezt az ágat is bekötöd egy **második, közzététel nélküli sablonként**, minden commitom után azonnal látjuk az eredményt, és az élő sablon érintetlen marad:
 
-**Visszavonás:** a Theme Access appban bármikor törölheted a jelszót.
+1. Shopify admin → **Online áruház → Sablonok → Sablon hozzáadása → Csatlakozás a GitHubról**.
+2. Tároló: `Peti303/modulshop`, ág: `claude/wizardly-galileo-gs2p4e`.
+3. A megjelenő sablonnál: **⋯ → Előnézet** → **Előnézet megosztása**. A kapott linket (benne a `preview_theme_id`) küldd el a csetben.
 
-**Átadás a cégnek:** ha az áruház a te fiókodon van, később a *Beállítások → Felhasználók → Tulajdonjog átruházása* alatt adhatod át a modulshopnak. A sablon ezzel együtt átkerül.
+Ha kész vagyunk, a PR-t összevonod a `main`-be, és az új dizájn élesedik.
 
-**Termékek, kategóriák, oldalak:** ezeket nem a sablon tartalmazza. A termékekhez Shopify-formátumú CSV-t készítek, ezt az adminban a *Termékek → Importálás* menüpontban egy kattintással feltöltheted. Ha később teljesen automatikus költöztetés kell (menük, oldalak, átirányítások), arról külön útmutatót írok.
+**Figyelem:** a sablonszerkesztőben tett módosításokat a Shopify visszacommitolja a bekötött ágra. Ezért én mindig lehúzom a legfrissebb állapotot, mielőtt dolgozom.
+
+**Termékek, kategóriák, oldalak:** ezek nem a sablon részei. A termékekhez Shopify-formátumú CSV-t készítek a modulshop.hu valódi adataiból, ezt a *Termékek → Importálás* menüpontban egy kattintással feltöltheted. A menüket, oldalakat és átirányításokat lépésenkénti listában adom meg, vagy később egy Admin API kulccsal én viszem fel.
 
 ---
 
@@ -31,8 +27,13 @@ Ezzel csak **sablonokat** tudok feltölteni és szerkeszteni. A rendeléseket, a
 
 A Facebook bejelentkezés nélkül nem enged robotot az oldalakra, a bejelentkezés megkerülése pedig tilos és kockázatos is. A hivatalos és biztonságos út a **Meta Graph API**: egy csak olvasási jogú token, amellyel az oldal saját posztjait, fotóit, értékeléseit és az Instagram-posztokat le tudom tölteni.
 
+### Miért kell az admin szerepkör és az Instagram szakmai fiók?
+- **A Graph API nem „mindenhez” ad hozzáférést.** A token mindig egy Facebook-felhasználóhoz tartozik, és csak azokat az oldalakat éri el, amelyeken annak a felhasználónak szerepköre van. Idegen oldal tartalmához a „Page Public Content Access” funkció kellene. Ehhez Meta-ellenőrzés és cégellenőrzés szükséges, ami heteket vesz igénybe, és ilyen célra jellemzően nem engedélyezik.
+- **Instagram:** a magánfiókokhoz tartozó API-t (Basic Display) a Meta 2024 decemberében megszüntette. Ma API-n csak **szakmai (Business vagy Creator) fiók** érhető el. A váltás ingyenes, kb. 1 perc, és nem jár hátránnyal. Hogy már szakmai-e, onnan látszik, hogy a profilon megjelenik a „Professzionális irányítópult”.
+- **Nem neked kell adminnak lenned:** a tokent bárki létrehozhatja, akinek már van szerepköre az oldalon, például valaki a modulshoptól. A lépések ugyanazok.
+
 ### Előfeltételek (egyszer kell, a cég segítségével)
-- **Adminnak kell lenned a modulshop Facebook-oldalán**, teljes hozzáféréssel. A cég ezt a **Meta Business Suite → Beállítások → Személyek / Oldalhozzáférés** alatt adhatja meg neked.
+- **A tokent létrehozó személynek szerepköre kell legyen a modulshop Facebook-oldalán**, teljes hozzáféréssel (te vagy egy modulshopos kolléga). A cég ezt a **Meta Business Suite → Beállítások → Személyek / Oldalhozzáférés** alatt adhatja meg neked.
 - Az **Instagram-fióknak szakmai (Business vagy Creator) fióknak kell lennie, és a Facebook-oldalhoz kell kapcsolódnia.** Ha nem így van: Instagram app → Beállítások → *Fióktípus és eszközök* → *Váltás szakmai fiókra*, majd a Business Suite-ban az Instagram-fiók összekapcsolása az oldallal.
 
 ### A) Fejlesztői fiók és app (kb. 5 perc)
@@ -66,10 +67,10 @@ A Facebook bejelentkezés nélkül nem enged robotot az oldalakra, a bejelentkez
 ---
 
 ## Mit kapok és mit nem
-| | Shopify Theme Access | Meta oldaltoken |
-|---|---|---|
-| Látom | sablonfájlok | az oldal posztjai, fotói, értékelései; Instagram-posztok |
-| Nem látom | rendelések, vásárlók, fizetés, beállítások | privát üzenetek, a személyes profilod, hirdetési fiók |
-| Módosíthatok | csak sablont, közzététel nélkül | semmit (csak olvasás) |
+| | Meta oldaltoken |
+|---|---|
+| Látom | az oldal posztjai, fotói, értékelései; Instagram-posztok |
+| Nem látom | privát üzenetek, a személyes profilod, hirdetési fiók |
+| Módosíthatok | semmit (csak olvasás) |
 
 A kulcsok ennek a felhőkörnyezetnek a hálózati titkai között tárolódnak. A projekt végén a környezet beállításaiban törölhetők.
