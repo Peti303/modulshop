@@ -32,6 +32,7 @@ A ShopRenterről Shopifyra költöző **modulshop.hu** (elektronikai alkatrésze
 
 ## Shopify
 - Áruház: `modulshop-hu-dd1b00hc.myshopify.com` (jelszóval védett; a storefront jelszavát a felhasználó adta meg a csetben). Éles, nem dev, átadható a cégnek.
+- Előnézet (munkaág sablonja, ID 192355959112): `https://modulshop-hu-dd1b00hc.myshopify.com/?preview_theme_id=192355959112`. Képernyőkép-ellenőrzés: `node docs/tools/shot.js <útvonal> [név]` (a scratchpadba ment).
 - **GitHub-integráció:** a közzétett „modulshop/main” sablon a `main` ágat követi. A munka a `claude/wizardly-galileo-gs2p4e` ágon folyik, `main`-be csak PR-összevonással kerül. Theme Access nem kell.
 - A Shopify az editorban tett módosításokat visszacommitolja → **munka előtt `git pull`**.
 - A termékek CSV-importtal kerülnek fel (`docs/import/`), mert a sablon nem tartalmaz termékadatot.

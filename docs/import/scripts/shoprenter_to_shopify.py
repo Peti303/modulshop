@@ -523,8 +523,10 @@ def clean_html(fragment):
     s = re.sub(r"<(p|h2|h3|h4|li)>\s*</\1>", "", s)
     s = re.sub(r" {2,}", " ", s)
     s = re.sub(r">\s+<", "><", s)
+    # a single paragraph inside a list item / table cell is unwrapped
+    s = re.sub(r"<(li|td|th)([^>]*)><p>((?:(?!</?p>).)*)</p></\1>", r"<\1\2>\3</\1>", s, flags=re.S)
     # readable line breaks between blocks
-    s = re.sub(r"(</(?:p|h2|h3|h4|ul|ol|table|blockquote|li|tr|thead|tbody)>)", r"\1\n", s)
+    s = re.sub(r"(</(?:p|h2|h3|h4|ul|ol|table|blockquote|li|tr|td|th|thead|tbody)>)", r"\1\n", s)
     s = re.sub(r"(<(?:ul|ol|table|thead|tbody|tr|blockquote)>)", r"\1\n", s)
     return "\n".join(line.strip() for line in s.splitlines() if line.strip())
 
@@ -575,6 +577,15 @@ def _text(fragment):
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", fragment or ""))).strip()
 
 
+def valid_gtin(code):
+    if not re.fullmatch(r"\d{8}|\d{12,14}", code):
+        return False
+    digits = [int(c) for c in code]
+    check = digits.pop()
+    total = sum(d * (3 if i % 2 == 0 else 1) for i, d in enumerate(reversed(digits)))
+    return (10 - total % 10) % 10 == check
+
+
 def original_image_url(cache_url):
     """ShopRenter cache URL -> original upload URL (image/data/...)."""
     u = cache_url.split("?", 1)[0]
@@ -598,6 +609,9 @@ def parse_product(doc, url):
     p["sku"] = html.unescape(m.group(1)).strip() if m else ""
     m = re.search(r'itemprop="gtin\d*" content="([^"]*)"', doc)
     p["gtin"] = m.group(1).strip() if m else ""
+    if p["gtin"] and not valid_gtin(p["gtin"]):
+        p["warnings"].append("invalid GTIN %r (not a GTIN-8/12/13/14) -> left empty" % p["gtin"])
+        p["gtin"] = ""
     m = re.search(r'itemprop="price" content="([\d.]+)"', doc)
     p["price"] = m.group(1) if m else ""
     if p["price"].endswith(".00"):
@@ -675,29 +689,39 @@ def parse_product(doc, url):
     return p
 
 
-def categorize(p, featured_members):
+def categorize(p, members):
+    """Type = main collection, Tags = subcategory names (+ featured tags).
+
+    Primary source: the product page breadcrumb. Additional/fallback source:
+    category membership, either crawled (--crawl-categories,
+    --featured-category) or given as hints (--category-hints)."""
     main_type, tags = "", []
-    for path, name in p["breadcrumb"][1:]:
+    paths = [path for path, _ in p["breadcrumb"][1:]]
+    me = url_path(p["url"])
+    for cat_path, urls in members.items():
+        if me in urls and cat_path not in paths:
+            paths.append(cat_path)
+    names = dict(p["breadcrumb"])
+    for path in paths:
+        if not path or path == "/" or path == me or path in OTHER_CAT:
+            continue  # home, the product itself, "Összes termék" etc.
         if path in MAIN:
-            main_type = MAIN[path][0]
+            main_type = main_type or MAIN[path][0]
         elif path in SUB:
-            if not main_type:
-                main_type = MAIN.get("/" + path.strip("/").split("/")[0], ("", ""))[0]
-            tags.append(SUB[path][0])
+            main_type = main_type or MAIN.get("/" + path.strip("/").split("/")[0], ("", ""))[0]
+            if SUB[path][0] not in tags:
+                tags.append(SUB[path][0])
         elif path in FEATURED:
-            tags.append(FEATURED[path][0])
-        elif path and path != "/" and path != url_path(p["url"]):
-            p["warnings"].append("unknown category in breadcrumb: %s (%s)" % (path, name))
-            tags.append(name.replace(",", " /"))
-    for path, members in featured_members.items():
-        if url_path(p["url"]) in members:
-            tag = FEATURED.get(path, SUB.get(path, (None,)))[0]
+            if FEATURED[path][0] not in tags:
+                tags.append(FEATURED[path][0])
+        else:
+            p["warnings"].append("unknown category: %s (%s)" % (path, names.get(path, "")))
+            tag = re.sub(r"\s*\(\d+\)$", "", names.get(path, "")).replace(",", " /").strip()
             if tag and tag not in tags:
                 tags.append(tag)
     if not main_type:
-        if any(t in ("Saját termék", "Csomag") for t in tags):
-            main_type = tags[0] == "Csomag" and "Csomagok" or "Általunk készített termékek"
-        p["warnings"].append("no main category in breadcrumb -> Type %r" % main_type)
+        p["warnings"].append("no main category (breadcrumb: %s) -> Type empty, set it manually"
+                             % " > ".join(n for _, n in p["breadcrumb"]))
     return main_type, tags
 
 
@@ -751,9 +775,17 @@ def cmd_products(a):
     if a.ids_out and os.path.exists(a.ids_out):
         with open(a.ids_out, encoding="utf-8") as fh:
             ids = json.load(fh)
-    featured_members = {}
-    for path in a.featured_category:
-        featured_members[path] = crawl_category(path, os.path.join(a.cache_dir, "categories"), a.refresh)
+    members = {}
+    crawl = list(a.featured_category)
+    if a.crawl_categories:
+        crawl += list(MAIN) + list(SUB) + list(FEATURED)
+    for path in dict.fromkeys(crawl):
+        members[path] = crawl_category(path, os.path.join(a.cache_dir, "categories"), a.refresh)
+    if a.category_hints:
+        with open(a.category_hints, encoding="utf-8") as fh:
+            for u, cats in json.load(fh).items():
+                for c in ([cats] if isinstance(cats, str) else cats):
+                    members.setdefault(url_path(c), set()).add(url_path(u))
     products, report = [], {"failed": [], "warnings": {}}
     for i, u in enumerate(urls, 1):
         try:
@@ -768,15 +800,26 @@ def cmd_products(a):
         products.append(p)
         sys.stderr.write("[%d/%d] %s\n" % (i, len(urls), p["title"]))
     hmap = build_handle_map(list(dict.fromkeys(sitemap_urls + urls)), ids)
+    status_file = os.path.join(a.cache_dir, "image_status.json")
+    img_status = {}
+    if os.path.exists(status_file):
+        with open(status_file, encoding="utf-8") as fh:
+            img_status = json.load(fh)
     rows = []
     for p in products:
         handle = hmap[p["url"]]
         p["handle"] = handle
-        ptype, tags = categorize(p, featured_members)
+        ptype, tags = categorize(p, members)
         if a.verify_images:
             for im in p["images"]:
-                if im["src"] != im["cache"] and curl(im["src"], head=True) != 200:
-                    p["warnings"].append("original image missing, using cache URL: %s" % im["src"])
+                code = 200 if im["src"] == im["cache"] else img_status.get(im["src"])
+                if code != 200:
+                    code = curl(im["src"], head=True)
+                    if code == 0:  # curl/network error: retry once
+                        code = curl(im["src"], head=True)
+                    img_status[im["src"]] = code
+                if code != 200:
+                    p["warnings"].append("original image HTTP %s, using cache URL: %s" % (code, im["src"]))
                     im["src"] = im["cache"]
         imgs = p["images"] or [{"src": "", "alt": ""}]
         seo_title = (p["seo_title"] or p["title"])[:70]
@@ -804,6 +847,9 @@ def cmd_products(a):
             rows.append(row)
         if p["warnings"]:
             report["warnings"][p["url"]] = p["warnings"]
+    if a.verify_images:
+        with open(status_file, "w", encoding="utf-8") as fh:
+            json.dump(img_status, fh, indent=1, sort_keys=True)
     with open(a.out, "w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=CSV_COLUMNS, lineterminator="\n")
         w.writeheader()
@@ -886,6 +932,11 @@ def main(argv=None):
     p.add_argument("--refresh", action="store_true", help="re-download cached pages")
     p.add_argument("--featured-category", action="append", default=[],
                    help="category path (e.g. /sajat-termekeink-244) whose members get its tag; repeatable")
+    p.add_argument("--crawl-categories", action="store_true",
+                   help="crawl ALL category lists (~150 requests) so every product gets all its "
+                        "subcategory tags and a type even if its breadcrumb is only 'Összes termék'")
+    p.add_argument("--category-hints",
+                   help="JSON {product_url: category_url or [category_urls]} used like crawled membership")
     p.add_argument("--verify-images", action="store_true",
                    help="HEAD-check original image URLs, fall back to cache URL")
     p.add_argument("--out", required=True)

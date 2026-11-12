@@ -230,6 +230,10 @@ html[data-theme='dark'] .ms-logo-dark {
   box-shadow: 0 1px 4px rgb(0 0 0 / 0.2);
   transition: transform 0.55s var(--ms-ease), background-color 0.4s var(--ms-ease);
 }
+ms-theme-toggle .ms-theme-toggle__track svg.ms-theme-toggle__icon {
+  width: 14px;
+  height: 14px;
+}
 .ms-theme-toggle__icon {
   position: relative;
   z-index: 1;
@@ -482,7 +486,7 @@ html.ms-theme-fade *::after {
 
 /* Toggle placement: header on tablet/desktop, drawer on phones */
 @media (max-width: 749px) {
-  .ms-theme-toggle--header {
+  ms-theme-toggle.ms-theme-toggle--header {
     display: none;
   }
 }
@@ -501,6 +505,6 @@ html.ms-theme-fade *::after {
 }
 @media (max-width: 749px) {
   .ms-header-logo {
-    height: 30px;
+    height: 26px;
   }
 }
