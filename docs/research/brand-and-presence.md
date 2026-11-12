@@ -56,3 +56,15 @@ Megjegyzés: a „Rólunk” oldal (https://modulshop.hu/rolunk-51) jelenleg csa
 2. Egységesíteni kell a címet és az adószámot a jogi oldalakon, a Google Cégprofilban és a könyvtárakban.
 3. Ki kell tölteni a „Rólunk” oldalt, és javítani kell a © évszámot.
 4. Az Árukereső Megbízható Bolt státuszát és a Google-értékelés pontos számát kézzel kell ellenőrizni.
+
+## Facebook – nyilvánosan, bejelentkezés nélkül látható tartalom (2026-11-12)
+A https://www.facebook.com/NovakiJozsef/photos oldal egy kijelentkezett látogatónak is betölt (bezárható bejelentkezési ablakkal). Látható: oldalnév „Modulshop”, 1,3 E követő, borítókép (Black Friday 2026), a fotórács első kb. 11 képe (csak 206×206 px-es bélyegképek, főleg szöveges promóciós grafikák). A teljes méretű képek és a posztszövegek csak bejelentkezve érhetők el.
+
+A grafikákon olvasható tények (forrás: a fenti fotóoldal bélyegképei):
+- „Folyamatos kedvezmények”: 5% kedvezmény hírlevél-feliratkozásért; 10% kedvezmény a következő vásárlásból, ha a rendelés legalább 10 000 Ft; **15 000 Ft fölötti vásárlásnál ingyenes kiszállítás**.
+- Black Friday 2026: november 6–8., „-30% minden termékre”.
+- Személyes átvétel: „Rendeld meg online, és vedd át még aznap személyesen!”, cím: **1081 Budapest, II. János Pál pápa tér 12, nagy kapu melletti fehér ajtó**. ⚠️ Ellentmond a webshop szerinti 1078 Budapest, Nefelejcs u. 43. címnek; a tulajdonossal tisztázandó.
+- „Folyamatosan bővülő kínálat a webshopon! Alakítsd te a kínálatot” – termékjavaslatok az info@modulshop… e-mail címre.
+- Rendkívüli nyitvatartás (06.21., vasárnap, személyes átvétel 10:00–12:00) – csak egyszeri hír.
+
+Teljes felbontású képekhez és a posztok szövegéhez a felhasználó saját, bejelentkezett böngészője kell (Claude in Chrome, Claude Desktop app), vagy Meta Graph API token.

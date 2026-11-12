@@ -375,3 +375,4 @@ A téma CSS-változói a https://modulshop.hu/ inline stílusában vannak, a log
 4. Vannak-e hivatalos közösségimédia-profilok (Facebook, Instagram, YouTube, TikTok)? A webshopon egyik sem szerepel.
 5. A „Vásárlási feltételek” oldal megszűnhet, és az ÁSZF lehet az egyetlen forrás?
 6. Honnan származnak a „Rólunk mondták” vélemények (Google, Facebook)?
+7. A Facebook-grafikák szerint 15 000 Ft felett ingyenes a kiszállítás, és a személyes átvétel címe 1081 Budapest, II. János Pál pápa tér 12. Melyik az aktuális (a webshopon 1078 Nefelejcs u. 43. áll)?
