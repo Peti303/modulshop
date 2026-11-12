@@ -1,0 +1,107 @@
+{%- comment -%}
+  Modulshop – product page trust/delivery info (theme block for the product details column)
+{%- endcomment -%}
+{%- liquid
+  assign product = closest.product
+  assign variant = product.selected_or_first_available_variant
+  assign threshold = block.settings.free_shipping_threshold | times: 100
+-%}
+<div class="ms-ptrust" {{ block.shopify_attributes }}>
+  <ul class="ms-ptrust__list" role="list">
+    {%- if product.available -%}
+      <li class="ms-ptrust__item ms-ptrust__item--ok">
+        {% render 'ms-icon', name: 'bolt', size: 20 %}
+        <span><strong>{{ block.settings.dispatch_title }}</strong> {{ block.settings.dispatch_text }}</span>
+      </li>
+    {%- endif -%}
+    {%- if block.settings.free_shipping_threshold > 0 -%}
+      <li class="ms-ptrust__item">
+        {% render 'ms-icon', name: 'truck', size: 20 %}
+        <span>
+          {%- if variant.price >= threshold -%}
+            <strong>Ingyenes szállítás</strong> erre a termékre.
+          {%- else -%}
+            <strong>Ingyenes szállítás</strong> {{ threshold | money_without_trailing_zeros }} feletti rendelésnél.
+          {%- endif -%}
+        </span>
+      </li>
+    {%- endif -%}
+    {%- if block.settings.pickup_text != blank -%}
+      <li class="ms-ptrust__item">
+        {% render 'ms-icon', name: 'pin', size: 20 %}
+        <span>{{ block.settings.pickup_text }}</span>
+      </li>
+    {%- endif -%}
+    {%- if block.settings.return_text != blank -%}
+      <li class="ms-ptrust__item">
+        {% render 'ms-icon', name: 'shield', size: 20 %}
+        <span>{{ block.settings.return_text }}</span>
+      </li>
+    {%- endif -%}
+  </ul>
+  {%- if block.settings.show_sku and variant.sku != blank -%}
+    <p class="ms-ptrust__sku">Cikkszám: <span>{{ variant.sku }}</span></p>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .ms-ptrust {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: var(--ms-radius);
+    background: var(--ms-surface);
+    border: 1px solid var(--ms-border);
+    color: var(--ms-text);
+  }
+  .ms-ptrust__list {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ms-ptrust__item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ms-text-muted);
+  }
+  .ms-ptrust__item strong {
+    color: var(--ms-text);
+  }
+  .ms-ptrust__item .ms-icon {
+    flex: none;
+    color: var(--ms-accent);
+  }
+  .ms-ptrust__item--ok .ms-icon {
+    color: var(--ms-success);
+  }
+  .ms-ptrust__sku {
+    margin: 12px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid var(--ms-border);
+    font-size: 13px;
+    color: var(--ms-text-muted);
+  }
+  .ms-ptrust__sku span {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--ms-text);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · szállítás, garancia",
+  "settings": [
+    { "type": "text", "id": "dispatch_title", "label": "Feladás címe", "default": "Raktáron." },
+    { "type": "text", "id": "dispatch_text", "label": "Feladás szöveg", "default": "A 10 óráig leadott rendelést még aznap feladjuk." },
+    { "type": "number", "id": "free_shipping_threshold", "label": "Ingyenes szállítás értékhatára (Ft, 0 = kikapcsolva)", "default": 15000 },
+    { "type": "text", "id": "pickup_text", "label": "Személyes átvétel szöveg", "default": "Személyes átvétel Budapesten, akár még aznap." },
+    { "type": "text", "id": "return_text", "label": "Garancia szöveg", "default": "30 napos visszaküldés és 1 év garancia." },
+    { "type": "checkbox", "id": "show_sku", "label": "Cikkszám megjelenítése", "default": true }
+  ],
+  "presets": [{ "name": "MS · szállítás, garancia" }]
+}
+{% endschema %}
