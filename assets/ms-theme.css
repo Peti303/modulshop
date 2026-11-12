@@ -478,3 +478,16 @@ html.ms-theme-fade *::after {
   margin-bottom: 8px;
   border-bottom: 1px solid var(--ms-border);
 }
+
+/* Built-in header logo */
+.ms-header-logo {
+  height: 40px;
+  width: auto;
+  max-width: 100%;
+  filter: none !important;
+}
+@media (max-width: 749px) {
+  .ms-header-logo {
+    height: 30px;
+  }
+}
