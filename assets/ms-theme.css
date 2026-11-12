@@ -279,6 +279,11 @@ ms-theme-toggle .ms-theme-toggle__track svg.ms-theme-toggle__icon,
 .ms-theme-toggle__label { font-size: 15px; }
 
 html.ms-vt-theme { view-transition-name: root; }
+/* A Horizon a fejlécnek és a fő tartalomnak saját átmenet-réteget ad; témaváltás közben
+   minden a gyökérrétegbe kerül, hogy a körkörös feltárás a fejlécen is végigfusson. */
+html.ms-vt-theme *,
+html.ms-vt-theme *::before,
+html.ms-vt-theme *::after { view-transition-name: none !important; }
 html.ms-vt-theme::view-transition-old(root),
 html.ms-vt-theme::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
 html.ms-vt-theme::view-transition-new(root) { z-index: 2; }
