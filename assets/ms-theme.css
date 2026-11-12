@@ -606,3 +606,5 @@ html.ms-theme-fade *::after {
 .sticky-add-to-cart__title { font-weight: 600; }
 .sticky-add-to-cart__price .price { font-family: var(--ms-font-display); font-weight: 700; }
 .sticky-add-to-cart__image { background: var(--ms-tile); }
+/* A termékfotó mindig teljes egészében látszik, nem vágjuk le a széleit. */
+.product-media-container .product-media__image { object-fit: contain !important; }
