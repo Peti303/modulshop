@@ -2,7 +2,9 @@
 {%- liquid
   assign menu = section.settings.menu
   assign links = menu.links
-  if section.settings.use_children and links.first.links.size > 0
+  if section.settings.use_children
+    # Csak akkor van kategóriasor, ha az első menüpont alatt vannak kategóriák;
+    # különben ugyanazt a menüt mutatná, mint a fejléc.
     assign links = links.first.links
   endif
 -%}
