@@ -3,9 +3,15 @@
   assign menu = section.settings.menu
   assign links = menu.links
   if section.settings.use_children
-    # Csak akkor van kategóriasor, ha az első menüpont alatt vannak kategóriák;
-    # különben ugyanazt a menüt mutatná, mint a fejléc.
-    assign links = links.first.links
+    # Az első olyan menüpont almenüje, amely alatt vannak kategóriák (pl. „Termékeink”).
+    # Ha nincs ilyen, nincs kategóriasor, különben a fejléc menüjét ismételné.
+    assign links = null
+    for link in menu.links
+      if link.links.size > 0
+        assign links = link.links
+        break
+      endif
+    endfor
   endif
 -%}
 <div class="ms-searchbar">
@@ -284,7 +290,7 @@
     { "type": "text", "id": "button_label", "label": "Gomb felirata", "default": "Keresés" },
     { "type": "header", "content": "Kategóriasor" },
     { "type": "link_list", "id": "menu", "label": "Menü", "default": "main-menu" },
-    { "type": "checkbox", "id": "use_children", "label": "Az első menüpont almenüjét mutassa", "info": "Ha a főmenü első pontja a „Termékek”, alatta a kategóriákkal.", "default": true },
+    { "type": "checkbox", "id": "use_children", "label": "Az almenüs menüpont kategóriáit mutassa", "info": "Az első olyan főmenüpont almenüje jelenik meg, amely alatt vannak kategóriák.", "default": true },
     { "type": "text", "id": "nav_label", "label": "A menüsor neve (akadálymentesség)", "default": "Kategóriák" },
     { "type": "text", "id": "all_label", "label": "„Összes” gomb felirata", "default": "Összes kategória" },
     { "type": "text", "id": "all_link", "label": "„Összes” gomb linkje", "info": "Pl. /collections vagy teljes webcím" }
