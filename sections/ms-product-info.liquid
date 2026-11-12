@@ -1,0 +1,162 @@
+{%- comment -%} Modulshop – termékoldal alsó része: leírás + adatok {%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign variant = product.selected_or_first_available_variant
+-%}
+{%- if product != blank -%}
+<section class="ms-section ms-pinfo" aria-label="{{ s.title | escape }}">
+  <div class="ms-container ms-pinfo__grid">
+    <div class="ms-pinfo__desc">
+      <h2 class="ms-heading ms-pinfo__title">{{ s.title | escape }}</h2>
+      {%- if product.description != blank -%}
+        <div class="rte ms-pinfo__rte">{{ product.description }}</div>
+      {%- else -%}
+        <p class="ms-pinfo__empty">{{ s.empty_text | escape }}</p>
+      {%- endif -%}
+    </div>
+    <aside class="ms-pinfo__side">
+      <div class="ms-panel ms-pinfo__panel">
+        <h2 class="ms-heading ms-pinfo__title">{{ s.facts_title | escape }}</h2>
+        <table class="ms-pinfo__table">
+          <tbody>
+            {%- if variant.sku != blank -%}
+              <tr><th scope="row">Cikkszám</th><td class="ms-mono">{{ variant.sku | escape }}</td></tr>
+            {%- endif -%}
+            {%- if product.type != blank -%}
+              <tr><th scope="row">Kategória</th><td>{{ product.type | escape }}</td></tr>
+            {%- endif -%}
+            {%- if variant.barcode != blank -%}
+              <tr><th scope="row">Vonalkód</th><td class="ms-mono">{{ variant.barcode | escape }}</td></tr>
+            {%- endif -%}
+            {%- if s.warranty != blank -%}
+              <tr><th scope="row">Garancia</th><td>{{ s.warranty | escape }}</td></tr>
+            {%- endif -%}
+            {%- if s.returns != blank -%}
+              <tr><th scope="row">Visszaküldés</th><td>{{ s.returns | escape }}</td></tr>
+            {%- endif -%}
+          </tbody>
+        </table>
+      </div>
+      {%- if s.help_title != blank -%}
+        <div class="ms-panel ms-pinfo__panel ms-pinfo__help">
+          <h2 class="ms-heading ms-pinfo__title">{{ s.help_title | escape }}</h2>
+          {%- if s.help_text != blank -%}<p>{{ s.help_text | escape }}</p>{%- endif -%}
+          <p class="ms-pinfo__contact">
+            {%- if s.phone != blank -%}<a class="ms-mono" href="tel:{{ s.phone | remove: ' ' }}">{{ s.phone | escape }}</a>{%- endif -%}
+            {%- if s.email != blank -%}<a href="mailto:{{ s.email | escape }}">{{ s.email | escape }}</a>{%- endif -%}
+          </p>
+        </div>
+      {%- endif -%}
+    </aside>
+  </div>
+</section>
+{%- endif -%}
+
+{% stylesheet %}
+  .ms-pinfo__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: clamp(28px, 4vw, 64px);
+    align-items: start;
+  }
+  .ms-pinfo__title {
+    font-size: clamp(22px, 2vw, 28px);
+    margin-bottom: 14px;
+  }
+  .ms-pinfo__rte {
+    max-width: 72ch;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  .ms-pinfo__rte > :first-child {
+    margin-top: 0;
+  }
+  .ms-pinfo__rte h1,
+  .ms-pinfo__rte h2,
+  .ms-pinfo__rte h3,
+  .ms-pinfo__rte h4 {
+    margin: 1.4em 0 0.4em;
+    font-size: 20px;
+    line-height: 1.25;
+  }
+  .ms-pinfo__rte img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+  .ms-pinfo__empty {
+    color: var(--ms-text-muted);
+  }
+  .ms-pinfo__side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .ms-pinfo__panel {
+    padding: 24px;
+  }
+  .ms-pinfo__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  .ms-pinfo__table th,
+  .ms-pinfo__table td {
+    padding: 11px 0;
+    border-bottom: 1px solid var(--ms-border);
+    text-align: left;
+    vertical-align: top;
+  }
+  .ms-pinfo__table tr:last-child th,
+  .ms-pinfo__table tr:last-child td {
+    border-bottom: 0;
+  }
+  .ms-pinfo__table th {
+    width: 42%;
+    font-weight: 500;
+    color: var(--ms-text-muted);
+  }
+  .ms-pinfo__help p {
+    margin: 0 0 10px;
+    color: var(--ms-text-muted);
+  }
+  .ms-pinfo__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+  }
+  .ms-pinfo__contact a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    color: var(--ms-link);
+    font-weight: 700;
+    text-underline-offset: 3px;
+  }
+  @media (max-width: 989px) {
+    .ms-pinfo__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · termékleírás",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    { "type": "text", "id": "title", "label": "A leírás címe", "default": "Leírás" },
+    { "type": "text", "id": "empty_text", "label": "Szöveg, ha nincs leírás", "default": "Ehhez a termékhez még nincs leírás." },
+    { "type": "header", "content": "Adatok" },
+    { "type": "text", "id": "facts_title", "label": "Cím", "default": "Adatok" },
+    { "type": "text", "id": "warranty", "label": "Garancia", "default": "1 év" },
+    { "type": "text", "id": "returns", "label": "Visszaküldés", "default": "30 nap, kérdés nélkül" },
+    { "type": "header", "content": "Segítség" },
+    { "type": "text", "id": "help_title", "label": "Cím", "default": "Kérdésed van a termékről?" },
+    { "type": "text", "id": "help_text", "label": "Szöveg", "default": "Hívj vagy írj, segítünk kiválasztani a megfelelő alkatrészt." },
+    { "type": "text", "id": "phone", "label": "Telefonszám", "default": "+36 70 944 7641" },
+    { "type": "text", "id": "email", "label": "E-mail-cím", "default": "info@modulshop.hu" }
+  ],
+  "presets": [{ "name": "MS · termékleírás" }]
+}
+{% endschema %}
