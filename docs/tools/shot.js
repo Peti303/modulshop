@@ -18,7 +18,7 @@ const out = process.env.SHOT_DIR || '.';
     const p = await ctx.newPage();
     await p.goto(`${STORE}/password`);
     const pw = await p.$('input[type="password"]');
-    if (pw) { await pw.fill(process.env.STORE_PASSWORD || ''); await Promise.all([p.waitForNavigation().catch(() => {}), pw.press('Enter')]); }
+    if (pw) { await pw.fill(process.env.STORE_PASSWORD || ''); await p.click('button[type="submit"], input[type="submit"]'); await p.waitForURL((u) => !u.pathname.startsWith('/password'), { timeout: 15000 }).catch(() => {}); }
     const errors = [];
     p.on('console', (msg) => msg.type() === 'error' && errors.push(msg.text().slice(0, 160)));
     p.on('pageerror', (e) => errors.push('PAGEERROR ' + e.message.slice(0, 160)));
