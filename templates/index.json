@@ -493,7 +493,9 @@
     },
     "ms_newsletter": {
       "type": "ms-newsletter",
-      "settings": {}
+      "settings": {
+        "button": "Feliratkozom"
+      }
     },
     "product_list_fa6P9H": {
       "type": "product-list",
