@@ -558,3 +558,25 @@ html.ms-theme-fade *::after {
 }
 #header-component .menu-list__link:hover .menu-list__link-title::after,
 #header-component .menu-list__link--active .menu-list__link-title::after { transform: scaleX(1); }
+
+/* Termékoldal – vásárlási doboz */
+.product-details .text-block h1 {
+  font-family: var(--ms-font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+.product-details product-price .price,
+.product-details product-price .price-item {
+  font-family: var(--ms-font-display);
+  font-weight: 700;
+  font-size: clamp(34px, 3.4vw, 46px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.product-details .ms-stock-block { font-size: 16px; }
+.product-details .ms-stock-block__sku { font-size: 13px; }
+.product-details .add-to-cart-button { min-height: 56px; font-size: 18px; }
+.product-details .quantity-selector { min-height: 56px; border: 1.5px solid var(--ms-text); border-radius: 10px; }
+.ms-pdp-note { margin: 0; font-size: 14px; color: var(--ms-text-muted); }
