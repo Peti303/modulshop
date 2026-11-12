@@ -259,3 +259,112 @@ document.addEventListener('shopify:cart:lines-update', () => {
     bubble.classList.add('ms-pop');
   });
 });
+
+// Kereső lenyíló találatokkal (felugró ablak helyett)
+class MsSearch extends HTMLElement {
+  connectedCallback() {
+    this.input = this.querySelector('input[type="search"]');
+    this.box = this.querySelector('[data-results]');
+    if (!this.input || !this.box) return;
+    this.active = -1;
+    this.input.addEventListener('input', () => this.onInput());
+    this.input.addEventListener('focus', () => { if (this.box.childElementCount) this.open(); });
+    this.input.addEventListener('keydown', (event) => this.onKey(event));
+    document.addEventListener('pointerdown', (event) => { if (!this.contains(event.target)) this.close(); });
+  }
+  open() { this.box.hidden = false; this.input.setAttribute('aria-expanded', 'true'); }
+  close() { this.box.hidden = true; this.input.setAttribute('aria-expanded', 'false'); this.active = -1; }
+  onInput() {
+    const term = this.input.value.trim();
+    this.classList.toggle('has-value', this.input.value.length > 0);
+    window.clearTimeout(this.timer);
+    if (term.length < 2) { this.box.replaceChildren(); this.close(); return; }
+    this.timer = window.setTimeout(() => this.search(term), 180);
+  }
+  async search(term) {
+    this.controller?.abort();
+    this.controller = new AbortController();
+    const params = new URLSearchParams({
+      q: term,
+      'resources[type]': 'product,collection',
+      'resources[limit]': '6',
+      'resources[options][fields]': 'title,product_type,variants.sku,variants.title,tag',
+      'resources[options][unavailable_products]': 'last',
+    });
+    try {
+      const response = await fetch(`${this.dataset.url}.json?${params}`, { signal: this.controller.signal, headers: { Accept: 'application/json' } });
+      if (!response.ok) throw new Error(String(response.status));
+      const data = await response.json();
+      this.render(term, data.resources?.results ?? {});
+    } catch (error) {
+      if (error.name !== 'AbortError') this.close();
+    }
+  }
+  el(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+  money(value) {
+    const amount = Math.round(Number(value));
+    if (!Number.isFinite(amount)) return '';
+    return `${String(amount).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} Ft`;
+  }
+  render(term, results) {
+    const products = results.products ?? [];
+    const collections = results.collections ?? [];
+    const nodes = [];
+    if (collections.length) {
+      nodes.push(this.el('p', 'ms-searchbar__group', 'Kategóriák'));
+      for (const c of collections.slice(0, 3)) {
+        const a = this.el('a', 'ms-searchbar__item ms-searchbar__item--plain');
+        a.href = c.url;
+        a.append(this.el('span', 'ms-searchbar__item-title', c.title), this.el('span', '', '→'));
+        nodes.push(a);
+      }
+    }
+    if (products.length) {
+      nodes.push(this.el('p', 'ms-searchbar__group', 'Termékek'));
+      for (const p of products) {
+        const a = this.el('a', 'ms-searchbar__item');
+        a.href = p.url;
+        const ph = this.el('span', 'ms-ph');
+        const src = p.featured_image?.url || p.image;
+        if (src) { const img = document.createElement('img'); img.src = src + (src.includes('?') ? '&' : '?') + 'width=120'; img.alt = ''; img.loading = 'lazy'; ph.append(img); }
+        const meta = this.el('span');
+        meta.append(this.el('span', 'ms-searchbar__item-title', p.title));
+        const stock = this.el('span', `ms-stock ms-stock--${p.available ? 'ok' : 'off'}`);
+        stock.append(this.el('span', `ms-led ms-led--${p.available ? 'ok' : 'off'}`), document.createTextNode(p.available ? 'Raktáron' : 'Elfogyott'));
+        meta.append(stock);
+        a.append(ph, meta, this.el('span', 'ms-price', this.money(p.price)));
+        nodes.push(a);
+      }
+    }
+    if (!nodes.length) nodes.push(this.el('p', 'ms-searchbar__empty', `Nincs találat erre: „${term}”. Próbáld cikkszámmal vagy rövidebb kifejezéssel.`));
+    else {
+      const all = this.el('a', 'ms-searchbar__all');
+      all.href = `${this.dataset.searchUrl}?q=${encodeURIComponent(term)}`;
+      all.append(this.el('span', '', `Összes találat erre: „${term}”`), this.el('span', '', '→'));
+      nodes.push(all);
+    }
+    this.box.replaceChildren(...nodes);
+    this.active = -1;
+    this.open();
+  }
+  onKey(event) {
+    if (event.key === 'Escape') { this.close(); return; }
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+    const links = [...this.box.querySelectorAll('a')];
+    if (!links.length || this.box.hidden) return;
+    event.preventDefault();
+    this.active = (this.active + (event.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length;
+    links.forEach((link, i) => link.classList.toggle('is-active', i === this.active));
+    links[this.active].focus();
+    links[this.active].addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { this.close(); this.input.focus(); }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); this.input.focus(); this.onKey(e); }
+    }, { once: true });
+  }
+}
+if (!customElements.get('ms-search')) customElements.define('ms-search', MsSearch);
