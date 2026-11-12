@@ -643,14 +643,14 @@
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 16,
-        "rows_gap": 32,
+        "columns_gap": 24,
+        "rows_gap": 40,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "padding-block-start": 56,
+        "gap": 36,
+        "padding-block-start": 88,
         "padding-block-end": 24
       }
     },
