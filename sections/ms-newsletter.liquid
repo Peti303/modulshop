@@ -1,0 +1,160 @@
+{%- comment -%} Modulshop – newsletter signup (Shopify customer form) {%- endcomment -%}
+<section class="ms-section ms-news" aria-labelledby="ms-news-{{ section.id }}">
+  <div class="ms-container">
+    <div class="ms-news__box ms-reveal">
+      <div class="ms-news__copy">
+        <span class="ms-news__icon">{% render 'ms-icon', name: 'gift', size: 28 %}</span>
+        <div>
+          <h2 id="ms-news-{{ section.id }}" class="ms-news__title">{{ section.settings.title }}</h2>
+          {%- if section.settings.text != blank -%}<div class="ms-news__text">{{ section.settings.text }}</div>{%- endif -%}
+        </div>
+      </div>
+      {%- form 'customer', class: 'ms-news__form', id: 'ms-news-form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        {%- if form.posted_successfully? -%}
+          <p class="ms-news__ok" role="status">{% render 'ms-icon', name: 'check', size: 18 %}{{ section.settings.success }}</p>
+        {%- else -%}
+          <div class="ms-news__row">
+            <label for="ms-news-email-{{ section.id }}" class="ms-visually-hidden">E-mail cím</label>
+            <input
+              id="ms-news-email-{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              required
+              autocomplete="email"
+              placeholder="E-mail címed"
+              {% if form.errors %}aria-invalid="true" aria-describedby="ms-news-err-{{ section.id }}"{% endif %}
+            >
+            <button type="submit" class="ms-btn ms-btn--highlight">{{ section.settings.button }}</button>
+          </div>
+          {%- if form.errors -%}
+            <p id="ms-news-err-{{ section.id }}" class="ms-news__err">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+          {%- endif -%}
+          {%- if section.settings.legal != blank -%}<div class="ms-news__legal">{{ section.settings.legal }}</div>{%- endif -%}
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-news__box {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px 48px;
+    align-items: center;
+    padding: clamp(24px, 4vw, 48px);
+    border-radius: var(--ms-radius-lg);
+    background: var(--ms-hero);
+    color: #fff;
+  }
+  .ms-news__copy {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .ms-news__icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgb(255 255 255 / 0.14);
+    color: var(--ms-highlight);
+  }
+  .ms-news__title {
+    margin: 0;
+    font-size: clamp(22px, 2.6vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+  .ms-news__text {
+    margin-top: 6px;
+    color: rgb(255 255 255 / 0.85);
+    line-height: 1.55;
+  }
+  .ms-news__text p {
+    margin: 0;
+  }
+  .ms-news__row {
+    display: flex;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 14px;
+    background: #fff;
+  }
+  .ms-news__row input {
+    flex: 1;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    font-size: 16px;
+    color: #14171a;
+    outline: none;
+  }
+  .ms-news__row input[type='email'] {
+    color: #14171a !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  .ms-news__row input::placeholder {
+    color: #5f6b75 !important;
+    opacity: 1;
+  }
+  .ms-news__row:focus-within {
+    box-shadow: 0 0 0 3px rgb(255 207 15 / 0.7);
+  }
+  .ms-news__legal {
+    margin-top: 10px;
+    font-size: 13px;
+    color: rgb(255 255 255 / 0.75);
+  }
+  .ms-news__legal p {
+    margin: 0;
+  }
+  .ms-news__legal a {
+    color: #fff;
+  }
+  .ms-news__ok,
+  .ms-news__err {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 0;
+    font-weight: 600;
+  }
+  .ms-news__err {
+    margin-top: 10px;
+    color: #ffd6dc;
+  }
+  @media (max-width: 899px) {
+    .ms-news__box {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 479px) {
+    .ms-news__row {
+      flex-direction: column;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · hírlevél",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Cím", "default": "Iratkozz fel, és 5% kedvezményt kapsz" },
+    { "type": "richtext", "id": "text", "label": "Szöveg", "default": "<p>Értesülj elsőként az újdonságokról és az akciókról.</p>" },
+    { "type": "text", "id": "button", "label": "Gomb felirata", "default": "Feliratkozom" },
+    { "type": "text", "id": "success", "label": "Sikeres feliratkozás üzenete", "default": "Köszönjük, sikeresen feliratkoztál!" },
+    { "type": "richtext", "id": "legal", "label": "Jogi szöveg", "default": "<p>A feliratkozással elfogadod az <a href=\"/policies/privacy-policy\">adatkezelési tájékoztatót</a>. Bármikor leiratkozhatsz.</p>" }
+  ],
+  "presets": [{ "name": "MS · hírlevél" }]
+}
+{% endschema %}

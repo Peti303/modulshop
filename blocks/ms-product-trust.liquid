@@ -1,0 +1,123 @@
+{%- comment -%}
+  Modulshop – termékoldal: mikor adjuk fel, mennyibe kerül a szállítás, garancia
+{%- endcomment -%}
+{%- liquid
+  assign product = closest.product
+  assign variant = product.selected_or_first_available_variant
+  assign bs = block.settings
+  assign rows = bs.ship_rows | newline_to_br | split: '<br />'
+-%}
+<div class="ms-ptrust" {{ block.shopify_attributes }}>
+  {%- if product.available -%}
+    <p class="ms-ptrust__timer" data-ms-ship-timer data-cutoff="{{ bs.cutoff | default: '10:00' | escape }}" data-days="{{ bs.days | default: '1,2,3,4,5' | escape }}">
+      <span class="ms-led ms-led--ok" aria-hidden="true"></span>
+      <span data-live hidden>Ha <span class="ms-mono ms-ptrust__time" data-time>00:00:00</span> belül megrendeled, még ma átadjuk a futárnak.</span>
+      <span data-late><strong>{{ bs.dispatch_title | escape }}</strong> {{ bs.dispatch_text | escape }}</span>
+    </p>
+  {%- endif -%}
+  {%- if bs.ship_rows != blank -%}
+    <ul class="ms-ptrust__ship" role="list">
+      {%- for row in rows -%}
+        {%- assign cells = row | strip | split: '|' -%}
+        {%- if cells.first != blank -%}
+          <li><span>{{ cells.first | strip | escape }}</span>{% if cells.size > 1 %}<span class="ms-ptrust__val">{{ cells.last | strip | escape }}</span>{% endif %}</li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+  <ul class="ms-ptrust__list" role="list">
+    {%- if bs.free_shipping_threshold > 0 -%}
+      <li>Ingyenes szállítás {{ bs.free_shipping_threshold | times: 100 | money_without_trailing_zeros }} felett</li>
+    {%- endif -%}
+    {%- if bs.pickup_text != blank -%}<li>{{ bs.pickup_text | escape }}</li>{%- endif -%}
+    {%- if bs.return_text != blank -%}<li>{{ bs.return_text | escape }}</li>{%- endif -%}
+    {%- if bs.payment_text != blank -%}<li>{{ bs.payment_text | escape }}</li>{%- endif -%}
+  </ul>
+  {%- if bs.show_sku and variant.sku != blank -%}
+    <p class="ms-ptrust__sku ms-sku">Cikkszám: <span>{{ variant.sku }}</span></p>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .ms-ptrust {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+  .ms-ptrust__timer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .ms-ptrust__time {
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: var(--ms-cta);
+    color: var(--ms-on-cta);
+  }
+  .ms-ptrust__ship {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    border: 1px solid var(--ms-border);
+    border-radius: 14px;
+    background: var(--ms-card);
+  }
+  .ms-ptrust__ship li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+  .ms-ptrust__ship li + li {
+    border-top: 1px solid var(--ms-border);
+  }
+  .ms-ptrust__val {
+    font-family: var(--ms-font-mono);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .ms-ptrust__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 15px;
+    color: var(--ms-text-muted);
+  }
+  .ms-ptrust__sku {
+    margin: 0;
+    font-size: 13px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · szállítás, garancia",
+  "settings": [
+    { "type": "header", "content": "Feladás-visszaszámláló" },
+    { "type": "text", "id": "cutoff", "label": "Napi feladási határidő (óó:pp)", "default": "10:00" },
+    { "type": "text", "id": "days", "label": "Feladási napok", "info": "Vesszővel: 1 = hétfő … 5 = péntek, 6 = szombat, 0 = vasárnap", "default": "1,2,3,4,5" },
+    { "type": "text", "id": "dispatch_title", "label": "Határidő után: kiemelt szöveg", "default": "Raktáron." },
+    { "type": "text", "id": "dispatch_text", "label": "Határidő után: szöveg", "default": "A 10 óráig leadott rendelést még aznap átadjuk a futárnak." },
+    { "type": "header", "content": "Szállítási díjak" },
+    { "type": "textarea", "id": "ship_rows", "label": "Sorok", "info": "Soronként egy mód; a díjat függőleges vonal után írd. Pl. Csomagautomata · Foxpost, MPL | 1 250 Ft", "default": "Csomagautomata · Foxpost, MPL | 1 250 Ft\nHázhoz szállítás · MPL | 1 700 Ft\nSzemélyes átvétel · Budapest | akár még ma" },
+    { "type": "number", "id": "free_shipping_threshold", "label": "Ingyenes szállítás értékhatára (Ft, 0 = kikapcsolva)", "default": 0 },
+    { "type": "header", "content": "Garancia és fizetés" },
+    { "type": "text", "id": "pickup_text", "label": "Személyes átvétel szöveg" },
+    { "type": "text", "id": "return_text", "label": "Garancia szöveg", "default": "30 nap visszaküldés, 1 év garancia" },
+    { "type": "text", "id": "payment_text", "label": "Fizetési módok", "default": "Barion bankkártya, utánvét, átutalás" },
+    { "type": "checkbox", "id": "show_sku", "label": "Cikkszám megjelenítése", "default": false }
+  ],
+  "presets": [{ "name": "MS · szállítás, garancia" }]
+}
+{% endschema %}

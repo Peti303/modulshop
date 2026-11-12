@@ -1,0 +1,175 @@
+{%- comment -%} Modulshop – page title band (breadcrumb, eyebrow, title, intro) {%- endcomment -%}
+{%- liquid
+  assign title = section.settings.title | default: page.title | default: shop.name
+  assign crumb = page.title | default: title
+-%}
+<section
+  class="ms-page-header ms-page-header--{{ section.settings.style }} ms-page-header--{{ section.settings.alignment }}"
+  aria-labelledby="ms-ph-{{ section.id }}"
+>
+  <div class="ms-page-header__bg" aria-hidden="true"></div>
+  <div class="ms-container ms-page-header__inner">
+    {%- if section.settings.show_breadcrumb -%}
+      <nav class="ms-page-header__crumbs" aria-label="Morzsamenü">
+        <ol role="list">
+          <li><a href="{{ routes.root_url }}">Főoldal</a></li>
+          <li aria-current="page">{{ crumb | escape }}</li>
+        </ol>
+      </nav>
+    {%- endif -%}
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="ms-eyebrow ms-page-header__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    <h1 id="ms-ph-{{ section.id }}" class="ms-page-header__title">{{ title | escape }}</h1>
+    {%- if section.settings.intro != blank -%}
+      <div class="ms-page-header__intro">{{ section.settings.intro }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-page-header {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    color: var(--ms-text);
+    background: linear-gradient(135deg, var(--ms-accent-soft) 0%, var(--ms-surface) 55%, var(--ms-bg) 100%);
+    border-bottom: 1px solid var(--ms-border);
+  }
+  .ms-page-header__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      radial-gradient(40% 90% at 92% 10%, rgb(var(--ms-accent-rgb) / 0.16), transparent 70%),
+      linear-gradient(rgb(var(--ms-primary-rgb) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--ms-primary-rgb) / 0.05) 1px, transparent 1px);
+    background-size: auto, 32px 32px, 32px 32px;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 60%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 60%);
+  }
+  .ms-page-header--brand {
+    color: #fff;
+    background: linear-gradient(135deg, var(--ms-hero-from) 0%, var(--ms-hero-to) 100%);
+    border-bottom: 0;
+  }
+  .ms-page-header--brand .ms-page-header__bg {
+    background-image:
+      radial-gradient(40% 90% at 90% 10%, rgb(255 255 255 / 0.16), transparent 70%),
+      linear-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+  }
+  .ms-page-header__inner {
+    padding-block: clamp(28px, 4.5vw, 56px);
+  }
+  .ms-page-header--center .ms-page-header__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .ms-page-header__crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    color: var(--ms-text-muted);
+  }
+  .ms-page-header__crumbs li + li::before {
+    content: '›';
+    margin-right: 8px;
+    opacity: 0.7;
+  }
+  .ms-page-header__crumbs a {
+    color: var(--ms-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .ms-page-header__crumbs a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .ms-page-header__crumbs [aria-current] {
+    color: var(--ms-text);
+  }
+  .ms-page-header--brand .ms-page-header__crumbs ol,
+  .ms-page-header--brand .ms-page-header__crumbs [aria-current],
+  .ms-page-header--brand .ms-page-header__crumbs a {
+    color: rgb(255 255 255 / 0.85);
+  }
+  .ms-page-header--brand .ms-page-header__eyebrow {
+    color: var(--ms-highlight);
+  }
+  .ms-page-header__title {
+    margin: 0;
+    max-width: 24ch;
+    font-family: var(--font-heading--family);
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 46px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: inherit;
+    text-wrap: balance;
+  }
+  .ms-page-header__intro {
+    max-width: 62ch;
+    margin-top: 14px;
+    font-size: clamp(16px, 1.4vw, 18px);
+    line-height: 1.6;
+    color: var(--ms-text-muted);
+  }
+  .ms-page-header--brand .ms-page-header__intro {
+    color: rgb(255 255 255 / 0.86);
+  }
+  .ms-page-header__intro p {
+    margin: 0 0 8px;
+  }
+  .ms-page-header__intro p:last-child {
+    margin-bottom: 0;
+  }
+  .ms-page-header__intro a {
+    color: inherit;
+    font-weight: 600;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · oldalfejléc",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Felső címke" },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Cím",
+      "info": "Üresen hagyva az oldal címe jelenik meg."
+    },
+    { "type": "richtext", "id": "intro", "label": "Bevezető szöveg" },
+    { "type": "checkbox", "id": "show_breadcrumb", "label": "Morzsamenü", "default": true },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Háttér",
+      "default": "soft",
+      "options": [
+        { "value": "soft", "label": "Világos" },
+        { "value": "brand", "label": "Márkaszínű" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Igazítás",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Balra" },
+        { "value": "center", "label": "Középre" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "MS · oldalfejléc" }]
+}
+{% endschema %}

@@ -240,13 +240,25 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "ms_inventory": {
+              "type": "ms-stock",
+              "settings": {
+                "show_sku": true
+              }
+            },
+            "ms_trust": {
+              "type": "ms-product-trust",
+              "settings": {}
             }
           },
           "block_order": [
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
+            "ms_inventory",
             "buy_buttons_eYQEYi",
+            "ms_trust",
             "text_aEtTtq"
           ]
         },
@@ -376,10 +388,15 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "ms_stock": {
+              "type": "ms-stock",
+              "settings": {}
             }
           },
           "block_order": [
             "product_card_gallery_DNizbJ",
+            "ms_stock",
             "product_title_M7MJkb",
             "price_gLWgA6"
           ]

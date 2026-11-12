@@ -1,0 +1,58 @@
+{%- comment -%} Modulshop – készlet-LED (termékkártyára és termékoldalra) {%- endcomment -%}
+{%- liquid
+  assign product = closest.product
+  assign variant = product.selected_or_first_available_variant
+  assign qty = variant.inventory_quantity
+  assign state = 'ok'
+  if product.available == false
+    assign state = 'off'
+  elsif variant.inventory_management == 'shopify' and variant.inventory_policy == 'deny' and qty <= block.settings.threshold
+    assign state = 'low'
+  endif
+-%}
+{%- if product != blank -%}
+  <p class="ms-stock ms-stock--{{ state }} ms-stock-block" {{ block.shopify_attributes }}>
+    <span class="ms-led ms-led--{{ state }}" aria-hidden="true"></span>
+    <span>
+      {%- if state == 'off' -%}
+        {{ block.settings.text_off | escape }}
+      {%- elsif variant.inventory_management != 'shopify' or qty <= 0 -%}
+        {{ block.settings.text_in | escape }}
+      {%- elsif state == 'low' -%}
+        {{ block.settings.text_low | replace: '[db]', qty | escape }}
+      {%- else -%}
+        {{ block.settings.text_ok | replace: '[db]', qty | escape }}
+      {%- endif -%}
+    </span>
+    {%- if block.settings.show_sku and variant.sku != blank -%}
+      <span class="ms-sku ms-stock-block__sku">{{ variant.sku | escape }}</span>
+    {%- endif -%}
+  </p>
+{%- endif -%}
+
+{% stylesheet %}
+  .ms-stock-block {
+    flex-wrap: wrap;
+    margin: 0;
+    width: 100%;
+  }
+  .ms-stock-block__sku {
+    margin-left: auto;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · készlet-LED",
+  "tag": null,
+  "settings": [
+    { "type": "range", "id": "threshold", "label": "Kevés készlet határa (db)", "min": 1, "max": 20, "step": 1, "default": 8 },
+    { "type": "text", "id": "text_ok", "label": "Szöveg: raktáron", "info": "A [db] helyére a darabszám kerül.", "default": "[db] db raktáron" },
+    { "type": "text", "id": "text_low", "label": "Szöveg: kevés készlet", "default": "Utolsó [db] db" },
+    { "type": "text", "id": "text_in", "label": "Szöveg: raktáron, darabszám nélkül", "default": "Raktáron" },
+    { "type": "text", "id": "text_off", "label": "Szöveg: elfogyott", "default": "Elfogyott" },
+    { "type": "checkbox", "id": "show_sku", "label": "Cikkszám megjelenítése", "default": true }
+  ],
+  "presets": [{ "name": "MS · készlet-LED" }]
+}
+{% endschema %}

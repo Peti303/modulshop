@@ -2117,5 +2117,21 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "Modulshop",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Szállítás"
+      },
+      {
+        "type": "number",
+        "id": "ms_free_shipping_threshold",
+        "label": "Ingyenes szállítás értékhatára (Ft)",
+        "info": "A kosárban megjelenő haladásjelzőhöz. 0 = kikapcsolva. Az ingyenes szállítást a Shopify szállítási beállításaiban is be kell állítani.",
+        "default": 15000
+      }
+    ]
   }
 ]

@@ -1,0 +1,28 @@
+{%- comment -%}
+  Modulshop light/dark mode switch. Usage: {% render 'ms-theme-toggle' %}
+  Optional: class (string) extra classes, label (bool) shows a text label next to the switch.
+{%- endcomment -%}
+<ms-theme-toggle class="ms-theme-toggle {{ class }}">
+  <button
+    type="button"
+    class="ms-theme-toggle__button button-unstyled"
+    role="switch"
+    aria-checked="false"
+    aria-label="Sötét mód"
+    title="Világos / sötét mód"
+  >
+    <span class="ms-theme-toggle__track" aria-hidden="true">
+      <svg class="ms-theme-toggle__icon ms-theme-toggle__icon--sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/>
+      </svg>
+      <svg class="ms-theme-toggle__icon ms-theme-toggle__icon--moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/>
+      </svg>
+      <span class="ms-theme-toggle__thumb"></span>
+    </span>
+    {%- if label -%}
+      <span class="ms-theme-toggle__label">Sötét mód</span>
+    {%- endif -%}
+  </button>
+</ms-theme-toggle>

@@ -1,0 +1,337 @@
+{%- comment -%}
+  Modulshop footer. Menus come from Online Store → Navigation; until they exist,
+  the built-in fallback links (matching docs/import/pages.md handles) are shown.
+{%- endcomment -%}
+<footer class="ms-footer">
+  <div class="ms-container">
+    <div class="ms-footer__top">
+      <div class="ms-footer__brand">
+        <a href="{{ routes.root_url }}" class="ms-footer__logo" aria-label="{{ shop.name | escape }} – főoldal">
+          <img src="{{ 'ms-logo-dark.png' | asset_url }}" alt="{{ shop.name | escape }}" width="510" height="112" loading="lazy">
+        </a>
+        {%- if section.settings.text != blank -%}<div class="ms-footer__text">{{ section.settings.text }}</div>{%- endif -%}
+        <ul class="ms-footer__contact" role="list">
+          {%- if section.settings.phone != blank -%}
+            <li>{% render 'ms-icon', name: 'phone', size: 18 %}<a href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone }}</a></li>
+          {%- endif -%}
+          {%- if section.settings.email != blank -%}
+            <li>{% render 'ms-icon', name: 'mail', size: 18 %}<a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></li>
+          {%- endif -%}
+          {%- if section.settings.address != blank -%}
+            <li>{% render 'ms-icon', name: 'pin', size: 18 %}<span>{{ section.settings.address }}</span></li>
+          {%- endif -%}
+        </ul>
+        <div class="ms-footer__social">
+          {%- if section.settings.facebook != blank -%}
+            <a href="{{ section.settings.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21z"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.youtube != blank -%}
+            <a href="{{ section.settings.youtube }}" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.instagram != blank -%}
+            <a href="{{ section.settings.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3z"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- liquid
+        assign fallback_1 = 'Összes termék|/collections/all,Saját termékeink|/collections/sajat-termekeink,Csomagajánlatok|/collections/csomagok,Iskoláknak és cégeknek|/pages/iskolaknak-es-cegeknek,Hűségpont|/pages/husegpont' | split: ','
+        assign fallback_2 = 'Szállítás és fizetés|/pages/szallitas-es-fizetes,Garancia és visszaküldés|/pages/garancia-es-visszakuldes,Gyakori kérdések|/pages/gyik,Rólunk|/pages/rolunk,Kapcsolat|/pages/kapcsolat' | split: ','
+        assign fallback_3 = 'ÁSZF|/pages/aszf,Adatvédelem|/pages/adatvedelem,Elállás|/pages/elallas,Impresszum|/pages/impresszum' | split: ','
+      -%}
+      {%- for i in (1..3) -%}
+        {%- liquid
+          assign title_key = 'menu_' | append: i | append: '_title'
+          assign menu_key = 'menu_' | append: i
+          assign menu = section.settings[menu_key]
+          case i
+            when 1
+              assign fallback = fallback_1
+            when 2
+              assign fallback = fallback_2
+            else
+              assign fallback = fallback_3
+          endcase
+        -%}
+        <nav class="ms-footer__col" aria-label="{{ section.settings[title_key] | escape }}">
+          <details class="ms-footer__group" open>
+            <summary class="ms-footer__title">{{ section.settings[title_key] }}</summary>
+            <ul role="list">
+              {%- if menu != blank and menu.links.size > 0 -%}
+                {%- for link in menu.links -%}
+                  <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                {%- endfor -%}
+              {%- else -%}
+                {%- for item in fallback -%}
+                  {%- assign parts = item | split: '|' -%}
+                  <li><a href="{{ parts[1] }}">{{ parts[0] }}</a></li>
+                {%- endfor -%}
+              {%- endif -%}
+            </ul>
+          </details>
+        </nav>
+      {%- endfor -%}
+    </div>
+
+    <div class="ms-footer__trust">
+      <div class="ms-footer__badges">
+        <span>{% render 'ms-icon', name: 'bolt', size: 18 %}10:00-ig rendelve aznap feladjuk</span>
+        <span>{% render 'ms-icon', name: 'return', size: 18 %}30 napos visszaküldés</span>
+        <span>{% render 'ms-icon', name: 'shield', size: 18 %}1 év garancia</span>
+      </div>
+      {%- if shop.enabled_payment_types.size > 0 -%}
+        <ul class="ms-footer__payments" role="list" aria-label="Fizetési módok">
+          {%- for type in shop.enabled_payment_types -%}
+            <li>{{ type | payment_type_svg_tag }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    <div class="ms-footer__bottom">
+      <p>© {{ 'now' | date: '%Y' }} {{ section.settings.legal_name | default: shop.name }} · Minden jog fenntartva</p>
+      <div class="ms-footer__bottom-right">
+        {% render 'ms-theme-toggle', label: true %}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% stylesheet %}
+  .ms-footer {
+    background: #15181c;
+    color: #aeb4b8;
+    padding-top: clamp(40px, 6vw, 72px);
+    font-size: 15px;
+  }
+  html[data-theme='dark'] .ms-footer {
+    background: #0c0e10;
+    border-top: 1px solid var(--ms-border);
+  }
+  .ms-footer a {
+    color: #aeb4b8;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .ms-footer a:hover {
+    color: #fff;
+  }
+  .ms-footer__top {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    padding-bottom: 40px;
+  }
+  .ms-footer__logo img {
+    height: 36px;
+    width: auto;
+    filter: none !important;
+  }
+  .ms-footer__text {
+    margin: 16px 0 20px;
+    line-height: 1.6;
+    max-width: 38ch;
+  }
+  .ms-footer__text p {
+    margin: 0;
+  }
+  .ms-footer__contact {
+    display: grid;
+    gap: 10px;
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+  }
+  .ms-footer__contact li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .ms-footer__contact .ms-icon {
+    flex: none;
+    margin-top: 2px;
+    color: #c8f03c;
+  }
+  .ms-footer__contact p {
+    margin: 0;
+  }
+  .ms-footer__social {
+    display: flex;
+    gap: 10px;
+  }
+  .ms-footer__social a {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgb(255 255 255 / 0.08);
+  }
+  .ms-footer__social a:hover {
+    background: #c8f03c;
+    color: #141a00;
+  }
+  .ms-footer__group summary {
+    list-style: none;
+    cursor: default;
+  }
+  .ms-footer__group summary::-webkit-details-marker {
+    display: none;
+  }
+  .ms-footer__title {
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .ms-footer__col ul {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ms-footer__trust {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 32px;
+    padding: 24px 0;
+    border-top: 1px solid rgb(255 255 255 / 0.1);
+  }
+  .ms-footer__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+  }
+  .ms-footer__badges span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #f4f5f2;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .ms-footer__badges .ms-icon {
+    color: var(--ms-highlight);
+  }
+  .ms-footer__payments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ms-footer__payments svg {
+    height: 24px;
+    width: auto;
+    filter: none !important;
+  }
+  .ms-footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 0 28px;
+    border-top: 1px solid rgb(255 255 255 / 0.1);
+    font-size: 14px;
+    color: #9aa1a7;
+  }
+  .ms-footer__bottom p {
+    margin: 0;
+  }
+  .ms-footer .ms-theme-toggle__label {
+    color: #aeb4b8;
+    font-size: 14px;
+  }
+  @media (max-width: 989px) {
+    .ms-footer__top {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .ms-footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 599px) {
+    .ms-footer__top {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .ms-footer__brand {
+      padding-bottom: 24px;
+    }
+    .ms-footer__group {
+      border-top: 1px solid rgb(255 255 255 / 0.1);
+    }
+    .ms-footer__group summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+      padding: 16px 0;
+      cursor: pointer;
+    }
+    .ms-footer__group summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .ms-footer__group[open] summary::after {
+      content: '–';
+    }
+    .ms-footer__group ul {
+      padding-bottom: 16px;
+    }
+  }
+{% endstylesheet %}
+
+<script>
+  (function () {
+    // Footer link groups: open on desktop, collapsible accordions on phones
+    var mq = window.matchMedia('(max-width: 599px)');
+    function sync() {
+      document.querySelectorAll('.ms-footer__group').forEach(function (d) { d.open = !mq.matches; });
+    }
+    sync();
+    mq.addEventListener('change', sync);
+    document.querySelectorAll('.ms-footer__group summary').forEach(function (s) {
+      s.addEventListener('click', function (e) { if (!mq.matches) e.preventDefault(); });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MS · lábléc",
+  "class": "ms-footer-section",
+  "settings": [
+    { "type": "richtext", "id": "text", "label": "Rövid bemutatkozás", "default": "<p>Elektronikai alkatrészek, modulok és kiegészítők webáruháza. Magyarországi raktárról, gyors kiszállítással.</p>" },
+    { "type": "text", "id": "phone", "label": "Telefon", "default": "+36 70 944 7641" },
+    { "type": "text", "id": "email", "label": "E-mail", "default": "info@modulshop.hu" },
+    { "type": "richtext", "id": "address", "label": "Átvételi pont", "default": "<p>1078 Budapest, Nefelejcs utca 43.</p>" },
+    { "type": "text", "id": "facebook", "label": "Facebook link", "default": "https://www.facebook.com/NovakiJozsef/" },
+    { "type": "text", "id": "youtube", "label": "YouTube link", "default": "https://www.youtube.com/@Modulshop" },
+    { "type": "text", "id": "instagram", "label": "Instagram link" },
+    { "type": "text", "id": "menu_1_title", "label": "1. oszlop címe", "default": "Vásárlás" },
+    { "type": "link_list", "id": "menu_1", "label": "1. oszlop menüje" },
+    { "type": "text", "id": "menu_2_title", "label": "2. oszlop címe", "default": "Információk" },
+    { "type": "link_list", "id": "menu_2", "label": "2. oszlop menüje" },
+    { "type": "text", "id": "menu_3_title", "label": "3. oszlop címe", "default": "Jogi információk" },
+    { "type": "link_list", "id": "menu_3", "label": "3. oszlop menüje" },
+    { "type": "text", "id": "legal_name", "label": "Cégnév a copyright sorban", "default": "Modulshop – Nováki József e.v." }
+  ],
+  "presets": [{ "name": "MS · lábléc" }]
+}
+{% endschema %}

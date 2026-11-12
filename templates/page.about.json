@@ -1,0 +1,119 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "type": "ms-page-header",
+      "settings": {
+        "eyebrow": "Modulshop",
+        "title": "",
+        "intro": "",
+        "show_breadcrumb": true,
+        "style": "soft",
+        "alignment": "left"
+      }
+    },
+    "facts": {
+      "type": "ms-features",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "chip",
+            "title": "Több mint 1800 termék",
+            "text": "<p>Mikrovezérlők, szenzor- és egyéb modulok, kijelzők, átalakítók, műszerek, alkatrészek és DIY készletek.</p>",
+            "link_label": "Összes termék",
+            "link": "/collections/all"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "wrench",
+            "title": "Saját fejlesztésű termékek",
+            "text": "<p>Műszerdobozok és DIY készletek, amelyeket mi magunk tervezünk és készítünk.</p>",
+            "link_label": "Saját termékeink",
+            "link": "/collections/sajat-termekeink"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "pin",
+            "title": "Budapesti raktár és átvételi pont",
+            "text": "<p>1078 Budapest, Nefelejcs utca 43. Az online rendelés a visszaigazoló e-mail után azonnal átvehető.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "star",
+            "title": "Vásárlói javaslatok",
+            "text": "<p>Már több mint 50 olyan termék került a kínálatba, amelyet vásárlóink javasoltak.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "title": "",
+        "text": "",
+        "center": false,
+        "columns": "4",
+        "surface": false
+      }
+    },
+    "main": {
+      "type": "ms-page-content",
+      "settings": {
+        "heading": "",
+        "show_toc": false,
+        "surface": false,
+        "compact_top": true,
+        "show_card": true,
+        "card_title": "Kérdésed van?",
+        "card_text": "<p>Írj vagy telefonálj nekünk, szívesen segítünk.</p>",
+        "phone": "+36 70 944 7641",
+        "email": "info@modulshop.hu",
+        "button_label": "Kapcsolat",
+        "button_link": "/pages/kapcsolat"
+      }
+    },
+    "cta": {
+      "type": "ms-cta",
+      "settings": {
+        "eyebrow": "",
+        "title": "Nem találod, amit keresel?",
+        "text": "<p>Írd meg nekünk, milyen termékre van szükséged.</p>",
+        "phone": "+36 70 944 7641",
+        "email": "info@modulshop.hu",
+        "button_label": "Kapcsolat",
+        "button_link": "/pages/kapcsolat",
+        "button2_label": "",
+        "button2_link": ""
+      }
+    }
+  },
+  "order": [
+    "header",
+    "facts",
+    "main",
+    "cta"
+  ]
+}

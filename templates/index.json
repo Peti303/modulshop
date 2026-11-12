@@ -9,83 +9,458 @@
  */
 {
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
+    "ms_hero": {
+      "type": "ms-hero",
+      "settings": {
+        "title": "Ami a projektedhez kell, raktáron van.",
+        "text": "Több mint ezer alkatrész azonnal vihető a budapesti raktárból. Délelőtt 10-ig rendelve még ma átadjuk a futárnak, vám és plusz adó nélkül.",
+        "button_label": "Kategóriák böngészése",
+        "button_link": "/collections",
+        "button2_label": "Iskoláknak és cégeknek",
+        "button2_link": "/pages/iskolaknak-es-cegeknek"
+      },
       "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
+        "p1": {
+          "type": "product",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "{{ settings.color_palette.background }}",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "title": "ESP32-C3 Szuper mini, WiFi, BT 5.0, usb-C",
+            "sku": "1-2-29",
+            "price": "1 900 Ft",
+            "link": "/products/esp32-c3-szuper-mini-wifi-bt-50-usb-c",
+            "asset_image": "ms-cat-esp32.webp"
+          }
         },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
+        "p2": {
+          "type": "product",
           "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-custom",
-            "custom_button_background": "rgba(0, 0, 0, 0)",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
+            "title": "Uno R3 – ATmega328P – Arduino kompatibilis, usb-C",
+            "sku": "1-1-27",
+            "price": "2 500 Ft",
+            "link": "/products/uno-r3-atmega328p-arduino-kompatibilis-usb-c",
+            "asset_image": "ms-cat-mikrovezerlok.webp"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "title": "XH-M577 sztereó erősítőmodul 2×80 W, 24 V",
+            "sku": "5-1-46",
+            "price": "2 600 Ft",
+            "link": "/products/xh-m577-sztereo-erositomodul-280w-24-v-hangszinszabalyzassal",
+            "asset_image": "ms-cat-erositok.webp"
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "title": "Multiméter DT-830B",
+            "sku": "8-1-1",
+            "price": "1 800 Ft",
+            "link": "/products/multimeter-dt-830b",
+            "asset_image": "ms-cat-muszerek.webp"
+          }
+        },
+        "c1": {
+          "type": "chip",
+          "settings": {
+            "label": "ESP32",
+            "link": "/collections/esp32"
+          }
+        },
+        "c2": {
+          "type": "chip",
+          "settings": {
+            "label": "Arduino",
+            "link": "/collections/arduino"
+          }
+        },
+        "c3": {
+          "type": "chip",
+          "settings": {
+            "label": "OLED kijelző",
+            "link": "/search?q=oled"
+          }
+        },
+        "c4": {
+          "type": "chip",
+          "settings": {
+            "label": "Relé modul",
+            "link": "/collections/relek-optocsatolok"
+          }
+        },
+        "c5": {
+          "type": "chip",
+          "settings": {
+            "label": "18650",
+            "link": "/search?q=18650"
+          }
         }
       },
       "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
-      "name": "t:names.hero",
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ]
+    },
+    "ms_usp": {
+      "type": "ms-usp",
+      "settings": {},
+      "blocks": {
+        "u1": {
+          "type": "usp",
+          "settings": {
+            "title": "Aznapi feladás",
+            "text": "10:00-ig leadott rendelésnél"
+          }
+        },
+        "u2": {
+          "type": "usp",
+          "settings": {
+            "title": "30 nap visszaküldés",
+            "text": "kérdés nélkül"
+          }
+        },
+        "u3": {
+          "type": "usp",
+          "settings": {
+            "title": "1 év garancia",
+            "text": "minden termékre"
+          }
+        },
+        "u4": {
+          "type": "usp",
+          "settings": {
+            "title": "Magyar raktár",
+            "text": "nincs vám, nincs plusz adó"
+          }
+        },
+        "u5": {
+          "type": "usp",
+          "settings": {
+            "title": "9,6 / 10 az Onlinepénztárcán",
+            "text": "447 vásárlói értékelés",
+            "link": "https://onlinepenztarca.hu/webaruhaz/modulshophu"
+          }
+        }
+      },
+      "block_order": [
+        "u1",
+        "u2",
+        "u3",
+        "u4",
+        "u5"
+      ]
+    },
+    "ms_categories": {
+      "type": "ms-categories",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "link": "/collections",
+        "eyebrow": "",
+        "title": "Mit építesz ma?",
+        "link_label": "Összes kategória"
+      },
+      "blocks": {
+        "k1": {
+          "type": "category",
+          "settings": {
+            "title": "Mikrovezérlők, alaplapok",
+            "subtitle": "Arduino, ESP32, Raspberry Pi",
+            "link": "/collections/mikrovezerlok-alaplapok",
+            "asset_image": "ms-cat-mikrovezerlok.webp"
+          }
+        },
+        "k2": {
+          "type": "category",
+          "settings": {
+            "title": "Szenzor modulok",
+            "subtitle": "Hőmérséklet, mozgás, RFID",
+            "link": "/collections/szenzor-modulok",
+            "asset_image": "ms-cat-szenzorok.webp"
+          }
+        },
+        "k3": {
+          "type": "category",
+          "settings": {
+            "title": "Egyéb modulok",
+            "subtitle": "Relék, motorvezérlők, kommunikáció",
+            "link": "/collections/egyeb-modulok",
+            "asset_image": "ms-cat-egyeb-modulok.webp"
+          }
+        },
+        "k4": {
+          "type": "category",
+          "settings": {
+            "title": "Erősítők, végfokok",
+            "subtitle": "Hi-Fi, Bluetooth, 2.1",
+            "link": "/collections/erositok-vegfokok",
+            "asset_image": "ms-cat-erositok.webp"
+          }
+        },
+        "k5": {
+          "type": "category",
+          "settings": {
+            "title": "LCD-k, kijelzők",
+            "subtitle": "OLED, TFT, karakteres",
+            "link": "/collections/lcd-k-kijelzok",
+            "asset_image": "ms-cat-kijelzok.webp"
+          }
+        },
+        "k6": {
+          "type": "category",
+          "settings": {
+            "title": "BMS-ek, 18650 akkuk",
+            "subtitle": "Cellák, töltők, védelem",
+            "link": "/collections/bms-ek-18650-akkuk",
+            "asset_image": "ms-cat-akkuk-bms.webp"
+          }
+        },
+        "k7": {
+          "type": "category",
+          "settings": {
+            "title": "DC, AC konverterek",
+            "subtitle": "Tápegységek, step-up/down",
+            "link": "/collections/dc-ac-konverterek",
+            "asset_image": "ms-cat-tapegysegek.webp"
+          }
+        },
+        "k8": {
+          "type": "category",
+          "settings": {
+            "title": "Műszerek",
+            "subtitle": "Multiméterek, termosztátok",
+            "link": "/collections/muszerek",
+            "asset_image": "ms-cat-muszerek.webp"
+          }
+        },
+        "k9": {
+          "type": "category",
+          "settings": {
+            "title": "Elektronika",
+            "subtitle": "Ellenállások, kondenzátorok",
+            "link": "/collections/elektronika",
+            "asset_image": "ms-cat-elektronika.webp"
+          }
+        },
+        "k10": {
+          "type": "category",
+          "settings": {
+            "title": "D.I.Y. készletek",
+            "subtitle": "Forrasztókészletek, kitek",
+            "link": "/collections/diy-keszletek",
+            "asset_image": "ms-cat-diy-keszletek.webp"
+          }
+        },
+        "k11": {
+          "type": "category",
+          "settings": {
+            "title": "Szerszámok",
+            "subtitle": "Forrasztás, szerelés",
+            "link": "/collections/szerszamok",
+            "asset_image": "ms-cat-szerszamok.webp"
+          }
+        },
+        "k12": {
+          "type": "category",
+          "settings": {
+            "title": "LED világítás",
+            "subtitle": "Panelek, szalagok, COB",
+            "link": "/collections/led-vilagitas",
+            "asset_image": "ms-cat-led.webp"
+          }
+        }
+      },
+      "block_order": [
+        "k1",
+        "k2",
+        "k3",
+        "k4",
+        "k5",
+        "k6",
+        "k7",
+        "k8",
+        "k9",
+        "k10",
+        "k11",
+        "k12"
+      ]
+    },
+    "ms_reviews": {
+      "type": "ms-testimonials",
+      "settings": {
+        "title": "Akik már rendeltek",
+        "limit": 3
+      },
+      "blocks": {
+        "sum2": {
+          "type": "summary",
+          "settings": {
+            "score": "9,6/10",
+            "label": "447 értékelés az Onlinepénztárcán",
+            "url": "https://onlinepenztarca.hu/webaruhaz/modulshophu"
+          }
+        },
+        "sum1": {
+          "type": "summary",
+          "settings": {
+            "score": "4,62/5",
+            "label": "311 termékvélemény a modulshop.hu-n"
+          }
+        },
+        "r1": {
+          "type": "review",
+          "settings": {
+            "text": "Elektronikai alkatrészek és modulok széles választéka. A megrendelés akár aznap átvehető a helyszínen. Jó árak, sok akció, profi kiszolgálás. Az egyik legjobb webáruház ebben a kategóriában.",
+            "author": "László",
+            "rating_label": "10/10",
+            "source": "Onlinepénztárca",
+            "source_url": "https://onlinepenztarca.hu/webaruhaz/modulshophu",
+            "date": "2026. 07. 13.",
+            "verified": false
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "text": "Megrendelés utáni nap megjött a termék. Az adatkábel sérült volt, telefonos megbeszélés után másnap küldtek egy újat.\n\nA temékkel és ugyintézéssel nagyon elégedett vagyok,csakajánlani tudom.",
+            "author": "Garaczi István",
+            "rating_label": "5/5",
+            "source": "modulshop.hu",
+            "source_url": "https://modulshop.hu/ada-p1-meter-okos-mero-villanyorahoz-ada12-15-cm-rj12-adatkabel",
+            "date": "2026. 02. 18.",
+            "verified": true
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "text": "Hatalmas választék, nagyon barátságos árak. A szállítás és csomagolás nagyon rendben volt. Ajánlom.",
+            "author": "Krisztián",
+            "rating_label": "10/10",
+            "source": "Onlinepénztárca",
+            "source_url": "https://onlinepenztarca.hu/webaruhaz/modulshophu",
+            "date": "2026. 07. 21.",
+            "verified": false
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "text": "A modulshop-on vásárolt termékekkel eddig soha semmi probléma nem adódott, minden tökéletesen működött.\n\nJó árak, kitűnő gyorsaság és kiszolgálás.",
+            "author": "Ujvári Gábor",
+            "rating_label": "5/5",
+            "source": "modulshop.hu",
+            "source_url": "https://modulshop.hu/650nm-5mw-piros-lezermodul-pont-uveglencses-fokuszalhato-2618",
+            "date": "2026. 04. 21.",
+            "verified": false
+          }
+        },
+        "r5": {
+          "type": "review",
+          "settings": {
+            "text": "Tökéletes megoldás PiZero állapotjelzésre - hőmérséklet, ip, stb - valós időben. A legutóbbi rendelésem is csak kijelzők. Jópofa dolgok építhetők, nekem hobbi:) Remek alkatrészek vannak a Modulshopban, igyekszem folyamatos vásárló lenni, köszönöm:) Tisztelettel, Zsolt.",
+            "author": "Zsolt",
+            "rating_label": "5/5",
+            "source": "modulshop.hu",
+            "source_url": "https://modulshop.hu/225-os-szines-ips-kijelzo-spi-st7789-ic",
+            "date": "2025. 11. 10.",
+            "verified": true
+          }
+        },
+        "r6": {
+          "type": "review",
+          "settings": {
+            "text": "Jó termékek jó áron, gyors szállítás csomagautomatába.",
+            "author": "Péter",
+            "rating_label": "10/10",
+            "source": "Onlinepénztárca",
+            "source_url": "https://onlinepenztarca.hu/webaruhaz/modulshophu",
+            "date": "2026. 08. 19.",
+            "verified": false
+          }
+        },
+        "r7": {
+          "type": "review",
+          "settings": {
+            "text": "2 nap alatt jött meg, nagyon jó ár/értékarányú eszköz! \n\nInjektor teszteléshez vettem, arra bevált!\n\nA webshopban nagyon sok érdekes eszköz van még, tervezem, hogy el is látogatok hozzájuk, valószínűnek tartom, hogy szakmai kérdésekben is tudnak majd segíteni!",
+            "author": "Tamás",
+            "rating_label": "5/5",
+            "source": "modulshop.hu",
+            "source_url": "https://modulshop.hu/zk-pp2k-pwm-impulzusgenerator-motorlampa-30v-8a-1473",
+            "date": "2025. 11. 22.",
+            "verified": false
+          }
+        },
+        "r8": {
+          "type": "review",
+          "settings": {
+            "text": "Kedvező áron, szakszerűen becsomagolt terméket kaptam.",
+            "author": "Zöldfay András",
+            "rating_label": "5/5",
+            "source": "modulshop.hu",
+            "source_url": "https://modulshop.hu/uno-r3-atmega328p-arduino-kompatibilis-usb-c",
+            "date": "2023. 11. 26.",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "sum2",
+        "sum1",
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8"
+      ]
+    },
+    "ms_store": {
+      "type": "ms-store-info",
+      "settings": {
+        "title": "Személyes átvétel Budapesten",
+        "address": "<p>1078 Budapest, Nefelejcs utca 43.</p><p>Bejárat a Marek József utca felől, fehér ajtó, szuterén.</p>",
+        "text": "<p>Csak online leadott rendelést tudunk kiadni. Rendeld meg, és akár még aznap átveheted.</p>",
+        "button_label": "Kapcsolat és térkép",
+        "button_link": "/pages/kapcsolat",
+        "b2b_title": "Iskolának, szakkörnek, cégnek rendelsz?",
+        "b2b_text": "Mennyiségi kedvezmény és előrendelés. Küldd el a cikkszámlistát, és összeállítjuk a rendelést.",
+        "b2b_button": "Ajánlatot kérek",
+        "b2b_link": "/pages/iskolaknak-es-cegeknek"
+      },
+      "blocks": {
+        "h1": {
+          "type": "hours",
+          "settings": {
+            "days": "Hétfő–péntek",
+            "hours": "8:00–18:00"
+          }
+        },
+        "h2": {
+          "type": "hours",
+          "settings": {
+            "days": "Szombat–vasárnap",
+            "hours": "10:00–16:00"
+          }
+        }
+      },
+      "block_order": [
+        "h1",
+        "h2"
+      ]
+    },
+    "ms_newsletter": {
+      "type": "ms-newsletter",
+      "settings": {
+        "button": "Feliratkozom",
+        "title": "Új modulok és akciók, havonta néhány levélben"
       }
     },
     "product_list_fa6P9H": {
@@ -127,11 +502,11 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "text": "<h2>Válogatás a kínálatból</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h4",
+                "type_preset": "h3",
                 "font": "var(--font-body--family)",
                 "font_size": "",
                 "line_height": "normal",
@@ -152,7 +527,7 @@
               "type": "_product-list-button",
               "name": "t:names.product_list_button",
               "settings": {
-                "label": "View all",
+                "label": "Összes termék",
                 "open_in_new_tab": false,
                 "style_class": "button-unstyled",
                 "width": "fit-content",
@@ -173,7 +548,7 @@
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 4,
+            "product_card_gap": 8,
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -245,10 +620,15 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "ms_stock": {
+              "type": "ms-stock",
+              "settings": {}
             }
           },
           "block_order": [
             "product_card_gallery_677WP3",
+            "ms_stock",
             "product_title_YXxMTj",
             "price_JQzVV4"
           ]
@@ -263,20 +643,77 @@
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
+        "columns_gap": 16,
+        "rows_gap": 32,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
         "gap": 28,
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 56,
+        "padding-block-end": 24
       }
+    },
+    "ms_bundle": {
+      "type": "ms-bundle",
+      "settings": {
+        "total_text": "4 500 Ft",
+        "button_link": "/collections/all"
+      },
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "title": "ESP32-C3 Szuper mini, WiFi, BT 5.0, usb-C",
+            "price": "1 900 Ft",
+            "link": "/products/esp32-c3-szuper-mini-wifi-bt-50-usb-c",
+            "asset_image": "ms-cat-esp32.webp"
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "title": "DHT11 hőmérséklet- és páratartalom-érzékelő modul",
+            "price": "650 Ft",
+            "link": "/products/dht11-homerseklet-es-paratartalom-erzekelo-modul",
+            "asset_image": "ms-cat-szenzorok.webp"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "title": "0,96\" OLED kijelző, fehér, 128×64, I2C",
+            "price": "1 250 Ft",
+            "link": "/products/096-oled-kijelzokek-12864-i2c-986",
+            "asset_image": "ms-cat-oled.webp"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "title": "Próbapanel jumper vezetékek, 65 db",
+            "price": "700 Ft",
+            "link": "/products/probapanelbreadboard-jumper-vezetekek-65-db",
+            "asset_image": "ms-prod-jumper.webp"
+          }
+        }
+      },
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4"
+      ]
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "ms_hero",
+    "ms_usp",
+    "ms_categories",
+    "product_list_fa6P9H",
+    "ms_bundle",
+    "ms_reviews",
+    "ms_store",
+    "ms_newsletter"
   ]
 }

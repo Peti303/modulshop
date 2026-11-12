@@ -1,0 +1,179 @@
+{%- comment -%} Modulshop – main category grid {%- endcomment -%}
+<section class="ms-section ms-cats{% if section.settings.surface %} ms-section--surface{% endif %}" aria-labelledby="ms-cats-{{ section.id }}">
+  <div class="ms-container">
+    <div class="ms-section-head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}<p class="ms-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        <h2 id="ms-cats-{{ section.id }}" class="ms-heading">{{ section.settings.title }}</h2>
+      </div>
+      {%- if section.settings.link_label != blank -%}
+        <a href="{{ section.settings.link | default: routes.collections_url }}" class="ms-link">
+          {{- section.settings.link_label -}}
+          {%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <ul class="ms-cats__grid" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign c = block.settings.collection
+          assign href = block.settings.link
+          if href == blank and c != blank
+            assign href = c.url
+          endif
+          assign title = block.settings.title
+          if title == blank and c != blank
+            assign title = c.title
+          endif
+        -%}
+        <li class="ms-reveal" style="transition-delay: {{ forloop.index0 | modulo: 6 | times: 50 }}ms" {{ block.shopify_attributes }}>
+          <a href="{{ href | default: '#' }}" class="ms-cats__card">
+            <span class="ms-cats__media">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: title, sizes: '(min-width: 990px) 200px, 45vw' }}
+              {%- elsif c.featured_image != blank -%}
+                {{ c.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: title, sizes: '(min-width: 990px) 200px, 45vw' }}
+              {%- elsif block.settings.asset_image != blank -%}
+                <img src="{{ block.settings.asset_image | asset_url }}" alt="" width="480" height="480" loading="lazy">
+              {%- endif -%}
+            </span>
+            <span class="ms-cats__body">
+              <span class="ms-cats__text">
+                <span class="ms-cats__title">{{ title }}</span>
+                {%- if block.settings.subtitle != blank -%}
+                  <span class="ms-cats__sub">{{ block.settings.subtitle }}</span>
+                {%- elsif c != blank and c.all_products_count > 0 -%}
+                  <span class="ms-cats__sub">{{ c.all_products_count }} termék</span>
+                {%- endif -%}
+              </span>
+              {%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
+            </span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-cats__grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ms-cats__card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--ms-border);
+    border-radius: 16px;
+    background: var(--ms-card);
+    color: var(--ms-text);
+    text-decoration: none;
+    transition: transform 0.35s var(--ms-ease), border-color 0.2s;
+  }
+  .ms-cats__card:hover {
+    transform: translateY(-4px);
+    border-color: var(--ms-text);
+  }
+  .ms-cats__media {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--ms-tile);
+  }
+  .ms-cats__media img {
+    width: 82%;
+    height: 88%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    transition: transform 0.6s var(--ms-ease);
+  }
+  .ms-cats__card:hover .ms-cats__media img {
+    transform: scale(1.1) rotate(-2deg);
+  }
+  .ms-cats__body {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 64px;
+    padding: 12px 14px;
+    transition: background-color 0.25s, color 0.25s;
+  }
+  .ms-cats__body svg {
+    flex: none;
+    transition: transform 0.3s var(--ms-ease);
+  }
+  .ms-cats__card:hover .ms-cats__body {
+    background: var(--ms-cta);
+    color: var(--ms-on-cta);
+  }
+  .ms-cats__card:hover .ms-cats__body svg {
+    transform: translateX(4px);
+  }
+  .ms-cats__text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .ms-cats__title {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.25;
+  }
+  .ms-cats__sub {
+    font-size: 13px;
+    color: var(--ms-text-muted);
+    transition: color 0.25s;
+  }
+  .ms-cats__card:hover .ms-cats__sub {
+    color: var(--ms-on-cta);
+  }
+  @media (max-width: 989px) {
+    .ms-cats__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 749px) {
+    .ms-cats__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · kategóriák",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Felső címke", "default": "Kategóriák" },
+    { "type": "text", "id": "title", "label": "Cím", "default": "Mit építesz ma?" },
+    { "type": "text", "id": "link_label", "label": "Link felirata", "default": "Összes kategória" },
+    { "type": "text", "id": "link", "label": "Link", "info": "Pl. /collections/esp32 vagy teljes webcím" },
+    { "type": "checkbox", "id": "surface", "label": "Szürke háttér", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Kategória",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Kollekció" },
+        { "type": "text", "id": "title", "label": "Cím (felülírja a kollekció nevét)" },
+        { "type": "text", "id": "subtitle", "label": "Alcím" },
+        { "type": "text", "id": "link", "label": "Egyedi link (ha nincs kollekció)", "info": "Pl. /collections/esp32 vagy teljes webcím" },
+        { "type": "image_picker", "id": "image", "label": "Kép" },
+        { "type": "text", "id": "asset_image", "label": "Beépített kép (fájlnév)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "MS · kategóriák" }]
+}
+{% endschema %}

@@ -1,0 +1,141 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "type": "ms-page-header",
+      "settings": {
+        "eyebrow": "",
+        "title": "",
+        "intro": "<p>Nem találod a választ? Írj nekünk az <a href=\"mailto:info@modulshop.hu\">info@modulshop.hu</a> címre.</p>",
+        "show_breadcrumb": true,
+        "style": "soft",
+        "alignment": "left"
+      }
+    },
+    "faq": {
+      "type": "ms-faq",
+      "blocks": {
+        "group_1": {
+          "type": "group",
+          "settings": {
+            "heading": "Termékek és árak"
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "A feltüntetett ár bruttó vagy nettó?",
+            "answer": "<p>Az árak bruttóban értendők, tartalmazzák az ÁFÁ-t.</p>",
+            "open": true
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "Elérhető-e a termék, amit rendelni szeretnék?",
+            "answer": "<p>A terméklapon az elérhetőség mellett látható, hogy az adott termékből aktuálisan mennyi van készleten. Ez az érték mindig a raktár aktuális számait mutatja, ennél több vagy kevesebb nem érhető el a termékből. Ha a vásárolni kívánt mennyiség elérhető a készleten, a kiszállítás 1–4 munkanapon belül megtörténik.</p><p>Ha a termék nincs készleten, „értesítés” státuszban van. Ilyenkor e-mail-értesítést kérhetsz, és automatikusan értesítünk a megadott e-mail-címen, amint a termék beérkezett.</p>",
+            "open": false
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "Nem találom a keresett terméket. Miért?",
+            "answer": "<p>Készletünk folyamatosan bővül. Az <a href=\"mailto:info@modulshop.hu\">info@modulshop.hu</a> e-mail-címre várunk minden termékekkel kapcsolatos ajánlást. A webshop kínálatába már több mint 50 olyan termék került fel, amelyet vásárlóink ajánlottak.</p>",
+            "open": false
+          }
+        },
+        "question_5": {
+          "type": "question",
+          "settings": {
+            "question": "Van lehetőség előrendelésre?",
+            "answer": "<p>Természetesen igen. Egyedi megkereséseket az <a href=\"mailto:info@modulshop.hu\">info@modulshop.hu</a> e-mail-címen fogadunk.</p><p>Iskolák és cégek nagy értékű rendelései esetén egyedi mennyiségi kedvezményeket biztosítunk! Részletek: <a href=\"/pages/iskolaknak-es-cegeknek\">Iskoláknak és cégeknek</a></p>",
+            "open": false
+          }
+        },
+        "group_6": {
+          "type": "group",
+          "settings": {
+            "heading": "Szállítás és átvétel"
+          }
+        },
+        "question_7": {
+          "type": "question",
+          "settings": {
+            "question": "Mennyi idő alatt kapom meg a megrendelt terméket?",
+            "answer": "<p>Ha a termék elérhető a raktárunkban, a rendelés leadását követő 1–4 munkanapon belül kiszállítjuk.</p><p>Az „értesítés” státuszú termékek átlagosan 14–45 nap alatt érkeznek be.</p>",
+            "open": false
+          }
+        },
+        "question_8": {
+          "type": "question",
+          "settings": {
+            "question": "Van lehetőség személyes átvételre?",
+            "answer": "<p>Igen! A rendelés leadása után a megadott e-mail-címre visszaigazoló üzenet érkezik. Ezt követően a rendelés azonnal átvehető a raktárunkban, az átvételi ponton azonnal csomagolunk:</p><p><strong>1078 Budapest, VII. Nefelejcs utca 43. (Bejárat a Marek József utca felől)</strong></p><p>Hétfő – péntek: 08:00 – 18:00<br>Szombat – vasárnap: 10:00 – 16:00</p>",
+            "open": false
+          }
+        },
+        "question_9": {
+          "type": "question",
+          "settings": {
+            "question": "Helyszínen vásárolhatok?",
+            "answer": "<p>Nem. A Modulshop csak webáruházként üzemel, helyszíni vásárlásra sajnos nincs lehetőség.</p>",
+            "open": false
+          }
+        },
+        "group_10": {
+          "type": "group",
+          "settings": {
+            "heading": "Garancia"
+          }
+        },
+        "question_11": {
+          "type": "question",
+          "settings": {
+            "question": "Jár garancia a megvásárolt árucikkekhez?",
+            "answer": "<p>Igen. Termékeink mindegyikére 1 éves garanciát vállalunk!</p><p>A garancia érvényét veszti, ha a hiba a termék nem szakértő vagy nem rendeltetésszerű használata miatt keletkezett.</p><p>Részletek: <a href=\"/pages/garancia-es-visszakuldes\">Garancia és visszaküldés</a></p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "group_1",
+        "question_2",
+        "question_3",
+        "question_4",
+        "question_5",
+        "group_6",
+        "question_7",
+        "question_8",
+        "question_9",
+        "group_10",
+        "question_11"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "title": "",
+        "intro": "",
+        "surface": false,
+        "show_cta": true,
+        "cta_title": "Nem találod a választ?",
+        "cta_text": "<p>Írj vagy telefonálj nekünk, szívesen segítünk.</p>",
+        "phone": "+36 70 944 7641",
+        "email": "info@modulshop.hu",
+        "button_label": "Kapcsolat",
+        "button_link": "/pages/kapcsolat"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "faq"
+  ]
+}

@@ -1,0 +1,140 @@
+{%- comment -%} Modulshop – személyes átvétel + iskoláknak, cégeknek {%- endcomment -%}
+{%- assign s = section.settings -%}
+<section class="ms-section" id="atvetel" aria-label="{{ s.title | escape }}">
+  <div class="ms-container">
+    <div class="ms-store">
+      <div class="ms-panel ms-store__panel">
+        <h2 class="ms-heading ms-store__title">{{ s.title | escape }}</h2>
+        {%- if s.address != blank -%}<div class="ms-store__address rte">{{ s.address }}</div>{%- endif -%}
+        {%- if section.blocks.size > 0 -%}
+          <table class="ms-store__hours">
+            <tbody>
+              {%- for block in section.blocks -%}
+                <tr {{ block.shopify_attributes }}>
+                  <th scope="row">{{ block.settings.days | escape }}</th>
+                  <td class="ms-mono">{{ block.settings.hours | escape }}</td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+        {%- endif -%}
+        {%- if s.text != blank -%}<div class="ms-store__note rte">{{ s.text }}</div>{%- endif -%}
+        {%- if s.button_label != blank -%}
+          <a class="ms-link" href="{{ s.button_link | default: '#' }}">{{ s.button_label | escape }} {% render 'ms-icon', name: 'arrow-right', size: 18 %}</a>
+        {%- endif -%}
+      </div>
+      {%- if s.b2b_title != blank -%}
+        <div class="ms-panel ms-store__panel ms-store__panel--cta">
+          <h2 class="ms-heading ms-store__title">{{ s.b2b_title | escape }}</h2>
+          {%- if s.b2b_text != blank -%}<p class="ms-store__lead">{{ s.b2b_text | escape }}</p>{%- endif -%}
+          <div class="ms-store__actions">
+            {%- if s.b2b_button != blank -%}
+              <a class="ms-btn ms-btn--dark" href="{{ s.b2b_link | default: '#' }}">{{ s.b2b_button | escape }}</a>
+            {%- endif -%}
+            {%- if s.b2b_button2 != blank -%}
+              <a class="ms-btn ms-btn--sec" href="{{ s.b2b_link2 | default: '#' }}">{{ s.b2b_button2 | escape }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-store {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
+    gap: 20px;
+  }
+  .ms-store__panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .ms-store__title {
+    font-size: clamp(24px, 2.2vw, 30px);
+  }
+  .ms-store__address {
+    font-size: 18px;
+  }
+  .ms-store__address p,
+  .ms-store__note p {
+    margin: 0;
+  }
+  .ms-store__address p + p {
+    font-size: 15px;
+    color: var(--ms-text-muted);
+  }
+  .ms-store__hours {
+    width: 100%;
+    max-width: 360px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  .ms-store__hours th,
+  .ms-store__hours td {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--ms-border);
+    text-align: left;
+  }
+  .ms-store__hours th {
+    font-weight: 500;
+    color: var(--ms-text-muted);
+  }
+  .ms-store__note {
+    font-size: 15px;
+    color: var(--ms-text-muted);
+  }
+  .ms-store__panel--cta {
+    border-color: var(--ms-cta);
+    background: var(--ms-cta);
+    color: var(--ms-on-cta);
+  }
+  .ms-store__lead {
+    margin: 0;
+    max-width: 38ch;
+    font-size: 18px;
+  }
+  .ms-store__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 12px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · átvétel és cégek",
+  "settings": [
+    { "type": "header", "content": "Személyes átvétel" },
+    { "type": "text", "id": "title", "label": "Cím", "default": "Személyes átvétel Budapesten" },
+    { "type": "richtext", "id": "address", "label": "Cím és megközelítés" },
+    { "type": "richtext", "id": "text", "label": "Megjegyzés" },
+    { "type": "text", "id": "button_label", "label": "Link felirata" },
+    { "type": "text", "id": "button_link", "label": "Link", "info": "Pl. /pages/kapcsolat vagy teljes webcím" },
+    { "type": "header", "content": "Iskoláknak, cégeknek" },
+    { "type": "text", "id": "b2b_title", "label": "Cím", "default": "Iskolának, szakkörnek, cégnek rendelsz?" },
+    { "type": "textarea", "id": "b2b_text", "label": "Szöveg" },
+    { "type": "text", "id": "b2b_button", "label": "Gomb felirata", "default": "Ajánlatot kérek" },
+    { "type": "text", "id": "b2b_link", "label": "Gomb linkje" },
+    { "type": "text", "id": "b2b_button2", "label": "Második gomb felirata" },
+    { "type": "text", "id": "b2b_link2", "label": "Második gomb linkje" }
+  ],
+  "blocks": [
+    {
+      "type": "hours",
+      "name": "Nyitvatartási sor",
+      "limit": 7,
+      "settings": [
+        { "type": "text", "id": "days", "label": "Napok", "default": "Hétfő–péntek" },
+        { "type": "text", "id": "hours", "label": "Idő", "default": "8:00–18:00" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "MS · átvétel és cégek" }]
+}
+{% endschema %}

@@ -1,0 +1,516 @@
+{%- comment -%} Modulshop – contact page: contact cards + Shopify contact form {%- endcomment -%}
+{%- liquid
+  assign form_id = 'ms-contact-form-' | append: section.id
+  assign tel = section.settings.phone | remove: ' ' | remove: '/' | remove: '-'
+  assign map_q = section.settings.map_query | default: section.settings.address | strip_html | url_encode
+-%}
+<section class="ms-section ms-contact" aria-labelledby="ms-contact-{{ section.id }}">
+  <div class="ms-container">
+    {%- if section.settings.title != blank or section.settings.text != blank -%}
+      <div class="ms-section-head">
+        <div>
+          {%- if section.settings.eyebrow != blank -%}<p class="ms-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+          {%- if section.settings.title != blank -%}
+            <h2 id="ms-contact-{{ section.id }}" class="ms-heading">{{ section.settings.title | escape }}</h2>
+          {%- endif -%}
+          {%- if section.settings.text != blank -%}<div class="ms-lead">{{ section.settings.text }}</div>{%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="ms-contact__grid">
+      <div class="ms-contact__cards">
+        {%- if section.settings.address != blank -%}
+          <div class="ms-contact__card ms-card ms-contact__card--wide">
+            <span class="ms-icon-badge">{% render 'ms-icon', name: 'pin' %}</span>
+            <div class="ms-contact__body">
+              <h3>Átvételi pont</h3>
+              <div class="ms-contact__strong">{{ section.settings.address }}</div>
+              {%- if section.settings.directions != blank -%}
+                <div class="ms-contact__muted">{{ section.settings.directions }}</div>
+              {%- endif -%}
+              <a class="ms-link ms-contact__map" href="https://www.google.com/maps/search/?api=1&query={{ map_q }}" target="_blank" rel="noopener">
+                Megnyitás a Google Térképen
+                {%- render 'ms-icon', name: 'arrow-right', size: 18 -%}
+                <span class="ms-visually-hidden">(új lapon nyílik meg)</span>
+              </a>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.hours != blank -%}
+          <div class="ms-contact__card ms-card">
+            <span class="ms-icon-badge">{% render 'ms-icon', name: 'clock' %}</span>
+            <div class="ms-contact__body">
+              <h3>Nyitvatartás</h3>
+              <div class="ms-contact__hours">{{ section.settings.hours }}</div>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.phone != blank or section.settings.email != blank -%}
+          <div class="ms-contact__card ms-card">
+            <span class="ms-icon-badge">{% render 'ms-icon', name: 'phone' %}</span>
+            <div class="ms-contact__body">
+              <h3>Elérhetőség</h3>
+              {%- if section.settings.phone != blank -%}
+                <p class="ms-contact__line">
+                  <span class="ms-contact__label">Telefon</span>
+                  <a href="tel:{{ tel }}">{{ section.settings.phone | escape }}</a>
+                </p>
+              {%- endif -%}
+              {%- if section.settings.email != blank -%}
+                <p class="ms-contact__line">
+                  <span class="ms-contact__label">E-mail</span>
+                  <a href="mailto:{{ section.settings.email }}">{{ section.settings.email | escape }}</a>
+                </p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.note != blank -%}
+          <div class="ms-contact__note ms-contact__card--wide">
+            {%- render 'ms-icon', name: 'box', size: 20 -%}
+            <div>{{ section.settings.note }}</div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="ms-contact__form-wrap ms-card">
+        {%- if section.settings.form_title != blank -%}
+          <h3 class="ms-contact__form-title">{{ section.settings.form_title | escape }}</h3>
+        {%- endif -%}
+        {%- if section.settings.form_text != blank -%}
+          <div class="ms-contact__form-text">{{ section.settings.form_text }}</div>
+        {%- endif -%}
+
+        {%- form 'contact', id: form_id, class: 'ms-contact__form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="ms-contact__alert ms-contact__alert--success" role="status" tabindex="-1" autofocus>
+              {%- render 'ms-icon', name: 'check', size: 20 -%}
+              <p>{{ section.settings.success_text | default: 'Köszönjük az üzenetet! Hamarosan válaszolunk.' | escape }}</p>
+            </div>
+          {%- elsif form.errors -%}
+            <div class="ms-contact__alert ms-contact__alert--error" role="alert" tabindex="-1" autofocus>
+              <p><strong>Az üzenetet nem sikerült elküldeni.</strong> Kérjük, javítsd a következőket:</p>
+              <ul>
+                {%- for field in form.errors -%}
+                  <li>
+                    {%- if field == 'form' -%}
+                      {{ form.errors.messages[field] }}
+                    {%- else -%}
+                      {%- liquid
+                        case field
+                          when 'email'
+                            assign label = 'E-mail-cím'
+                          when 'body'
+                            assign label = 'Üzenet'
+                          when 'name'
+                            assign label = 'Név'
+                          when 'phone'
+                            assign label = 'Telefonszám'
+                          else
+                            assign label = form.errors.translated_fields[field]
+                        endcase
+                      -%}
+                      <a href="#{{ form_id }}-{{ field }}">{{ label }}</a>: {{ form.errors.messages[field] }}
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+
+          <div class="ms-contact__row">
+            <div class="ms-field">
+              <label for="{{ form_id }}-name">Név <span aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="{{ form_id }}-name"
+                name="contact[name]"
+                value="{{ form.name | escape }}"
+                autocomplete="name"
+                required
+                aria-required="true"
+              >
+            </div>
+            <div class="ms-field">
+              <label for="{{ form_id }}-email">E-mail-cím <span aria-hidden="true">*</span></label>
+              <input
+                type="email"
+                id="{{ form_id }}-email"
+                name="contact[email]"
+                value="{% if form.email %}{{ form.email | escape }}{% elsif customer %}{{ customer.email | escape }}{% endif %}"
+                autocomplete="email"
+                spellcheck="false"
+                autocapitalize="off"
+                required
+                aria-required="true"
+                {% if form.errors contains 'email' %}
+                  aria-invalid="true" aria-describedby="{{ form_id }}-email-error"
+                {% endif %}
+              >
+              {%- if form.errors contains 'email' -%}
+                <p id="{{ form_id }}-email-error" class="ms-field__error">{{ form.errors.messages.email }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+
+          <div class="ms-contact__row">
+            <div class="ms-field">
+              <label for="{{ form_id }}-phone">Telefonszám <span class="ms-field__opt">(nem kötelező)</span></label>
+              <input
+                type="tel"
+                id="{{ form_id }}-phone"
+                name="contact[phone]"
+                value="{{ form.phone | escape }}"
+                autocomplete="tel"
+                inputmode="tel"
+              >
+            </div>
+            <div class="ms-field">
+              <label for="{{ form_id }}-order">Rendelésszám <span class="ms-field__opt">(nem kötelező)</span></label>
+              <input
+                type="text"
+                id="{{ form_id }}-order"
+                name="contact[Rendelésszám]"
+                autocomplete="off"
+                placeholder="pl. #1001"
+              >
+            </div>
+          </div>
+
+          <div class="ms-field">
+            <label for="{{ form_id }}-body">Üzenet <span aria-hidden="true">*</span></label>
+            <textarea
+              id="{{ form_id }}-body"
+              name="contact[body]"
+              rows="6"
+              required
+              aria-required="true"
+              {% if form.errors contains 'body' %}
+                aria-invalid="true" aria-describedby="{{ form_id }}-body-error"
+              {% endif %}
+            >{{ form.body }}</textarea>
+            {%- if form.errors contains 'body' -%}
+              <p id="{{ form_id }}-body-error" class="ms-field__error">{{ form.errors.messages.body }}</p>
+            {%- endif -%}
+          </div>
+
+          <p class="ms-contact__required"><span aria-hidden="true">*</span> Kötelező mező</p>
+
+          {%- if section.settings.privacy_text != blank -%}
+            <div class="ms-contact__privacy">{{ section.settings.privacy_text }}</div>
+          {%- endif -%}
+
+          <button type="submit" class="ms-btn ms-btn--primary ms-contact__submit">
+            {%- render 'ms-icon', name: 'mail', size: 18 -%}
+            {{- section.settings.button_label | default: 'Üzenet küldése' | escape -}}
+          </button>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-contact__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
+  }
+  .ms-contact__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .ms-contact__card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 22px;
+  }
+  .ms-contact__card--wide {
+    grid-column: 1 / -1;
+  }
+  .ms-contact__card.ms-contact__card--wide {
+    flex-direction: row;
+  }
+  .ms-contact__body {
+    min-width: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ms-text-muted);
+  }
+  .ms-contact__body h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ms-text);
+  }
+  .ms-contact__body p {
+    margin: 0;
+  }
+  .ms-contact__strong {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ms-text);
+  }
+  .ms-contact__muted {
+    margin-top: 4px;
+  }
+  .ms-contact__map {
+    margin-top: 12px;
+  }
+  .ms-contact__hours p + p {
+    margin-top: 4px;
+  }
+  .ms-contact__line {
+    display: flex;
+    flex-direction: column;
+  }
+  .ms-contact__line + .ms-contact__line {
+    margin-top: 8px;
+  }
+  .ms-contact__label {
+    font-size: 13px;
+  }
+  .ms-contact__body a:not(.ms-link) {
+    font-weight: 700;
+    color: var(--ms-primary);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .ms-contact__body a:not(.ms-link):hover {
+    text-decoration: underline;
+  }
+  .ms-contact__note {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 16px 18px;
+    border-radius: var(--ms-radius);
+    background: var(--ms-accent-soft);
+    color: var(--ms-text);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .ms-contact__note svg {
+    flex: none;
+    margin-top: 2px;
+    color: var(--ms-accent);
+  }
+  .ms-contact__note p {
+    margin: 0;
+  }
+
+  .ms-contact__form-wrap {
+    padding: clamp(22px, 3.5vw, 36px);
+  }
+  .ms-contact__form-title {
+    margin: 0 0 18px;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ms-text);
+  }
+  .ms-contact__form-text {
+    margin: -12px 0 20px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ms-text-muted);
+  }
+  .ms-contact__form-text p {
+    margin: 0;
+  }
+  .ms-contact__form {
+    display: grid;
+    gap: 16px;
+  }
+  .ms-contact__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .ms-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .ms-field label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ms-text);
+  }
+  .ms-field label [aria-hidden='true'] {
+    color: var(--ms-danger);
+  }
+  .ms-field__opt {
+    font-weight: 400;
+    color: var(--ms-text-muted);
+  }
+  .ms-field input,
+  .ms-field textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--ms-border-strong);
+    border-radius: var(--ms-radius-sm);
+    background: var(--ms-bg);
+    color: var(--ms-text);
+    font: inherit;
+    font-size: 16px;
+    line-height: 1.4;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .ms-field textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+  .ms-field input::placeholder {
+    color: var(--ms-text-muted);
+    opacity: 0.8;
+  }
+  .ms-field input:focus,
+  .ms-field textarea:focus {
+    outline: none;
+    border-color: var(--ms-accent);
+    box-shadow: 0 0 0 3px rgb(var(--ms-accent-rgb) / 0.22);
+  }
+  .ms-field [aria-invalid='true'] {
+    border-color: var(--ms-danger);
+  }
+  .ms-field__error {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ms-danger);
+  }
+  .ms-contact__required,
+  .ms-contact__privacy {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ms-text-muted);
+  }
+  .ms-contact__required span {
+    color: var(--ms-danger);
+  }
+  .ms-contact__privacy p {
+    margin: 0;
+  }
+  .ms-contact__privacy a {
+    color: var(--ms-primary);
+    font-weight: 600;
+  }
+  .ms-contact__submit {
+    justify-self: start;
+  }
+  .ms-contact__alert {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    border-radius: var(--ms-radius-sm);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .ms-contact__alert:focus {
+    outline: none;
+  }
+  .ms-contact__alert p {
+    margin: 0;
+  }
+  .ms-contact__alert--success {
+    background: var(--ms-success-soft);
+    color: var(--ms-text);
+  }
+  .ms-contact__alert--success svg {
+    flex: none;
+    color: var(--ms-success);
+  }
+  .ms-contact__alert--error {
+    flex-direction: column;
+    border: 1px solid var(--ms-danger);
+    background: rgb(200 16 46 / 0.06);
+    color: var(--ms-text);
+  }
+  .ms-contact__alert--error ul {
+    margin: 0;
+    padding-left: 1.2em;
+  }
+  .ms-contact__alert--error a {
+    color: var(--ms-danger);
+    font-weight: 600;
+  }
+
+  @media (max-width: 1099px) {
+    .ms-contact__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  @media (max-width: 599px) {
+    .ms-contact__cards,
+    .ms-contact__row {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .ms-contact__card.ms-contact__card--wide {
+      flex-direction: column;
+    }
+    .ms-contact__submit {
+      width: 100%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · kapcsolat",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Felső címke" },
+    { "type": "text", "id": "title", "label": "Cím" },
+    { "type": "richtext", "id": "text", "label": "Szöveg" },
+    { "type": "header", "content": "Elérhetőségek" },
+    { "type": "richtext", "id": "address", "label": "Átvételi pont címe", "default": "<p>1078 Budapest, Nefelejcs utca 43.</p>" },
+    {
+      "type": "richtext",
+      "id": "directions",
+      "label": "Bejárat, útbaigazítás",
+      "default": "<p>Bejárat a Marek József utca felől. Fehér műanyag ajtó, szuterén.</p>"
+    },
+    {
+      "type": "text",
+      "id": "map_query",
+      "label": "Google Térkép keresőkifejezés",
+      "default": "1078 Budapest, Nefelejcs utca 43.",
+      "info": "Üresen hagyva az átvételi pont címe."
+    },
+    {
+      "type": "richtext",
+      "id": "hours",
+      "label": "Nyitvatartás",
+      "default": "<p>Hétfő – péntek: 8:00 – 18:00</p><p>Szombat – vasárnap: 10:00 – 16:00</p>"
+    },
+    { "type": "text", "id": "phone", "label": "Telefon", "default": "+36 70 944 7641" },
+    { "type": "text", "id": "email", "label": "E-mail", "default": "info@modulshop.hu" },
+    {
+      "type": "richtext",
+      "id": "note",
+      "label": "Megjegyzés",
+      "default": "<p>Az átvételi ponton csak az online leadott rendeléseket tudjuk kiadni. Helyszíni vásárlásra nincs lehetőség.</p>"
+    },
+    { "type": "header", "content": "Űrlap" },
+    { "type": "text", "id": "form_title", "label": "Űrlap címe", "default": "Írj nekünk" },
+    { "type": "richtext", "id": "form_text", "label": "Űrlap szövege" },
+    { "type": "text", "id": "button_label", "label": "Gomb felirata", "default": "Üzenet küldése" },
+    { "type": "text", "id": "success_text", "label": "Sikeres küldés üzenete", "default": "Köszönjük az üzenetet! Hamarosan válaszolunk." },
+    {
+      "type": "richtext",
+      "id": "privacy_text",
+      "label": "Adatvédelmi tájékoztató",
+      "default": "<p>Az adataidat az üzenet megválaszolásához használjuk. Részletek: <a href=\"/pages/adatvedelem\">Adatvédelmi nyilatkozat</a>.</p>"
+    }
+  ],
+  "presets": [{ "name": "MS · kapcsolat" }]
+}
+{% endschema %}

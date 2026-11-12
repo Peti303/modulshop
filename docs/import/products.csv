@@ -1,0 +1,1195 @@
+Handle,Title,Body (HTML),Vendor,Product Category,Type,Tags,Published,Option1 Name,Option1 Value,Variant SKU,Variant Grams,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Compare At Price,Variant Requires Shipping,Variant Taxable,Variant Barcode,Image Src,Image Position,Image Alt Text,SEO Title,SEO Description,Status
+nano-v30-usb-c-beforrasztott-pin,"Nano V3.0 , USB-C (beforrasztott pin)","<ul>
+<li>CPU : ATmega328P</li>
+<li>USB-TTL illesztő: CH340G</li>
+</ul>
+<p><strong>NANO V3.0 , USB-C</strong></p>
+<ul>
+<li>Mikrokontroller: ATMEL ATmega328P</li>
+<li>Tápfeszültség: DC 5V</li>
+<li>Digitális ki és bemenetek (I/O): 14db (Ebből 6db PWM kimenet)</li>
+<li>Analóg bemene: 8db</li>
+<li>Kimeneti áram (kimenetenként): 40mA</li>
+<li>FLASH Memory: 32KB – Ebből 2KB a bootloader</li>
+<li>SRAM: 2KB</li>
+<li>EEPROM: 1KB</li>
+<li>Ütemfrekvencia: 16MHz</li>
+<li>Soros port illesztő: CH340G</li>
+<li>USB csatlakozó:</li>
+<li>USB Mini (kábel nem tartozék)</li>
+<li>Bootloader feltöltve gyárilag.</li>
+</ul>",Modulshop,,"Mikrovezérlők, alaplapok",Arduino,TRUE,Title,Default Title,1-1-33,,shopify,19,deny,manual,2250,,TRUE,TRUE,5999572380229,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/01%20Arduino/1-1-33_nano-C_welded.jpg,1,"NANO V3.0 , USB-C, welded","Nano V3.0 , USB-C (beforrasztott pin)","NANO V3.0 , USB-C -Mikrokontroller: ATMEL ATmega328P -Tápfeszültség: DC 5V -Digitális ki és bemenetek (I/O): 14db (Ebből 6db PWM kimenet) -Analóg bemene: 8db -Kimeneti áram (kimenetenként): 40mA -FLASH Memory: 32KB – Ebből 2KB a bootloader -SRAM: 2KB -EEPROM: 1KB -Ütemfrekvencia: 16MHz -Soros port illesztő: CH340G...",active
+nano-v30-usb-c-beforrasztott-pin,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/01%20Arduino/1-1-33_nano-C_welded-2.jpg,2,Arduino nano usb-c welded,,,
+nano-v30-usb-c-beforrasztott-pin,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/01%20Arduino/nano/1-1-2%20Nano-5.jpg,3,Arduino nano usb-c,,,
+uno-r3-atmega328p-arduino-kompatibilis-usb-c,Uno R3 - ATmega328P - Arduino kompatibilis usb C,"<p>CPU: ATmega328P<br>Csatlakozó : usb-C<br>Usb illesztő : ch340</p>
+<ul>
+<li><strong>Tápfeszültség:</strong> 5-12 V (max. 20V)</li>
+</ul>
+<p><strong>Uno R3 - ATmega328P - 100% Arduino kompatibilis</strong></p>
+<p>Az Arduino mikrovezérlők legnépszerűbb tagja, az UNO R3-as. A könnyű kezelhetőség, a használtra kész<br>kivitel, a rengeteg hozzá fejlesztett hardver eszköz, és ingyenesen elérhető szoftver, tette a kezdők és a haladók legkedveltebb fejlesztőpaneljává. Az arduino hivatalos honlapján, ( www.arduino.cc ) mindenki számára elérhető<br>az arduino ide szoftver aminek segítségével könnyedén írhatunk programokat, tesztelhetjük azokat, és a feltölthetjük a kártyára.</p>
+<p>További információkat találsz a wikipédián : https://hu.wikipedia.org/wiki/Arduino</p>
+<p>Paraméterek :</p>
+<ul>
+<li>ATmega328 központi egység,</li>
+<li>100% Arduino UNO R3 kompatibilis</li>
+<li>Külső tápfeszültség: 5-12 V (max. 20V),</li>
+<li>14 digitális ki/bemenet (ebből 6 PWM),</li>
+<li>6 analóg bemenet,</li>
+<li>32 kbyte Flash memória,</li>
+<li>2 kbyte SRAM és 1 kbyte EEPROM,</li>
+<li>16 Mhz órajel,</li>
+<li>CH340 illesztőchip.</li>
+<li>USB-C csatlakozó</li>
+</ul>",Modulshop,,"Mikrovezérlők, alaplapok",Arduino,TRUE,Title,Default Title,1-1-27,,shopify,14,deny,manual,2500,,TRUE,TRUE,5999572384180,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/01%20Arduino/1-1-27_uno_usbc-3.jpg,1,Uno R3 usb-c,Uno R3 - ATmega328P - Arduino kompatibilis usb C,"Uno R3 - ATmega328P - 100% Arduino kompatibilis usb-c Az Arduino mikrovezérlők legnépszerűbb tagja, az UNO R3-as. A könnyű kezelhetőség, a használtra kész kivitel, a rengeteg hozzá fejlesztett hardver eszköz, és ingyenesen elérhető szoftver, tette a kezdők és a haladók legkedveltebb fejlesztőpaneljává. Az arduino...",active
+uno-r3-atmega328p-arduino-kompatibilis-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/01%20Arduino/1-1-27_uno_usbc-2.jpg,2,Uno R3 usb-c,,,
+uno-r3-atmega328p-arduino-kompatibilis-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/01%20Arduino/1-1-27_uno_usbc-4.jpg,3,Uno R3,,,
+esp32-c3-szuper-mini-wifi-bt-50-usb-c,"ESP32-C3 Szuper mini, WiFi, BT 5.0, usb-C","<p>IC: EPS32-C3<br>Frekvencia : 160 Mhz<br>Csatlakozó : usb-C<br>Memória: 384 KBrom ,400 KBsram, 4MB Flash</p>
+<p>Az ESP32-C3 egy szuper mini, WiFi és Bluetooth 5.0 modullal rendelkező mikrovezérlő, melyet kifejezetten IoT alkalmazásokhoz terveztek. ESP32C3FN4 cpu-alapú, 160 MHz-es órajelet használó, 1 magos chipet tartalmaz. Az ESP32-C3 digitális és analóg pinjeivel, valamint I2C, SPI, UART és ADC interfészeivel széleskörű lehetőségeket nyújt a fejlesztőknek. Az ESP32C3 biztonsági funkciói közé tartozik a hardveres AES titkosítás, ami biztosítja az adatok biztonságát a továbbítás és tárolás során. Továbbá, az eszköz támogatja a szoftveres frissítéseket a levegőn keresztül (OTA), ami lehetővé teszi a firmware kényelmes és biztonságos frissítését anélkül, hogy fizikailag hozzáférnénk az eszközhöz. Az Espessif által gyártott ESP32-C3 ideális választás olyan projektekhez, ahol a kis méret és a magas teljesítmény fontos szempont. A termék USB-C csatlakozóval is rendelkezik, így könnyen csatlakoztatható számos eszközhöz és rendszerhez. Összefoglalva, az ESP32C3FN4 egy rendkívül hatékony és sokoldalú mikrovezérlő, amely kiválóan alkalmas modern IoT alkalmazások és okos otthoni megoldások fejlesztésére. Számos kommunikációs interfészének és erős biztonsági funkcióinak köszönhetően ideális választás bármilyen projekt számára, ahol a megbízhatóság és az adatvédelem kulcsfontosságú.</p>",Modulshop,,"Mikrovezérlők, alaplapok",ESP32,TRUE,Title,Default Title,1-2-29,,shopify,37,deny,manual,1900,,TRUE,TRUE,5999572386689,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-29_ESP32C3SM-1.webp,1,ESP32C3 Szupermini,"ESP32-C3 Szuper mini, WiFi, BT 5.0, usb-C","Az ESP32-C3 egy szuper mini, WiFi és Bluetooth 5.0 modullal rendelkező mikrovezérlő. 160 MHz-es 1 magos CPU. 16 digitális pin ebből 4 analóg, I2C,SPI UART,ADC",active
+esp32-c3-szuper-mini-wifi-bt-50-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-29_ESP32C3SM-2.webp,2,ESP32C3 Szupermini,,,
+esp32-c3-szuper-mini-wifi-bt-50-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-29_ESP32C3SM-3.webp,3,ESP32C3 Szupermini,,,
+esp32-c3-szuper-mini-wifi-bt-50-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-29_ESP32C3SM-4.webp,4,ESP32C3 Szupermini,,,
+esp32-c3-szuper-mini-wifi-bt-50-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-29_ESP32C3SM-5.webp,5,ESP32C3 Szupermini,,,
+esp32-c3-szuper-mini-wifi-bt-50-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-29_ESP32C3SM-6.webp,6,ESP32C3 Szupermini,,,
+esp32-c6-devkit-n4r2-dual-usb-c,"ESP32-C6 DevKit N4R2 Dual usb-C,","<ul>
+<li>IC : ESP32-C6 N4R2</li>
+<li>CPU : 160 MHz</li>
+<li>Sram : 512 KB</li>
+<li>Falsh: 4 MB</li>
+<li>Wifi, Bluetooth</li>
+<li>usb OTG interfész</li>
+</ul>
+<ul>
+<li>Gyártó: ESPRESSIF</li>
+<li>WiFi + Bluetooth</li>
+<li>USB Illesztő : OTG</li>
+<li>Üzemi hőmérséklet :-40...85°C</li>
+<li>Titkosítás: AES, WPA2-PSK, WPA, WPS</li>
+<li>Programozó- és fejlesztő kitek tulajdonságai: I/O vonalai tüskés csatlakozóra vannak kivezetve</li>
+<li>Kommunikációs protokoll: Bluetooth, Bluetooth Low Energy, IEEE 802.11b/g/n/e/i</li>
+</ul>",ESPRESSIF,,"Mikrovezérlők, alaplapok",ESP32,TRUE,Title,Default Title,1-2-35,,shopify,12,deny,manual,3700,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-35-ESP32-C6-N4R2-1.webp,1,ESP32-C6 DevKit N4R2,ESP32-C6 DevKit N4R2 Dual usb-C,"Gyártó: ESPRESSIF -Starter kit típusa: WiFi -Üzemi hőmérséklet :-40...85°C -Titkosítás: AES, WPA2-PSK, WPA, WPS -Programozó- és fejlesztő kitek tulajdonságai: I/O vonalai tüskés csatlakozóra vannak kivezetve -Komponensek: ESP32-WROOM-32UE -Kommunikációs protokoll: Bluetooth, Bluetooth Low Energy, IEEE...",active
+esp32-c6-devkit-n4r2-dual-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-35-ESP32-C6-N4R2-2.webp,2,ESP32-C6 DevKit N4R2,,,
+esp32-c6-devkit-n4r2-dual-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-35-ESP32-C6-N4R2-3.webp,3,ESP32-C6 DevKit N4R2,,,
+esp32-c6-devkit-n4r2-dual-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-35-ESP32-C6-N4R2-4.webp,4,ESP32-C6 DevKit N4R2,,,
+esp32-s3-n16r8-cam-fejlesztopanel-ov3660,ESP32-S3 N16R8 CAM fejlesztőpanel OV3660,"<h2>ESP32-S3 N16R8 CAM fejlesztőpanel – WiFi+Bluetooth kamera modul OV3660 szenzorral</h2>
+<p>Az <strong>ESP32-S3 N16R8 CAM Development Board</strong> egy nagy teljesítményű, AI-képes <strong>WiFi + Bluetooth mikrokontrolleres kameramodul</strong>, amely <strong>OV3660 CMOS kamera szenzorral</strong> érkezik. Ideális <strong>IoT videós projektekhez, megfigyelő rendszerekhez, gépi látáshoz, QR-/AR-/kódolvasáshoz</strong>, valamint minden olyan fejlesztéshez, ahol kis fogyasztású, de erős, hálózatra kapcsolt kamera kell.</p>
+<p>Az <strong>ESP32-S3</strong> CPU kétmagos, beépített <strong>vektorműveletekkel (AI/ML gyorsítás)</strong>, a <strong>N16R8 jelölés</strong> pedig jellemzően:</p>
+<ul>
+<li><strong>16 MB Flash</strong></li>
+<li><strong>8 MB PSRAM</strong></li>
+</ul>
+<p>konfigurációt jelent – ez elegendő képfeldolgozási algoritmusok, webkiszolgáló, fájlrendszer és komplex alkalmazások futtatásához is.</p>
+<p>Kompatibilis az <strong>ESP-IDF</strong>, az <strong>Arduino core for ESP32</strong> és MicroPython környezetekkel, így kezdők és haladó fejlesztők egyaránt könnyen ki tudják használni.</p>
+<h2>Főbb műszaki jellemzők</h2>
+<p><em>(Az értékek típusvariánstól kismértékben eltérhetnek, de a legtöbb ESP32-S3 N16R8 CAM panel az alábbi paraméterekkel dolgozik.)</em></p>
+<ul>
+<li><strong>Mikrokontroller:</strong> ESP32-S3 dual-core Xtensa LX7</li>
+<li><strong>Órajel:</strong> akár 240 MHz</li>
+<li><strong>Flash:</strong> 16 MB</li>
+<li><strong>PSRAM:</strong> 8 MB</li>
+<li><p><strong>Kamera szenzor:</strong> OV3660</p>
+<ul>
+<li>3 MP tartomány (jellemző max. felbontás: 2048×1536 körül)</li>
+<li>Automatikus expozíció, fehéregyensúly, zajcsökkentés</li>
+</ul>
+</li>
+<li><p><strong>Kommunikáció:</strong></p>
+<ul>
+<li>2,4 GHz <strong>WiFi 802.11 b/g/n</strong></li>
+<li><strong>Bluetooth Low Energy</strong> (BLE 5.X)</li>
+</ul>
+</li>
+<li><strong>Tápellátás:</strong> 5 V USB-ről (onboard 3,3 V szabályzóval)</li>
+<li><strong>Programozás:</strong> USB-n keresztül (általában USB-C vagy micro USB, a paneltől függően)</li>
+<li><strong>GPIO-k:</strong> több szabad GPIO láb kivezetve (I2C, SPI, UART, PWM, ADC, stb.) – érzékelők, relék, kijelzők csatlakoztatásához</li>
+<li><p><strong>Fejlesztési környezetek:</strong></p>
+<ul>
+<li>Arduino IDE (ESP32-S3 support)</li>
+<li>ESP-IDF</li>
+<li>MicroPython, CircuitPython (S3 kompatibilis builddel)</li>
+</ul>
+</li>
+</ul>
+<h2>Mi a különbség az ESP32-CAM és az ESP32-S3 N16R8 CAM között?</h2>
+<ul>
+<li>Az <strong>ESP32-S3</strong> újabb generáció, erősebb CPU-val és <strong>AI/vektor gyorsítással</strong>,</li>
+<li><p>több memória (16 MB Flash + 8 MB PSRAM), ezért:</p>
+<ul>
+<li>nagyobb felbontású képek,</li>
+<li>bonyolultabb képfeldolgozás,</li>
+<li>stabilabb <strong>WiFi-s videostream</strong> valósítható meg.</li>
+</ul>
+</li>
+</ul>
+<p>Fejlettebb projektekhez (pl. arcfelismerés, képalapú vezérlés, gépi látás) az S3 verzió sokkal alkalmasabb.</p>
+<h3>Milyen felbontásban képes képet rögzíteni / streamelni?</h3>
+<p>Az <strong>OV3660</strong> egy 3MP kategóriás szenzor, tipikusan:</p>
+<ul>
+<li><strong>fotózásnál</strong>: 2–3 MP körüli felbontás,</li>
+<li><strong>streamelésnél</strong>: praktikus felbontás VGA–UXGA (640×480 – 1600×1200) tartományban,</li>
+<li>IoT kamera esetén sokszor <strong>QVGA/VGA</strong> elég, így több FPS és kisebb sávszélesség kell.</li>
+</ul>
+<p>A pontosan használható felbontás a <strong>firmware-től</strong> és a projekt céljától függ (sebesség vs. részletesség).</p>
+<h3>Használható Arduino IDE-ből is, vagy csak ESP-IDF-fel?</h3>
+<p>Használható <strong>Arduino IDE-ből is</strong>:</p>
+<ul>
+<li>az ESP32-S3 támogatását tartalmazó <strong>ESP32 board package</strong> telepítése után</li>
+<li>több példa is elérhető: kamera web szerver, still capture, webkamera-emuláció stb.</li>
+</ul>
+<p>Haladó projektekhez az <strong>ESP-IDF</strong> ad teljes rugalmasságot, de hobbiszinten az Arduino is bőven elég.</p>
+<h3>Tudok róla élő videostreamet küldeni böngészőbe?</h3>
+<p>Igen. A tipikus felépítés:</p>
+<ul>
+<li>a modul <strong>WiFi access pointként vagy kliensként</strong> működik,</li>
+<li>beépített <strong>HTTP szerver</strong> szolgálja ki a kamera képét (folyamatos JPEG stream, MJPEG, vagy snapshot),</li>
+<li>a kliens csak megnyit egy IP címet böngészőből, és már látja a képet.</li>
+</ul>
+<p>Ez ideális:</p>
+<ul>
+<li>egyszerű IP kamera,</li>
+<li>ajtókamera,</li>
+<li>3D nyomtató felügyelet,</li>
+<li>kísérleti megfigyelő rendszer esetén.</li>
+</ul>
+<h3>Mikrovezérlős (Arduino/ESP32/STM32) kiegészítőként is használható?</h3>
+<p>Az ESP32-S3 már <strong>önmagában teljes értékű mikrokontroller</strong> WiFi-vel, így sokszor nincs szükség más MCU-ra.<br>Ennek ellenére:</p>
+<ul>
+<li>együtt dolgozhat más rendszerekkel (pl. <strong>I2C/SPI/UART</strong> kapcsolattal egy fővezérlő vagy ipari PLC felé),</li>
+<li>lehet belőle <strong>kamerás „periféria modul”</strong>, ami képet előfeldolgoz és csak eredményt (pl. QR kód tartalmát, észlelt mozgást) küld tovább.</li>
+</ul>
+<h3>Milyen projekteknél érdemes ESP32-S3 CAM-et választani?</h3>
+<ul>
+<li><strong>Okosotthon / IP kamera</strong> (ajtó, kert, garázs, 3D nyomtató felügyelet)</li>
+<li><p><strong>AI / gépi látás</strong>:</p>
+<ul>
+<li>egyszerű arcfelismerés,</li>
+<li>sziluett/motion detektálás,</li>
+<li>objektum jelenlét/hiány detektálás</li>
+</ul>
+</li>
+<li><strong>QR / vonalkód olvasó</strong> IoT rendszerben</li>
+<li><strong>Távoli eszközmonitorozás</strong> (műszerkijelzők leolvasása kamerával)</li>
+<li><strong>Robotika</strong>: kamera a roboton, FPV, vonalkövetés, tárgykeresés</li>
+<li><strong>Oktatás</strong>: IoT + vision egy panelen, gyors prototípus-építéshez</li>
+</ul>
+<h2>Konkrét felhasználási példa – WiFi kamera + mozgásérzékelés Arduino-szerű kóddal</h2>
+<p><strong>Feladat:</strong> ESP32-S3 N16R8 CAM modulból egyszerű webkamera, amely:</p>
+<ul>
+<li>WiFi-n keresztül elérhető,</li>
+<li>ha mozgást érzékel egy alap algoritmus, HTTP-n jelez / logol.</li>
+</ul>
+<p><strong>Egyszerű lépések:</strong></p>
+<ol>
+<li>Arduino IDE-ben kiválasztod az <strong>ESP32-S3 boardot</strong>,</li>
+<li>betöltöd az „ESP32 Camera WebServer” mintakód S3-hoz igazított változatát,</li>
+<li>beállítod a WiFi SSID/jelszót,</li>
+<li>kiegészíted a kódot egy egyszerű mozgásdetektálással (pl. egymás utáni frame-ek fényességkülönbsége alapján),</li>
+<li>ha mozgást észlel, HTTP requestet küld egy másik ESP32 / szerver / Home Assistant felé.</li>
+</ol>
+<p>Ezzel egy <strong>alap, de használható „smart camera”</strong> rendszert kapsz plusz mikrokontroller nélkül.</p>
+<h2>Profi tippek</h2>
+<ul>
+<li>Mindig gondoskodj a megfelelő <strong>tápellátásról</strong> – a kamera + WiFi csúcsáramai miatt célszerű stabil 5V/1A tápegységet vagy USB-t használni.</li>
+<li>A PSRAM-ot érdemes <strong>engedélyezni a projekteknél</strong>, különösen nagyobb felbontású képek vagy AI modellek esetén.</li>
+<li>WiFi-s streamnél kísérletezz különböző felbontás/FPS beállításokkal, hogy megtaláld az optimális balanszot a képminőség és sebesség között.</li>
+<li>Ha MicroPython-t használsz, nézd meg, hogy a firmware kifejezetten <strong>ESP32-S3 + CAMERA</strong> build-e.</li>
+</ul>
+<h2>Termékösszefoglaló</h2>
+<ul>
+<li><strong>ESP32-S3 N16R8 CAM fejlesztőpanel</strong></li>
+<li>16 MB Flash, 8 MB PSRAM – erős alap AI/vision projektekhez</li>
+<li><strong>OV3660 kamera szenzor</strong> 3 MP kategóriában</li>
+<li>2,4 GHz WiFi + Bluetooth Low Energy</li>
+<li>USB-n keresztüli programozás</li>
+<li>Bőséges GPIO-k szenzorok, relék, kijelzők, buszok számára</li>
+<li>Kompatibilis: Arduino IDE, ESP-IDF, MicroPython</li>
+<li>Ideális IP kamera, gépi látás, robotika, okosotthon és IoT vizuális projektekhez</li>
+</ul>",Modulshop,,"Mikrovezérlők, alaplapok",ESP32,TRUE,Title,Default Title,1-2-49,,shopify,1,deny,manual,7500,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-49_ESP32S3_cam-1.webp,1,ESP32-S3 N16R8 CAM fejlesztőpanel OV3660,ESP32-S3 N16R8 CAM fejlesztőpanel OV3660,"ESP32-S3 N16R8 CAM fejlesztőpanel OV3660 kamerával, 16MB Flash és 8MB PSRAM memóriával. WiFi+Bluetooth kamerás IoT, gépi látás és okosotthon projektekhez.",active
+esp32-s3-n16r8-cam-fejlesztopanel-ov3660,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-49_ESP32S3_cam-2.webp,2,ESP32-S3 N16R8 CAM fejlesztőpanel OV3660,,,
+esp32-s3-n16r8-cam-fejlesztopanel-ov3660,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-49_ESP32S3_cam-3.webp,3,ESP32-S3 N16R8 CAM fejlesztőpanel OV3660,,,
+esp32-s3-n16r8-cam-fejlesztopanel-ov3660,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-49_ESP32S3_cam-4.webp,4,ESP32-S3 N16R8 CAM fejlesztőpanel OV3660,,,
+esp32-cam-8-mb-ram-wifi-bt-programozo-interfesz,"ESP32 - Cam 8 MB ram, wifi + BT + programozó interfész","<ul>
+<li><strong>CPU:</strong> ESP32-D0WD</li>
+<li><strong>Antenna:</strong> Onboard PCB</li>
+<li><strong>I/O felület:</strong> 9</li>
+</ul>
+<h2>ESP32 - Cam - Wifi - programozó interfész</h2>
+<p>Az ESP32-CAM egy kis méretű, kis fogyasztású kameramodul, amely az ESP32 kontrolleren alapul.</p>
+<h2>ESP32-CAM, ESP32 + 2MP kameramodul (OV2640) tulajdonságok</h2>
+<ul>
+<li>A fedélzeti ESP32-S modul támogatja a WiFi + Bluetooth szolgáltatást</li>
+<li>OV2640 kamera vakuval</li>
+<li>Alaplapi TF kártyafoglalat mely 8GB micro SD kártyát is támogat az adattároláshoz</li>
+<li>Támogatja a WiFi-n keresztüli online videó megfigyelést és a képek feltöltését WiFi-n keresztül</li>
+<li>Támogatja a többszintű alvási (sleep) módot, a mélyalvási (deep sleep) áramerősség akár 6 mA-ig is csökkenthető</li>
+<li>A vezérlő interfész a beforrasztott csatlakozókon keresztül is elérhető, könnyen integrálható és beágyazható a felhasználói termékekbe</li>
+</ul>
+<h2>ESP32-CAM, ESP32 + 2MP kameramodul (OV2640) műszaki adatok</h2>
+<ul>
+<li>WIFI modul: ESP-32S</li>
+<li>Processzor: ESP32-D0WD</li>
+<li>Beépített vaku:</li>
+<li>RAM: Internal 512KB + External 8 MB PSRAM</li>
+<li>Antenna: Onboard PCB antenna</li>
+<li>WiFi protokol: IEEE 802.11 b/g/n/e/i</li>
+<li>Bluetooth: Bluetooth 4.2 BR/EDR and BLE</li>
+<li>WIFI mód: Station / SoftAP / SoftAP+Station</li>
+<li>Biztonság: WPA/WPA2/WPA2-Enterprise/WPS</li>
+<li>Kimeneti képformátum: JPEG (OV2640 support only), BMP, GRAYSCALE</li>
+<li>Támogatott TF kártya: Up to 4G</li>
+<li>Perifériás interfész: UART/SPI/I2C/PWM</li>
+<li>IO port: 9</li>
+<li>UART átviteli sebesség: 115200bps</li>
+<li>Tápegység: 5V</li>
+</ul>
+<p><strong>Átviteli teljesítmény</strong></p>
+<ul>
+<li>802.11b: 17 ±2dBm(@11Mbps)</li>
+<li>802.11g: 14 ±2dBm(@54Mbps)</li>
+<li>802.11n: 13 ±2dBm(@HT20,MCS7)</li>
+<li>Érzékenység:</li>
+<li>CCK,1Mbps: -90 dBm</li>
+<li>CCK,11Mbps: -85 dBm</li>
+<li>6Mbps(1/2 BPSK): -88 dBm</li>
+<li>54Mbps(3/4 64-QAM): -70 dBm</li>
+<li>HT20,MCS7(65Mbps, 72.2Mbps): -67 dBm</li>
+<li>Energiafelhasználás:</li>
+<li>Flash off: 180mA@5V</li>
+<li>Vaku használata közben: max: 310mA@5V</li>
+<li>Deep-Sleep: as low as 6mA@5V</li>
+<li>Modern-Sleep: as low as 20mA@5V</li>
+<li>Light-Sleep: as low as 6.7mA@5V</li>
+<li>Üzemi hőmérséklet: -20 ℃ ~ 85 ℃</li>
+<li>Ajánlott tárolás: -40 ℃ ~ 90 ℃, &lt;90%RH</li>
+<li>Méret: 40.5mm x 27mm x 4.5mm</li>
+</ul>
+<p><strong>Az ESP32-CAM modult az alábbi IOT megoldásokhoz ajánljuk:</strong></p>
+<ul>
+<li>Intelligens otthoni eszközök képfeltöltése</li>
+<li>Vezeték nélküli megfigyelés</li>
+<li>Intelligens mezőgazdaság</li>
+<li>QR vezeték nélküli azonosítás</li>
+<li>arcfelismerő</li>
+</ul>",Modulshop,,"Mikrovezérlők, alaplapok",ESP8266,TRUE,Title,Default Title,1-2-1,,shopify,1,deny,manual,5260,,TRUE,TRUE,5999572381745,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-11.png,1,ESP32 - Cam - Wifi - programozó interfész,"ESP32 - Cam 8 MB ram, wifi + BT + programozó interfész","ESP32 - Cam - Wifi - programozó interfész Az ESP32-CAM egy kis méretű, kis fogyasztású kameramodul, amely az ESP32 kontrolleren alapul. ESP32-CAM, ESP32 + 2MP kameramodul (OV2640) tulajdonságok -A fedélzeti ESP32-S modul támogatja a WiFi + Bluetooth szolgáltatást -OV2640 kamera vakuval -Alaplapi TF kártyafoglalat...",active
+esp32-cam-8-mb-ram-wifi-bt-programozo-interfesz,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-11_2.png,2,"ESP32 - Cam  8 MB ram, wifi + BT + programozó interfész",,,
+esp32-cam-8-mb-ram-wifi-bt-programozo-interfesz,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-12_3.png,3,"ESP32 - Cam  8 MB ram, wifi + BT + programozó interfész",,,
+esp32-cam-8-mb-ram-wifi-bt-programozo-interfesz,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-12_4.png,4,"ESP32 - Cam  8 MB ram, wifi + BT + programozó interfész",,,
+esp32-cam-8-mb-ram-wifi-bt-programozo-interfesz,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/01%20Mikrovez%C3%A9rl%C5%91k/02%20ESP/1-2-12_5.png,5,"ESP32 - Cam  8 MB ram, wifi + BT + programozó interfész",,,
+raspberry-pi-pico-usb-c,Raspberry Pi PICO usb-c,"<ul>
+<li>Kétmagos kar. Cortex-M0 + @ 133MHz</li>
+<li>264 kb-os chip RAM</li>
+<li>DMA vezérlő</li>
+</ul>
+<p><strong><a href=""https://www.udemy.com/course/raspberry_pi_pico_micropython/"">Raspberry Pi PICO</a></strong></p>
+<ul>
+<li>Kétmagos kar. Cortex-M0 + @ 133MHz</li>
+<li>264 kb-os chip RAM</li>
+<li>Támogatja az akár 16 MB kedvezményes chip flash memóriát a QSPI buszon keresztül</li>
+<li>DMA vezérlő</li>
+<li>Interpolátor és egész szám osztó perifériák</li>
+<li>30 GPIO érintkező, ebből 4 analóg bemenetként használható</li>
+<li>2x UART, 2x SPI vezérlő és 2x 12C vezérlő</li>
+<li>16 x PWM csatorna</li>
+<li>1 x USB 1.1 vezérlő és PHY, támogatja a gazdagépet és az eszközt</li>
+<li>8x Raspberry PI programozható I/O (PIO) állapotú gép</li>
+<li>Támogatja az uF2 USB-háttértár indítási módját a drag and drop programozáshoz</li>
+</ul>",Modulshop,,"Mikrovezérlők, alaplapok",Raspberry,TRUE,Title,Default Title,1-4-3,,shopify,5,deny,manual,2400,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/01%20Beviteli%20eszk%C3%B6z%C3%B6k/Chip.png,1,Raspberry Pi PICO  usb-c,Raspberry Pi PICO usb-c - Modulshop,"Kétmagos RP2040 chip - Kétmagos kar. Cortex-M0 + @ 133MHz - 264 kb-os chip RAM - Támogatja az akár 16 MB kedvezményes chip flash memóriát a QSPI buszon keresztül - DMA vezérlő - Interpolátor és egész szám osztó perifériák - 30 GPIO érintkező, ebből 4 analóg bemenetként használható - 2x UART, 2x SPI vezérlő és 2x...",active
+raspberry-pi-pico-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/01%20Beviteli%20eszk%C3%B6z%C3%B6k/Chip_3.png,2,Raspberry Pi PICO  usb-c,,,
+raspberry-pi-pico-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/01%20Beviteli%20eszk%C3%B6z%C3%B6k/Chip_2.png,3,Raspberry Pi PICO  usb-c,,,
+raspberry-pi-pico-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/01%20Beviteli%20eszk%C3%B6z%C3%B6k/Chip_1.png,4,Raspberry Pi PICO  usb-c,,,
+dht11-homerseklet-es-paratartalom-erzekelo-modul,DHT11 Hőmérséklet és páratartalom érzékelő modul,"<p><strong>DHT11 Hőmérséklet és páratartalom érzékelő modul</strong></p>
+<p>A DHT11 egy egyszerű és alacsony költségű digitális hőmérséklet és páratartalom-érzékelő modul. Egy kapacitív páratartalom-érzékelő termisztor segítségével méri a környező levegőt, és digitális jelet ad ki a kimeneten. Kifejezetten egyszerű a használata, de körültekintést igényel az időzítés, hogy a megfelelő adatokat kapjuk.</p>
+<ul>
+<li>Feszültség: 3.5V - 5.5V DC</li>
+<li>20%-90% páratartalom mérés +-5% pontosság</li>
+<li>0-50 fok közötti hőmérséklet mérés +-2 % pontosság</li>
+<li>5 másodperces mérési idő</li>
+</ul>
+<p>1-wire kommunikáció</p>",Modulshop,,Szenzor Modulok,Hőmérséklet / pára / nyomás,TRUE,Title,Default Title,2-1-1,,shopify,31,deny,manual,650,,TRUE,TRUE,5999572380489,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/2-1-1%20DHT11-1.jpg,1,DHT11 Hőmérséklet és páratartalom érzékelő modul,DHT11 Hőmérséklet és páratartalom érzékelő modul,"DHT11 Hőmérséklet és páratartalom érzékelő modul A DHT11 egy egyszerű és alacsony költségű digitális hőmérséklet és páratartalom-érzékelő modul. Egy kapacitív páratartalom-érzékelő termisztor segítségével méri a környező levegőt, és digitális jelet ad ki a kimeneten. Kifejezetten egyszerű a használata, de...",active
+dht11-homerseklet-es-paratartalom-erzekelo-modul,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/2-1-1%20DHT11-2.jpg,2,DHT11 Hőmérséklet és páratartalom érzékelő modul,,,
+dht11-homerseklet-es-paratartalom-erzekelo-modul,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/2-1-1%20DHT11-3.jpg,3,DHT11 Hőmérséklet és páratartalom érzékelő modul,,,
+dht11-homerseklet-es-paratartalom-erzekelo-modul,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/2-1-1%20DHT11-4.jpg,4,DHT11 Hőmérséklet és páratartalom érzékelő modul,,,
+rcwl-0516-mikrohullamu-radaros-mozgaserzekelo-modul,RCWL-0516 Mikrohullámú radaros mozgásérzékelő modul,"<p>Táp : DC 4-28V<br>Üzemi áram: 2.8mA (typical); 3mA (max)<br>Érzékelési tartomány: 5-9m<br>Kimeneti feszültség: 3.2-3.4V</p>
+<p>Az <strong>RCWL-0516 mikrohullámú radaros mozgásérzékelő modul</strong> egy innovatív, nagy érzékenységű szenzor, amely Doppler-effektust alkalmaz a mozgás pontos érzékeléséhez. Ez a modul ideális választás mozgásérzékelésre alapozott projektekhez, mint például világításvezérlés, biztonsági rendszerek vagy automatizált eszközök vezérlése.</p>
+<h3>Főbb jellemzők:</h3>
+<ul>
+<li><strong>Mikrohullámú érzékelés:</strong> Nem befolyásolja a környezeti tényezők, például hőmérséklet vagy fényviszonyok.</li>
+<li><strong>Nagy érzékenység és hatótáv:</strong> Akár 5-7 méteres távolságból érzékeli a mozgást.</li>
+<li><strong>Széles érzékelési szög:</strong> Körülbelül 360°-os érzékelési tartomány a síkban.</li>
+<li><strong>Könnyen integrálható:</strong> Egyszerű interfész, kompatibilis Arduino, ESP32, Raspberry Pi és egyéb mikrokontrollerekkel.</li>
+<li><strong>Stabil működés:</strong> Alacsony fogyasztás és gyors válaszidő.</li>
+</ul>
+<h3>Műszaki adatok táblázatban:</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Paraméter</strong></th>
+<th><strong>Érték</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Modell</strong></td>
+<td>RCWL-0516</td>
+</tr>
+<tr>
+<td><strong>Üzemi feszültség</strong></td>
+<td>4V - 28V DC</td>
+</tr>
+<tr>
+<td><strong>Áramfelvétel</strong></td>
+<td>≤3 mA</td>
+</tr>
+<tr>
+<td><strong>Érzékelési távolság</strong></td>
+<td>5-7 méter</td>
+</tr>
+<tr>
+<td><strong>Érzékelési szög</strong></td>
+<td>Körülbelül 360° a síkban</td>
+</tr>
+<tr>
+<td><strong>Kimeneti jel</strong></td>
+<td>Digitális magas (3,3V) vagy alacsony (0V)</td>
+</tr>
+<tr>
+<td><strong>Üzemi frekvencia</strong></td>
+<td>3,2 GHz</td>
+</tr>
+<tr>
+<td><strong>Üzemi hőmérséklet</strong></td>
+<td>-20°C - +80°C</td>
+</tr>
+<tr>
+<td><strong>Méret</strong></td>
+<td>36 mm x 17 mm</td>
+</tr>
+</tbody>
+</table>
+<h3>Előnyök és alkalmazási területek:</h3>
+<ul>
+<li><p><strong>Előnyök:</strong></p>
+<ul>
+<li>Kisebb helyigény, kompakt kivitel.</li>
+<li>Nem szükséges közvetlen vonalban érzékelni, mint az infravörös szenzorok esetében.</li>
+<li>Zaj- és interferenciamentes működés.</li>
+</ul>
+</li>
+<li><p><strong>Alkalmazási területek:</strong></p>
+<ul>
+<li>Automatikus világításvezérlés</li>
+<li>Biztonsági rendszerek és riasztók</li>
+<li>Érintésmentes kapcsolók</li>
+<li>Emberi jelenlét érzékelés okosotthonokban</li>
+<li>Arduino és DIY elektronikai projektek</li>
+</ul>
+</li>
+</ul>
+<p><strong>Miért válassza az RCWL-0516-ot?</strong><br>Az RCWL-0516 mikrohullámú radaros mozgásérzékelő egy költséghatékony, mégis megbízható modul, amely ideális bármely automatizálási vagy mozgásérzékelési projekthez. Könnyen telepíthető és integrálható, stabil működésével pedig garantálja a pontos érzékelést.</p>
+<p>Rendelje meg most, és emelje projektjei hatékonyságát és intelligenciáját ezzel a korszerű érzékelő modullal!</p>",Modulshop,,Szenzor Modulok,Feszültség / áram / távolság,TRUE,Title,Default Title,2-3-15,,shopify,55,deny,manual,300,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/02%20Fesz%C3%BCltslg%2C%C3%A1ram%2Ct%C3%A1vols%C3%A1g/2-3-15_rcwlradar-1.jpg,1,RCWL-0516 Mikrohullámú radaros mozgásérzékelő modul,RCWL-0516 Mikrohullámú radaros mozgásérzékelő modul - Modulshop,,active
+rcwl-0516-mikrohullamu-radaros-mozgaserzekelo-modul,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/02%20Fesz%C3%BCltslg%2C%C3%A1ram%2Ct%C3%A1vols%C3%A1g/2-3-15_rcwlradar-2.jpg,2,RCWL-0516 Mikrohullámú radaros mozgásérzékelő modul,,,
+rcwl-0516-mikrohullamu-radaros-mozgaserzekelo-modul,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/02%20Fesz%C3%BCltslg%2C%C3%A1ram%2Ct%C3%A1vols%C3%A1g/2-3-15_rcwlradar-3.jpg,3,RCWL-0516 Mikrohullámú radaros mozgásérzékelő modul,,,
+rcwl-0516-mikrohullamu-radaros-mozgaserzekelo-modul,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/02%20Fesz%C3%BCltslg%2C%C3%A1ram%2Ct%C3%A1vols%C3%A1g/2-3-15_rcwlradar-4.jpg,4,RCWL-0516 Mikrohullámú radaros mozgásérzékelő modul,,,
+mfrc-522-rc522-rfid-iroolvaso-szett-1356mhz,MFRC-522 RC522 RFID Író/olvasó szett - 13.56MHz,"<p><strong>MFRC-522 RC522 RFID Író/olvasó szett - 13.56MHz</strong></p>
+<ul>
+<li>Áramfelvétel: 13-26mA / DC 3.3V</li>
+<li>Nyugalmi áram: 10-13mA / DC 3.3V</li>
+<li>Működési frekvencia: 13,56 MHz</li>
+<li>Kommunikáció: SPI, max. 10Mbit / s</li>
+<li>Támogatott kártyák: Mifare1 S50, Mifare1 S70, MIFARE Ultralight, Mifare Pro, Desfire</li>
+<li>Méretek: 40 × 60 mm</li>
+</ul>
+<p><strong> A csomag tartalma</strong></p>
+<p>1x RFID-RC522 RFID modul<br>1x S50 kártya (1 kbyte)<br>1x S50 címke (1 kbyte)<br>1x csap 90 °<br>1x tüske sor egyenesen.</p>
+<p>A kártya olvasható / írható mikrovezérlőkkel használható.</p>
+<p>A 13,56 Mhz -es rendszer nem kompatibilis a jelenleg használt társasházakkal</p>",Modulshop,,Szenzor Modulok,Fény / mozgás / giro / gyorsulás / RFID érzékelés,TRUE,Title,Default Title,2-1-17,,shopify,4,deny,manual,990,,TRUE,TRUE,5999572381080,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/03%20F%C3%A9ny%2Cmozg%C3%A1s%2Crfid/2-3-2%20MFRC-522-1.jpg,1,MFRC-522 RC522 RFID  Író/olvasó szett - 13.56MHz,MFRC-522 RC522 RFID Író/olvasó szett - 13.56MHz,"MFRC-522 RC522 RFID Író/olvasó szett - 13.56MHz -Áramfelvétel: 13-26mA / DC 3.3V -Nyugalmi áram: 10-13mA / DC 3.3V -Működési frekvencia: 13,56 MHz -Kommunikáció: SPI, max. 10Mbit / s -Támogatott kártyák: Mifare1 S50, Mifare1 S70, MIFARE Ultralight, Mifare Pro, Desfire -Méretek: 40 × 60 mm",active
+mfrc-522-rc522-rfid-iroolvaso-szett-1356mhz,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/03%20F%C3%A9ny%2Cmozg%C3%A1s%2Crfid/2-3-2%20MFRC-522-2.jpg,2,MFRC-522 RC522 RFID  Író/olvasó szett - 13.56MHz,,,
+mfrc-522-rc522-rfid-iroolvaso-szett-1356mhz,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/03%20F%C3%A9ny%2Cmozg%C3%A1s%2Crfid/2-3-2%20MFRC-522-3.jpg,3,MFRC-522 RC522 RFID  Író/olvasó szett - 13.56MHz,,,
+mfrc-522-rc522-rfid-iroolvaso-szett-1356mhz,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/02%20Szenzor%20mofulok/03%20F%C3%A9ny%2Cmozg%C3%A1s%2Crfid/2-3-2%20MFRC-522-5.jpg,4,MFRC-522 RC522 RFID  Író/olvasó szett - 13.56MHz,,,
+rfid-tag-proxy-irhato-olvashato1356-mhz-8kbit,"RFID tag, proxy írható-olvasható13.56 MHZ, 8Kbit","<p>NEM KOMPATIBILS A TÁRSASHÁZAK KAPU NYITÓJÁVAL!<br>Frekvencia: 13,56 MHz<br>Tárolási kapacitás: 8Kbit, 16 partíció, két jelszó partíciónként<br>Olvasási és írási távolság: 2,5-10 cm<br>ISO szabványok: ISO 14443A<br>Szín: Kék</p>
+<p>NEM KOMPATIBILS A TÁRSASHÁZAK KAPU NYITÓJÁVAL!</p>
+<p><strong>Termékleírás:</strong></p>
+<p>Ismerje meg a legújabb RFID író-olvasó technológiát ezzel a kék színű, 13.56 MHz-es frekvencián működő proxy kulcstartóval, amely tökéletesen kompatibilis az Arduino MFRC-522 modullal. Ez az innovatív termék ideális választás mindazok számára, akik megbízható és könnyen használható RFID megoldást keresnek különféle alkalmazásokhoz, legyen szó beléptető rendszerekről, készletkezelésről vagy egyéb azonosítási feladatokról.</p>
+<p><strong>Főbb jellemzők:</strong></p>
+<ul>
+<li><strong>Frekvencia:</strong> 13.56 MHz, amely biztosítja a stabil és megbízható adatkommunikációt.</li>
+<li><strong>Szín:</strong> Elegáns kék, ami könnyen felismerhető és stílusos megjelenést biztosít.</li>
+<li><strong>Kompatibilitás:</strong> Teljes mértékben kompatibilis az Arduino MFRC-522 RFID modulokkal, így egyszerűen integrálható meglévő rendszerekbe.</li>
+<li><strong>Írás és olvasás:</strong> Képes mind írásra, mind olvasásra, így rugalmasan használható különféle alkalmazásokban.</li>
+<li><strong>Könnyű használat:</strong> Kis méretének és kulcstartó formájának köszönhetően könnyen hordozható és használható.</li>
+<li>1 KB tároló kapacitás</li>
+</ul>
+<p><strong>Alkalmazási területek:</strong></p>
+<ul>
+<li><strong>Beléptető rendszerek:</strong> Használható irodákban, intézményekben, vagy akár otthoni biztonsági rendszerekben is.</li>
+<li><strong>Készletkezelés:</strong> Tökéletes megoldás raktári készletek, eszközök nyomon követésére és azonosítására.</li>
+<li><strong>Azonosítás:</strong> Ideális személyes azonosításra, például klubokban, sportlétesítményekben vagy más közösségi helyeken.</li>
+</ul>
+<p><strong>Műszaki adatok:</strong></p>
+<ul>
+<li><strong>Frekvencia:</strong> 13.56 MHz</li>
+<li><strong>Olvasási távolság:</strong> Akár 10 cm (környezet függvényében)</li>
+<li><strong>Kompatibilitás:</strong> MFRC-522 modul, Arduino és egyéb mikrokontroller platformok</li>
+</ul>
+<p>Az RFID proxy kulcstartó és az MFRC-522 modul kombinációja tökéletes választás azok számára, akik hatékony és könnyen használható RFID megoldást keresnek. Rendkívül sokoldalú, egyszerűen integrálható és megbízható teljesítményt nyújt minden felhasználási területen. Szerezze be most, és élvezze az RFID technológia előnyeit!</p>",Modulshop,,Szenzor Modulok,Fény / mozgás / giro / gyorsulás / RFID érzékelés,TRUE,Title,Default Title,3-2-16,,shopify,25,deny,manual,100,,TRUE,TRUE,5999572387112,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/02%20Komunik%C3%A1ci%C3%B3/3-2-16-tag-1.webp,1,"RFID tag, proxy","Roxy, tag, 13,56 MHz","Ez az innovatív termék ideális választás mindazok számára, akik megbízható és könnyen használható RFID megoldást keresnek különféle alkalmazásokhoz,",active
+rfid-tag-proxy-irhato-olvashato1356-mhz-8kbit,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/02%20Komunik%C3%A1ci%C3%B3/3-2-16-tag-2.webp,2,"RFID tag, proxy írható-olvasható13.56 MHZ, 8Kbit",,,
+antenna-24-ghz-wifi-bluetooth-zigbee-sma-to-ipex,"Antenna 2.4 Ghz WiFi Bluetooth, ZigBee SMA to IPEX","<p>Note: Antenna supports 800M 900M 1.8G 1.9G 2.0G 2.3G frequency segment, antenna length 11CM, default SMA internal thread connector.<br>4G LTE antenna<br>Gain:3dbi + 0.7dbi<br>S.W.R.: &lt; = 2<br>Impedance:50 ohm<br>Connector: default SMA internal thread internal needles (need inner hole, please contact customer service).<br>Total length: 11CM<br>Maximum diameter: 10mm</p>
+<p>Ez a kiváló minőségű 2.4GHz-es 3dBi WiFi antenna ideális választás vezeték nélküli routerekhez, ESP8266 és ESP32 modulokhoz. Az RP-SMA Male csatlakozóval könnyen csatlakoztatható a különböző eszközökhöz, míg a 17 cm-es PCI U.FL IPX to RP-SMA Male Pigtail kábel rugalmas és megbízható kapcsolatot biztosít. Az antennának és a kábelnek köszönhetően erősebb és stabilabb vezeték nélküli jelet érhet el.</p>",Modulshop,,Egyéb Modulok,Kommunikációs modulok,TRUE,Title,Default Title,2-1-22,,shopify,15,deny,manual,500,,TRUE,TRUE,5999572386740,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/02%20Komunik%C3%A1ci%C3%B3/3-2-15_antenna-1.webp,1,Antenna,"Antenna 2.4 Ghz WiFi Bluetooth, ZigBee SMA to IPEX - Modulshop",,active
+antenna-24-ghz-wifi-bluetooth-zigbee-sma-to-ipex,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/02%20Komunik%C3%A1ci%C3%B3/3-2-15_antenna-2.webp,2,Antenna,,,
+antenna-24-ghz-wifi-bluetooth-zigbee-sma-to-ipex,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/02%20Komunik%C3%A1ci%C3%B3/3-2-15_antenna-3.webp,3,Antenna,,,
+rele-modul-1-portos-5v220v,Relé modul 1 portos 5V/220V,"<p><strong>Relé modul 1 portos 5V/220V</strong></p>
+<ul>
+<li>Ez a modul megfelel a nemzetközi biztonsági szabványnak, az ellenőrzési területeken és a raktéren szigetelő horony van;</li>
+<li>Használható mikrokontroller fejlesztőkártya modulként, használható háztartási készülék vezérléseként;</li>
+<li>Egyenáramú vagy váltóáramú jelvezérlés, 220 V AC terhelést vezérelhet;</li>
+<li>Maximális kapcsolható áram/feszültség: 10A/250VAC</li>
+<li>Méret: 76 x 55,5 x 20mm</li>
+</ul>",Modulshop,,Egyéb Modulok,Relék / optocsatolók,TRUE,Title,Default Title,3-1-36,,shopify,190,deny,manual,600,,TRUE,TRUE,5999572382551,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/01%20Beviteli%20eszk%C3%B6z%C3%B6k/3-1-26-rele.png,1,Relé modul 1 portos 5V/220V,Relé modul 1 portos 5V/220V - Modulshop,"Ez a modul megfelel a nemzetközi biztonsági szabványnak, az ellenőrzési területeken és a raktéren szigetelő horony van; - Használható mikrokontroller fejlesztőkártya modulként, használható háztartási készülék vezérléseként; - Egyenáramú vagy váltóáramú jelvezérlés, 220 V AC terhelést vezérelhet; - Maximális...",active
+rele-modul-1-portos-5v220v,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/01%20Beviteli%20eszk%C3%B6z%C3%B6k/3-1-26-rele-1.png,2,Relé modul 1 portos 5V/220V,,,
+dc-motor-vezerlo-fordulatszamszabalyzo-150w,"DC Motor vezérlő fordulatszámszabályzó, 150W","<p><strong>Üzemi feszültség:</strong> DC 10V-40V<br><strong>Kimeneti áram:</strong> 0 - 5A<br><strong>Frekvencia:</strong> 25KHz<br><strong>Folyamatos teljesítmény:</strong> Max. 150W</p>
+<p><strong>Sebességtartomány:</strong> A motor álló helyzetétől a maximális sebességig.<br>Ez a nagy teljesítményű motorvezérlő kiváló választás különböző egyenáramú motorok vezérléséhez. Kompakt kialakítása és tartós anyagai lehetővé teszik a hosszú távú, megbízható működést. A készülék maximális teljesítménye 150W, így alkalmas akár nagy terhelést igénylő alkalmazásokhoz is. Az állítható áramerősség és sebességtartomány révén pontos vezérlést biztosít a motor teljesítménye felett.</p>",Modulshop,,Egyéb Modulok,Motorvezérlők,TRUE,Title,Default Title,3-3-13,,shopify,51,deny,manual,1450,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/03%20Motorvez%C3%A9rl%C5%91k/3-3-13_pwmmotor150-2.webp,1,DC Motor fordulatszám vezérlő pwm 150W,"DC Motor vezérlő fordulatszámszabályzó, 150W",A motor álló helyzetétől a maximális sebességig. max 20A 1200W terhelhetőség.,active
+dc-motor-vezerlo-fordulatszamszabalyzo-150w,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/03%20Motorvez%C3%A9rl%C5%91k/3-3-13_pwmmotor150-1.webp,2,DC Motor fordulatszám vezérlő pwm 150W,,,
+dc-motor-vezerlo-fordulatszamszabalyzo-150w,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/03%20Motorvez%C3%A9rl%C5%91k/3-3-13_pwmmotor150-3.webp,3,DC Motor fordulatszám vezérlő pwm 150W,,,
+dc-motor-vezerlo-fordulatszamszabalyzo-150w,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/03%20egy%C3%A9b%20modulok/03%20Motorvez%C3%A9rl%C5%91k/3-3-13_pwmmotor150-4.webp,4,DC Motor fordulatszám vezérlő pwm 150W,,,
+tuskesor-40-pin-egyenes-254-mm-tordelheto,"Tüskesor 40 pin egyenes 2,54 mm tördelhető","<ul>
+<li>40 tüske</li>
+<li>Láb távolság : 2,54 mm</li>
+<li>Tördelhető</li>
+</ul>
+<p>A <strong>tüskesor </strong>alapvető komponens elektronikai projektekhez, prototípus készítéshez és áramkörök fejlesztéséhez. Ez az egyenes elrendezésű tüskesor 40 darab ónozott érintkező tüskével rendelkezik, amelyeket egy műanyag szigetelő tart sorban. A tördelhető kialakításnak köszönhetően könnyedén vágható a kívánt méretre, így rugalmasan alkalmazható bármilyen projekthez, ahol szükség van csatlakozási pontokra.</p>
+<p><strong>Fő jellemzők:</strong></p>
+<ul>
+<li>40 érintkező tüske egy sorban</li>
+<li>Egyenes kivitel, amely ideális NYÁK-lapokhoz és breadboardokhoz</li>
+<li>Könnyen tördelhető, a szükséges hosszúságra vágható</li>
+<li>ónozott érintkezők a jobb vezetőképesség és korrózióállóság érdekében</li>
+<li>Műanyag szigetelés az egyszerűbb szerelhetőség érdekében</li>
+</ul>
+<p>Ez a termék kiváló választás Arduino és egyéb mikrokontrolleres projektekhez, ahol gyors és megbízható csatlakozási megoldásokra van szükség. Ideális kiegészítő bármely fejlesztői környezetben, legyen szó egyszerű kísérletekről vagy komolyabb áramkörök tervezéséről.</p>",Modulshop,,Egyéb Modulok,Próbapanelek / shieldek / egyéb,TRUE,Title,Default Title,10-7-44,,shopify,17,deny,manual,40,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/10%20Elektronika/07-kapcsolok-csatlakozok-vezetekek/10-7-44_tuskesor-3.jpg,1,tüskesor 40 pin,"Tüskesor 40 pin egyenes 2,54 mm tördelhető","A tüskesor alapvető komponens elektronikai projektekhez, prototípus készítéshez és áramkörök fejlesztéséhez.",active
+tuskesor-40-pin-egyenes-254-mm-tordelheto,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/10%20Elektronika/07-kapcsolok-csatlakozok-vezetekek/10-7-44_tuskesor-1.jpg,2,tüskesor 40 pin,,,
+tuskesor-40-pin-egyenes-254-mm-tordelheto,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/10%20Elektronika/07-kapcsolok-csatlakozok-vezetekek/10-7-44_tuskesor-2.jpg,3,tüskesor 40 pin,,,
+tuskesor-40-pin-egyenes-254-mm-tordelheto,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/10%20Elektronika/07-kapcsolok-csatlakozok-vezetekek/10-7-44_tuskesor-4.webp,4,tüskesor 40 pin,,,
+xh-m577-sztereo-erositomodul-280w-24-v-hangszinszabalyzassal,"XH-M577 sztereó erősítőmodul 2*80W 24 V, hangszínszabályzással","<p><strong>Erősítő IC:</strong><strong>TPA3116D2</strong><br><strong>Tápfeszültség:</strong><strong>12–24 V DC</strong><br><strong>Ajánlott tápáram:</strong><strong>5 A</strong><br><strong>Csatornák száma:</strong><strong>2 csatorna / sztereó</strong><br><strong>Marketing szerinti kimeneti teljesítmény:</strong><strong>2×80 W</strong><br><strong>TPA3116D2 hivatalos referencia:</strong><br><strong>2×50 W / 4 Ω / 21 V</strong>, illetve <strong>2×30 W / 8 Ω / 24 V</strong><br><strong>Kimeneti impedancia:</strong><strong>4–8 Ω</strong><br><strong>Erősítőosztály:</strong><strong>Class-D</strong><br><strong>Kezelőszervek:</strong><strong>hangerő, mély, magas</strong></p>
+<h2>XH-M577 TPA3116D2 sztereó digitális erősítőmodul – 12–24 V, hangszínszabályzással, 2×80 W névleges teljesítménnyel</h2>
+<p>Az <strong>XH-M577</strong> egy <strong>sztereó, Class-D audió erősítőmodul</strong>, amely a <strong>TPA3116D2</strong> erősítő IC-re épül, és a forgalmazói adatok szerint <strong>12–24 V DC</strong> tápról működik, <strong>4–8 ohmos hangsugárzókat</strong> kezel, valamint <strong>hangerő-, mély- és magas hangszínszabályzással</strong> rendelkezik. A legtöbb kereskedelmi listázás <strong>2×80 W</strong> névleges kimeneti teljesítménnyel hirdeti, a panel méretét pedig jellemzően <strong>96 × 33 mm</strong> körül adják meg.</p>
+<p>A modul egyik legnagyobb előnye, hogy kompakt méretben kínál <strong>sztereó erősítést és analóg hangszínszabályzást</strong>, ezért jól használható DIY hangfalhoz, műhelyhangrendszerhez, asztali erősítőhöz vagy kisebb otthoni audió projektekhez. A kereskedelmi leírások alapján az előlapi kezelőszervek a <strong>master hangerő</strong>, a <strong>mély</strong> és a <strong>magas</strong> hang külön állítását teszik lehetővé, így a hangzás könnyen az adott hangsugárzóhoz vagy helyiséghez igazítható.</p>
+<p>Fontos, hogy a <strong>2×80 W</strong> megadás inkább a termékmarketingben használt névleges érték. A <strong>TPA3116D2</strong> hivatalos Texas Instruments adatlapja szerint a chip <strong>2×50 W-ot tud 4 ohmos terhelésen 21 V-on</strong>, kis hűtéssel, illetve <strong>2×30 W-ot 8 ohmos terhelésen 24 V-on</strong>. Ezért a valós, tartósan elérhető teljesítmény mindig függ a <strong>tápfeszültségtől</strong>, a <strong>hangszóró impedanciájától</strong>, a <strong>hűtéstől</strong> és a megengedett torzítástól. Webshopos szempontból ezért korrekt úgy fogalmazni, hogy a modul <strong>2×80 W-osként ismert</strong>, de a tényleges teljesítmény a rendszer kialakításától függ.</p>
+<p>Az XH-M577 különösen jó választás lehet azoknak, akik egy egyszerűen beépíthető, mégis jól használható sztereó erősítőt keresnek. A kereskedelmi adatok szerint a modul <strong>5 A körüli tápáramot</strong> igényel, <strong>1 kΩ bemeneti impedanciával</strong> rendelkezik, a hangszínszabályzó előfok pedig az input jel finomhangolását is lehetővé teszi. Emiatt jól illeszthető például Bluetooth vevőmodul mellé, számítógéphez, DAC-hoz vagy más vonalszintű audióforráshoz.</p>
+<h2>Kérdések és válaszok</h2>
+<p><strong>Mi ez a termék pontosan?</strong><br>Az XH-M577 egy <strong>kétcsatornás sztereó digitális erősítőmodul</strong>, amely a <strong>TPA3116D2</strong> erősítő IC-re épül, és beépített hangszínszabályzással rendelkezik.</p>
+<p><strong>Milyen tápfeszültséggel működik?</strong><br>A forgalmazói adatok szerint <strong>12–24 V DC</strong> tápfeszültséggel használható.</p>
+<p><strong>Mekkora teljesítményű?</strong><br>A modul piacán jellemzően <strong>2×80 W</strong> teljesítménnyel hirdetik, de a TPA3116D2 hivatalos chipadatai alapján a gyakorlati, tartós teljesítmény inkább a tápfeszültségtől és a hangszóró impedanciájától függ; a chip hivatalosan <strong>2×50 W / 4 Ω / 21 V</strong> körüli teljesítményt tud megfelelő hűtéssel.</p>
+<p><strong>Mit jelent az, hogy TPA3116D2 alapú?</strong><br>Azt, hogy a modul lelke a Texas Instruments <strong>TPA3116D2 Class-D erősítő IC</strong>, amely nagy hatásfokú, sztereó erősítőchip. A TI adatlap szerint ez a chip akár <strong>100 W / 2 Ω mono</strong>, illetve <strong>2×50 W / 4 Ω sztereó</strong> alkalmazásokra is használható megfelelő körülmények között.</p>
+<p><strong>Milyen hangsugárzóval használható?</strong><br>A kereskedelmi listázások szerint <strong>4–8 ohmos</strong> hangszórókhoz ajánlott.</p>
+<p><strong>Van rajta hangerőszabályzó?</strong><br>Igen, a termékleírások szerint van <strong>master volume</strong> szabályzó.</p>
+<p><strong>Van rajta mély- és magashang-állítás is?</strong><br>Igen, az XH-M577 egyik fontos előnye, hogy <strong>külön bass és treble</strong> szabályzást kínál.</p>
+<p><strong>Milyen erősítőosztályba tartozik?</strong><br><strong>D osztályú</strong> erősítőmodulról van szó, amit a forgalmazói adatok is külön megemlítenek.</p>
+<p><strong>Mekkora áramú tápegység kell hozzá?</strong><br>A listázások szerint a modulhoz <strong>5 A körüli tápegység</strong> ajánlott, különösen nagyobb hangerőn vagy 4 ohmos hangszóró mellett.</p>
+<p><strong>Mekkora a bemeneti impedanciája?</strong><br>A kereskedelmi adatok szerint a bemeneti impedancia <strong>1 kΩ</strong>.</p>
+<p><strong>DIY hangfalhoz jó választás?</strong><br>Igen, kifejezetten jó lehet saját építésű hangfalhoz vagy kis erősítős projekthez, mert a panel kompakt, sztereó, és a hangszín is állítható. Ez a modul felépítéséből és a kezelőszerveiből következik.</p>
+<p><strong>Bluetooth-os önmagában?</strong><br>Nem, a megadott XH-M577 modul alapvetően <strong>erősítőpanel</strong>, nem beépített Bluetooth vevő. Bluetooth-os használathoz külön Bluetooth audio modult vagy Bluetooth forrást kell elé tenni. Ezt a listázások is úgy mutatják, mint önálló audio amplifier boardot.</p>
+<p><strong>Számítógéphez vagy DAC-hoz használható?</strong><br>Igen, ha a forrás vonalszintű analóg jelet ad, az XH-M577 jól használható utána teljesítményerősítőként. Ez a bemeneti impedanciából és az audio amplifier board jellegből következik.</p>
+<p><strong>Kell hűtés a modulnak?</strong><br>Nagyobb teljesítménynél igen, a TPA3116D2 chip hivatalos adatai is jelzik, hogy a nagyobb kimenő teljesítmény megfelelő hőelvezetést igényel. A panelen jellemzően gyári hűtés is található, de a terheléstől függően a jó szellőzés fontos.</p>
+<p><strong>Kezdőknek is jó választás?</strong><br>Igen, mert egyszerűen használható, kevés vezetékezést igényel, és gyorsan beépíthető egy DIY hangprojektbe. A hangszínszabályzás miatt különösen hálás panel első hangfalépítésekhez is.</p>
+<p><strong>Valóban hi-fi hangminőséget ad?</strong><br>A TPA3116D2 chip ismert, jó hatásfokú audió erősítő, de a végső hangminőség a tápegységtől, a hangszóróktól, a doboztól és a bemeneti forrástól is nagyban függ. A modul alkalmas jó minőségű hobbi és DIY hangprojektekhez, de a teljes rendszer együtt határozza meg az eredményt.</p>
+<h2>Konkrét használati példa</h2>
+<p>Tegyük fel, hogy egy <strong>műhelybe vagy dolgozószobába</strong> szeretnél egy saját építésű sztereó hangrendszert. Az XH-M577 modult összekötöd egy <strong>24 V-os, megfelelő áramerősségű tápegységgel</strong>, rákötsz két <strong>4 vagy 8 ohmos hangszórót</strong>, a bemenetére pedig egy Bluetooth vevőmodult vagy számítógép analóg kimenetét csatlakoztatod. Ezután a panelen külön beállíthatod a <strong>hangerőt</strong>, a <strong>mélyet</strong> és a <strong>magast</strong>, így a hangzást a helyiséghez és a hangsugárzókhoz igazíthatod. Ez egy egyszerű, kompakt és jól használható megoldás lehet saját építésű aktív hangfal vagy kis asztali erősítő készítéséhez.</p>",Modulshop,,"Erősítők, Végfokok",2*50W erősítő / végfok,TRUE,Title,Default Title,5-1-46,,shopify,15,deny,manual,2600,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/2026-Q2/5-1-46_XH-M577-1.webp,1,XH-M577 sztereó erősítőmodul,"XH-M577 sztereó erősítőmodul 2*80W 24 V, hangszínszabályzással","XH-M577 TPA3116D2 sztereó erősítőmodul 12–24 V táppal, hangerő-, mély- és magas szabályzással. DIY hangfalhoz és audió projektekhez.",active
+xh-m577-sztereo-erositomodul-280w-24-v-hangszinszabalyzassal,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/2026-Q2/5-1-46_XH-M577-2.webp,2,XH-M577 sztereó erősítőmodul,,,
+xh-m577-sztereo-erositomodul-280w-24-v-hangszinszabalyzassal,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/2026-Q2/5-1-46_XH-M577-3.webp,3,XH-M577 sztereó erősítőmodul,,,
+xh-m577-sztereo-erositomodul-280w-24-v-hangszinszabalyzassal,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/2026-Q2/5-1-46_XH-M577-4.webp,4,XH-M577 sztereó erősítőmodul,,,
+xh-m577-sztereo-erositomodul-280w-24-v-hangszinszabalyzassal,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/2026-Q2/5-1-46_XH-M577-5.webp,5,XH-M577 sztereó erősítőmodul,,,
+xh-m577-sztereo-erositomodul-280w-24-v-hangszinszabalyzassal,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/2026-Q2/5-1-46_XH-M577-6.webp,6,XH-M577 sztereó erősítőmodul,,,
+pam8403-23w-erosito-5-volt,"PAM8403 2*3W erősítő, 5 volt","<p><strong>PAM8403 2*3W erősítő, 5 volt</strong></p>
+<ul>
+<li>Üzemi feszültség: 2,5V - 5,V</li>
+<li>Maximális kimeneti teljesítmény: 3W*2 (5V 4Ω)</li>
+<li>Hossz: 29 mm</li>
+<li>Szélesség: 20 mm</li>
+<li>A teljes magasság telepítés után körülbelül 16 mm</li>
+<li>Végfok</li>
+</ul>",Modulshop,,"Erősítők, Végfokok",2*50W erősítő / végfok,TRUE,Title,Default Title,5-1-9,,shopify,32,deny,manual,450,,TRUE,TRUE,5999572380410,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/01-2x50W-Sztere%C3%B3/5-1-9%20PAM8403-1.jpg,1,"PAM8403 2*3W erősítő, 5 volt","PAM8403 2*3W erősítő, 5 volt","PAM8403 2*3W erősítő, 5 volt -Üzemi feszültség: 2,5V - 5,V -Maximális kimeneti teljesítmény: 3W*2 (5V 4Ω) -Hossz: 29 mm -Szélesség: 20 mm -A teljes magasság telepítés után körülbelül 16 mm -Végfok",active
+pam8403-23w-erosito-5-volt,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/01-2x50W-Sztere%C3%B3/5-1-9%20PAM8403-2.jpg,2,"PAM8403 2*3W erősítő, 5 volt",,,
+pam8403-23w-erosito-5-volt,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/01-2x50W-Sztere%C3%B3/5-1-9%20PAM8403-3.jpg,3,"PAM8403 2*3W erősítő, 5 volt",,,
+pam8403-23w-erosito-5-volt,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/01-2x50W-Sztere%C3%B3/5-1-9%20PAM8403-4.jpg,4,"PAM8403 2*3W erősítő, 5 volt",,,
+pam8403-23w-erosito-5-volt,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/01-2x50W-Sztere%C3%B3/5-1-9%20PAM8403-5.jpg,5,"PAM8403 2*3W erősítő, 5 volt",,,
+xy-e30h-21-erosito-215w-30-w-bt-51,XY-E30H 2.1 erősítő 2*15W + 30 W BT 5.1,"<p><strong>Kimenet:</strong> 2×15W (sztereó) + 30W (mélynyomó)<br><strong>Bluetooth verzió:</strong> 5.1<br><strong>Bemenetek:</strong> Bluetooth, AUX<br><strong>Tápfeszültség:</strong> DC 9–24V</p>
+<p><strong>XY-E30H – 2.1 csatornás Bluetooth 5.1 audioerősítő modul (2×15W + 30W, mélynyomó kimenettel, APP vezérléssel)</strong></p>
+<p>A <strong>XY-E30H</strong> egy kompakt, nagy teljesítményű <strong>2.1 csatornás Bluetooth 5.1 audio erősítő modul</strong>, amely ideális választás házi hangrendszerek, DIY Bluetooth hangfalak és multimédiás projektek megvalósításához. Kétcsatornás sztereó (2×15W) + külön mélynyomó kimenettel (30W) rendelkezik, így tiszta magas és erőteljes basszus hangzást biztosít.</p>
+<p>Vezérelhető <strong>Bluetooth-on keresztül mobilalkalmazással</strong> (pl. SiniLink app), amellyel beállítható hangerő, EQ, bemeneti mód, Bluetooth-név, jelszó stb.</p>
+<h3>Főbb jellemzők:</h3>
+<ul>
+<li><strong>Kimenet:</strong> 2×15W (sztereó) + 30W (mélynyomó)</li>
+<li><strong>Bluetooth verzió:</strong> 5.1, stabil kapcsolat, alacsony késleltetés</li>
+<li><strong>Vezérelhetőség:</strong> mobilalkalmazás (APP) támogatás</li>
+<li><strong>Bemenetek:</strong> Bluetooth, AUX</li>
+<li><strong>Üzemmód:</strong> 2.1 csatornás (sztereó + mélynyomó)</li>
+<li><strong>Tápfeszültség:</strong> DC 9–24V (min. 3A javasolt)</li>
+<li><strong>Alkalmas:</strong> otthoni hangrendszer, számítógépes hang, DIY hangfalak, tévék, projektorok hangkimenete</li>
+</ul>
+<h3>Extrák:</h3>
+<ul>
+<li>Állítható hangerő és basszus/mélyhang arány</li>
+<li>Támogatott zenei formátumok: MP3, WAV, FLAC, APE (USB esetén)</li>
+<li>Külön potméter a fő hangerő és mélyhang szabályzására</li>
+<li>Kis méret, könnyű beépítés</li>
+</ul>
+<p>Ez a modul ideális választás, ha kompakt, mégis gazdag hangzást biztosító Bluetooth audioerősítőt keresel saját építésű hangprojektedhez.</p>",Modulshop,,"Erősítők, Végfokok","2*50W erősítő / végfok, 100W fölötti + 2.1",TRUE,Title,Default Title,5-1-42,,shopify,28,deny,manual,6350,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/01-2x50W-Sztere%C3%B3/5-1-42_E30H-1.webp,1,XY-E30H 2.1 erősítő 2*15W + 30 W BT 5.1,XY-E30H 2.1 erősítő 2*15W + 30 W BT 5.1,"XY-E30H egy kompakt, nagy teljesítményű 2.1 csatornás Bluetooth 5.1 audio erősítő modul.",active
+xy-e30h-21-erosito-215w-30-w-bt-51,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/01-2x50W-Sztere%C3%B3/5-1-42_E30H-2.webp,2,XY-E30H 2.1 erősítő 2*15W + 30 W BT 5.1,,,
+xy-e30h-21-erosito-215w-30-w-bt-51,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/01-2x50W-Sztere%C3%B3/5-1-42_E30H-3.webp,3,XY-E30H 2.1 erősítő 2*15W + 30 W BT 5.1,,,
+xy-e30h-21-erosito-215w-30-w-bt-51,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/01-2x50W-Sztere%C3%B3/5-1-42_E30H-5.webp,4,XY-E30H 2.1 erősítő 2*15W + 30 W BT 5.1,,,
+xy-e30h-21-erosito-215w-30-w-bt-51,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/01-2x50W-Sztere%C3%B3/5-1-42_E30H-6.webp,5,XY-E30H 2.1 erősítő 2*15W + 30 W BT 5.1,,,
+xy-e30h-21-erosito-215w-30-w-bt-51,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/01-2x50W-Sztere%C3%B3/5-1-42_E30H-7.webp,6,XY-E30H 2.1 erősítő 2*15W + 30 W BT 5.1,,,
+4-polusu-rugos-hangszoro-csatlakozo-sorkapocs,4 pólusú rugós hangszóró csatlakozó sorkapocs,"<p><strong>Csatlakozók száma:</strong> 4<br><strong>Típus:</strong> rugós, push-release (nyomógombos)<br><strong>Kábelméret:</strong> 18–22 AWG (kb. 0,5 – 1 mm²)<br><strong>Szerelés:</strong> panelre vagy házra csavarozható<br><strong>Anyag:</strong> műanyag ház, fém érintkezők</p>
+<p>Ez a <strong>rugós nyomógombos hangszóró csatlakozó blokk</strong> ideális megoldás <strong>gyors és biztonságos vezetékcsatlakoztatáshoz</strong> hangszórók, erősítők vagy más audió eszközök esetén. Elérhető <strong>2, 4 és 6 csatornás</strong> kivitelben, így rugalmasan alkalmazható egyszerű vagy többcsatornás rendszerekhez is.</p>
+<p>A <strong>rugós push-release mechanizmusnak</strong> köszönhetően a vezetékek forrasztás nélkül, egyetlen mozdulattal csatlakoztathatók vagy oldhatók – ideális megoldás barkácsprojektekhez, prototípusokhoz vagy végleges hangtechnikai telepítésekhez.</p>
+<h3>Főbb jellemzők:</h3>
+<ul>
+<li><strong>Csatornák száma:</strong> választható: 2, 4 vagy 6 csatornás</li>
+<li><strong>Típus:</strong> rugós, push-release (nyomógombos)</li>
+<li><strong>Csatlakozás:</strong> gyors, forrasztás nélküli vezetékbekötés</li>
+<li><strong>Kábelméret:</strong> 18–22 AWG (kb. 0,5 – 1 mm²)</li>
+<li><strong>Szerelés:</strong> panelre vagy házra csavarozható</li>
+<li><strong>Anyag:</strong> műanyag ház, fém érintkezők</li>
+<li><strong>Használat:</strong> hangszórók, erősítők, hangtechnikai elosztások, DIY audio</li>
+</ul>
+<h3>Felhasználási területek:</h3>
+<ul>
+<li>Otthoni és professzionális hangrendszerek</li>
+<li>DIY hangdobozok és erősítők</li>
+<li>Oktatási elektronikai projektek</li>
+<li>Ideiglenes vagy mobil hangrendszerek gyors kábelezése</li>
+</ul>
+<h3>Előnyök:</h3>
+<ul>
+<li>Egyszerű, gyors vezetékcsatlakoztatás</li>
+<li>Stabil érintkezés és megbízható kapcsolat</li>
+<li>Nincs szükség szerszámra vagy forrasztásra</li>
+<li>Kompakt és strapabíró kivitel</li>
+</ul>
+<p>Ez a sorkapocs ideális választás minden olyan projektbe, ahol fontos a <strong>gyors szerelhetőség, megbízható csatlakozás</strong> és rendezett kábelezés hangtechnikai környezetben.</p>",Modulshop,,"Erősítők, Végfokok",Audió kiegészítők,TRUE,Title,Default Title,10-7-94,,shopify,3,deny,manual,150,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/05%20Er%C5%91s%C3%ADt%C5%91k/03-Aidi%C3%B3%20kiaeg%C3%A9sz%C3%ADt%C5%91k/10-7-94_4WAY-1.webp,1,2 pólusú rugós hangszóró csatlakozó sorkapocs,4 pólusú rugós hangszóró csatlakozó sorkapocs,"Ez a rugós nyomógombos hangszóró csatlakozó ideális megoldás gyors és biztonságos vezetékcsatlakoztatáshoz hangszórók, erősítők vagy más audió eszközök esetén",active
+096-oled-kijelzokek-12864-i2c-733,"0,96"" Oled kijelző/kék, 128*64, I2C","<ul>
+<li>Nagy felbontás: 128 * 64</li>
+<li>Feszültség: 3V - 5V DC</li>
+<li>Illesztőprogram IC: SSD1306</li>
+</ul>
+<h2>0,96″ kék OLED kijelző 128 × 64 pixel, SSD1306, I2C</h2>
+<p>A <strong>0,96″-os OLED kijelzőmodul</strong> kompakt, nagy kontrasztú megjelenítő <strong>128 × 64 pixeles felbontással</strong>. A kék OLED képpontok szövegek, számértékek, szimbólumok és egyszerű grafikák megjelenítésére egyaránt alkalmasak.</p>
+<p>A modul <strong>SSD1306 vezérlő IC-re</strong> épül, és <strong>I2C (IIC) interfészen</strong> kommunikál. A csatlakoztatáshoz mindössze négy érintkező – <strong>GND, VCC, SCL és SDA</strong> – szükséges, az adatkommunikáció pedig csak két I/O vonalat használ.</p>
+<p>A kijelző <strong>3–5 V DC</strong> tápfeszültségről működtethető, és számos mikrokontrolleres rendszerrel használható, többek között Arduino, 51-es sorozatú, MSP430 és STM32 vezérlőkkel. A <strong>160°-nál nagyobb betekintési szög</strong> széles tartományból biztosít jó leolvashatóságot.</p>
+<p>Az OLED technológia külön háttérvilágítás nélkül működik, mivel minden képpont saját fényt bocsát ki. A teljes képernyő energiafogyasztása körülbelül <strong>0,08 W</strong>.</p>
+<h2>Milyen csatlakozások szükségesek?</h2>
+<p>A modul <strong>4 érintkezővel</strong> rendelkezik: GND, VCC, SCL és SDA. Az I2C kommunikációhoz az SCL órajel- és az SDA adatvonalat használja.</p>
+<h2>Milyen vezérlőkkel használható?</h2>
+<p>Az SSD1306 széles körben támogatott vezérlő, így a modul többek között <strong>Arduino, MSP430, STM32 és 51-es sorozatú mikrokontrollerekkel</strong> is használható.</p>
+<h2>Fontosabb paraméterek</h2>
+<ul>
+<li><strong>Terméktípus:</strong> OLED kijelzőmodul</li>
+<li><strong>Kijelzőméret:</strong> 0,96″</li>
+<li><strong>Felbontás:</strong> 128 × 64 pixel</li>
+<li><strong>Kijelzés színe:</strong> kék</li>
+<li><strong>Meghajtó IC:</strong> SSD1306</li>
+<li><strong>Interfész:</strong> I2C / IIC</li>
+<li><strong>Tápfeszültség:</strong> 3–5 V DC</li>
+<li><strong>Csatlakozók:</strong> GND, VCC, SCL, SDA</li>
+<li><strong>Érintkezők száma:</strong> 4</li>
+<li><strong>Szükséges I/O vonalak:</strong> 2</li>
+<li><strong>Betekintési szög:</strong> &gt;160°</li>
+<li><strong>Teljes képernyős fogyasztás:</strong> kb. 0,08 W</li>
+<li><strong>Kontraszt:</strong> állítható</li>
+<li><strong>Meghajtási mód:</strong> 1/64 Duty</li>
+<li><strong>Működési hőmérséklet:</strong> −30–70 °C</li>
+<li><strong>Panel mérete:</strong> kb. 26,70 × 19,26 × 1,85 mm</li>
+<li><strong>Aktív kijelzőterület:</strong> kb. 21,74 × 11,2 mm</li>
+<li><strong>Kompatibilitás:</strong> Arduino, 51-es sorozat, MSP430, STM32 és egyéb mikrokontrollerek</li>
+</ul>",Modulshop,,"LCD-k, Kijelzők",,TRUE,Title,Default Title,4-1-11,,shopify,1,deny,manual,1250,,TRUE,TRUE,5999572382858,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-11%200%2C96%20Oled%20128x64-1.jpg,1,"0,96"" Oled kijelző/kék, 128*64, I2C","0,96 Oled kijelző/kék, 128*64, I2C","0,96″ kék OLED kijelző 128 × 64 pixel felbontással, SSD1306 vezérlővel, I2C interfésszel, 160° feletti betekintési szöggel és 3–5 V táppal.",active
+096-oled-kijelzokek-12864-i2c-733,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-11%200%2C96%20Oled%20128x64-2.jpg,2,"0,96"" Oled kijelző/kék, 128*64, I2C",,,
+096-oled-kijelzokek-12864-i2c-733,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-11%200%2C96%20Oled%20128x64.jpg,3,"0,96"" Oled kijelző/kék, 128*64, I2C",,,
+096-oled-kijelzokek-12864-i2c-733,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-11%200%2C96%20Oled%20128x64-3.jpg,4,"0,96"" Oled kijelző/kék, 128*64, I2C",,,
+096-oled-kijelzokek-12864-i2c-986,"0,96"" Oled kijelző/Fehér, 128*64, I2C","<ul>
+<li>Nagy felbontás: 128 * 64</li>
+<li>Feszültség: 3V - 5V DC</li>
+<li>Illesztőprogram IC: SSD1306</li>
+</ul>
+<h2>0,96″ fehér OLED kijelző – 128 × 64 pixel, SSD1306, I2C</h2>
+<p>A <strong>0,96″-os OLED kijelzőmodul</strong> kompakt, nagy kontrasztú megjelenítő <strong>128 × 64 pixeles felbontással</strong>. A fehér OLED képpontok szövegek, számértékek, szimbólumok és egyszerű grafikák megjelenítésére egyaránt alkalmasak.</p>
+<p>A modul <strong>SSD1306 vezérlő IC-re</strong> épül, és <strong>I2C (IIC) interfészen</strong> kommunikál. A csatlakoztatáshoz mindössze négy érintkező – <strong>GND, VCC, SCL és SDA</strong> – szükséges, az adatkommunikáció pedig csak két I/O vonalat használ.</p>
+<p>A kijelző <strong>3–5 V DC</strong> tápfeszültségről működtethető, és számos mikrokontrolleres rendszerrel használható, többek között Arduino, 51-es sorozatú, MSP430 és STM32 vezérlőkkel. A <strong>160°-nál nagyobb betekintési szög</strong> széles tartományból biztosít jó leolvashatóságot.</p>
+<p>Az OLED technológia külön háttérvilágítás nélkül működik, mivel minden képpont saját fényt bocsát ki. A teljes képernyő energiafogyasztása körülbelül <strong>0,08 W</strong>.</p>
+<h2>Milyen csatlakozások szükségesek?</h2>
+<p>A modul <strong>4 érintkezővel</strong> rendelkezik: GND, VCC, SCL és SDA. Az I2C kommunikációhoz az SCL órajel- és az SDA adatvonalat használja.</p>
+<h2>Milyen vezérlőkkel használható?</h2>
+<p>Az SSD1306 széles körben támogatott vezérlő, így a modul többek között <strong>Arduino, MSP430, STM32 és 51-es sorozatú mikrokontrollerekkel</strong> is használható.</p>
+<h2>Fontosabb paraméterek</h2>
+<ul>
+<li><strong>Terméktípus:</strong> OLED kijelzőmodul</li>
+<li><strong>Kijelzőméret:</strong> 0,96″</li>
+<li><strong>Felbontás:</strong> 128 × 64 pixel</li>
+<li><strong>Kijelzés színe:</strong> fehér</li>
+<li><strong>Meghajtó IC:</strong> SSD1306</li>
+<li><strong>Interfész:</strong> I2C / IIC</li>
+<li><strong>Tápfeszültség:</strong> 3–5 V DC</li>
+<li><strong>Csatlakozók:</strong> GND, VCC, SCL, SDA</li>
+<li><strong>Érintkezők száma:</strong> 4</li>
+<li><strong>Szükséges I/O vonalak:</strong> 2</li>
+<li><strong>Betekintési szög:</strong> &gt;160°</li>
+<li><strong>Teljes képernyős fogyasztás:</strong> kb. 0,08 W</li>
+<li><strong>Kontraszt:</strong> állítható</li>
+<li><strong>Meghajtási mód:</strong> 1/64 Duty</li>
+<li><strong>Működési hőmérséklet:</strong> −30–70 °C</li>
+<li><strong>Panel mérete:</strong> kb. 26,70 × 19,26 × 1,85 mm</li>
+<li><strong>Aktív kijelzőterület:</strong> kb. 21,74 × 11,2 mm</li>
+<li><strong>Kompatibilitás:</strong> Arduino, 51-es sorozat, MSP430, STM32 és egyéb mikrokontrollerek</li>
+</ul>",Modulshop,,"LCD-k, Kijelzők",,TRUE,Title,Default Title,4-1-21,,shopify,13,deny,manual,1250,,TRUE,TRUE,5999572382964,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-11%200%2C96%20Oled%20128x64-1.jpg,1,"0,96"" Oled kijelző/kék, 128*64, I2C","0,96 Oled kijelző/Fehér, 128*64, I2C","0,96″ fehér OLED kijelző 128 × 64 pixel felbontással, SSD1306 vezérlővel, I2C interfésszel, 160° feletti betekintési szöggel és 3–5 V táppal.",active
+096-oled-kijelzokek-12864-i2c-986,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-11%200%2C96%20Oled%20128x64-2.jpg,2,"0,96"" Oled kijelző/kék, 128*64, I2C",,,
+096-oled-kijelzokek-12864-i2c-986,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-21_oled096_white-1.jpg,3,"0,96"" Oled kijelző/Fehér, 128*64, I2C",,,
+096-oled-kijelzokek-12864-i2c-986,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-21_oled096_white-2.jpg,4,"0,96"" Oled kijelző/Fehér, 128*64, I2C",,,
+096-oled-kijelzokek-12864-i2c-986,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-21_oled096_white-3.jpg,5,"0,96"" Oled kijelző/Fehér, 128*64, I2C",,,
+lcd-162i2c-kek-216-karakter-arduino,LCD 1602+I2C kék 2*16 karakter Arduino,"<p><strong>LCD 1602+I2C kék 2*16 karakter Arduino</strong></p>
+<ul>
+<li>Üzem feszültség : 5V</li>
+<li>Támogatja az I2C kommunikációt</li>
+<li>A kék háttérvilágítást és a kontrasztot potenciométerrel lehet állítani.</li>
+<li>4 eres kimenet egyszerűbbé teszi a kezelést.</li>
+</ul>",Modulshop,,"LCD-k, Kijelzők",,TRUE,Title,Default Title,4-1-5,,shopify,5,deny,manual,1700,,TRUE,TRUE,5999572381240,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-5%201602-1.jpg,1,LCD 1602+I2C kék 2*16 karakter Arduino,LCD 1602+I2C kék 2*16 karakter Arduino,LCD 1602+I2C kék 2*16 karakter Arduino -Üzem feszültség : 5V -Támogatja az I2C kommunikációt -A kék háttérvilágítást és a kontrasztot potenciométerrel lehet állítani. -4 eres kimenet egyszerűbbé teszi a kezelést.,active
+lcd-162i2c-kek-216-karakter-arduino,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-5%201602-2.jpg,2,LCD 1602+I2C kék 2*16 karakter Arduino,,,
+lcd-162i2c-kek-216-karakter-arduino,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-5%201602-3.jpg,3,LCD 1602+I2C kék 2*16 karakter Arduino,,,
+lcd-162i2c-kek-216-karakter-arduino,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/04%20LCD-TFT-Kijelz%C5%91k/4-1-5%201602-5.jpg,4,LCD 1602+I2C kék 2*16 karakter Arduino,,,
+3s-40a-18650-akku-felugyeleti-rendszer-bms-modul-balansz-funkcioval-126-v-li-ion,"3S40A 18650 Akku Felügyeleti rendszer, BMS modul, balansz funkcióval, 2.3","<p><strong>3S40A 18650 Akku Felügyeleti rendszer, BMS modul, balansz funkcióval, 2.3</strong></p>
+<p>18650-es Li-ion akku-hoz, védő panel.<br>balansz funkcióval</p>
+<p>Méret : 60*40 mm , magasság: 3 mm</p>
+<ul>
+<li>Töltési feszültség: 12,6V – 13,6V</li>
+<li>Max töltési áram: 20A</li>
+<li>Max töltés: 4, 25 V-ig. cellánkként</li>
+<li>Min merítés: 2, 5 V-ig. cellánkként</li>
+<li>Folyamatos merítési áram 40A</li>
+<li>Rövid csúcs áram: Max 80A</li>
+</ul>",Modulshop,,"BMS-ek, 18650 Akkuk",1S - 5S BMS,TRUE,Title,Default Title,6-2-1,,shopify,2,deny,manual,700,,TRUE,TRUE,5999572381127,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/06%20BMS%2C%2018650%20akku/01%20-%201S-5S/3S%2040A%2018650.jpg,1,"3S40A 18650 Akku Felügyeleti rendszer, BMS modul, balansz funkcióval, 2.3","3S40A 18650 Akku Felügyeleti rendszer, BMS modul, balansz funkcióval, ","3S40A 18650 Akku Felügyeleti rendszer, BMS modul, balansz funkcióval, 2.3 18650-es Li-ion akku-hoz, védő panel. balansz funkcióval - Töltési feszültség: 12,6V – 13,6V - Max töltési áram: 20A - Max töltés: 4, 25 V-ig. cellánkként - Min merítés: 2, 5 V-ig. cellánkként - Folyamatos merítési áram 40A - Rövid csúcs...",active
+3s-40a-18650-akku-felugyeleti-rendszer-bms-modul-balansz-funkcioval-126-v-li-ion,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/06%20BMS%2C%2018650%20akku/01%20-%201S-5S/3S%2040A%2018650_2.jpg,2,3S 40A BMS,,,
+3s-40a-18650-akku-felugyeleti-rendszer-bms-modul-balansz-funkcioval-126-v-li-ion,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/06%20BMS%2C%2018650%20akku/01%20-%201S-5S/3S%2040A%2018650_3.jpg,3,3S 40A BMS,,,
+3s-40a-18650-akku-felugyeleti-rendszer-bms-modul-balansz-funkcioval-126-v-li-ion,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/06%20BMS%2C%2018650%20akku/01%20-%201S-5S/3S%2040A%2018650_4.jpg,4,3S 40A BMS,,,
+3s-40a-18650-akku-felugyeleti-rendszer-bms-modul-balansz-funkcioval-126-v-li-ion,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/06%20BMS%2C%2018650%20akku/01%20-%201S-5S/3S%2040A%2018650_5.jpg,5,3S 40A BMS,,,
+3s-40a-18650-akku-felugyeleti-rendszer-bms-modul-balansz-funkcioval-126-v-li-ion,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/06%20BMS%2C%2018650%20akku/01%20-%201S-5S/6-1-12_3S40A_bekotes.jpeg,6,3S 40A BMS,,,
+inr18650-33va-li-ion-akku-3200-mah,INR18650-33VA Li-ion akku 3200 mAh,"<p>Típus: 18650 Li-ion ipari cella (INR18650-33VA)<br>Kémia: NCA (LiNiCoAlO₂ / INR)<br>Max. töltőfeszültség: 4,20 V<br>Névleges feszültség: 3,6–3,7 V<br>Kapacitás: ~3200 mAh<br>Max. folyamatos kisütőáram: kb. 6-8 A<br>Rövid idejű terhelhetőség: 10 A<br>Ajánlott töltőáram: 0,5C ≈ 1,7 A</p>
+<h2>INR18650-33VA újratölthető Li-Ion akkumulátor cella – 3200 mAh, megbízható energiaforrás</h2>
+<p>A <strong> INR18650-33VA</strong> egy <strong>eredeti, ipari minőségű 18650 Li-ion akkumulátor cella</strong>, amelyet kifejezetten <strong>akkucsomagokba, nagy üzemidejű eszközökbe és megbízható energia-tárolásra</strong> terveztek.<br>A cella <strong>kb. 3200 mAh kapacitást</strong> és <strong>max. 10 A körüli folyamatos terhelhetőséget</strong> biztosít, így ideális kompromisszum <strong>nagy kapacitás</strong> és <strong>korrekt áramleadás</strong> között.</p>
+<p>Kiváló választás:</p>
+<ul>
+<li>DIY akkucsomagokhoz (1S, 2S, 3S, 4S stb. konfigurációkhoz),</li>
+<li>napelemes/UPS rendszerekhez,</li>
+<li>e-bike, e-scooter, szerszám akku, LED világítás,</li>
+<li><strong>Arduino / ESP32 alapú hordozható, akkumulátoros projektekhez</strong> (megfelelő BMS és DC-DC konverter használatával).</li>
+</ul>
+<blockquote>
+<p><strong>Figyelem:</strong> ez egy <strong>védetlen ipari cella</strong>, nincs benne saját túlmerítés-/túltöltés-/rövidzárvédelem. Akkucsomagban <strong>BMS modullal</strong> és szakszerű szereléssel használandó.</p>
+</blockquote>
+<h2>Fő műszaki adatok – Samsung INR18650-33VA</h2>
+<ul>
+<li><strong>Típus:</strong> 18650 Li-ion ipari cella (INR18650-33VA)</li>
+<li><strong>Kémia:</strong> NCA (LiNiCoAlO₂ / INR) – nagy energiasűrűség, jó ciklusélettartam</li>
+<li><strong>Névleges feszültség:</strong> 3,6–3,7 V</li>
+<li><strong>Kapacitás (tipikus):</strong> ~3200 mAh</li>
+<li><strong>Minimum kapacitás:</strong> ~2700 mAh környéke</li>
+<li><strong>Max. folyamatos kisütőáram:</strong> kb. 8-10 A</li>
+<li><strong>Töltési mód:</strong> CC/CV (állandó áram / állandó feszültség)</li>
+<li><strong>Max. töltőfeszültség:</strong> 4,20 V</li>
+<li><strong>Ajánlott töltőáram:</strong> 0,5C ≈ 1,7 A (élettartam-barát)</li>
+<li><strong>Max. töltőáram:</strong> 2 A (gyors töltés, némileg kisebb életciklus)</li>
+<li><strong>Kisütési végfeszültség (cut-off):</strong> 2,5–2,65 V (BMS felügyelje)</li>
+<li><strong>Kivitel:</strong> sík (flat-top) pozitív pólus, védetlen</li>
+<li><p><strong>Méretek:</strong></p>
+<ul>
+<li>átmérő: ≈ 18,3–18,5 mm</li>
+<li>hossz: ≈ 65,0–65,2 mm</li>
+</ul>
+</li>
+<li><strong>Tömeg:</strong> ~48–50 g</li>
+</ul>
+<h2>Gyakran ismételt kérdések – és részletes válaszok</h2>
+<h3>Védett vagy védetlen ez az akkumulátor?</h3>
+<p>Ez a Samsung INR18650-33VA elektronikusan <strong>védetlen ipari cella</strong>:</p>
+<ul>
+<li>NINCS benne beépített elektronikus védelem.</li>
+<li><strong>Nem</strong> nyújt önmagában túltöltés-, túlmerítés-, túláram- vagy rövidzárvédelmet.</li>
+<li>Akkucsomag építésénél <strong>kötelező</strong> egy megfelelő <strong>BMS (Battery Management System)</strong> használata.</li>
+</ul>
+<p>Fizikálisan védett, túlhevülés/túlnyomás ellen. (biztonsági szelep)<br>Ha cella túlhevül és megnő a nyomás a cellában akkor a biztonsági szelep megszakítja az elektromos kapcsolatot.</p>
+<p>Otthoni felhasználásnál:</p>
+<ul>
+<li>csak cellatartóban, BMS-sel,</li>
+<li>szakszerű forrasztás/ponthegesztés mellett javasolt.</li>
+</ul>
+<h3>Milyen felhasználásra alkalmas a 33VA cella?</h3>
+<p>A 33VA cella erőssége a <strong>magas kapacitás</strong>:</p>
+<ul>
+<li>UPS / szünetmentes táp (pl. router, kamera, mini szerver),</li>
+<li>napelemes energiatároló modulok,</li>
+<li>e-bike / e-scooter akkucsomag (sok cella párhuzamosan, nem extrém áramra),</li>
+<li>LED világítás (12 V / 24 V rendszerek 3S–7S konfigurációval),</li>
+<li>hosszú üzemidejű <strong>Arduino / ESP32 adatrögzítő</strong>, logger, IoT-eszköz.</li>
+</ul>
+<p>Nem „versenycella”, nem extrém terhelésre való, hanem <strong>stabil, nagy kapacitású, megbízható ipari cella</strong>.</p>
+<h3>Használhatom közvetlenül Arduino vagy ESP32 tápellátására?</h3>
+<p><strong>Közvetlenül (nyersen) nem ajánlott.</strong></p>
+<p>Miért?</p>
+<ul>
+<li>A cella feszültsége 4,2 V (teljesen töltve) és ~3,0 V között változik.</li>
+<li>Arduino UNO tipikusan <strong>5 V-ot</strong>, az ESP32 pedig <strong>stabil 3,3 V-ot</strong> vár.</li>
+<li>Ezért szükséges közé:</li>
+</ul>
+<ol>
+<li><strong>1S BMS</strong> (védelem),</li>
+<li><strong>DC-DC konverter</strong> (step-up vagy step-down) a stabil 5 V / 3,3 V előállítására.</li>
+</ol>
+<p>Példa:</p>
+<ul>
+<li>INR18650-33VA → 1S BMS → step-up modul (3–4,2 V → 5 V) → Arduino</li>
+<li>INR18650-33VA → 1S BMS → step-down modul (3–4,2 V → stabil 3,3 V) → ESP32</li>
+</ul>
+<h3>Hogyan töltsem biztonságosan?</h3>
+<p>Kizárólag <strong>Li-ion kompatibilis töltővel</strong>:</p>
+<ul>
+<li><p>CC/CV töltési görbe:</p>
+<ul>
+<li>állandó áram (CC) szakasz 4,20 V-ig,</li>
+<li>majd állandó feszültség (CV) szakasz, csökkenő árammal.</li>
+</ul>
+</li>
+<li>Egyszerű egycellás használatra alkalmasak a kifejezetten 18650-hez készült <strong>Li-ion töltőmodulok / töltődokkolók</strong>.</li>
+<li>Akkucsomagnál: a <strong>BMS bemenetére</strong> kötött Li-ion töltő (pl. 12,6 V 3S-hez, 16,8 V 4S-hez stb.).</li>
+</ul>
+<p>Soha ne töltsd:</p>
+<ul>
+<li>NiMH / ólomakku töltővel,</li>
+<li>direkt tápegységről, feszültségkorlátozás nélkül.</li>
+</ul>
+<h3>Lehet forrasztani az akkumulátorra?</h3>
+<p>Ipari gyakorlat szerint a <strong>cellákat ponthegesztéssel</strong> kötjük össze, nem forrasztjuk:</p>
+<ul>
+<li>a forrasztás során fellépő hő <strong>károsíthatja a cellát</strong>,</li>
+<li>a burkolat és a biztonsági szelep sérülhet.</li>
+</ul>
+<p>Ha feltétlen forrasztanod kell:</p>
+<ul>
+<li>csak nagy teljesítményű pákával,</li>
+<li>nagyon rövid ideig forrassz,</li>
+<li>előónozott nikkelszalagot használj,</li>
+<li>saját felelősségedre.</li>
+</ul>
+<p>Biztonságosabb és professzionálisabb: <strong>ponthegesztett nikkelszalag</strong>.</p>
+<h3>Mekkora üzemidőt várhatok tőle egy microcontrolleres projektben?</h3>
+<p>Vegyünk egy példát:<br>ESP32 + néhány szenzor, átlagfogyasztás mondjuk <strong>80–120 mA</strong> deep-sleep + időszakos WiFi bekapcsolás mellett.</p>
+<ul>
+<li>Energia: 3 Ah × 3,6 V ≈ <strong>10,8 Wh</strong></li>
+<li><p>Ha a rendszer átlagosan 0,1 A-t vesz fel 3,3 V-on, DC-DC veszteségekkel együtt:</p>
+<ul>
+<li>reálisan <strong>10–20 óra</strong> üzemidő érhető el, konfigurációtól függően.</li>
+</ul>
+</li>
+<li>Ha agresszív deep-sleepet használsz, rövid WiFi bekapcsolásokkal → <strong>napokig–hetekig</strong> is működhet egyetlen cellán.</li>
+</ul>
+<h3>Biztonságos-e egy cellát önmagában használni (pl. zseblámpa)?</h3>
+<p>Igen, <strong>ha</strong>:</p>
+<ul>
+<li>megfelelő <strong>védett zseblámpába</strong> kerül,</li>
+<li>vagy a lámpában/driverben már van túltöltés/túlmerítés-védelem,</li>
+<li>vagy külső védett tartót és BMS-t használsz.</li>
+</ul>
+<p><strong>Közvetlenül, „csupaszon”</strong> eszközökre kötve nem javasolt a használata.</p>
+<h2>Konkrét felhasználási példa – hordozható, akkumulátoros ESP32 adatgyűjtő</h2>
+<p><strong>Felépítés:</strong></p>
+<ul>
+<li>1× INR18650-33VA</li>
+<li>1S BMS modul</li>
+<li>Li-ion töltő (pl. USB-ről működő CC/CV töltőpanel 1S cellához)</li>
+<li>Step-up modul (3–4,2 V → 5 V) vagy közvetlen 3,3 V step-down</li>
+<li>ESP32 devboard (pl. ESP32 devkit), szenzorok (hőmérséklet, páratartalom, nyomás, fény, mozgás)</li>
+</ul>
+<p><strong>Működés:</strong></p>
+<ul>
+<li>Az ESP32 deep-sleepben van, időnként felébred, mér, eltárol/adatot küld WiFi-n, majd visszaalszik.</li>
+<li>A 30P cella nagy kapacitása miatt a rendszer <strong>hosszú üzemidőt</strong> biztosít egy töltéssel – terepi mérésekhez, hordozható projektekhez ideális.</li>
+</ul>
+<h2>Biztonsági figyelmeztetés</h2>
+<ul>
+<li>Ne rövidrezárd az akkumulátort.</li>
+<li>Ne szúrd, ne törd, ne tedd tűzbe.</li>
+<li>Ne töltsd felügyelet nélkül bizonytalan töltővel.</li>
+<li>Mindig gondoskodj megfelelő mechanikai és elektromos védelemről (BMS, biztosíték, szigetelés, ház).</li>
+</ul>",Modulshop,,"BMS-ek, 18650 Akkuk",Akku cellák / elemek,TRUE,Title,Default Title,6-5-20,,shopify,11,deny,manual,1650,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/06%20BMS%2C%2018650%20akku/05-cella/6-5-20_INR18650-33VA.webp,1,INR18650-33VA Samsung Li-ion akku,INR18650-33VA Li-ion akku 3200 mAh,"Samsung INR18650-35E Li-ion ipari cella 3500 mAh kapacitással. Megbízható, nagy üzemidejű akku akkucsomagokhoz, UPS-hez, Arduino és ESP32 projektekhez.",active
+18650-li-ion-akku-tolto-modul-step-up-boost-usb-c,18650 Li-ion akku töltő modul + step up boost + usb-C,"<p><strong>18650 Li-ion akku töltő modul + step up boost + usb-C</strong></p>
+<p><strong>NEM TÖLTÉS VEZÉRLŐ !</strong></p>
+<p>A modul és a akku közé javasolt egy BMS beépítése a cellák védelme érdekében.<br>A modul ""IN"" portjára kötött tápfeszültséggel max.8V ( Pl. napelem cella) a modul ""BAT"" portján 4,2 V tölti az akkut (3,7 V Li-ion).</p>
+<p>A modul kimeneti feszültségét 4.3-27V között lehet állítani a modulon található potméterrel.</p>",Modulshop,,"BMS-ek, 18650 Akkuk",Akku töltők,TRUE,Title,Default Title,6-1-8,,shopify,53,deny,manual,450,,TRUE,TRUE,5999572386924,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/06%20BMS%2C%2018650%20akku/01%20-%201S-5S/6-1-29_TP4056_Step-up-1.jpg,1,18650 Li-ion akku töltő modul + step up boost + usb-C,18650 Li-ion akku töltő modul + step up boost + usb-C,"18650 Li-ion akku töltő modul + step up boost + micro usb​ A modul és a akku közé javasolt egy töltésvezérlő beépítése a cellák védelme érdekében. A modul IN portjára kötött tápfeszültséggel max.8V ( Pl. napelem cella) a modul BAT portján 4,2 V tölti az akkut (3,7 V Li-ion). A modul kimeneti feszültségét 4.3-27V...",active
+18650-li-ion-akku-tolto-modul-step-up-boost-usb-c,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/06%20BMS%2C%2018650%20akku/01%20-%201S-5S/6-1-29_TP4056_Step-up-3.jpg,2,18650 Li-ion akku töltő modul + step up boost + usb-C,,,
+12-voltos-5a-tapegyseg-ac-dc,"12 voltos 5A tápegység, AC-DC","<p>Kimeneti fesz : DC 12 Volt<br>Terhelhetőség : 5 A<br>Teljesítmény : 60W<br>Bemeneti fesz : AC 230 Volt</p>
+<p><strong>12 voltos 5A tápegység, AC-DC</strong></p>
+<p>A 12V, 5A, 60W Kapcsolóüzemű táp, AC – DC step down átalakító ideális áramköröknek max. 5A tápellátás. A kimeneti csatlakozója miatt sok helyre lehet beépíteni. Kapcsolóüzemű felépítése miatt nagyon magas a hatékonysága(+94%).</p>",Modulshop,,"DC, AC konverterek",AC-DC tápegységek / labortáp,TRUE,Title,Default Title,7-3-36,,shopify,164,deny,manual,2600,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/07%20DC-DC/DC%20tapegysegek/7-3-36_12V5A-2.jpg,1,12 voltos 5A tápegység,"12 voltos 5A tápegység, AC-DC",,active
+12-voltos-5a-tapegyseg-ac-dc,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/07%20DC-DC/DC%20tapegysegek/7-3-36_12V5A-1.jpg,2,12 voltos 5A tápegység,,,
+12-voltos-5a-tapegyseg-ac-dc,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/07%20DC-DC/DC%20tapegysegek/7-3-36_12V5A-3.jpg,3,12 voltos 5A tápegység,,,
+ac-220v-2000w-feszultsegszabalyozo-fenyszabalyozo-motor-sebesseg-szabalyozo,"AC 220V 2000W Teljesítmény-, fény-, motor sebesség szabályzó","<ul>
+<li>Max. terhelés: 2000W AC</li>
+<li>Triak: BTA41600B</li>
+<li>LED-es lámpák szabályzására NEM alkalmas!</li>
+</ul>
+<p><strong>2000W 230V AC teljesítmény, motor fordulatszám szabályozó, vezérlő, dimmer</strong></p>
+<ul>
+<li>Max. terhelés: 2000W AC</li>
+<li>Triak: BTA41600B</li>
+<li>Hatásfok: min. 90%</li>
+<li>Bementi fesz.: AC 230V</li>
+<li>Kimeneti fesz: AC 50-230V</li>
+<li>Méret: 48 x 55 x 27mm, potméter tengely: 6mm</li>
+</ul>",Modulshop,,"DC, AC konverterek",DC-DC step down / feszültségcsökkentő,TRUE,Title,Default Title,7-3-8,,shopify,8,deny,manual,990,,TRUE,TRUE,5999572383459,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/07%20DC-DC/DC%20tapegysegek/7-3-8%20AC%20dimmer-1.jpg,1,"AC 220V 2000W Teljesítmény-, fény-, motor sebesség szabályzó","AC 220V 2000W Teljesítmény-, fény-, motor sebesség szabályzó","2000W 230V AC feszültség, teljesítmény, motor fordulatszám szabályozó, vezérlő, dimmer - Max. terhelés: 2000W AC - Triak: BTA41600B - Védelem: olvadó biztosíték - Hatásfok: min. 90% - Bementi fesz.: AC 230V - Kimeneti fesz: AC 50-230V - Méret: 48 x 55 x 27mm, potméter tengely: 6mm",active
+ac-220v-2000w-feszultsegszabalyozo-fenyszabalyozo-motor-sebesseg-szabalyozo,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/07%20DC-DC/DC%20tapegysegek/7-3-8%20AC%20dimmer-2.jpg,2,"AC 220V 2000W Teljesítmény-, fény-, motor sebesség szabályzó",,,
+dc-400w-15a-step-up-boost-konverte,DC 400W 15A Step-up Boost konverter,"<ul>
+<li>Modul tulajdonságai: nem izolált step up modul (BOOST)</li>
+<li>Bemeneti feszültség: DC8.5V-50V</li>
+<li>Bemeneti áram: 15A</li>
+<li>Nyugalmi áram: 10mA</li>
+</ul>
+<p><strong>Újonnan vázat is árulunk hozzá.</strong></p>
+<p><strong>DC 400W 15A Step-up Boost konverter</strong></p>
+<ul>
+<li>Modul tulajdonságai: nem izolált step up modul (BOOST)</li>
+<li>Bemeneti feszültség: DC8.5V-50V</li>
+<li>Bemeneti áram: 15A</li>
+<li>Nyugalmi áram: 10mA</li>
+<li>Kimeneti feszültség: 10-60V folyamatosan állítható</li>
+<li>Állandó tartomány: 0,2-12A</li>
+<li>Hőmérséklet: -40 és + 85 fok között (Ha a környezeti hőmérséklet túl magas, fokozza a hőelvezetést)</li>
+<li>Működési frekvencia: 150KHz</li>
+<li>Konverziós hatékonyság: akár 96%</li>
+<li>Túl áramvédelem: Igen</li>
+<li>Telepítés: 4 db 2,55 mm-es lyuk</li>
+<li>Modul mérete: 67mm X48mm X 28mm</li>
+</ul>
+<p><strong>Újonnan vázat is árulunk hozzá.</strong></p>",Modulshop,,"DC, AC konverterek",DC-DC step up / feszültségnövelő,TRUE,Title,Default Title,7-1-4,,shopify,4,deny,manual,1680,,TRUE,TRUE,5999572383381,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/07%20DC-DC/150kHz-DC-DC-400W-15A-Module-Step-Up-Boost-Converter-Constant-Current-Power-Supply-8-5.jpg_q50.jpg,1,DC 400W 15A Step-up Boost konverter,DC 400W 15A Step-up Boost konverter,"DC 400W 15A Step-up Boost konverter - Modul tulajdonságai: nem izolált step up modul (BOOST) - Bemeneti feszültség: DC8.5V-50V - Bemeneti áram: 15A - Nyugalmi áram: 10mA - Kimeneti feszültség: 10-60V folyamatosan állítható - Állandó tartomány: 0,2-12A - Hőmérséklet: -40 és + 85 fok között (Ha a környezeti...",active
+dc-400w-15a-step-up-boost-konverte,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/07%20DC-DC/855961037.jpg,2,DC 400W 15A Step-up Boost konverter,,,
+dc-400w-15a-step-up-boost-konverte,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/07%20DC-DC/DC-400W-15A-Step-up-Boost-Converter-Constant-Current-Power-Supply-LED-Driver-8-5-50V.jpg,3,DC 400W 15A Step-up Boost konverter,,,
+dc-400w-15a-step-up-boost-konverte,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/07%20DC-DC/H307cc048aa584469a3a2743ee133d33ex.jpg,4,DC 400W 15A Step-up Boost konverter,,,
+w3230-termosztat-230-voltos,W3230 Termosztát 230 voltos,"<p>Táp : 230V AC<br>Mérés : -55 ... 120 C<br>Relé max : 10A/250V vagy 20A/14V</p>
+<p><strong>W3230 Digitális Hőmérséklet‐szabályozó – 230 V DC</strong></p>
+<p>A W3230 kompakt, mégis nagy teljesítményű digitális termosztát ideális megoldás fűtési és hűtési rendszerek precíz szabályozására – legyen szó akváriumról, kazánvezérlésről, inkubátorról vagy hűtőláda vezérléséről.</p>
+<h2>Főbb jellemzők</h2>
+<ul>
+<li><strong>Tápfeszültség:</strong> AC 110–220 V</li>
+<li><strong>Mérési és szabályozási tartomány:</strong> –55 °C…+120 °C</li>
+<li><strong>Pontosság:</strong> ±0,1 °C</li>
+<li><strong>Kimenet:</strong> 10A/250V vagy 20A/14V</li>
+<li><strong>Működési módok:</strong> fűtés (H), hűtés (C)</li>
+<li><strong>Hiszterézis beállítás:</strong> 0,1 °C…15 °C</li>
+<li><strong>Késleltetés:</strong> 0…10 perc (P5)</li>
+<li><strong>Hőmérsékletkorrekció:</strong> –7,0…+7,0 °C (P4)</li>
+<li><strong>Beállítható felső és alsó korlát:</strong> P2 és P3</li>
+<li><strong>Mentés kikapcsoláskor:</strong> P7 funkció</li>
+<li><strong>Védőburkolat és nagy, könnyen olvasható LED kijelző</strong></li>
+</ul>
+<h2>Lépésről lépésre: beüzemelés és beállítás</h2>
+<ol>
+<li><p><strong>Csatlakoztatás</strong></p>
+<ul>
+<li>Kösd a termosztátot a 12 V-os tápegységhez, és a vezérelni kívánt fűtő / hűtő berendezés reléoldalához.</li>
+<li>A bekapcsolás után a kijelzőn a környezeti hőmérséklet jelenik meg.</li>
+</ul>
+</li>
+<li><p><strong>Célhőmérséklet beállítása</strong></p>
+<ol>
+<li>Nyomd meg egyszer a <strong>SET</strong> gombot – a kijelzett hőmérséklet villogni kezd.</li>
+<li>A <strong>+</strong> és <strong>–</strong> gombokkal állítsd be a kívánt értéket (hosszan nyomva gyorsabb a növelés/csökkentés).</li>
+<li>Nyomd meg újra a <strong>SET</strong> gombot a megerősítéshez – a villogás megszűnik, és a termosztát a beállításnak megfelelően vezérli a relét.</li>
+</ol>
+</li>
+<li><p><strong>Működési mód (P0) – Fűtés vagy hűtés</strong></p>
+<ol>
+<li>Tartsd lenyomva a <strong>SET</strong> gombot 5 másodpercig, amíg megjelenik a <strong>P0</strong>.</li>
+<li><p>Nyomd meg a <strong>SET</strong> gombot a módválasztáshoz, majd a <strong>+</strong>/**–** gombokkal válassz:</p>
+<ul>
+<li><strong>H</strong> (Heating) = fűtés</li>
+<li><strong>C</strong> (Cooling) = hűtés</li>
+</ul>
+</li>
+<li><strong>SET</strong> megnyomása visszalép, vagy 10 másodperc inaktivitás automatikusan kilép és ment.</li>
+</ol>
+</li>
+<li><p><strong>Hiszterézis beállítása (P1)</strong></p>
+<ol>
+<li>Hosszan nyomd <strong>SET</strong> (5 s) → „P0” → <strong>+</strong>/**–** → <strong>P1</strong>.</li>
+<li>Nyomd <strong>SET</strong> → állítsd be 0,1…15 °C között a hőmérséklet‐különbséget.</li>
+<li><strong>SET</strong> vagy 10 s inaktivitás → mentés.</li>
+</ol>
+<p><em>Példa hűtésre:</em> Beállított érték 25 °C, hiszterézis 2 °C → relé zár 25 °C-nál, nyit 23 °C-nál, így a hőmérséklet nem emelkedik 25 °C fölé.</p>
+</li>
+<li><p><strong>Maximális beállítható hőmérséklet (P2)</strong></p>
+<ol>
+<li><strong>SET</strong> (5 s) → <strong>+</strong>/**–** → <strong>P2</strong> → <strong>SET</strong>.</li>
+<li><strong>+</strong>/**–**: legefeljebb 110 °C-ig állítható a felső korlát.</li>
+<li><strong>SET</strong> vagy 10 s után ment.</li>
+</ol>
+</li>
+<li><p><strong>Minimális beállítható hőmérséklet (P3)</strong></p>
+<ol>
+<li><strong>SET</strong> (5 s) → <strong>+</strong>/**–** → <strong>P3</strong> → <strong>SET</strong>.</li>
+<li><strong>+</strong>/**–**: legfeljebb –50 °C-ig állítható az alsó korlát.</li>
+<li><strong>SET</strong> vagy 10 s után ment.</li>
+</ol>
+</li>
+<li><p><strong>Hőmérséklet-korrekció (P4)</strong></p>
+<ol>
+<li><strong>SET</strong> (5 s) → <strong>+</strong>/**–** → <strong>P4</strong> → <strong>SET</strong>.</li>
+<li><strong>+</strong>/**–**: –7,0…+7,0 °C között kompenzáció.</li>
+<li><strong>SET</strong> vagy 10 s után ment.</li>
+</ol>
+</li>
+<li><p><strong>Indítási késleltetés beállítása (P5)</strong></p>
+<ol>
+<li><strong>SET</strong> (5 s) → <strong>+</strong>/**–** → <strong>P5</strong> → <strong>SET</strong>.</li>
+<li><strong>+</strong>/**–**: 0…10 perc késleltetés (0 = nincs késleltetés).</li>
+<li><strong>SET</strong> vagy 10 s után ment.</li>
+</ol>
+<ul>
+<li>A késleltetés védi a kompresszort vagy fűtőbetétet az ismételt indítás okozta stressztől.</li>
+</ul>
+</li>
+<li><p><strong>Beállítások mentése kikapcsoláskor (P7)</strong></p>
+<ul>
+<li>Hosszan <strong>SET</strong> (5 s) → <strong>+</strong>/**–** → <strong>P7</strong> → <strong>SET</strong> → ON/OFF.</li>
+<li>ON = utolsó beállítások megőrzése áramtalanítás után.</li>
+</ul>
+</li>
+<li><p><strong>Gyári visszaállítás</strong></p>
+<ul>
+<li>Áramtalanított állapotban tartsd lenyomva egyszerre a <strong>+</strong> és <strong>–</strong> gombot, majd kapcsold be a tápot.</li>
+<li>A készülék összes paramétere visszaáll gyári értékre.</li>
+</ul>
+</li>
+</ol>
+<h3>Hibaüzenetek és jelzések</h3>
+<ul>
+<li><p><strong>LED‑lámpa</strong></p>
+<ul>
+<li>Villog: indítási késleltetés alatt áll a relé</li>
+<li>Folyamatosan világít: relé zárva, berendezés működik</li>
+</ul>
+</li>
+<li><p><strong>Kijelző üzenetek</strong></p>
+<ul>
+<li><strong>LL</strong>: szenzor szakadt; ellenőrizd a csatlakozást</li>
+<li><strong>HH</strong>: mérési tartományon kívül; relé automatikusan nyit</li>
+<li><strong>--</strong>: túlhőmérsékleti riasztás</li>
+</ul>
+</li>
+</ul>",Modulshop,,Műszerek,,TRUE,Title,Default Title,8-1-72,,shopify,18,deny,manual,1500,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/08%20M%C5%B1szerek/02_Homerseklet/8-1-70_W3230-thermo-1.webp,1,W3230 Termosztát 12 voltos,W3230 Termosztát 230 voltos,"A W3230 kompakt, mégis nagy teljesítményű digitális termosztát ideális megoldás fűtési és hűtési rendszerek precíz szabályozására",active
+w3230-termosztat-230-voltos,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/08%20M%C5%B1szerek/02_Homerseklet/8-1-70_W3230-thermo-2.webp,2,W3230 Termosztát 12 voltos,,,
+w3230-termosztat-230-voltos,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/08%20M%C5%B1szerek/02_Homerseklet/8-1-70_W3230-thermo-3.webp,3,W3230 Termosztát 12 voltos,,,
+w3230-termosztat-230-voltos,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/08%20M%C5%B1szerek/02_Homerseklet/8-1-70_W3230-thermo-5.webp,4,W3230 Termosztát 12 voltos,,,
+multimeter-dt-830b,Multiméter DT-830B,"<p><strong>Multiméter DT-830B</strong></p>
+<p>A DT830B digitális multiméter egy megbízható eszköz HOBBI felhasználásra.</p>
+<p>A műszer ICL7106 IC –re épül.<br>Nagy 3 + 1 / 2 számjegyű, 7 szegmenses, 0,5” LCD kijelző. Max.: 1999.</p>
+<p>Méréshatárok:</p>
+<ul>
+<li>DCV (0,1 mV - 1000V),</li>
+<li>ACV (0,1 V - 750V),</li>
+<li>DCA (0,1 mA - 10A),</li>
+<li>Ohm (0,1 Ω - 2MΩ)</li>
+<li>Dióda</li>
+<li>PNP és NPN tranzisztorok</li>
+</ul>
+<p>Belső ellenállása feszültség mérésekor <strong>1MOhm</strong></p>",Modulshop,,Műszerek,,TRUE,Title,Default Title,8-1-1,,shopify,171,deny,manual,1800,,TRUE,TRUE,5999572383473,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/08%20M%C5%B1szerek/8-1-1%20Multimeter-DT830B-1.jpg,1,Multiméter DT-830B,Multiméter DT-830B,"Multiméter DT-830B A DT830B digitális multiméter egy megbízható eszköz HOBBI felhasználásra. A műszer ICL7106 IC –re épül. Nagy 3 + 1 / 2 számjegyű, 7 szegmenses, 0,5” LCD kijelző. Max.: 1999. Méréshatárok: - DCV (0,1 mV - 1000V), - ACV (0,1 V - 750V), - DCA (0,1 mA - 10A), - Ohm (0,1 Ω - 2MΩ) - Dióda - PNP és NPN...",active
+multimeter-dt-830b,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/08%20M%C5%B1szerek/8-1-1%20Multimeter-DT830B-2.jpg,2,Multiméter DT-830B,,,
+multimeter-dt-830b,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/08%20M%C5%B1szerek/8-1-1%20Multimeter-DT830B-3.jpg,3,Multiméter DT-830B,,,
+modulshophu509-es-kek-hoallo-szilikon-szereloalatet,Kék hőálló szilikon szerelőalátét,"<p><strong>Terméknév:</strong> 509-es méretű kék hőálló szilikon szerelőalátét<strong><br>Anyag:</strong> Magas hőmérsékletnek ellenálló<strong><br>Szín:</strong> Szervizkék<strong><br>Funkció:</strong> Hővédelem, rendezés, csúszásgátlás<strong><br>Tulajdonságok:</strong> Vegyszerálló, könnyen tisztítható<strong><br>Felhasználás:</strong> Elektronikai javítás, forrasztás, mobiltelefon-szerelés<strong><br>Előnyök:</strong> Megnövelt munkaterület, rendszerező rekeszek</p>
+<h2>509-es méretű kék hőálló szilikon szerelőalátét</h2>
+<p>A profi elektronikai szervizmunka egyik legfontosabb eszköze a megfelelő munkafelület. Az <strong>509-es hőálló szilikon szerelőalátét</strong> nem csupán megvédi az asztalodat a forrasztási műveletek közbeni sérülésektől, de rendszerezett munkakörnyezetet is biztosít. A különleges szilikon alapanyag kiemelkedően ellenáll a hőnek, így a forrasztópáka véletlen érintése sem tesz kárt benne, emellett antisztatikus tulajdonságokkal is bír, ami elengedhetetlen az érzékeny alkatrészek biztonságos javításához.</p>
+<h3>Gyakran Ismételt Kérdések (GYIK)</h3>
+<p><strong>Milyen magas hőmérsékletet bír el ez az alátét?</strong> Az alátétet kifejezetten elektronikai forrasztási hőmérsékletekhez tervezték, így rövid távon gond nélkül elviseli a 400-500°C körüli hőterhelést is.</p>
+<p><strong>Csúszkálnak rajta az apró alkatrészek?</strong> Nem, a szilikon felület természetes tapadása meggátolja az alkatrészek elcsúszását, a beépített rekeszek pedig segítenek a csavarok és apró komponensek szétválogatásában.</p>
+<p><strong>Könnyű tisztítani?</strong> Igen, a felület taszítja a legtöbb vegyszert és a forrasztóónt. Ha ráfolyik a folyasztószer (flux) vagy az ón, egy egyszerű ronggyal vagy izopropil-alkohollal könnyedén letörölhető.</p>
+<p><strong>Használható-e hőlégfúvós munkákhoz?</strong> Mivel az alátét hőálló, kiváló felületet biztosít hőlégfúvós kiforrasztáshoz is, mivel megvédi az asztallapot a hősugárzástól.</p>
+<h3>Konkrét példa a használatra</h3>
+<p>Tegyük fel, hogy egy <strong>okostelefon kijelzőcseréjét</strong> végzed, ahol rengeteg apró csavarral és törékeny szalagkábellel kell dolgoznod. A szétszerelés során a csavarokat a szilikon alátét <strong>számozott vagy különálló rekeszeibe</strong> helyezheted, így garantáltan nem keverednek el. Mivel az alátét nagy felületű és hőálló, a hőlégfúvót közvetlenül a szerelőalátéten használhatod a kijelző ragasztójának melegítésére anélkül, hogy megégetnéd a munkapadot vagy károsítanád az alkatrészeket. A szilikon felület ráadásul megakadályozza, hogy az alkatrészek elpattanjanak vagy elguruljanak.</p>",Modulshop,,Egyéb,Szerszámok,TRUE,Title,Default Title,YXS2299,,shopify,2,deny,manual,750,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/menu/alatet_2.jpeg,1,Kék hőálló szilikon szerelőalátét,Kék hőálló szilikon szerelőalátét,"509-es méretű kék hőálló szilikon szerelőalátét. Védd az asztalod forrasztás közben! ESD-biztos, rendezett felület szervizeléshez. Rendelj a Modulshoptól!",active
+modulshophu509-es-kek-hoallo-szilikon-szereloalatet,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/menu/alatet_1.jpg,2,Kék hőálló szilikon szerelőalátét,,,
+modulshophu509-es-kek-hoallo-szilikon-szereloalatet,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/menu/alatet_2.jpg,3,Kék hőálló szilikon szerelőalátét,,,
+femhazas-onszippanto,Fémházas ónszippantó,"<p>Méret: 190x20mm</p>
+<p>Alumínium test</p>",Modulshop,,Egyéb,Szerszámok,TRUE,Title,Default Title,12-2-4,,shopify,57,deny,manual,700,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/14-Szerszamok/14-2-3_onszipanto-1.jpg,1,Fémházas ónszippantó,Fémházas ónszippantó - Modulshop,,active
+femhazas-onszippanto,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/14-Szerszamok/14-2-3_onszipanto-2.jpg,2,Fémházas ónszippantó,,,
+femhazas-onszippanto,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/14-Szerszamok/14-2-3_onszipanto-3.jpg,3,Fémházas ónszippantó,,,
+femhazas-onszippanto,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/14-Szerszamok/14-2-3_onszipanto-4.jpg,4,Fémházas ónszippantó,,,
+probapanelbreadboard-jumper-vezetekek-65-db,Próbapanel/breadboard jumper vezetékek /65 db,"<p><strong>Próbapanel/breadboard jumper vezetékek /65 db</strong></p>
+<ul>
+<li>1LOT = 65PCS 65 tesztvonal teljes hossza:</li>
+<li>24 cm (a tűrésszel együtt)</li>
+<li>20 cm (a tűrésszel együtt)</li>
+<li>16 cm (a tűrésszel együtt)</li>
+<li>12 cm (a tűrésszel együtt)</li>
+</ul>",Modulshop,,Elektronika,Kapcsolók / csatlakozók / vezetékek,TRUE,Title,Default Title,9-1-16,,shopify,116,deny,manual,700,,TRUE,TRUE,5999572383725,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/09%20Egy%C3%A9b/9-1-15186480915_377505140255958_8558796665788142321_n.png,1,Próbapanel/breadboard jumper vezetékek /65 db,Próbapanel/breadboard jumper vezetékek /65 db,Próbapanel/breadboard jumper vezetékek /65 db - 1LOT = 65PCS 65 tesztvonal teljes hossza: - 24 cm (a tűrésszel együtt) - 20 cm (a tűrésszel együtt) - 16 cm (a tűrésszel együtt) - 12 cm (a tűrésszel együtt),active
+probapanelbreadboard-jumper-vezetekek-65-db,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/09%20Egy%C3%A9b/9-1-15186480915_377505140255958_8558796665788142321_n_2.png,2,Próbapanel/breadboard jumper vezetékek /65 db,,,
+probapanelbreadboard-jumper-vezetekek-65-db,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/09%20Egy%C3%A9b/187018000_170231651680812_2481735677109798353_n_2.png,3,Próbapanel/breadboard jumper vezetékek /65 db,,,
+ellenallas-1k-ohm-14w-metal-film-10-db,Ellenállás 1k ohm 1/4W metal film / 10 db,"<ul>
+<li>Kivitel: Metal film</li>
+<li>Ellenállás: 1k Ω</li>
+<li>Terhelhetőség: 1/4 W</li>
+<li>Tolerancia: 1%</li>
+</ul>
+<p><strong>Ellenállás 1k ohm 1/4W metal film / 10 db</strong></p>
+<ul>
+<li>Ellenállás: 1k Ω</li>
+<li>Terhelhetőség: 1/4 W</li>
+<li>Tolerancia: 1%</li>
+<li>Hossz: 52 mm</li>
+<li>Átmérő: 3.5 mm</li>
+<li>Méret: (Ø x H) 3.5 mm x 52 mm</li>
+<li>RoHS konform: Igen</li>
+</ul>",Modulshop,,Elektronika,Ellenállások / potméterek,TRUE,Title,Default Title,10-4-18,,shopify,60,deny,manual,50,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/10%20Elektronika/04-ellen%C3%A1l%C3%A1sok%2Cpotik/Ellenallas0-25W.jpg,1,Ellenálás 1K 1/4W 1%,Ellenállás 1k ohm 1/4W metal film / 10 db,"Ellenállás 1k ohm 1/4W metal film / 10 db -Ellenállás: 1k Ω -Terhelhetőség: 0,25 W -Tolerancia: 1% -Hossz: 52 mm -Átmérő: 3.5 mm -RoHS konform: Igen - Modulshop elektronikai webáruház",active
+ellenallas-1k-ohm-14w-metal-film-10-db,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/10%20Elektronika/186629920_678677596258492_7367158338602964193_n.png,2,Ellenálás 1K 1/4W 1%,,,
+ne555cd4017-piros-kek-led-villogo-forrasztokeszlet-912-v,NE555–CD4017 piros-kék LED villogó forrasztókészlet – 9–12 V,"<h2>NE555–CD4017 piros-kék LED villogó forrasztókészlet – 9–12 V</h2>
+<p>Az <strong>NE555 és CD4017 IC-kre épülő LED villogó forrasztókészlet</strong> összesen <strong>24 db, 5 mm-es LED-del</strong> rendelkezik: 12 piros és 12 kék LED-del. Az áramkör a két színű LED-csoportokat meghatározott sorrendben villogtatja, ezzel figyelemfelkeltő, jelzőfényhez hasonló fényhatást hoz létre.</p>
+<p>Az NE555 időzítő állítja elő az órajelet, amelyet a <strong>CD4017 számláló</strong> dolgoz fel. Az <strong>RP1 állítható ellenállással a villogás sebessége módosítható</strong>. Az áramkör <strong>9–12 V DC</strong> tápfeszültségről működtethető.</p>
+<h2>Állítható a LED-ek villogási sebessége?</h2>
+<p>Igen. Az <strong>RP1 állítható ellenállás</strong> segítségével változtatható az oszcilláció periódusa, ezáltal a piros és kék LED-ek villogási sebessége.</p>
+<h2>Hány LED-et tartalmaz a készlet?</h2>
+<p>A készlet összesen <strong>24 db 5 mm-es LED-et</strong> tartalmaz:</p>
+<ul>
+<li>12 db kék LED</li>
+<li>12 db piros LED</li>
+</ul>
+<h2>Fontosabb paraméterek</h2>
+<ul>
+<li><strong>Típus:</strong> LED villogó forrasztókészlet</li>
+<li><strong>Tápfeszültség:</strong> 9–12 V DC</li>
+<li><strong>LED-ek száma:</strong> 24 db</li>
+<li><strong>Kék LED:</strong> 12 db, 5 mm</li>
+<li><strong>Piros LED:</strong> 12 db, 5 mm</li>
+<li><strong>Időzítő IC:</strong> NE555, DIP-8</li>
+<li><strong>Számláló IC:</strong> CD4017, DIP-16</li>
+<li><strong>Tranzisztor:</strong> 2 db S8050</li>
+<li><strong>Dióda:</strong> 6 db 1N4148</li>
+<li><strong>10 kΩ-os ellenállás:</strong> 3 db</li>
+<li><strong>10–100 Ω-os ellenállás:</strong> 2 db</li>
+<li><strong>Állítható ellenállás (RP1):</strong> 200 kΩ–1 MΩ</li>
+<li><strong>Elektrolit kondenzátor (C1):</strong> 0,1–1 µF</li>
+<li><strong>Kerámia kondenzátor (C2):</strong> 0,01 µF (103)</li>
+<li><strong>Villogási sebesség:</strong> állítható</li>
+<li><strong>NYÁK:</strong> 1 db</li>
+<li><strong>IC-foglalat:</strong> nem tartozék; az IC-k közvetlenül a NYÁK-ra forraszthatók</li>
+</ul>",Modulshop,,D.I.Y. Készletek,,TRUE,Title,Default Title,15-1-13,,shopify,1,deny,manual,700,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/2026-Q3/15-1-13-2.png,1,NE555–CD4017 piros-kék LED villogó forrasztókészlet – 9–12 V,NE555–CD4017 piros-kék LED villogó forrasztókészlet – 9–12 V 700 Ft,"NE555–CD4017 LED villogó forrasztókészlet 12 piros és 12 kék LED-del, állítható villogási sebességgel és 9–12 V DC tápellátással.",active
+ne555cd4017-piros-kek-led-villogo-forrasztokeszlet-912-v,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/2026-Q3/15-1-13-1.png,2,NE555–CD4017 piros-kék LED villogó forrasztókészlet – 9–12 V,,,
+ne555cd4017-piros-kek-led-villogo-forrasztokeszlet-912-v,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/2026-Q3/15-1-13-3.png,3,NE555–CD4017 piros-kék LED villogó forrasztókészlet – 9–12 V,,,
+led-panel-8-db-leddel-5v-micro-usb,"Led panel 8 db leddel, 5V micro usb","<p><strong>LED típus:</strong> 5730 SMD fehér LED<br><strong>Tápfeszültség:</strong> 5V DC<br><strong>Üzemi áram:</strong> kb. 430–470 mA<br><strong>Teljesítmény:</strong> ~2–2,5 W<br><strong>Hordozó:</strong> alumínium PCB<br><strong>Táp csatlakozó:</strong> Micro USB<br>Előtét ellenállás : a panelon</p>
+<h2>5V 5730 SMD LED világító panel – Micro USB-s, nagy fényerejű, alu hordozón, 8 / 12 / 16 / 20 LED-es kivitelben</h2>
+<p>Ez a <strong>5V-os 5730 SMD LED világító panel család</strong> kifejezetten <strong>nagy fényerőre és jó hőelvezetésre</strong> lett tervezve. A panelek <strong>alumínium hordozóra</strong> épülnek, <strong>Micro USB csatlakozóval</strong> rendelkeznek, így egyszerűen táplálhatók <strong>mobiltelefon-töltőről, power bankról vagy bármilyen 5V-os tápegységről</strong>.</p>
+<p>A beállított üzemi áram <strong>kb. 430–470 mA</strong>, ami <strong>nagyon erős, homogén fényt</strong> ad, miközben a gondosan kialakított hőtervezésnek köszönhetően a panel hőmérséklete üzemszerűen nem lesz túl magas. A <strong>nagy méretű 1210-es áramkorlátozó ellenállás</strong> megbízhatóbb és tartósabb megoldás a tipikus, apró 0805-ös ellenállásokhoz képest (mint sok gyenge minőségű éjszakai fényben).</p>
+<p>4 panelváltozat érhető el:</p>
+<ul>
+<li><strong>8 LED-es panel</strong></li>
+<li><strong>12 LED-es panel</strong></li>
+<li><strong>16 LED-es panel</strong></li>
+<li><strong>20 LED-es panel</strong></li>
+</ul>
+<p>Mindegyik panel <strong>hidegfehér / fehér fényű 5730 SMD LED-ekkel</strong> szerelt, amelyek magas fényáramot és jó hatásfokot biztosítanak.</p>
+<h2>Műszaki jellemzők</h2>
+<ul>
+<li><strong>LED típus:</strong> 5730 SMD fehér LED</li>
+<li><strong>Tápfeszültség:</strong> 5V DC</li>
+<li><strong>Üzemi áram:</strong> kb. 430–470 mA</li>
+<li><strong>Teljesítmény:</strong> ~2–2,5 W körüli tartomány (változattól és áramtól függően)</li>
+<li><strong>Hordozó:</strong> alumínium PCB – jó hővezetés, stabil működés</li>
+<li><strong>Táp csatlakozó:</strong> Micro USB</li>
+<li><strong>Áramkorlátozás:</strong> 1210-es nagyméretű SMD ellenállás(ok)</li>
+<li><strong>Panelvariánsok:</strong> 8 / 12 / 16 / 20 LED</li>
+<li><strong>Fény:</strong> fehér (olvasó-/munkafénynek is alkalmas)</li>
+</ul>
+<h2>Mire használható ez az 5V-os 5730 LED panel?</h2>
+<p>Nagyon sokféle felhasználás lehetséges, például:</p>
+<ul>
+<li><strong>USB-s olvasólámpa</strong></li>
+<li><strong>munkalámpa</strong> elektronikához, 3D nyomtatóhoz, PChez</li>
+<li><strong>szekrényvilágítás</strong>, konyhapult vagy műhelypult megvilágítása</li>
+<li><strong>power bank-os „tábori lámpa”</strong> (camping, kirándulás)</li>
+<li><strong>fényképezéshez kiegészítő LED fény</strong> (DIY light panel)</li>
+<li><strong>Arduino / ESP32 projektekben</strong> külső világítás, állapot- vagy munkafény</li>
+</ul>
+<h3>Mivel tudom megtáplálni?</h3>
+<p>Bármi, ami <strong>stabil 5V-ot</strong> ad és legalább <strong>0,5 A</strong> áramot tud:</p>
+<ul>
+<li>USB <strong>telefon töltő</strong> (5V, 1A vagy nagyobb)</li>
+<li><strong>power bank</strong> (USB 5V)</li>
+<li>labor táp 5V-ra állítva</li>
+<li>USB-s DC-DC step-up/step-down modul</li>
+</ul>
+<p>Elméletben Arduino 5V kimenetére is ráköthető, de:<strong><br>Nem ajánlott</strong>, mert az Arduino 5V tápja általában max. 500 mA körüli tartományban biztonságos teljes rendszerre.<br>A panel <strong>430–470 mA-t</strong> igényel – ezért jobb <strong>külön 5V tápról hajtani</strong>, és csak a GND-t közösíteni az Arduino-val/ESP32-vel.</p>
+<h3>Hogyan használhatom Arduino vagy ESP32 vezérléssel?</h3>
+<p>A panel <strong>fixen világít</strong>, ha 5V-ot kap. Ha szeretnéd:</p>
+<ul>
+<li><strong>be-/kikapcsolni</strong></li>
+<li><strong>fényerőt szabályozni (PWM dimmelés)</strong></li>
+</ul>
+<p>akkor:</p>
+<ol>
+<li>A LED panel +5V-ja mehet a táp +5V-ra.</li>
+<li>A LED panel GND-je menjen egy <strong>N-MOSFET / NPN tranzisztoron</strong> keresztül GND-re.</li>
+<li>Arduino/ESP32 PWM kimenetéről vezéreld a MOSFET gate-jét / tranzisztor bázisát.</li>
+</ol>
+<p>Így:</p>
+<ul>
+<li>szoftverből döntöd el, mikor és milyen erősen világítson,</li>
+<li>akár <strong>automatikus fényerő</strong>, időzített világítás, szenzor alapú kapcsolás is megoldható (pl. mozgásérzékelő, fényérzékelő, ajtónyitó kapcsoló).</li>
+</ul>
+<h3>Mennyire melegszik?</h3>
+<ul>
+<li>A panel <strong>alumínium hordozón</strong> van, ami kifejezetten jó hővezetésű,</li>
+<li>a viszonylag nagy áram (430–470 mA) miatt a LED-ek erős fényerővel világítanak, de</li>
+<li>a hőtervezés úgy készült, hogy a <strong>hőmérséklet üzemszerűen ne legyen túl magas</strong>.</li>
+</ul>
+<p>Ha zárt helyre építed, érdemes:</p>
+<ul>
+<li>minimális szellőzést biztosítani,</li>
+<li>vagy a panel hátlapját fémtárgyra (pl. alu profil) rögzíteni, hogy a hő jobban eloszoljon.</li>
+</ul>
+<h3>Mekkora fényerőt ad?</h3>
+<p>Konkrét lumen érték típustól függ, de a 5730 SMD LED:</p>
+<ul>
+<li>jó hatásfokú,</li>
+<li>tipikusan <strong>nagyon erős, fehér fényt</strong> ad a hasonló méretű 3528/5050 LED-ekhez képest is.</li>
+</ul>
+<p>Az <strong>8 LED-es panel</strong> már alkalmas olvasáshoz vagy kisebb terület bevilágításához, a <strong>16–20 LED-es</strong> változat pedig kifejezetten erős munkafény is lehet egy asztal fölött vagy belső világításként.</p>
+<h3>Falra / bútorra is rögzíthető?</h3>
+<p>Igen. A panel:</p>
+<ul>
+<li>könnyű,</li>
+<li>kis méretű,</li>
+<li>hátoldalára ragaszthatsz <strong>kétoldalas ragasztószalagot</strong>,</li>
+<li>vagy apró csavarokkal, pötty epoxival/barkácsragasztóval rögzíthető.</li>
+</ul>
+<h3>Miért jobb ez a panel, mint egy olcsó „USB LED pálcika”?</h3>
+<ul>
+<li><strong>Jobb hőelvezetés</strong> (alu panel) → hosszabb élettartam</li>
+<li><strong>Nagyobb LED-ek (5730)</strong> → nagyobb fényáram</li>
+<li><strong>1210-es áramkorlátozó ellenállás</strong> → jobban bírja a hőterhelést</li>
+<li>Stabil, tartós építési minőség, nem „eldobható” kategória.</li>
+</ul>
+<h2>Konkrét felhasználási példa – Power bankos műhelyvilágítás ESP32-vel</h2>
+<p><strong>Feladat:</strong><br>Szeretnél egy hordozható, power bankról működő „okos” műhelyvilágítást, amit ESP32 vezérel (pl. auto-kikapcsolás, WiFi-s kapcsoló, fényerő állítás).</p>
+<p><strong>Megoldás:</strong></p>
+<ol>
+<li>Power bank → 5V → LED panel Micro USB bemenet</li>
+<li>LED panel GND-jét megszakítod egy N-MOSFET-tel, amit az ESP32 GPIO-ja vezérel.</li>
+<li><p>ESP32:</p>
+<ul>
+<li>mozgásérzékelőt figyel (PIR),</li>
+<li>ha jelenlét van, bekapcsolja a panelt,</li>
+<li>PWM-mel állítja a fényerőt (pl. 50% éjszakai mód, 100% munkamód).</li>
+</ul>
+</li>
+</ol>
+<p>Eredmény: <strong>okos, hordozható, energiatakarékos LED világítás</strong>, minimális alkatrészigénnyel.</p>
+<h2>Termékösszefoglaló</h2>
+<ul>
+<li>5V-os <strong>LED világító panel 5730 SMD LED-ekkel</strong>, Micro USB bemenettel</li>
+<li>4 féle panel: 8 / 12 / 16 / 20 LED</li>
+<li>Üzemi áram: ~430–470 mA, magas fényerő</li>
+<li>Alumínium hordozó a jobb hőelvezetésért</li>
+<li>Nagy méretű 1210 SMD áramkorlátozó ellenállás</li>
+<li>Egyszerűen használható mobil töltővel, power bankkal</li>
+<li>Arduino / ESP32 projektekhez könnyen integrálható (MOSFET-tel kapcsolva, dimmelve)</li>
+</ul>",Modulshop,,Led világítás,,TRUE,Title,Default Title,12-1-40,,shopify,22,deny,manual,300,,TRUE,TRUE,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/12_Led/123-1-40_8led.webp,1,LED panel / 8 db-os,"Led panel 8 db leddel, 5V micro usb","5V-os 5730 SMD LED panel Micro USB csatlakozóval, alu hordozón, 8/12/16/20 LED-es kivitelben. Nagy fényerő, 430–470mA, power bankhoz.",active
+led-panel-8-db-leddel-5v-micro-usb,,,,,,,,,,,,,,,,,,,,,https://modulshop.cdn.shoprenter.hu/custom/modulshop/image/data/product/12_Led/12-1-40_8led-2.webp,2,"Led panel 8 db leddel, 5V micro usb",,,

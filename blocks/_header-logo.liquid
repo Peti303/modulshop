@@ -55,6 +55,11 @@
     {% endif %}
     data-testid="header-logo"
   >
+    {%- if settings.logo == blank -%}
+      {%- comment -%} Modulshop: built-in brand logo with a dark-mode variant {%- endcomment -%}
+      <img src="{{ 'ms-logo.png' | asset_url }}" alt="{{ shop.name | escape }}" width="510" height="112" class="ms-header-logo ms-logo-light" fetchpriority="high">
+      <img src="{{ 'ms-logo-dark.png' | asset_url }}" alt="{{ shop.name | escape }}" width="510" height="112" class="ms-header-logo ms-logo-dark">
+    {%- else -%}
     {% render 'image',
       image: settings.logo,
       class: 'header-logo__image',
@@ -63,6 +68,7 @@
       text_fallback: shop.name,
       style: logo_style
     %}
+    {%- endif -%}
   </span>
 
   {% if use_inverse_logo %}

@@ -1,0 +1,180 @@
+{%- comment -%} Modulshop – valódi vélemények: összesítő + rács (nem körhinta) {%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign summaries = section.blocks | where: 'type', 'summary'
+  assign reviews = section.blocks | where: 'type', 'review'
+  assign main = summaries.first
+-%}
+<section class="ms-section ms-reviews" aria-labelledby="ms-rev-{{ section.id }}">
+  <div class="ms-container">
+    <div class="ms-reviews__grid">
+      <div class="ms-reviews__head">
+        <h2 id="ms-rev-{{ section.id }}" class="ms-heading">{{ s.title | escape }}</h2>
+        {%- if main != blank -%}
+          {%- assign parts = main.settings.score | split: '/' -%}
+          <p class="ms-reviews__score" {{ main.shopify_attributes }}>
+            <span class="ms-reviews__num">{{ parts.first | strip | escape }}</span>
+            {%- if parts.size > 1 -%}<span class="ms-reviews__of">/ {{ parts.last | strip | escape }}</span>{%- endif -%}
+          </p>
+        {%- endif -%}
+        <ul class="ms-reviews__sources" role="list">
+          {%- for block in summaries -%}
+            <li {% unless forloop.first %}{{ block.shopify_attributes }}{% endunless %}>
+              {%- unless forloop.first -%}<strong class="ms-mono">{{ block.settings.score | escape }}</strong> · {% endunless -%}
+              {%- if block.settings.url != blank -%}
+                <a href="{{ block.settings.url }}" target="_blank" rel="noopener">{{ block.settings.label | escape }}</a>
+              {%- else -%}
+                {{ block.settings.label | escape }}
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+        {%- if s.text != blank -%}<p class="ms-reviews__note">{{ s.text | escape }}</p>{%- endif -%}
+      </div>
+      {%- for block in reviews limit: s.limit -%}
+        {%- assign r = block.settings -%}
+        <figure class="ms-panel ms-reviews__card ms-reveal" style="transition-delay: {{ forloop.index0 | times: 70 }}ms" {{ block.shopify_attributes }}>
+          <blockquote>„{{ r.text | escape }}”</blockquote>
+          <figcaption>
+            <span class="ms-reviews__who">
+              <strong>{{ r.author | escape }}</strong>
+              <span>
+                {%- if r.source_url != blank -%}
+                  <a href="{{ r.source_url }}" target="_blank" rel="noopener">{{ r.source | escape }}</a>
+                {%- else -%}
+                  {{ r.source | escape }}
+                {%- endif -%}
+                {%- if r.verified %} · igazolt vásárlás{% endif -%}
+                {%- if r.date != blank %} · {{ r.date | escape }}{% endif -%}
+              </span>
+            </span>
+            {%- if r.rating_label != blank -%}<span class="ms-mono ms-reviews__badge">{{ r.rating_label | escape }}</span>{%- endif -%}
+          </figcaption>
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 20px;
+    align-items: stretch;
+  }
+  .ms-reviews__head {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 8px 12px 8px 0;
+  }
+  .ms-reviews__score {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0;
+  }
+  .ms-reviews__num {
+    font-family: var(--ms-font-display);
+    font-weight: 800;
+    font-size: 76px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .ms-reviews__of {
+    font-size: 20px;
+    color: var(--ms-text-muted);
+  }
+  .ms-reviews__sources {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--ms-text-muted);
+  }
+  .ms-reviews__sources a,
+  .ms-reviews__who a {
+    color: var(--ms-link);
+    text-underline-offset: 3px;
+  }
+  .ms-reviews__note {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ms-text-muted);
+  }
+  .ms-reviews__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 0;
+    padding: 26px;
+  }
+  .ms-reviews__card blockquote {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .ms-reviews__card figcaption {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .ms-reviews__who {
+    display: flex;
+    flex-direction: column;
+  }
+  .ms-reviews__who > span {
+    color: var(--ms-text-muted);
+  }
+  .ms-reviews__badge {
+    flex: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: var(--ms-cta);
+    color: var(--ms-on-cta);
+    font-weight: 700;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · vélemények",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Cím", "default": "Akik már rendeltek" },
+    { "type": "text", "id": "text", "label": "Megjegyzés az összesítő alatt" },
+    { "type": "range", "id": "limit", "label": "Megjelenő vélemények száma", "min": 2, "max": 8, "step": 1, "default": 3 }
+  ],
+  "blocks": [
+    {
+      "type": "summary",
+      "name": "Értékelés-összesítő",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "score", "label": "Pontszám", "info": "Az első összesítő nagy számként jelenik meg. Pl. 9,6/10", "default": "9,6/10" },
+        { "type": "text", "id": "label", "label": "Felirat", "default": "447 értékelés az Onlinepénztárcán" },
+        { "type": "text", "id": "url", "label": "Forrás linkje" }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Vélemény",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Vélemény (szó szerint)" },
+        { "type": "text", "id": "author", "label": "Szerző" },
+        { "type": "text", "id": "rating_label", "label": "Értékelés", "info": "Pl. 10/10 vagy 5/5", "default": "5/5" },
+        { "type": "text", "id": "source", "label": "Forrás neve" },
+        { "type": "text", "id": "source_url", "label": "Forrás linkje" },
+        { "type": "text", "id": "date", "label": "Dátum" },
+        { "type": "checkbox", "id": "verified", "label": "Igazolt vásárlás", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "MS · vélemények" }]
+}
+{% endschema %}

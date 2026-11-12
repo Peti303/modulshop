@@ -1,0 +1,359 @@
+{%- comment -%} Modulshop – nyitó: sötét sáv címmel, gombokkal és váltakozó termékekkel {%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign slides = section.blocks | where: 'type', 'product'
+  assign chips = section.blocks | where: 'type', 'chip'
+-%}
+<section class="ms-hero-wrap ms-container" aria-labelledby="ms-hero-{{ section.id }}">
+  <div class="ms-band ms-hero" data-ms-glow>
+    <div class="ms-band__glow" aria-hidden="true"></div>
+    <div class="ms-hero__grid">
+      <div class="ms-hero__copy">
+        <h1 id="ms-hero-{{ section.id }}" class="ms-hero__title">{{ s.title | escape }}</h1>
+        {%- if s.text != blank -%}<p class="ms-hero__text">{{ s.text | escape }}</p>{%- endif -%}
+        <div class="ms-hero__actions">
+          {%- if s.button_label != blank -%}
+            <a class="ms-btn ms-btn--big" href="{{ s.button_link | default: routes.all_products_collection_url }}">{{ s.button_label | escape }}</a>
+          {%- endif -%}
+          {%- if s.button2_label != blank -%}
+            <a class="ms-btn ms-btn--big ms-btn--sec" href="{{ s.button2_link | default: '#' }}">{{ s.button2_label | escape }}</a>
+          {%- endif -%}
+        </div>
+        {%- if chips.size > 0 -%}
+          <div class="ms-hero__chips">
+            {%- if s.chips_label != blank -%}<span class="ms-hero__chips-label">{{ s.chips_label | escape }}</span>{%- endif -%}
+            {%- for block in chips -%}
+              <a class="ms-hero__chip" href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</a>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if slides.size > 0 -%}
+        <ms-stage class="ms-stage" data-interval="{{ s.interval | times: 1000 }}">
+          <div class="ms-stage__box">
+            {%- for block in slides -%}
+              {%- liquid
+                assign b = block.settings
+                assign p = b.product
+                assign v = p.selected_or_first_available_variant
+                assign title = b.title
+                assign href = b.link
+                assign sku = b.sku
+                assign price = b.price
+                assign stock = b.stock
+                assign led = 'ok'
+                if p != blank
+                  assign title = p.title
+                  assign href = p.url
+                  assign sku = v.sku
+                  assign price = p.price | money_without_trailing_zeros
+                  if p.available == false
+                    assign led = 'off'
+                    assign stock = 'Elfogyott'
+                  elsif v.inventory_management == 'shopify' and v.inventory_quantity > 0
+                    assign stock = v.inventory_quantity | append: ' db raktáron'
+                  else
+                    assign stock = 'Raktáron'
+                  endif
+                endif
+              -%}
+              <article class="ms-stage__slide{% if forloop.first %} is-on{% endif %}" data-slide {{ block.shopify_attributes }}>
+                <a class="ms-ph ms-stage__ph" href="{{ href | default: '#' }}" tabindex="-1" aria-hidden="true">
+                  {%- if p.featured_image != blank -%}
+                    {{ p.featured_image | image_url: width: 900 | image_tag: loading: 'eager', alt: '', sizes: '(min-width: 990px) 560px, 90vw' }}
+                  {%- elsif b.image != blank -%}
+                    {{ b.image | image_url: width: 900 | image_tag: loading: 'eager', alt: '', sizes: '(min-width: 990px) 560px, 90vw' }}
+                  {%- elsif b.asset_image != blank -%}
+                    <img src="{{ b.asset_image | asset_url }}" alt="" width="480" height="480">
+                  {%- endif -%}
+                </a>
+                <div class="ms-stage__info">
+                  <div class="ms-stage__meta">
+                    {%- if stock != blank -%}
+                      <span class="ms-stock ms-stock--{{ led }}"><span class="ms-led ms-led--{{ led }}" aria-hidden="true"></span>{{ stock | escape }}</span>
+                    {%- endif -%}
+                    <a class="ms-stage__name" href="{{ href | default: '#' }}">{{ title | escape }}</a>
+                    {%- if sku != blank -%}<span class="ms-sku">Cikkszám: {{ sku | escape }}</span>{%- endif -%}
+                  </div>
+                  <div class="ms-stage__buy">
+                    {%- if price != blank -%}<span class="ms-price ms-stage__price">{{ price }}</span>{%- endif -%}
+                    <a class="ms-btn" href="{{ href | default: '#' }}">{{ s.slide_button | escape }}</a>
+                  </div>
+                </div>
+              </article>
+            {%- endfor -%}
+          </div>
+          {%- if slides.size > 1 -%}
+            <div class="ms-stage__ticks">
+              {%- for block in slides -%}
+                <button type="button" class="ms-stage__tick{% if forloop.first %} is-on{% endif %}" data-tick aria-label="{{ forloop.index }}. termék"><span></span></button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </ms-stage>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .ms-hero-wrap {
+    padding-top: 20px;
+  }
+  .ms-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: 48px;
+    align-items: center;
+    padding: clamp(28px, 4.5vw, 64px) clamp(18px, 4vw, 56px);
+  }
+  .ms-hero__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .ms-hero__copy > * {
+    animation: ms-rise 0.9s var(--ms-ease) both;
+  }
+  .ms-hero__copy > :nth-child(2) { animation-delay: 0.08s; }
+  .ms-hero__copy > :nth-child(3) { animation-delay: 0.16s; }
+  .ms-hero__copy > :nth-child(4) { animation-delay: 0.24s; }
+  .ms-hero__title {
+    margin: 0;
+    font-family: var(--ms-font-display);
+    font-weight: 800;
+    font-size: clamp(38px, 5.1vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ms-hero-ink);
+    text-wrap: balance;
+  }
+  .ms-hero__text {
+    margin: 0;
+    max-width: 44ch;
+    font-size: clamp(17px, 1.4vw, 19px);
+    line-height: 1.5;
+    color: var(--ms-hero-muted);
+  }
+  .ms-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .ms-hero__chips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding-top: 8px;
+  }
+  .ms-hero__chips-label {
+    margin-right: 4px;
+    font-size: 14px;
+    color: var(--ms-hero-muted);
+  }
+  .ms-hero__chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1.5px solid var(--ms-hero-line);
+    border-radius: 22px;
+    color: var(--ms-hero-ink);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .ms-hero__chip:hover {
+    background: var(--ms-cta);
+    border-color: var(--ms-cta);
+    color: var(--ms-on-cta);
+    transform: translateY(-2px);
+  }
+  .ms-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    animation: ms-rise 0.9s 0.34s var(--ms-ease) both;
+  }
+  .ms-stage__box {
+    position: relative;
+    min-height: 430px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--ms-card);
+    color: var(--ms-text);
+  }
+  .ms-stage__slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+    transition: opacity 0.55s ease, transform 0.7s var(--ms-ease);
+    pointer-events: none;
+  }
+  .ms-stage__slide.is-on {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  .ms-stage__ph {
+    flex: 1;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+  .ms-stage__ph img {
+    transition: transform 5s ease-out;
+  }
+  .ms-stage__slide.is-on .ms-stage__ph img {
+    transform: scale(1.08);
+  }
+  .ms-stage__info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px 20px;
+    padding: 18px 22px 22px;
+  }
+  .ms-stage__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1 1 220px;
+    min-width: 0;
+  }
+  .ms-stage__name {
+    font-family: var(--ms-font-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--ms-text);
+    text-decoration: none;
+  }
+  .ms-stage__buy {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .ms-stage__price {
+    font-size: 28px;
+  }
+  .ms-stage__ticks {
+    display: flex;
+    gap: 8px;
+  }
+  .ms-stage__tick {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .ms-stage__tick span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 4px;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--ms-hero-line);
+  }
+  .ms-stage__tick span::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--ms-cta);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .ms-stage__tick.is-on span::after {
+    animation: ms-fill 5s linear forwards;
+  }
+  .ms-stage.is-paused .ms-stage__tick.is-on span::after {
+    animation: none;
+    transform: scaleX(1);
+  }
+  @media (max-width: 989px) {
+    .ms-hero__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+    }
+  }
+  @media (max-width: 749px) {
+    .ms-hero {
+      border-radius: 18px;
+    }
+    .ms-stage__box {
+      min-height: 400px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ms-hero__copy > *,
+    .ms-stage {
+      animation: none;
+    }
+    .ms-stage__slide,
+    .ms-stage__ph img {
+      transition: none;
+    }
+    .ms-stage__tick.is-on span::after {
+      animation: none;
+      transform: scaleX(1);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "MS · nyitó",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Főcím", "default": "Ami a projektedhez kell, raktáron van." },
+    { "type": "textarea", "id": "text", "label": "Szöveg" },
+    { "type": "text", "id": "button_label", "label": "Elsődleges gomb", "default": "Kategóriák böngészése" },
+    { "type": "text", "id": "button_link", "label": "Elsődleges gomb linkje", "info": "Pl. /collections/all vagy teljes webcím" },
+    { "type": "text", "id": "button2_label", "label": "Másodlagos gomb" },
+    { "type": "text", "id": "button2_link", "label": "Másodlagos gomb linkje", "info": "Pl. /pages/kapcsolat vagy teljes webcím" },
+    { "type": "text", "id": "chips_label", "label": "Gyorslinkek előtti felirat", "default": "Gyorskeresés:" },
+    { "type": "header", "content": "Termékváltó" },
+    { "type": "range", "id": "interval", "label": "Váltás ideje", "min": 3, "max": 10, "step": 1, "unit": "mp", "default": 5 },
+    { "type": "text", "id": "slide_button", "label": "Gomb felirata a terméknél", "default": "Megnézem" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Termék",
+      "limit": 6,
+      "settings": [
+        { "type": "product", "id": "product", "label": "Termék", "info": "Ha ki van választva, a név, az ár, a készlet és a kép a termékből jön." },
+        { "type": "header", "content": "Kézi adatok (ha nincs termék kiválasztva)" },
+        { "type": "text", "id": "title", "label": "Név" },
+        { "type": "text", "id": "sku", "label": "Cikkszám" },
+        { "type": "text", "id": "price", "label": "Ár", "info": "Pl. 1 900 Ft" },
+        { "type": "text", "id": "stock", "label": "Készlet szövege", "info": "Pl. 37 db raktáron" },
+        { "type": "text", "id": "link", "label": "Link", "info": "Pl. /products/termek-neve vagy teljes webcím" },
+        { "type": "image_picker", "id": "image", "label": "Kép" },
+        { "type": "text", "id": "asset_image", "label": "Beépített kép (fájlnév)" }
+      ]
+    },
+    {
+      "type": "chip",
+      "name": "Gyorslink",
+      "limit": 8,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Felirat", "default": "ESP32" },
+        { "type": "text", "id": "link", "label": "Link", "info": "Pl. /search?q=esp32 vagy teljes webcím" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "MS · nyitó" }]
+}
+{% endschema %}
